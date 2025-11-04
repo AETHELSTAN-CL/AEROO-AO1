@@ -1,0 +1,1533 @@
+/* ------------------ BASE ------------------ */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: sans-serif;
+  background-color: #111;
+}
+
+/* ===== HEADER BASE ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1050;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  height: 50px;
+  object-fit: contain;
+}
+
+header .logo p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+header nav a i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+header nav a:hover,
+header nav a.active {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+/* ===== HAMBURGUESA ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animación X de 2 líneas */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.hamburger.active span:nth-child(2) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* ===== RESPONSIVO ===== */
+
+/* Ocultar header en móviles <562px */
+@media (max-width: 561px) {
+  header {
+    display: none;
+  }
+}
+
+/* Hamburguesa visible solo en rango 562–646px */
+@media (min-width: 362px) and (max-width: 877px) {
+  header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    gap: 10px;
+  }
+
+  header nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Desktop completo >646px */
+@media (min-width: 877px) {
+  header nav {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+
+/* VIDEO DE FONDO FIJO ARRIBA */
+.video-fondo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1; /* debajo de la card */
+}
+
+.video-fondo-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transform: translateY(-40%);
+}
+
+/* MOBILE ONBOARDING CARD */
+.mobile-onboarding-card {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 60vh;
+  background: #2261ff;
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
+  z-index: 2000;
+  padding: 20px 25px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  display: flex; /* siempre flex para animar */
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s ease-in-out, opacity 0.4s ease;
+}
+
+.mobile-onboarding-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Handle superior */
+.card-handle {
+  width: 80px;
+  height: 6px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 999px;
+  margin: 0 auto 12px auto;
+  cursor: grab;
+  transition: background 0.18s ease;
+  touch-action: none;
+}
+
+.card-handle:active {
+  cursor: grabbing;
+  background: #fff;
+}
+
+/* Contenedor del título y logo */
+.title-wrapper {
+  display: flex;
+  flex-direction: row;        /* 🔹 Logo a la izquierda, texto a la derecha */
+  justify-content: center;    /* Centrado horizontal total */
+  align-items: center;        /* Centrado vertical */
+  gap: 15px;                  /* Espacio entre el logo y el texto */
+}
+
+/* Logo */
+.title-wrapper img {
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+/* Texto */
+.card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 1rem;
+  opacity: 0.85;
+  text-align: center;
+}
+
+/* Iconos */
+.card-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  min-width: 60px;
+  text-align: center;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.icon-item i:hover {
+  transform: scale(1.1);
+}
+
+.icon-item i {
+  font-size: 2.4rem;
+  margin-bottom: 6px;
+}
+
+.pill {
+  padding: 4px 22px;
+  border-radius: 36px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.pill.selected {
+  background: #fff;
+  color: #000;
+}
+
+/* Botón */
+.card-btn {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 16px auto 8px auto;
+  padding: 10px 14px;
+  background-color: #00ddff;
+  border: none;
+  border-radius: 36px;
+  color: #000;
+  font-size: 1.12rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.card-btn:hover {
+  background-color: #001089;
+  transform: translateY(-5px);
+  color: #fff;
+}
+
+.card-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Solo móviles vertical */
+@media (max-width: 600px) and (orientation: portrait) {
+  .mobile-onboarding-card {
+    display: flex;
+  }
+}
+
+/* ===== SECCIÓN VIDEOS ===== */
+#videos {
+  width: 100%;
+  overflow-x: auto;
+  padding-top: 100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.tarjeta-video-container {
+  display: flex;
+  justify-content: center;
+  /* centra los videos en toda la pantalla */
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  /* mantiene una sola línea */
+  gap: 40px;
+  /* espacio entre videos */
+  width: 100%;
+  /* usa todo el ancho */
+  max-width: 100vw;
+  overflow-x: auto;
+  /* scroll horizontal si se necesita */
+  box-sizing: border-box;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 450px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.video-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ❤️ Botón de corazón */
+.heart-btn {
+  position: absolute;
+  bottom: 20%;         /* 🔧 Ajusta la altura */
+  right: 3%;        /* 🔧 Ajusta la distancia al borde */
+  text-align: center;
+  color: #ccc;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+  z-index: 5;
+}
+
+.heart-btn i {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.heart-btn:hover {
+  transform: scale(1.2);
+}
+
+.heart-btn.active i {
+  color: crimson;
+  transform: scale(1.2);
+}
+
+/* 🔢 Contador de me gusta */
+.like-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+
+/* Texto superior dentro del video */
+.video-overlay-top {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  z-index: 10;
+}
+
+/* Texto inferior: izquierda y derecha */
+.video-overlay-bottom {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: white;
+  z-index: 10;
+}
+
+/* Barra de progreso inline */
+.barra-progreso-inline {
+  display: inline-block;
+  width: 70px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  margin: 0 4px;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.barra-progreso-inline .barra-llena {
+  height: 100%;
+  background: rgb(20, 220, 37);
+  border-radius: 3px;
+}
+
+/* Pill principal */
+.pill-nav {
+  position: fixed;
+  bottom: 14px;
+  left: 40%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  background: rgba(0, 0, 0, 0.623);
+  border: 1px solid rgba(255, 255, 255, 0.73);
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 7px 18px;
+  z-index: 900;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.pill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pill-item i {
+  font-size: 22px;
+  margin-bottom: 3px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Solo el icono cuando se selecciona temporalmente */
+.pill-item i.selected {
+  color: #0047b3;
+  /* color del icono al seleccionarlo */
+  transform: scale(1.3);
+  /* aumenta tamaño temporal */
+}
+
+/* Icono estudiante separado */
+.pill-student {
+  position: fixed;
+  bottom: 14px;
+  /* igual que la pill principal */
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: #2261ff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  z-index: 910;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.pill-student:hover {
+  transform: scale(1.1);
+  background: #0026ff;
+}
+
+.pill-student i {
+  font-size: 25px;
+}
+
+/* ==========================
+   VIDEOS RESPONSIVE
+========================== */
+
+/* Mobile: ≤561px */
+@media (max-width: 561px) {
+  #videos {
+    margin-top: -100px;
+  }
+
+  .tarjeta-video-container {
+    flex-direction: column;
+    /* uno debajo del otro */
+    align-items: center;
+    padding: 0;
+    /* quita padding lateral que empuja fuera */
+    overflow-x: hidden;
+  }
+
+  .video-wrapper {
+    width: 100%;
+    /* ancho relativo al viewport */
+    aspect-ratio: 9 / 16;
+    /* vertical */
+    flex: 0 0 auto;
+    border-radius: 8px;
+  }
+
+  .pill-nav,
+  .pill-student {
+    display: flex !important;
+  }
+}
+
+/* Pantallas intermedias: 562–877px */
+@media (min-width: 562px) and (max-width: 877px) {
+  .tarjeta-video-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 12px;
+    justify-content: flex-start;
+    /* slider horizontal */
+  }
+
+  .video-wrapper {
+    width: 420px;
+    /* ancho contenido */
+    aspect-ratio: 9 / 16;
+    /* más ancho y corto */
+    flex: 0 0 auto;
+    border-radius: 8px;
+  }
+
+  .pill-nav {
+    display: none !important;
+  }
+
+  .pill-student {
+    display: flex !important;
+  }
+}
+
+/* Desktop: ≥878px */
+@media (min-width: 878px) {
+  .tarjeta-video-container {
+    display: flex;
+    flex-wrap: nowrap;
+    /* misma fila */
+    justify-content: center;
+    /* centrado horizontal */
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .video-wrapper {
+    width: 580px;
+    /* tamaño más contenido */
+    aspect-ratio: 3 / 4;
+    /* altura proporcional */
+    flex: 0 0 auto;
+    border-radius: 12px;
+  }
+
+  .pill-nav {
+    display: none !important;
+  }
+
+  .pill-student {
+    display: flex !important;
+  }
+}
+
+/* Ocultar video de fondo solo en desktop */
+@media (min-width: 601px) {
+  #videoFondo {
+    display: none !important;
+  }
+}
+
+/* Mobile onboarding solo en móviles */
+@media (min-width: 601px),
+(orientation: landscape) {
+  .mobile-onboarding-card {
+    display: none !important;
+  }
+}
+/* ===== Notificación tipo iOS Liquid Glass ===== */
+#ios-notificacion {
+  position: fixed;
+  top: -120px; /* empieza fuera de la pantalla */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.528);
+  backdrop-filter: blur(15px) saturate(150%);
+  -webkit-backdrop-filter: blur(15px) saturate(150%);
+  border-radius: 24px;
+  padding: 0.9rem 1.5rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  z-index: 9999;
+  opacity: 0;
+  transition: top 0.5s ease, opacity 0.5s ease;
+}
+
+/* Mostrar notificación */
+#ios-notificacion.show {
+  top: 20px; /* posición visible */
+  opacity: 1;
+}
+
+/* Imagen dentro de la notificación */
+#ios-notificacion img {
+  width: 60px;       /* más grande */
+  height: 60px;
+  object-fit: cover;
+  border-radius: 24%;    
+}
+
+/* Texto */
+#ios-notificacion p {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 1rem;
+  flex: 1;           /* ocupa espacio restante */
+}
+
+/* Botón "Entendido" */
+#ios-notificacion button {
+  position: relative;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 36px;
+  color: #ffffff;
+  font-size: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  overflow: hidden;
+}
+
+/* Borde interno del botón */
+#ios-notificacion button::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.824);
+  border-radius: 36px;
+  pointer-events: none;
+}
+
+/* Animaciones */
+@keyframes zoomIn {
+  from { transform: translateX(-50%) scale(0.8); opacity: 0; }
+  to { transform: translateX(-50%) scale(1); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; transform: translateX(-50%) scale(0.9); }
+}
+
+/* ===== Desktop adjustments ===== */
+@media (min-width: 768px) {
+  #ios-notificacion {
+    top: 150px; /* más abajo para no tapar header */
+  }
+}
+
+/* ===== Responsive Mobile ===== */
+@media (max-width: 480px) {
+  #ios-notificacion {
+    flex-direction: row;
+    padding: 0.8rem 1.1rem;
+    width: 95vw;
+  }
+
+  #ios-notificacion p {
+    font-size: 0.8rem;
+  }
+
+  #ios-notificacion img {
+    width: 40px;
+    height: 40px;
+  }
+
+  #ios-notificacion button {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+/* ------------------ CONTENIDOS DEL CURSO ------------------ */
+/* ===== CONTENIDOS DEL CURSO ===== */
+#contenidos {
+  background: #f8f9fa;
+  padding: 5rem 0;
+  position: relative;
+}
+
+/* ===== Título Sección Contenidos ===== */
+#contenidos h3 {
+  position: relative; /* necesario para posicionar el guion */
+  font-weight: 600;
+  color: #111;
+  font-size: 50px;
+  text-align: left;
+  margin: 0 0 60px 20px; /* margen izquierdo igual a los otros */
+  padding-top: 25px; /* deja espacio arriba del texto */
+}
+
+/* 🔹 Guion azul arriba del texto */
+#contenidos h3::after {
+  content: "";
+  display: block;
+  width: 360px;
+  height: 3px;
+  background-color: #2261ff;
+  border-radius: 2px;
+  position: absolute;
+  top: 0; /* 🔹 guion arriba */
+  left: 0; /* alineado al texto */
+}
+
+#contenidos .card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  margin-top: 20px;
+}
+
+#contenidos .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+#contenidos .card-body {
+  padding: 2rem 1.5rem;
+}
+
+#contenidos .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111;
+  display: flex;
+  align-items: center;
+}
+
+#contenidos .card-title i {
+  color: #2261ff;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+#contenidos .card-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Más separación vertical solo en escritorio */
+@media (min-width: 992px) {
+  #contenidos {
+    padding-top: 8rem;
+    /* espacio superior */
+    padding-bottom: 8rem;
+    /* espacio inferior */
+  }
+
+
+  #contenidos .row {
+    row-gap: 4rem;
+    /* espacio entre filas de cards */
+  }
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  #contenidos .card-body {
+    padding: 1.5rem 1rem;
+  }
+  #contenidos h3::after {
+    width: 300px;
+  }
+}
+
+/* -------------------- Modal descarga -------------------- */
+#modalCodigoResumen .modal-content {
+  border-radius: 1.5rem;
+  max-width: 320px;
+  margin: auto;
+}
+
+#modalCodigoResumen .modal-header {
+  border-bottom: none;
+}
+
+#modalCodigoResumen .modal-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+#modalCodigoResumen .form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 40px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#modalCodigoResumen button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #007bff, #00bcd4);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#modalCodigoResumen button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+#modalCodigoResumen p#mensajeCodigoResumen {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* X para cerrar modal */
+.modal-close-text {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+}
+
+.modal-close-text:hover {
+  color: #ff0000;
+}
+
+/* título modal */
+.modal-header .modal-title {
+  text-align: center;
+  width: 100%;
+}
+/* ===== FEEDBACK SECTION ===== */
+#alumni-feedback-section {
+  padding: 60px 20px;
+  background: none;
+  color: #fff;
+}
+
+/* ===== Título Feedback / Opiniones ===== */
+.feedback-title {
+  font-size: 50px;
+  margin-bottom: 60px;
+  font-weight: 600;
+  text-align: left;
+  color: #fff;
+  position: relative;
+  padding-top: 25px;
+  margin-left: 20px; /* mismo margen lateral */
+}
+
+.feedback-title::after {
+  content: "";
+  display: block;
+  width: 360px;
+  height: 3px;
+  background-color: #2261ff;
+  border-radius: 2px;
+  position: absolute;
+  top: 0; /* 🔹 guion arriba */
+  left: 0; /* alineado al texto */
+}
+
+/* ===== SLIDER ===== */
+.feedback-slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.feedback-slider {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.feedback-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.feedback-item {
+  flex: 0 0 90%;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: center;
+  padding: 10px;
+}
+
+.feedback-body {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.feedback-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+}
+
+.feedback-content {
+  flex: 1;
+  text-align: left;
+}
+
+.feedback-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #ddd;
+  font-style: italic;
+}
+
+.feedback-footer {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.feedback-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.feedback-name span {
+  font-size: 12px;
+  color: #bbb;
+  font-weight: 400;
+}
+.progress-group {
+  max-width: 400px;
+}
+
+.progress-group p {
+  font-size: 0.85rem;
+  margin: 16px 0 3px;
+}
+
+.progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  
+}
+
+.progress div {
+  height: 100%;
+  background: #00E0FF;
+  border-radius: 3px;
+}
+
+/* ===== DOTS ===== */
+.feedback-slider-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.feedback-slider-indicators .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 36px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid #ffffffa1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.feedback-slider-indicators .dot.active {
+  background: #2261ff;
+  width: 40px;
+  height: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+  .feedback-item {
+    flex: 0 0 45%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .feedback-item {
+    flex: 0 0 30%;
+  }
+}
+/* ===== Sección Soporte y Recursos ===== */
+#soporte,
+#recursos {
+  background: #edeeef;
+  position: relative;
+  z-index: 1;
+}
+/* ===== Título Soporte ===== */
+#soporte h3 {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: #000;
+  padding: 6px 22px;
+}
+
+/* ===== Título Recursos ===== */
+#recursos h3 {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: #000;
+  padding: 6px 22px;
+}
+
+/* ===== Botones tipo ícono ===== */
+.recursos-btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 10%;
+}
+
+.btn-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #fff;
+  color: #000;
+  border-radius: 24px;
+  padding: 1.5rem 2rem;
+  width: 180px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Ícono */
+.btn-icon i {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Línea divisoria */
+.btn-icon .divider {
+  display: block;
+  width: 50%;
+  height: 2px;
+  background: #ccc;
+  margin: 0.5rem 0 0.7rem;
+  border-radius: 2px;
+}
+
+/* Texto */
+.btn-icon p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .recursos-btns {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* espacio entre los botones */
+  }
+
+  .btn-icon {
+    width: 50%; /* que se adapten mejor al ancho del móvil */
+    max-width: 300px;
+  }
+}
+/* Créditos */
+.credits-wrapper {
+  margin-bottom: 120px;
+}
+
+#creditsCollapse .card-body {
+  font-size: 0.85rem;
+  text-align: center;
+  border-radius: 16px;
+  padding: 10px 10px;
+  background: #ffffff;
+  line-height: 1;
+  margin-top: 10px;
+  margin: 15px;
+}
+
+/* Botón créditos original */
+.btn-sg {
+  min-width: 180px;
+  max-width: 100%;
+  padding: 0.8rem 1.2rem;
+  margin-top: 10px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-sg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dark.btn-sg:hover {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000;
+}
+/* Fix AOS en pantallas muy bajas (ej: iPhone landscape) */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ===== Sección Cursos ===== */
+.cursos-section {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1.9rem 0.9rem; /* borde mínimo */
+  box-sizing: border-box;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+/* ===== Título Contenidos del Curso Online ===== */
+.cursos-title {
+  position: relative; /* necesario para ubicar el guion */
+  font-weight: 600;
+  color: #111;
+  font-size: 50px;
+  text-align: left;
+  margin-bottom: 60px;
+  padding-top: 25px; /* deja espacio arriba del texto */
+  margin-left: 20px; /* evita que quede al borde */
+}
+
+/* 🔹 Guion azul arriba del texto */
+.cursos-title::before {
+  content: "";
+  display: block;
+  width: 360px;
+  height: 3px;
+  background-color: #2261ff;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* ===== Fila principal ===== */
+.curso-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Info curso ===== */
+.curso-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-km {
+  font-size: 3rem;
+}
+
+.curso-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-left: 0.3rem;
+}
+
+/* ===== Botones ===== */
+.curso-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 36px;
+  border: 1px solid #2261ff;
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.8rem;
+  white-space: nowrap; /* 🔹 evita cortes en dos líneas */
+  transition: all 0.3s ease;
+}
+
+.curso-btn:hover {
+  border-color: #0a007d;
+}
+/* ===== Pantallas intermedias (>=768px) ===== */
+@media (min-width: 768px) {
+  .curso-row {
+    padding: 0 2rem; /* 🔹 separa del borde */
+  }
+
+  .curso-km {
+    font-size: 3.5rem;
+  }
+
+  .curso-subtitle {
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+  }
+
+  .curso-btn {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.8rem;
+  }
+}
+
+/* ===== Escritorio (>=1024px) ===== */
+@media (min-width: 1024px) {
+  .curso-row {
+    padding: 0 4rem; /* 🔹 aún más separación de bordes */
+  }
+
+  .curso-km {
+    font-size: 4rem;
+  }
+
+  .curso-subtitle {
+    font-size: 1.2rem;
+    margin-left: 0.6rem;
+  }
+
+  .curso-btn {
+    font-size: 1rem;
+    padding: 0.9rem 2rem;
+  }
+}
+/* ===== Acordeón ===== */
+.curso-accordion {
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.curso-accordion.active {
+  max-height: 600px;
+}
+
+/* ===== Grid de íconos ===== */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  margin-top: 30px;
+  margin-bottom: 140px;
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* ===== Ícono principal ===== */
+.icon-card {
+  width: 70px;
+  height: 70px;
+  background-color: #0026ff;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+.icon-card:hover {
+  background-color: #000000;
+  transform: translateY(3px);
+}
+
+.icon-card i {
+  color: #ffffff;
+  font-size: 1.8rem;
+  z-index: 2;
+}
+
+/* ===== Texto sobre el ícono ===== */
+.icon-text {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #000000;
+  white-space: nowrap;
+  z-index: 3;
+  pointer-events: none;
+}
+/* ===== Pill debajo del ícono ===== */
+.icon-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  margin-top: 8px;
+  background-color: #3a3a3a;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Tooltip solo si existe data-tooltip */
+.icon-pill[data-tooltip]::after,
+.icon-pill[data-tooltip]::before {
+  display: block;
+}
+
+/* ===== Tooltip general ===== */
+.icon-pill::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 30px; /* debajo del ícono o pill */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  white-space: normal;
+  width: max-content;
+  max-width: 200px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 9999;
+}
+
+/* Flechita */
+.icon-pill::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0,0,0,0.85) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 9999;
+}
+
+/* Mostrar tooltip solo si tiene data-tooltip */
+.icon-pill[data-tooltip]:hover::after,
+.icon-pill[data-tooltip]:hover::before,
+.icon-pill[data-tooltip].active::after,
+.icon-pill[data-tooltip].active::before {
+  opacity: 1;
+}
+
+/* 📱 Tooltip más horizontal y compacto en mobile */
+@media (max-width: 768px) {
+  .icon-pill[data-tooltip]::after {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 5px); 
+    width: 140px;
+    max-width: 90vw;
+    padding: 4px 4px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    line-height: 1.1;
+    text-align: center;
+  }
+}
+
+/* Hover solo en escritorio */
+@media (hover: hover) {
+  .icon-pill[data-tooltip]:hover::after,
+  .icon-pill[data-tooltip]:hover::before {
+    opacity: 1;
+  }
+}
+/* ===== Enlaces de íconos ===== */
+.icon-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.icon-link:hover .icon-card {
+  transform: translateY(4px);
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+/* ===== Pantallas intermedias ===== */
+@media (min-width: 768px) {
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 120px;
+  }
+}
+
+/* ===== Escritorio ===== */
+@media (min-width: 1024px) {
+  .icon-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
