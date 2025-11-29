@@ -53,8 +53,8 @@ header nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 0.8rem;
-  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 36px;
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
@@ -83,7 +83,7 @@ header nav a.active {
 
 .hamburger span {
   display: block;
-  height: 3px;
+  height: 5px;
   background: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
@@ -143,150 +143,125 @@ header nav a.active {
 }
 
 
-/* VIDEO DE FONDO FIJO ARRIBA */
-.video-fondo-container {
+/* ===== VIDEO FULLSCREEN ===== */
+.onboard-video-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 1; /* debajo de la card */
+  z-index: 70;
 }
 
-.video-fondo-container video {
+.onboard-video-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top;
-  transform: translateY(-40%);
 }
 
-/* MOBILE ONBOARDING CARD */
-.mobile-onboarding-card {
+/* ===== BLUR + NEBLINA EN MITAD INFERIOR ===== */
+.onboard-blur-full {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50vh;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.416) 35%,
+    rgba(0, 0, 0, 0.462) 45%,
+    rgba(0, 0, 0, 0.662) 60%,
+    rgba(0, 0, 0, 0.813) 75%,
+    rgba(0, 0, 0, 0.871) 90%,
+    rgba(0, 0, 0, 0.998) 100%
+  );
+
+  z-index: 84;
+}
+
+/* ===== CONTENIDO SOBRE EL BLUR ===== */
+.onboard-content {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  max-width: 100%;
-  height: 60vh;
-  background: #2261ff;
-  border-top-left-radius: 36px;
-  border-top-right-radius: 36px;
-  box-shadow: 0 -5px 25px rgba(0,0,0,0.4);
-  z-index: 2000;
-  padding: 20px 25px;
+  text-align: center;
   color: #fff;
+  z-index: 90;
   font-family: 'Montserrat', sans-serif;
-  display: flex; /* siempre flex para animar */
-  flex-direction: column;
-  justify-content: space-between;
-  overflow-x: hidden;
-  overflow-y: auto;
-  box-sizing: border-box;
-
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.5s ease-in-out, opacity 0.4s ease;
+  padding: 20px;
 }
 
-.mobile-onboarding-card.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Handle superior */
-.card-handle {
-  width: 80px;
-  height: 6px;
-  background: rgba(255,255,255,0.4);
-  border-radius: 999px;
-  margin: 0 auto 12px auto;
-  cursor: grab;
-  transition: background 0.18s ease;
-  touch-action: none;
-}
-
-.card-handle:active {
-  cursor: grabbing;
-  background: #fff;
-}
-
-/* Contenedor del título y logo */
+/* ===== Título ordenado (logo izquierda, texto derecha) ===== */
 .title-wrapper {
   display: flex;
-  flex-direction: row;        /* 🔹 Logo a la izquierda, texto a la derecha */
-  justify-content: center;    /* Centrado horizontal total */
-  align-items: center;        /* Centrado vertical */
-  gap: 15px;                  /* Espacio entre el logo y el texto */
+  flex-direction: row;     /* ← antes era column */
+  justify-content: center; 
+  align-items: center;
+  gap: 15px;   
+  margin-bottom: 10px;          
 }
 
-/* Logo */
 .title-wrapper img {
-  width: 80px;
-  height: 80px;
-  border-radius: 24px;
+  width: 90px;
+  height: 90px;
+  border-radius: 22px;
   object-fit: cover;
+  margin-bottom: 10px;
 }
 
-/* Texto */
 .card-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
-  text-align: left;
-  margin: 0;
+  text-align: left;        
+}
+
+/* Textos */
+.card-subblock {
+  margin-bottom: 42px;
 }
 
 .card-subtitle {
   font-size: 1.3rem;
-  font-weight: 600;
-  margin-top: 8px;
-  text-align: center;
+  font-weight: 600; 
 }
 
 .card-text {
-  font-size: 1rem;
   opacity: 0.85;
-  text-align: center;
+  margin-bottom: 42px;
 }
 
-/* Iconos */
 .card-icons {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 22px;
 }
 
 .icon-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;   /* ← icono arriba, texto abajo */
   align-items: center;
   cursor: pointer;
-  min-width: 60px;
   text-align: center;
-  transition: transform 0.18s ease, opacity 0.18s ease;
-}
-
-.icon-item i:hover {
-  transform: scale(1.1);
 }
 
 .icon-item i {
   font-size: 2.4rem;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .pill {
-  padding: 4px 22px;
-  border-radius: 36px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #fff;
   display: inline-block;
-  transition: all 0.2s ease;
+  padding: 5px 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .pill.selected {
@@ -294,38 +269,101 @@ header nav a.active {
   color: #000;
 }
 
-/* Botón */
+/* ===== Botón ===== */
 .card-btn {
-  display: block;
-  width: calc(100% - 30px);
-  margin: 16px auto 8px auto;
-  padding: 10px 14px;
-  background-color: #00ddff;
+  width: auto;
+  padding: 10px 56px;
+  border-radius: 30px;
   border: none;
-  border-radius: 36px;
+  background: #00ddff;
   color: #000;
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.18s ease;
+  margin-top: 20px;
 }
 
 .card-btn:hover {
-  background-color: #001089;
-  transform: translateY(-5px);
+  background: #001089;
   color: #fff;
 }
-
-.card-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.portal-overlay-aula {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.416) 35%,
+    rgba(0, 0, 0, 0.462) 45%,
+    rgba(0, 0, 0, 0.869) 75%,
+    rgba(0, 0, 0, 0.943) 80%,
+    rgba(0, 0, 0, 0.975) 90%,
+    rgb(0, 0, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 1000; 
 }
 
-/* Solo móviles vertical */
-@media (max-width: 600px) and (orientation: portrait) {
-  .mobile-onboarding-card {
-    display: flex;
+
+.card-title-aula {
+  font-size: 2rem;
+}
+
+.card-text-aula {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.card-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 12px;
+  margin-top: 6px;
+  
+}
+
+/* Opcional: responsive */
+@media (max-width: 768px) {
+  .card-input {
+    width: 90%; /* más ancho en mobile si quieres */
   }
+}
+/* Opcional: responsive */
+@media (max-width: 420px) {
+  .card-input {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+/* Opcional: responsive */
+@media (max-width: 540px) {
+  .card-input {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+/* Opcional: responsive */
+@media (max-width: 680px) {
+  .card-input {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+#portalVolver {
+  margin-top: 20px; 
+  margin-bottom: 25px;
 }
 
 /* ===== SECCIÓN VIDEOS ===== */
@@ -383,13 +421,14 @@ header nav a.active {
 /* ❤️ Botón de corazón */
 .heart-btn {
   position: absolute;
-  bottom: 20%;         /* 🔧 Ajusta la altura */
-  right: 3%;        /* 🔧 Ajusta la distancia al borde */
+  bottom: 25%;
+  /* 🔧 Ajusta la altura */
+  right: 3%;
+  /* 🔧 Ajusta la distancia al borde */
   text-align: center;
   color: #ccc;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
-  z-index: 5;
 }
 
 .heart-btn i {
@@ -398,18 +437,17 @@ header nav a.active {
   margin-bottom: 4px;
 }
 
-.heart-btn:hover {
+.heart-btn:hover i {
   transform: scale(1.2);
 }
 
 .heart-btn.active i {
   color: crimson;
-  transform: scale(1.2);
 }
 
 /* 🔢 Contador de me gusta */
 .like-count {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: #fff;
   border-radius: 12px;
@@ -428,7 +466,6 @@ header nav a.active {
   color: white;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
   text-align: center;
-  z-index: 10;
 }
 
 /* Texto inferior: izquierda y derecha */
@@ -443,7 +480,6 @@ header nav a.active {
   align-items: center;
   font-size: 12px;
   color: white;
-  z-index: 10;
 }
 
 /* Barra de progreso inline */
@@ -467,7 +503,7 @@ header nav a.active {
 /* Pill principal */
 .pill-nav {
   position: fixed;
-  bottom: 14px;
+  bottom: 4px;
   left: 40%;
   transform: translateX(-50%);
   display: flex;
@@ -478,7 +514,7 @@ header nav a.active {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   padding: 7px 18px;
-  z-index: 900;
+  z-index: 10;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -494,24 +530,24 @@ header nav a.active {
   text-decoration: none;
 }
 
+
+/* CSS: efecto al presionar (ponlo en tu CSS) */
 .pill-item i {
   font-size: 22px;
   margin-bottom: 3px;
   transition: transform 0.2s ease, color 0.2s ease;
+
 }
 
-/* Solo el icono cuando se selecciona temporalmente */
-.pill-item i.selected {
-  color: #0047b3;
-  /* color del icono al seleccionarlo */
-  transform: scale(1.3);
-  /* aumenta tamaño temporal */
+.pill-item i.active-effect {
+  transform: scale(1.25);
+  color: #0047b3; /* azul similar al que usabas */
 }
 
 /* Icono estudiante separado */
 .pill-student {
   position: fixed;
-  bottom: 14px;
+  bottom: 4px;
   /* igual que la pill principal */
   right: 30px;
   display: flex;
@@ -523,7 +559,7 @@ header nav a.active {
   border-radius: 50%;
   color: #fff;
   font-size: 20px;
-  z-index: 910;
+  z-index: 60;
   transition: transform 0.3s, background 0.3s;
 }
 
@@ -536,6 +572,7 @@ header nav a.active {
   font-size: 25px;
 }
 
+
 /* ==========================
    VIDEOS RESPONSIVE
 ========================== */
@@ -543,7 +580,7 @@ header nav a.active {
 /* Mobile: ≤561px */
 @media (max-width: 561px) {
   #videos {
-    margin-top: -100px;
+    margin-top: -85px;
   }
 
   .tarjeta-video-container {
@@ -564,10 +601,6 @@ header nav a.active {
     border-radius: 8px;
   }
 
-  .pill-nav,
-  .pill-student {
-    display: flex !important;
-  }
 }
 
 /* Pantallas intermedias: 562–877px */
@@ -635,18 +668,38 @@ header nav a.active {
     display: none !important;
   }
 }
+/* MOBILE: oculto por defecto */
+@media (max-width: 768px) {
+  .pill-student {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+  }
 
-/* Mobile onboarding solo en móviles */
-@media (min-width: 601px),
-(orientation: landscape) {
-  .mobile-onboarding-card {
-    display: none !important;
+  .pill-student.visible {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
+@media (max-width: 768px) {
+  #pillNav {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+  }
+
+  #pillNav.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
 /* ===== Notificación tipo iOS Liquid Glass ===== */
 #ios-notificacion {
   position: fixed;
-  top: -120px; /* empieza fuera de la pantalla */
+  top: -120px;
+  /* empieza fuera de la pantalla */
   left: 50%;
   transform: translateX(-50%);
   width: 95vw;
@@ -663,7 +716,7 @@ header nav a.active {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 9999;
   opacity: 0;
   transition: top 0.5s ease, opacity 0.5s ease;
@@ -671,16 +724,18 @@ header nav a.active {
 
 /* Mostrar notificación */
 #ios-notificacion.show {
-  top: 20px; /* posición visible */
+  top: 25px;
+  /* posición visible */
   opacity: 1;
 }
 
 /* Imagen dentro de la notificación */
 #ios-notificacion img {
-  width: 60px;       /* más grande */
+  width: 60px;
+  /* más grande */
   height: 60px;
   object-fit: cover;
-  border-radius: 24%;    
+  border-radius: 24%;
 }
 
 /* Texto */
@@ -688,7 +743,8 @@ header nav a.active {
   margin: 0;
   line-height: 1.2;
   font-size: 1rem;
-  flex: 1;           /* ocupa espacio restante */
+  flex: 1;
+  /* ocupa espacio restante */
 }
 
 /* Botón "Entendido" */
@@ -720,19 +776,36 @@ header nav a.active {
 
 /* Animaciones */
 @keyframes zoomIn {
-  from { transform: translateX(-50%) scale(0.8); opacity: 0; }
-  to { transform: translateX(-50%) scale(1); opacity: 1; }
+  from {
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; transform: translateX(-50%) scale(0.9); }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
 }
 
 /* ===== Desktop adjustments ===== */
 @media (min-width: 768px) {
   #ios-notificacion {
-    top: 150px; /* más abajo para no tapar header */
+    top: -150px;
+    /* más abajo para no tapar header */
+  }
+  #ios-notificacion.show {
+    top: 90px; /* aparece más abajo del header */
   }
 }
 
@@ -758,7 +831,16 @@ header nav a.active {
     padding: 0.5rem 0.8rem;
   }
 }
-/* ------------------ CONTENIDOS DEL CURSO ------------------ */
+/* Permite arrastrar sin animación */
+#ios-notificacion.swiping {
+  transition: none !important;
+}
+
+/* Estado oculto al soltar hacia arriba */
+#ios-notificacion.hide {
+  opacity: 0 !important;
+  top: -160px !important;
+}
 /* ===== CONTENIDOS DEL CURSO ===== */
 #contenidos {
   background: #f8f9fa;
@@ -768,13 +850,15 @@ header nav a.active {
 
 /* ===== Título Sección Contenidos ===== */
 #contenidos h3 {
-  position: relative; /* necesario para posicionar el guion */
+  position: relative;
+  /* necesario para posicionar el guion */
   font-weight: 600;
   color: #111;
   font-size: 50px;
   text-align: left;
-  margin: 0 0 60px 20px; /* margen izquierdo igual a los otros */
-  padding-top: 25px; /* deja espacio arriba del texto */
+  
+  padding-top: 25px;
+  /* deja espacio arriba del texto */
 }
 
 /* 🔹 Guion azul arriba del texto */
@@ -786,8 +870,10 @@ header nav a.active {
   background-color: #2261ff;
   border-radius: 2px;
   position: absolute;
-  top: 0; /* 🔹 guion arriba */
-  left: 0; /* alineado al texto */
+  top: 0;
+  /* 🔹 guion arriba */
+  left: 0;
+  /* alineado al texto */
 }
 
 #contenidos .card {
@@ -851,8 +937,9 @@ header nav a.active {
   #contenidos .card-body {
     padding: 1.5rem 1rem;
   }
+
   #contenidos h3::after {
-    width: 300px;
+    width: 260px;
   }
 }
 
@@ -924,6 +1011,7 @@ header nav a.active {
   text-align: center;
   width: 100%;
 }
+
 /* ===== FEEDBACK SECTION ===== */
 #alumni-feedback-section {
   padding: 60px 20px;
@@ -940,7 +1028,6 @@ header nav a.active {
   color: #fff;
   position: relative;
   padding-top: 25px;
-  margin-left: 20px; /* mismo margen lateral */
 }
 
 .feedback-title::after {
@@ -951,8 +1038,10 @@ header nav a.active {
   background-color: #2261ff;
   border-radius: 2px;
   position: absolute;
-  top: 0; /* 🔹 guion arriba */
-  left: 0; /* alineado al texto */
+  top: 0;
+  /* 🔹 guion arriba */
+  left: 0;
+  /* alineado al texto */
 }
 
 /* ===== SLIDER ===== */
@@ -982,7 +1071,6 @@ header nav a.active {
   display: flex;
   flex-direction: column;
   scroll-snap-align: center;
-  padding: 10px;
 }
 
 .feedback-body {
@@ -999,17 +1087,13 @@ header nav a.active {
   object-fit: cover;
 }
 
-.feedback-content {
-  flex: 1;
-  text-align: left;
-}
 
 .feedback-content p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  margin: 0;
   color: #ddd;
   font-style: italic;
+  margin-top: 20px;
 }
 
 .feedback-footer {
@@ -1023,11 +1107,13 @@ header nav a.active {
   color: #fff;
   margin-bottom: 10px;
 }
+
 .feedback-name span {
   font-size: 12px;
   color: #bbb;
   font-weight: 400;
 }
+
 .progress-group {
   max-width: 400px;
 }
@@ -1044,7 +1130,7 @@ header nav a.active {
   border-radius: 3px;
   overflow: hidden;
   margin-bottom: 18px;
-  
+
 }
 
 .progress div {
@@ -1065,7 +1151,7 @@ header nav a.active {
   width: 10px;
   height: 10px;
   border-radius: 36px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   border: 1px solid #ffffffa1;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1089,6 +1175,13 @@ header nav a.active {
     flex: 0 0 30%;
   }
 }
+
+@media (max-width: 768px) {
+  .feedback-title::after {
+    width: 260px;
+  }
+}
+
 /* ===== Sección Soporte y Recursos ===== */
 #soporte,
 #recursos {
@@ -1096,11 +1189,12 @@ header nav a.active {
   position: relative;
   z-index: 1;
 }
+
 /* ===== Título Soporte ===== */
 #soporte h3 {
   font-size: 50px;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   margin-bottom: 1.5rem;
   color: #000;
   padding: 6px 22px;
@@ -1110,7 +1204,7 @@ header nav a.active {
 #recursos h3 {
   font-size: 50px;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   margin-bottom: 1.5rem;
   color: #000;
   padding: 6px 22px;
@@ -1171,18 +1265,30 @@ header nav a.active {
   text-align: center;
   white-space: nowrap;
 }
+
 @media (max-width: 768px) {
   .recursos-btns {
     flex-direction: column;
     align-items: center;
-    gap: 1rem; /* espacio entre los botones */
+    gap: 1rem;
+    /* espacio entre los botones */
   }
 
   .btn-icon {
-    width: 50%; /* que se adapten mejor al ancho del móvil */
+    width: 50%;
+    /* que se adapten mejor al ancho del móvil */
     max-width: 300px;
   }
+
+  #soporte h3 {
+    text-align: left;
+  }
+
+  #recursos h3 {
+    text-align: left;
+  }
 }
+
 /* Créditos */
 .credits-wrapper {
   margin-bottom: 120px;
@@ -1222,6 +1328,7 @@ header nav a.active {
   color: #000 !important;
   border: 1px solid #000;
 }
+
 /* Fix AOS en pantallas muy bajas (ej: iPhone landscape) */
 @media screen and (orientation: landscape) and (max-height: 500px) {
   [data-aos] {
@@ -1234,7 +1341,7 @@ header nav a.active {
 .cursos-section {
   width: 100vw;
   min-height: 100vh;
-  padding: 1.9rem 0.9rem; /* borde mínimo */
+  padding: 1.9rem 0.9rem;
   box-sizing: border-box;
   background-color: #fff;
   overflow-x: hidden;
@@ -1242,14 +1349,14 @@ header nav a.active {
 
 /* ===== Título Contenidos del Curso Online ===== */
 .cursos-title {
-  position: relative; /* necesario para ubicar el guion */
+  position: relative;
+  /* necesario para ubicar el guion */
   font-weight: 600;
   color: #111;
   font-size: 50px;
   text-align: left;
   margin-bottom: 60px;
-  padding-top: 25px; /* deja espacio arriba del texto */
-  margin-left: 20px; /* evita que quede al borde */
+  padding-top: 25px;
 }
 
 /* 🔹 Guion azul arriba del texto */
@@ -1264,6 +1371,7 @@ header nav a.active {
   top: 0;
   left: 0;
 }
+
 /* ===== Fila principal ===== */
 .curso-row {
   display: flex;
@@ -1299,17 +1407,20 @@ header nav a.active {
   font-weight: bold;
   cursor: pointer;
   font-size: 0.8rem;
-  white-space: nowrap; /* 🔹 evita cortes en dos líneas */
+  white-space: nowrap;
+  /* 🔹 evita cortes en dos líneas */
   transition: all 0.3s ease;
 }
 
 .curso-btn:hover {
   border-color: #0a007d;
 }
+
 /* ===== Pantallas intermedias (>=768px) ===== */
 @media (min-width: 768px) {
   .curso-row {
-    padding: 0 2rem; /* 🔹 separa del borde */
+    padding: 0 2rem;
+    /* 🔹 separa del borde */
   }
 
   .curso-km {
@@ -1330,7 +1441,8 @@ header nav a.active {
 /* ===== Escritorio (>=1024px) ===== */
 @media (min-width: 1024px) {
   .curso-row {
-    padding: 0 4rem; /* 🔹 aún más separación de bordes */
+    padding: 0 4rem;
+    /* 🔹 aún más separación de bordes */
   }
 
   .curso-km {
@@ -1347,6 +1459,7 @@ header nav a.active {
     padding: 0.9rem 2rem;
   }
 }
+
 /* ===== Acordeón ===== */
 .curso-accordion {
   max-height: 0;
@@ -1415,6 +1528,7 @@ header nav a.active {
   z-index: 3;
   pointer-events: none;
 }
+
 /* ===== Pill debajo del ícono ===== */
 .icon-pill {
   display: inline-block;
@@ -1439,7 +1553,8 @@ header nav a.active {
 .icon-pill::after {
   content: attr(data-tooltip);
   position: absolute;
-  top: 30px; /* debajo del ícono o pill */
+  top: 30px;
+  /* debajo del ícono o pill */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.85);
@@ -1455,7 +1570,7 @@ header nav a.active {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
-  z-index: 9999;
+  z-index: 10;
 }
 
 /* Flechita */
@@ -1467,10 +1582,10 @@ header nav a.active {
   transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(0,0,0,0.85) transparent transparent transparent;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
   opacity: 0;
   transition: opacity 0.25s ease;
-  z-index: 9999;
+  z-index: 10;
 }
 
 /* Mostrar tooltip solo si tiene data-tooltip */
@@ -1486,7 +1601,7 @@ header nav a.active {
   .icon-pill[data-tooltip]::after {
     top: 100%;
     left: 50%;
-    transform: translate(-50%, 5px); 
+    transform: translate(-50%, 5px);
     width: 140px;
     max-width: 90vw;
     padding: 4px 4px;
@@ -1495,15 +1610,21 @@ header nav a.active {
     line-height: 1.1;
     text-align: center;
   }
+
+  .cursos-title::before {
+    width: 260px;
+  }
 }
 
 /* Hover solo en escritorio */
 @media (hover: hover) {
+
   .icon-pill[data-tooltip]:hover::after,
   .icon-pill[data-tooltip]:hover::before {
     opacity: 1;
   }
 }
+
 /* ===== Enlaces de íconos ===== */
 .icon-link {
   text-decoration: none;
