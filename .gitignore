@@ -1,6 +1,12 @@
+# Ignorar todo por defecto
 *
+
+# Permitir estos archivos
 !index.html
 !*.css
-!pop.alumno.js
+!*.js
 !.gitignore
+!README.md
+
+# Ignorar este archivo 
 pop_edit.js
