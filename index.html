@@ -114,7 +114,7 @@
       <div class="card-text">Obtén tu licencia de conducir Clase B</div>
     </div>
 
-    <!-- ICONOS EN COLUMNA (icono arriba, texto abajo) -->
+    <!-- ICONOS EN COLUMNA  -->
     <div class="card-icons">
       <div class="icon-item" data-role="visitante">
         <i class="fas fa-car-side"></i>
@@ -147,7 +147,8 @@
         <div class="video-overlay-bottom">
           <div class="texto-izquierda">
             <strong><i class="fas fa-user-graduate"></i> Entrenamiento Vial </strong> <br>Estudiante ID:
-            ML001PA</div>
+            ML001PA
+          </div>
           <div class="texto-derecha">
             Nivel Practicante <br>0km
             <div class="barra-progreso-inline">
@@ -193,7 +194,8 @@
         <div class="video-overlay-bottom">
           <div class="texto-izquierda">
             <strong><i class="fas fa-user-graduate"></i> Entrenamiento Vial </strong> <br>Estudiante ID:
-            JP001ÑÑ</div>
+            JP001ÑÑ
+          </div>
           <div class="texto-derecha">
             Nivel Practicante <br>0km
             <div class="barra-progreso-inline">
@@ -223,10 +225,48 @@
       <span>Soporte</span>
     </a>
   </div>
-  <!-- Icono estudiante separado -->
+  <!-- Botón estudiante -->
   <a href="#alumno" class="pill-student">
     <i class="fas fa-user-graduate"></i>
   </a>
+
+  <!-- Menú flotante del estudiante -->
+  <div class="student-menu">
+    <!-- Formulario de ingreso -->
+    <div class="student-login">
+      <h3>Acceso Aula Virtual</h3>
+      <input type="email" id="studentEmail" placeholder="Correo de acceso" class="card-input" />
+      <input type="text" id="studentID" placeholder="Código memanejo ID" class="card-input" />
+      <button id="studentIngresar" class="card-btn">Ingresar</button>
+    </div>
+
+    <!-- Contenido de progreso (oculto hasta login) -->
+    <div class="student-dashboard" style="display:none;">
+      <h3>Progreso Cursos</h3>
+      <div class="course-card">
+        <div class="course-title">Curso 1: Antes de Manejar</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 40%;"></div>
+        </div>
+        <small>40% completado</small>
+      </div>
+      <div class="course-card">
+        <div class="course-title">Curso 2: Clase Online</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 50%;"></div>
+        </div>
+        <small>50% completado</small>
+      </div>
+      <div class="course-card">
+        <div class="course-title">Puntaje: 34/35 Time: 23:06 min.</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 50%;"></div>
+        </div>
+        <small>memanejo IA: Recuerdas que tienes un examen por rendir. </small>
+      </div>
+      <!-- Agregar más cursos si quieres -->
+    </div>
+  </div>
   <!-- 🔔 Notificación flotante tipo iOS -->
   <div id="ios-notificacion" data-aos="fade-up">
     <!-- Imagen a la izquierda -->
@@ -241,7 +281,7 @@
 
   <!-- ===== CURSOS App ===== -->
   <section id="cursos-section" class="cursos-section">
-    <h2 class="cursos-title" data-aos="fade-up">Contenidos del Curso Online</h2>
+    <h2 class="cursos-title" data-aos="fade-up">Curso de Conducción <br><small> Online</small></h2>
 
     <!-- ===== CURSO 0KM ===== -->
     <div class="curso-row">
@@ -249,18 +289,23 @@
         <h3 class="curso-km"><strong>0Km</strong></h3>
         <p class="curso-subtitle">PEATÓN</p>
       </div>
-      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver opciones</button>
+      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
     </div>
     <div class="curso-accordion">
       <div class="icon-grid">
-        <!-- Icono Estudiante -->
+        <!-- Icono Estudiante / Suscripción -->
         <div class="icon-wrapper">
-          <div class="icon-card">
-            <span class="icon-text">memanejo ID</span>
-            <i class="fas fa-user-graduate fa-2x"></i>
-          </div>
-          <span class="icon-pill" data-tooltip="Accede a todo el contenido liberado">¡Suscríbete!</span>
+          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+            data-bs-target="#modalStudentSubscription"
+            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+            <div class="icon-card">
+              <span class="icon-text">memanejo ID</span>
+              <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+          </button>
+          <span class="icon-pill" data-tooltip="Accede a todo el contenido">¡Suscríbete!</span>
         </div>
+
 
         <!-- Icono Resumen PDF -->
         <div class="icon-wrapper">
@@ -281,7 +326,7 @@
               <span class="icon-text">Glosario Vial</span>
               <i class="fa-solid fa-download"></i>
             </div>
-            <span class="icon-pill" data-tooltip="Ver glosario en PDF">GRATIS</span>
+            <span class="icon-pill" data-tooltip="Revisa el PDF">GRATIS</span>
           </div>
         </a>
 
@@ -293,7 +338,7 @@
               <span class="icon-text">Quiz Nivelación</span>
               <i class="fas fa-book fa-2x"></i>
             </div>
-            <span class="icon-pill" data-tooltip="Test municipal 35 preguntas nivel: fácil">GRATIS</span>
+            <span class="icon-pill" data-tooltip="Examen municipal con 35 preguntas Nivel: fácil">GRATIS</span>
           </div>
         </a>
 
@@ -304,7 +349,7 @@
             <span class="icon-text">Quiz Municipal</span>
             <i class="fas fa-book fa-2x"></i>
           </div>
-          <span class="icon-pill" data-tooltip="Nivel: fácil (20 preguntas) y avanzado (35 preguntas)">$3.900</span>
+          <span class="icon-pill" data-tooltip="20 preguntas Nivel: fácil y 35 preguntas Nivel: avanzado">$3.900</span>
         </div>
         <!-- Icono Profesor -->
         <div class="icon-wrapper">
@@ -313,7 +358,7 @@
             <i class="fas fa-chalkboard-teacher fa-2x"></i>
           </div>
           <span class="icon-pill"
-            data-tooltip="Incluye guía de estudio detallada y ejercicios interactivos por 30 días.">$29.900</span>
+            data-tooltip="Guía de estudio detallada y ejercicios interactivos por 30 días.">$29.900</span>
         </div>
       </div>
     </div>
@@ -325,15 +370,20 @@
         <h3 class="curso-km"><strong>100Km</strong></h3>
         <p class="curso-subtitle">APRENDIZ</p>
       </div>
-      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver opciones</button>
+      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
     </div>
     <div class="curso-accordion">
-      <div class="icon-grid"> <!-- Icono Estudiante -->
+      <div class="icon-grid">
+        <!-- Icono Estudiante / Suscripción -->
         <div class="icon-wrapper">
-          <div class="icon-card">
-            <span class="icon-text">memanejo ID</span>
-            <i class="fas fa-user-graduate fa-2x"></i>
-          </div>
+          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+            data-bs-target="#modalStudentSubscription"
+            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+            <div class="icon-card">
+              <span class="icon-text">memanejo ID</span>
+              <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+          </button>
           <span class="icon-pill" data-tooltip="Accede a todo el contenido">¡Suscríbete!</span>
         </div>
 
@@ -366,7 +416,7 @@
               <span class="icon-text">Quiz Intermdio</span>
               <i class="fas fa-book fa-2x"></i>
             </div>
-            <span class="icon-pill" data-tooltip="Test municipal 35 preguntas">$3.900</span>
+            <span class="icon-pill" data-tooltip="Examen municipal con 35 preguntas Nivel: intermedio">$3.900</span>
           </div>
         </a>
 
@@ -377,7 +427,7 @@
             <i class="fas fa-book fa-2x"></i>
           </div>
           <span class="icon-pill"
-            data-tooltip="3 Test municipal con 35 preguntas cada uno. Nivel: intermedio ">$7.900</span>
+            data-tooltip="3 Examen municipal con 35 preguntas cada uno. Nivel: intermedio ">$7.900</span>
         </div>
 
         <!-- Icono Profesor -->
@@ -387,7 +437,7 @@
             <i class="fas fa-chalkboard-teacher fa-2x"></i>
           </div>
           <span class="icon-pill"
-            data-tooltip="Incluye guía de estudio detallada y ejercicios interactivos por 30 días.">$29.900</span>
+            data-tooltip="Guía de estudio detallada y ejercicios interactivos por 30 días.">$29.900</span>
         </div>
       </div>
     </div>
@@ -398,16 +448,20 @@
         <h3 class="curso-km"><strong>1000Km</strong></h3>
         <p class="curso-subtitle">PRACTICANTE</p>
       </div>
-      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver opciones</button>
+      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
     </div>
     <div class="curso-accordion">
       <div class="icon-grid">
-        <!-- Icono Estudiante -->
+        <!-- Icono Estudiante / Suscripción -->
         <div class="icon-wrapper">
-          <div class="icon-card">
-            <span class="icon-text">memanejo ID</span>
-            <i class="fas fa-user-graduate fa-2x"></i>
-          </div>
+          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+            data-bs-target="#modalStudentSubscription"
+            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+            <div class="icon-card">
+              <span class="icon-text">memanejo ID</span>
+              <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+          </button>
           <span class="icon-pill" data-tooltip="Accede a todo el contenido">¡Suscríbete!</span>
         </div>
 
@@ -429,7 +483,7 @@
               <span class="icon-text">Glosario</span>
               <i class="fa-solid fa-download"></i>
             </div>
-            <span class="icon-pill" data-tooltip="Revisar en PDF">GRATIS</span>
+            <span class="icon-pill" data-tooltip="Revisar el PDF">GRATIS</span>
           </div>
         </a>
 
@@ -439,8 +493,7 @@
             <span class="icon-text">Test 105 Preguntas</span>
             <i class="fas fa-book fa-2x"></i>
           </div>
-          <span class="icon-pill"
-            data-tooltip="3 Test municipal con 35 preguntas cada uno. Nivel: difícil">$7.900</span>
+          <span class="icon-pill" data-tooltip="3 Test con 35 preguntas cada uno. Nivel: difícil">$7.900</span>
         </div>
 
         <!-- Icono Test 210 Preguntas -->
@@ -449,18 +502,16 @@
             <span class="icon-text">Test 210 Preguntas</span>
             <i class="fas fa-book fa-2x"></i>
           </div>
-          <span class="icon-pill"
-            data-tooltip="6 Test municipal con 35 preguntas cada uno. Nivel: difícil">$12.900</span>
+          <span class="icon-pill" data-tooltip="6 Test con 35 preguntas cada uno. Nivel: difícil">$12.900</span>
         </div>
 
         <!-- Icono Profesor -->
         <div class="icon-wrapper">
           <div class="icon-card">
-            <span class="icon-text">Clase Particular</span>
-            <i class="fas fa-chalkboard-teacher fa-2x"></i>
+            <span class="icon-text">Agendar Clase</span>
+            <i class="fas fa-tasks fa-2x"></i>
           </div>
-          <span class="icon-pill"
-            data-tooltip="Incluye guía de estudio detallada y ejercicios interactivos por 30 días.">$29.900</span>
+          <span class="icon-pill" data-tooltip="Clase de prueba en terreno sin auto de práctica">$9.900</span>
         </div>
       </div>
     </div>
@@ -468,7 +519,7 @@
   <!-- Contenidos -->
   <section id="contenidos" class="py-5 bg-light">
     <div class="container">
-      <h3 class="text-left mb-4" data-aos="fade-up">Cursos de Conducción Particular</h3>
+      <h3 class="text-left mb-4" data-aos="fade-up">Cursos de Conducción Particular <br><small>En Ruta</small></h3>
 
       <div class="row g-4">
         <!-- Card 1 -->
@@ -480,6 +531,20 @@
               <p class="card-text">
                 Normas, señalética, comportamiento vial y todo lo necesario para aprobar tu prueba teórica.
               </p>
+
+              <!-- Botones -->
+              <div class="card-buttons d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="btn-icon-new">
+                  <i class="fas fa-play-circle"></i>
+                  <span class="divider"></span>
+                  <p>Ver Clase</p>
+                </a>
+                <a href="#" class="btn-icon-new">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span class="divider"></span>
+                  <p>Agendar Clase</p>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -493,6 +558,20 @@
               <p class="card-text">
                 Técnicas, maniobras, tips y simulaciones para una conducción segura y consciente.
               </p>
+
+              <!-- Botones -->
+              <div class="card-buttons d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="btn-icon-new">
+                  <i class="fas fa-play-circle"></i>
+                  <span class="divider"></span>
+                  <p>Ver Clase</p>
+                </a>
+                <a href="#" class="btn-icon-new">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span class="divider"></span>
+                  <p>Agendar Clase</p>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -506,6 +585,20 @@
               <p class="card-text">
                 Conoce tu vehículo: niveles, luces, neumáticos, cómo reaccionar ante fallas comunes y más.
               </p>
+
+              <!-- Botones -->
+              <div class="card-buttons d-flex justify-content-center gap-3 mt-3">
+                <a href="#" class="btn-icon-new">
+                  <i class="fas fa-play-circle"></i>
+                  <span class="divider"></span>
+                  <p>Ver Clase</p>
+                </a>
+                <a href="#" class="btn-icon-new">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span class="divider"></span>
+                  <p>Agendar Clase</p>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -514,26 +607,37 @@
     </div>
   </section>
 
-  <!-- Modal para descargar con ID Estudiante y Código -->
-  <div class="modal fade" id="modalCodigoResumen" tabindex="-1" aria-labelledby="modalCodigoResumenLabel"
+  <!-- Modal Suscripción (abre desde Student) -->
+  <div class="modal fade" id="modalStudentSubscription" tabindex="-1" aria-labelledby="modalStudentSubscriptionLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content rounded-4 shadow">
+    <div class="modal-dialog modal-dialog-bottom modal-fullscreen-sm-down">
+      <div class="modal-content">
 
+        <!-- Header -->
         <div class="modal-header border-0 justify-content-center position-relative" style="padding: 1rem 2rem;">
-          <h5 class="modal-title fw-bold text-center" id="modalCodigoResumenLabel" style="margin: 0;">
-            Ingrese su correo <br>y código de compra memanejo ID
+          <h5 class="modal-title fw-bold text-center" id="modalStudentSubscriptionLabel" style="margin: 0;">
+            Suscríbete para acceder a todo el contenido
           </h5>
-          <!-- X simple como texto, separada del título -->
           <span class="modal-close-text"
-            onclick="bootstrap.Modal.getInstance(document.getElementById('modalCodigoResumen')).hide();">×</span>
+            style="cursor:pointer; font-size:1.5rem; position:absolute; right:1rem; top:0.5rem;"
+            onclick="bootstrap.Modal.getInstance(document.getElementById('modalStudentSubscription')).hide();">×</span>
         </div>
 
-        <div class="modal-body text-center">
-          <input type="email" id="inputIdEstudiante" class="form-control mb-3" placeholder="Correo Electrónico">
-          <input type="text" id="inputCodigoResumen" class="form-control mb-3" placeholder="Código memanejo ID">
-          <button class="btn btn-primary w-100" onclick="validarCodigoResumen()">Ingresar</button>
-          <p id="mensajeCodigoResumen" class="text-danger mt-2" style="display:none;"></p>
+        <!-- Body -->
+        <div class="modal-body text-center p-4">
+          <input type="email" id="studentEmail" class="form-control mb-3" placeholder="Tu correo">
+          <input type="text" id="studentID" class="form-control mb-3" placeholder="Código memanejo ID">
+          <button class="btn btn-primary w-100 btn-sg" onclick="validarStudentSubscription()">Suscribirse</button>
+          <p id="mensajeStudentSubscription" class="text-danger mt-2" style="display:none;"></p>
+
+          <div class="mt-4">
+            <p>Beneficios de suscribirte:</p>
+            <ul class="text-start">
+              <li>Acceso completo a todos los cursos de conducción</li>
+              <li>Material descargable</li>
+              <li>Progreso guardado en tu cuenta</li>
+            </ul>
+          </div>
         </div>
 
       </div>
@@ -555,7 +659,8 @@
                 <img src="img/alumna3.JPG" alt="Alumna 3">
               </div>
               <div class="feedback-content">
-                <p>"Excelente el curso de acompañamiento vial, me ayudó a perder el miedo y aprender mucho más de lo que esperaba."</p>
+                <p>"Excelente el curso de acompañamiento vial, me ayudó a perder el miedo y aprender mucho más de lo que
+                  esperaba."</p>
               </div>
             </div>
             <div class="feedback-footer">
@@ -642,7 +747,8 @@
                 <img src="img/alumno4.JPG" alt="Alumno 4">
               </div>
               <div class="feedback-content">
-                <p>"El curso de entrenamiento vial superó mis expectativas, aprendí a conducir con confianza y seguridad."</p>
+                <p>"El curso de entrenamiento vial superó mis expectativas, aprendí a conducir con confianza y
+                  seguridad."</p>
               </div>
             </div>
             <div class="feedback-footer">
@@ -733,13 +839,37 @@
         <a href="https://wa.me/56946914558" class="btn-icon">
           <i class="fab fa-whatsapp" style="color:#25D366;"></i>
           <span class="divider"></span>
-          <p>Contacto por WhatsApp</p>
+          <p>Soporte Técnico en línea</p>
         </a>
-        <a href="#" class="btn-icon">
+        <!-- Botón Escribir Reseña -->
+        <a href="#reviewCollapse" class="btn-icon" data-bs-toggle="collapse">
           <i class="fa-solid fa-headset"></i>
           <span class="divider"></span>
-          <p>Soporte Técnico</p>
+          <p>Escribir Reseña</p>
         </a>
+
+        <!-- Panel de Reseña -->
+        <div class="collapse mt-3" id="reviewCollapse">
+          <div class="card card-body bg-white shadow-sm p-3">
+            <form id="reviewForm" class="mt-2">
+              <div class="mb-2">
+                <label for="reviewEmail" class="form-label">Correo</label>
+                <input type="email" id="reviewEmail" class="form-control" placeholder="Tu correo">
+              </div>
+              <div class="mb-2">
+                <label for="reviewText" class="form-label">Escribe tu reseña / mejoras</label>
+                <textarea id="reviewText" class="form-control" rows="3" placeholder="Comentarios..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sg w-100 mt-2">Enviar</button>
+            </form>
+
+            <div id="reviewResult" class="mt-2" style="display:none;">
+              <p>Tu reseña fue enviada desde: <span id="submittedEmail"></span></p>
+              <p>Contenido:</p>
+              <p id="submittedText"></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

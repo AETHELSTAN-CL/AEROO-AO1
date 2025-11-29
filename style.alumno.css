@@ -53,8 +53,8 @@ header nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  padding: 0.8rem 1.2rem;
-  border-radius: 36px;
+  padding: 0.5rem 1.3rem;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
@@ -65,10 +65,9 @@ header nav a i {
   font-size: 16px;
 }
 
-header nav a:hover,
-header nav a.active {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.05);
+header nav a:hover {
+  background: rgba(255, 255, 255, 0.477);
+  transform: scale(1.2);
 }
 
 /* ===== HAMBURGUESA ===== */
@@ -111,19 +110,28 @@ header nav a.active {
 /* Hamburguesa visible solo en rango 562–646px */
 @media (min-width: 362px) and (max-width: 877px) {
   header nav {
-    display: none;
     position: absolute;
-    top: 100%;
-    right: 0;
+    top: 120%;
+    right: 5%;
     background: #111;
     flex-direction: column;
-    width: 200px;
-    padding: 1rem;
+    width: 250px;
+    padding: 2rem;
     gap: 10px;
+    border-radius: 12px;
+
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+
+    /* transición más suave */
+    transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      max-height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
   header nav.show {
-    display: flex;
+    opacity: 1;
+    max-height: 500px;
   }
 
   .hamburger {
@@ -169,16 +177,14 @@ header nav a.active {
   width: 100%;
   height: 50vh;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.416) 35%,
-    rgba(0, 0, 0, 0.462) 45%,
-    rgba(0, 0, 0, 0.662) 60%,
-    rgba(0, 0, 0, 0.813) 75%,
-    rgba(0, 0, 0, 0.871) 90%,
-    rgba(0, 0, 0, 0.998) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.416) 35%,
+      rgba(0, 0, 0, 0.462) 45%,
+      rgba(0, 0, 0, 0.662) 60%,
+      rgba(0, 0, 0, 0.813) 75%,
+      rgba(0, 0, 0, 0.871) 90%,
+      rgba(0, 0, 0, 0.998) 100%);
 
   z-index: 84;
 }
@@ -199,11 +205,12 @@ header nav a.active {
 /* ===== Título ordenado (logo izquierda, texto derecha) ===== */
 .title-wrapper {
   display: flex;
-  flex-direction: row;     /* ← antes era column */
-  justify-content: center; 
+  flex-direction: row;
+  /* ← antes era column */
+  justify-content: center;
   align-items: center;
-  gap: 15px;   
-  margin-bottom: 10px;          
+  gap: 15px;
+  margin-bottom: 10px;
 }
 
 .title-wrapper img {
@@ -217,7 +224,7 @@ header nav a.active {
 .card-title {
   font-size: 2rem;
   font-weight: 700;
-  text-align: left;        
+  text-align: left;
 }
 
 /* Textos */
@@ -227,7 +234,7 @@ header nav a.active {
 
 .card-subtitle {
   font-size: 1.3rem;
-  font-weight: 600; 
+  font-weight: 600;
 }
 
 .card-text {
@@ -244,7 +251,8 @@ header nav a.active {
 
 .icon-item {
   display: flex;
-  flex-direction: column;   /* ← icono arriba, texto abajo */
+  flex-direction: column;
+  /* ← icono arriba, texto abajo */
   align-items: center;
   cursor: pointer;
   text-align: center;
@@ -287,27 +295,26 @@ header nav a.active {
   background: #001089;
   color: #fff;
 }
+
 .portal-overlay-aula {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 50vh;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.416) 35%,
-    rgba(0, 0, 0, 0.462) 45%,
-    rgba(0, 0, 0, 0.869) 75%,
-    rgba(0, 0, 0, 0.943) 80%,
-    rgba(0, 0, 0, 0.975) 90%,
-    rgb(0, 0, 0) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.416) 35%,
+      rgba(0, 0, 0, 0.462) 45%,
+      rgba(0, 0, 0, 0.869) 75%,
+      rgba(0, 0, 0, 0.943) 80%,
+      rgba(0, 0, 0, 0.975) 90%,
+      rgb(0, 0, 0) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 
@@ -331,15 +338,17 @@ header nav a.active {
   text-align: center;
   margin-bottom: 12px;
   margin-top: 6px;
-  
+
 }
 
 /* Opcional: responsive */
 @media (max-width: 768px) {
   .card-input {
-    width: 90%; /* más ancho en mobile si quieres */
+    width: 90%;
+    /* más ancho en mobile si quieres */
   }
 }
+
 /* Opcional: responsive */
 @media (max-width: 420px) {
   .card-input {
@@ -347,6 +356,7 @@ header nav a.active {
     max-width: 250px;
   }
 }
+
 /* Opcional: responsive */
 @media (max-width: 540px) {
   .card-input {
@@ -354,6 +364,7 @@ header nav a.active {
     max-width: 300px;
   }
 }
+
 /* Opcional: responsive */
 @media (max-width: 680px) {
   .card-input {
@@ -361,8 +372,9 @@ header nav a.active {
     max-width: 280px;
   }
 }
+
 #portalVolver {
-  margin-top: 20px; 
+  margin-top: 20px;
   margin-bottom: 25px;
 }
 
@@ -541,14 +553,14 @@ header nav a.active {
 
 .pill-item i.active-effect {
   transform: scale(1.25);
-  color: #0047b3; /* azul similar al que usabas */
+  color: #0047b3;
+  /* azul similar al que usabas */
 }
 
 /* Icono estudiante separado */
 .pill-student {
   position: fixed;
   bottom: 4px;
-  /* igual que la pill principal */
   right: 30px;
   display: flex;
   align-items: center;
@@ -572,6 +584,109 @@ header nav a.active {
   font-size: 25px;
 }
 
+/* Menú flotante - MOBILE por defecto */
+.student-menu {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 50vh;
+  max-width: 375px;
+  background: rgba(0, 219, 231, 0.562);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease, bottom 0.3s, left 0.3s, transform 0.3s;
+  z-index: 50;
+}
+
+/* Mostrar menú */
+.student-menu.show {
+  opacity: 1;
+  max-height: 500px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.student-login h3 {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+/* Inputs y botón */
+.student-login input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.student-login button {
+  width: 100%;
+  max-width: 250px;
+  padding: 0.5rem;
+  border-radius: 24px;
+  border: none;
+  background: #fff;
+  color: #2261ff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Cards de progreso */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 0.8rem 1rem;
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+}
+
+.course-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar .progress {
+  height: 100%;
+  background: #fff;
+  border-radius: 6px;
+  transition: width 0.4s ease;
+}
+
+/* Desktop / intermedias */
+@media (min-width: 562px) {
+  .pill-student {
+    bottom: 20px;
+    right: 30px; /* posición original del botón */
+  }
+
+  .student-menu {
+    bottom: 100px; 
+    right: 30px;        
+    width: 350px;
+    left: auto;
+    transform: none;
+    height: auto;
+  }
+}
 
 /* ==========================
    VIDEOS RESPONSIVE
@@ -668,6 +783,7 @@ header nav a.active {
     display: none !important;
   }
 }
+
 /* MOBILE: oculto por defecto */
 @media (max-width: 768px) {
   .pill-student {
@@ -681,6 +797,7 @@ header nav a.active {
     pointer-events: auto;
   }
 }
+
 @media (max-width: 768px) {
   #pillNav {
     opacity: 0;
@@ -804,8 +921,10 @@ header nav a.active {
     top: -150px;
     /* más abajo para no tapar header */
   }
+
   #ios-notificacion.show {
-    top: 90px; /* aparece más abajo del header */
+    top: 90px;
+    /* aparece más abajo del header */
   }
 }
 
@@ -831,6 +950,7 @@ header nav a.active {
     padding: 0.5rem 0.8rem;
   }
 }
+
 /* Permite arrastrar sin animación */
 #ios-notificacion.swiping {
   transition: none !important;
@@ -841,6 +961,7 @@ header nav a.active {
   opacity: 0 !important;
   top: -160px !important;
 }
+
 /* ===== CONTENIDOS DEL CURSO ===== */
 #contenidos {
   background: #f8f9fa;
@@ -856,7 +977,7 @@ header nav a.active {
   color: #111;
   font-size: 50px;
   text-align: left;
-  
+
   padding-top: 25px;
   /* deja espacio arriba del texto */
 }
@@ -914,6 +1035,46 @@ header nav a.active {
   color: #555;
   line-height: 1.6;
 }
+.btn-icon-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: #bfcffc;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: 100px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.btn-icon-new i {
+  font-size: 24px;
+  margin-bottom: 4px;
+  color: #2261ff;
+}
+
+.btn-icon-new .divider {
+  width: 50%;
+  height: 2px;
+  background: rgba(34,97,255,0.3);
+  margin: 4px 0;
+}
+
+.btn-icon-new p {
+  font-size: 0.75rem;
+  margin: 0;
+  text-align: center;
+  color: #2261ff;
+  text-wrap: nowrap;
+}
+
+.btn-icon-new:hover {
+  background: #e3e3e3;
+  transform: translateY(-6px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
 
 /* Más separación vertical solo en escritorio */
 @media (min-width: 992px) {
@@ -943,75 +1104,37 @@ header nav a.active {
   }
 }
 
-/* -------------------- Modal descarga -------------------- */
-#modalCodigoResumen .modal-content {
-  border-radius: 1.5rem;
-  max-width: 320px;
-  margin: auto;
+/* Nuevo modal Student Subscription - estilo similar al anterior */
+#modalStudentSubscription .modal-dialog {
+  max-width: 420px;      /* ancho móvil / desktop */
+  margin: 0 auto;        /* centrado */
+  bottom: 0;             /* animación desde abajo */
 }
 
-#modalCodigoResumen .modal-header {
-  border-bottom: none;
+#modalStudentSubscription .modal-content {
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  padding: 1.5rem;
 }
 
-#modalCodigoResumen .modal-title {
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-#modalCodigoResumen .form-control {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 40px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  text-align: center;
-}
-
-#modalCodigoResumen button {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 40px;
-  background: linear-gradient(135deg, #007bff, #00bcd4);
-  color: #fff;
-  font-weight: 600;
+#modalStudentSubscription .modal-header {
   border: none;
-  margin-top: 0.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-content: center;
+  position: relative;
 }
 
-#modalCodigoResumen button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
-}
-
-#modalCodigoResumen p#mensajeCodigoResumen {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-}
-
-/* X para cerrar modal */
-.modal-close-text {
+#modalStudentSubscription .modal-close-text {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #000;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
-  user-select: none;
+  font-size: 1.5rem;
 }
 
-.modal-close-text:hover {
-  color: #ff0000;
-}
-
-/* título modal */
-.modal-header .modal-title {
+#modalStudentSubscription .modal-body {
   text-align: center;
-  width: 100%;
+  padding: 1rem 0;
 }
-
 /* ===== FEEDBACK SECTION ===== */
 #alumni-feedback-section {
   padding: 60px 20px;

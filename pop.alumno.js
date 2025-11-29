@@ -105,10 +105,10 @@ function mostrarPortalAlumno() {
       if (!selectedRole) {
         const prev = onboardContent.querySelector('.error-msg'); if (prev) prev.remove();
         const msg = document.createElement('div'); msg.className = 'error-msg';
-        msg.textContent = 'memanejo ID para desbloquear todo el contenido o selecciona Visitante';
+        msg.textContent = 'selecciona Visitante o ingresa con tu memanejo ID para mostrar todo el contenido';
         msg.style.color = '#e7e7e7ff'; msg.style.marginTop = '8px';
         onboardContent.querySelector('.card-icons')?.after(msg);
-        setTimeout(() => msg.remove(), 3000);
+        setTimeout(() => msg.remove(), 5000);
         return;
       }
       selectedRole === 'visitante' ? entrarComoVisitante() : mostrarPortalAlumno();
@@ -172,6 +172,29 @@ pillItems.forEach(item => {
       icon.classList.remove("active-effect");
     }, 1800);
   });
+});
+// Lógica de envío de reseña
+const reviewForm = document.getElementById('reviewForm');
+const reviewResult = document.getElementById('reviewResult');
+const submittedEmail = document.getElementById('submittedEmail');
+const submittedText = document.getElementById('submittedText');
+
+reviewForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('reviewEmail').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+
+  if (!email || !text) {
+    alert("Por favor completa tu correo y la reseña.");
+    return;
+  }
+
+  submittedEmail.textContent = email;
+  submittedText.textContent = text;
+  reviewResult.style.display = "block";
+
+  // Reset formulario
+  reviewForm.reset();
 });
 // === SHOW STUDENT ICON ON SCROLL (MOBILE ONLY) ===
 document.addEventListener("scroll", () => {
@@ -397,6 +420,47 @@ if (notif) {
     }
   });
 }
+// Toggle menú flotante
+const studentBtn = document.querySelector('.pill-student');
+const studentMenu = document.querySelector('.student-menu');
+
+studentBtn.addEventListener('click', () => {
+  studentMenu.classList.toggle('show');
+});
+
+// ===== Credenciales de prueba =====
+const testUsers = [
+  { email: "alumno@memanejo.cl", id: "memanejo" },
+  { email: "alumnoprueba@memanejo.cl", id: "memanejo" },
+  { email: "test@memanejo.cl", id: "TEST123" }
+];
+
+// Elementos del login y dashboard
+const studentIngresar = document.getElementById('studentIngresar');
+const studentLogin = document.querySelector('.student-login');
+const studentDashboard = document.querySelector('.student-dashboard');
+
+studentIngresar.addEventListener('click', () => {
+  const email = document.getElementById('studentEmail').value.trim();
+  const id = document.getElementById('studentID').value.trim();
+
+  if (!email || !id) {
+    alert("Ingresa tu correo y código memanejo ID");
+    return;
+  }
+
+  // Validar credenciales
+  const validUser = testUsers.find(user => user.email === email && user.id === id);
+
+  if (!validUser) {
+    alert("Correo o ID incorrecto");
+    return;
+  }
+
+  // Oculta login y muestra dashboard
+  studentLogin.style.display = 'none';
+  studentDashboard.style.display = 'flex';
+});
 
 // ===== HAMBURGER =====
 const hamburger = document.querySelector('.hamburger');
