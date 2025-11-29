@@ -1,5 +1,6 @@
 *
 !index.html
 !*.css
-!*.js
+!pop.alumno.js
 !.gitignore
+pop_edit.js
