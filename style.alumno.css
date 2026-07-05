@@ -111,7 +111,7 @@ header nav a:hover {
 @media (min-width: 362px) and (max-width: 877px) {
   header nav {
     position: absolute;
-    top: 120%;
+    top: 130%;
     right: 5%;
     background: #111;
     flex-direction: column;
@@ -180,10 +180,10 @@ header nav a:hover {
   background: linear-gradient(to bottom,
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 0.416) 35%,
-      rgba(0, 0, 0, 0.462) 45%,
-      rgba(0, 0, 0, 0.662) 60%,
-      rgba(0, 0, 0, 0.813) 75%,
-      rgba(0, 0, 0, 0.871) 90%,
+      rgba(0, 0, 0, 0.662) 45%,
+      rgba(0, 0, 0, 0.862) 60%,
+      rgba(0, 0, 0, 0.913) 75%,
+      rgba(0, 0, 0, 0.961) 90%,
       rgba(0, 0, 0, 0.998) 100%);
 
   z-index: 84;
@@ -201,7 +201,13 @@ header nav a:hover {
   font-family: 'Montserrat', sans-serif;
   padding: 20px;
 }
-
+.portal-form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.portal-form .card-input {
+  margin: 0.8rem;
+}
 /* ===== Título ordenado (logo izquierda, texto derecha) ===== */
 .title-wrapper {
   display: flex;
@@ -252,7 +258,6 @@ header nav a:hover {
 .icon-item {
   display: flex;
   flex-direction: column;
-  /* ← icono arriba, texto abajo */
   align-items: center;
   cursor: pointer;
   text-align: center;
@@ -262,19 +267,26 @@ header nav a:hover {
   font-size: 2.4rem;
   margin-bottom: 8px;
 }
+.icon-item i:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
 
 .pill {
   display: inline-block;
   padding: 5px 20px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.15);
+  background: #fff;
   font-weight: 600;
   font-size: 0.9rem;
+  color: #000;
+
 }
 
-.pill.selected {
-  background: #fff;
-  color: #000;
+.pill:hover {
+  transform: scale(1.1);
+  transition: transform 0.9s ease, color 0.3s ease;
+  
 }
 
 /* ===== Botón ===== */
@@ -282,9 +294,9 @@ header nav a:hover {
   width: auto;
   padding: 10px 56px;
   border-radius: 30px;
-  border: none;
-  background: #00ddff;
-  color: #000;
+  border: 1px solid #001089;
+  background: #001089;
+  color: #fff;
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
@@ -292,8 +304,11 @@ header nav a:hover {
 }
 
 .card-btn:hover {
-  background: #001089;
-  color: #fff;
+  background: rgba(0, 0, 0, 0.35); /* capa oscura suave */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f0f0f0;
+  border: 1px solid #f0f0f0;
 }
 
 .portal-overlay-aula {
@@ -304,11 +319,12 @@ header nav a:hover {
   height: 50vh;
   background: linear-gradient(to bottom,
       rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.416) 35%,
-      rgba(0, 0, 0, 0.462) 45%,
-      rgba(0, 0, 0, 0.869) 75%,
-      rgba(0, 0, 0, 0.943) 80%,
-      rgba(0, 0, 0, 0.975) 90%,
+      rgba(0, 0, 0, 0.416) 45%,
+      rgba(0, 0, 0, 0.562) 55%,
+      rgba(0, 0, 0, 0.679) 65%,
+      rgba(0, 0, 0, 0.729) 75%,
+      rgba(0, 0, 0, 0.773) 80%,
+      rgba(0, 0, 0, 0.875) 90%,
       rgb(0, 0, 0) 100%);
   display: flex;
   flex-direction: column;
@@ -377,7 +393,17 @@ header nav a:hover {
   margin-top: 20px;
   margin-bottom: 25px;
 }
-
+@media (min-width: 992px) {
+  .onboard-content {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-25%);
+  }
+  .portal-overlay-aula {
+    bottom: auto;
+  }
+  
+}
 /* ===== SECCIÓN VIDEOS ===== */
 #videos {
   width: 100%;
@@ -473,13 +499,28 @@ header nav a:hover {
   top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 16px;
+  
   font-weight: bold;
   color: white;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
   text-align: center;
 }
+.texto-izquierda {
+  font-size: 16px;
+  line-height: 1.1;
+}
 
+.texto-izquierda .titulo {
+  display: block;      /* fuerza a título en su propia línea */
+  font-weight: 700;
+}
+
+.texto-izquierda .student-id {
+  display: block;      /* aparece debajo del título */
+  font-size: 12px;
+  color: #f0f0f0;
+  margin-top: 6px;
+}
 /* Texto inferior: izquierda y derecha */
 .video-overlay-bottom {
   position: absolute;
@@ -492,6 +533,9 @@ header nav a:hover {
   align-items: center;
   font-size: 12px;
   color: white;
+}
+.texto-derecha {
+  font-size: 16px;
 }
 
 /* Barra de progreso inline */
@@ -567,7 +611,7 @@ header nav a:hover {
   justify-content: center;
   width: 60px;
   height: 60px;
-  background: #2261ff;
+  background: #0026ff;
   border-radius: 50%;
   color: #fff;
   font-size: 20px;
@@ -584,46 +628,66 @@ header nav a:hover {
   font-size: 25px;
 }
 
-/* Menú flotante - MOBILE por defecto */
+
+/* ===============================
+   Menú flotante del estudiante
+   =============================== */
+
+/* Mobile - por defecto */
 .student-menu {
+  display: flex;
+  flex-direction: column;
   position: fixed;
+  text-align: center;
+  justify-content: center;
   bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 50vh;
   max-width: 375px;
   background: rgba(0, 219, 231, 0.562);
   backdrop-filter: blur(8px);
   border-radius: 24px;
-  flex-direction: column;
   gap: 10px;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: opacity 0.4s ease, max-height 0.4s ease, bottom 0.3s, left 0.3s, transform 0.3s;
+  transition: opacity 0.5s ease, max-height 0.5s ease;
   z-index: 50;
 }
 
 /* Mostrar menú */
 .student-menu.show {
   opacity: 1;
-  max-height: 500px;
+  max-height: 600px;
+  /* suficiente para login en mobile */
   display: flex;
   justify-content: center;
   text-align: center;
 }
+
+/* ===============================
+   Login del estudiante
+   =============================== */
+.student-login {
+  padding: 20px;
+}
+
 .student-login h3 {
   font-size: 24px;
-  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #0c19af;
 }
-/* Inputs y botón */
+
 .student-login input {
   width: 100%;
   margin-bottom: 8px;
   padding: 0.5rem;
   border-radius: 8px;
   border: none;
+  box-sizing: border-box;
 }
 
 .student-login button {
@@ -631,60 +695,147 @@ header nav a:hover {
   max-width: 250px;
   padding: 0.5rem;
   border-radius: 24px;
-  border: none;
+  border: 1px solid #0026ff;
   background: #fff;
-  color: #2261ff;
+  color: #0026ff;
   font-weight: bold;
   cursor: pointer;
+  margin-bottom: 20px;
 }
-
-/* Cards de progreso */
-.course-card {
+.student-login button:hover {
+  color: #f0f0f0;
+  background-color: #0026ff;;
+}
+/* ===============================
+   Dashboard del estudiante
+   =============================== */
+.student-dashboard {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  padding: 0.8rem 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   width: 100%;
-  background: rgba(255,255,255,0.1);
-  border-radius: 12px;
+  box-sizing: border-box;
+  height: 70vh;
+  overflow-y: auto;
 }
 
-.course-title {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #fff;
+/* Título del dashboard */
+.student-dashboard .sd-title {
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.progress-bar {
+/* Grid de progreso */
+.sd-progress-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 6px;
-  overflow: hidden;
+  gap: 40px;
+  margin-top: 20px;
+}
+.sd-name {
+  font-size: 12px;
+}
+/* Item individual */
+.sd-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100px;
 }
 
-.progress-bar .progress {
+/* Círculo de progreso */
+.sd-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.sd-circle svg {
+  width: 100%;
   height: 100%;
-  background: #fff;
-  border-radius: 6px;
-  transition: width 0.4s ease;
 }
+
+.sd-circle circle.bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 10;
+}
+
+.sd-circle circle.bar {
+  fill: none;
+  stroke: #00dbe7;
+  stroke-width: 10;
+  stroke-dasharray: 283;
+  /* 2πr, r=45 */
+  stroke-dashoffset: 283;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.sd-circle .percent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.stats-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column; /* título arriba, valor abajo */
+  text-align: center;
+}
+
+.stat-block .label {
+  font-size: 12px;
+  color: #444;
+  font-weight: 600;
+}
+
+.stat-block .value {
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+}
+
+/* Mensaje IA */
+.sd-ai-msg {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #222;
+  text-align: center;
+}
+
 
 /* Desktop / intermedias */
 @media (min-width: 562px) {
   .pill-student {
     bottom: 20px;
-    right: 30px; /* posición original del botón */
+    right: 30px;
   }
 
   .student-menu {
-    bottom: 100px; 
-    right: 30px;        
+    bottom: 100px;
+    right: 100px;
     width: 350px;
     left: auto;
     transform: none;
     height: auto;
+    transform: none;
   }
 }
 
@@ -962,28 +1113,22 @@ header nav a:hover {
   top: -160px !important;
 }
 
-/* ===== CONTENIDOS DEL CURSO ===== */
+/* CONTENIDOS - EXCLUSIVO */
 #contenidos {
   background: #f8f9fa;
-  padding: 5rem 0;
   position: relative;
 }
 
-/* ===== Título Sección Contenidos ===== */
-#contenidos h3 {
-  position: relative;
-  /* necesario para posicionar el guion */
+#contenidos h2.cursos-title {
   font-weight: 600;
   color: #111;
   font-size: 50px;
   text-align: left;
-
   padding-top: 25px;
-  /* deja espacio arriba del texto */
+  margin-bottom: 60px;
 }
 
-/* 🔹 Guion azul arriba del texto */
-#contenidos h3::after {
+#contenidos h2.cursos-title::after {
   content: "";
   display: block;
   width: 360px;
@@ -992,149 +1137,323 @@ header nav a:hover {
   border-radius: 2px;
   position: absolute;
   top: 0;
-  /* 🔹 guion arriba */
   left: 0;
-  /* alineado al texto */
 }
 
-#contenidos .card {
+/* Wrapper y subtítulos de card */
+.contenidos-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.contenidos-card-subtitle {
+  font-weight: 600;
+  color: #0237cb;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+
+/* Card principal */
+.contenidos-card {
   border: none;
   border-radius: 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
   background: #fff;
-  margin-top: 20px;
 }
 
-#contenidos .card:hover {
-  transform: translateY(-10px);
+.contenidos-card:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
 }
 
-#contenidos .card-body {
+.contenidos-card-body {
   padding: 2rem 1.5rem;
 }
 
-#contenidos .card-title {
+.contenidos-card-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
   color: #111;
   display: flex;
-  align-items: center;
+  align-items: left;
+  justify-content: center;
 }
 
-#contenidos .card-title i {
-  color: #2261ff;
+.contenidos-card-title i {
+  color: #0237cb;
   font-size: 1.5rem;
   margin-right: 0.5rem;
 }
-
-#contenidos .card-text {
+#contenidos-card-subtitle {
+  font-size: 18px;
+}
+.contenidos-card-text {
   font-size: 0.95rem;
   color: #555;
   line-height: 1.6;
 }
-.btn-icon-new {
+
+/* Botones de card */
+.contenidos-card-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenidos-btn-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1.2rem;
+  padding: 1rem 1.4rem;
   border-radius: 12px;
-  background: #bfcffc;
+  background: #0237cb;
   text-decoration: none;
   transition: all 0.2s ease;
   width: 100px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin: 10px;
 }
 
-.btn-icon-new i {
+.contenidos-btn-icon i {
   font-size: 24px;
   margin-bottom: 4px;
-  color: #2261ff;
+  color: #dadde3;
 }
 
-.btn-icon-new .divider {
+.contenidos-btn-icon .divider {
   width: 50%;
   height: 2px;
-  background: rgba(34,97,255,0.3);
+  background: rgba(34, 97, 255, 0.3);
   margin: 4px 0;
 }
 
-.btn-icon-new p {
+.contenidos-btn-icon p {
   font-size: 0.75rem;
   margin: 0;
   text-align: center;
-  color: #2261ff;
-  text-wrap: nowrap;
+  color: #003194;
+  white-space: nowrap;
+  
 }
 
-.btn-icon-new:hover {
-  background: #e3e3e3;
-  transform: translateY(-6px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+.contenidos-btn-icon:hover {
+  background: #6284ff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
-/* Más separación vertical solo en escritorio */
-@media (min-width: 992px) {
-  #contenidos {
-    padding-top: 8rem;
-    /* espacio superior */
-    padding-bottom: 8rem;
-    /* espacio inferior */
-  }
-
-
-  #contenidos .row {
-    row-gap: 4rem;
-    /* espacio entre filas de cards */
-  }
+.btn-izq-rounded p{
+  color: #f0f0f0;
 }
-
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  #contenidos .card-body {
-    padding: 1.5rem 1rem;
-  }
-
-  #contenidos h3::after {
-    width: 260px;
-  }
-}
-
-/* Nuevo modal Student Subscription - estilo similar al anterior */
-#modalStudentSubscription .modal-dialog {
-  max-width: 420px;      /* ancho móvil / desktop */
-  margin: 0 auto;        /* centrado */
-  bottom: 0;             /* animación desde abajo */
-}
-
-#modalStudentSubscription .modal-content {
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  padding: 1.5rem;
-}
-
-#modalStudentSubscription .modal-header {
-  border: none;
+.contenidos-descarga {
+  display: flex;
   justify-content: center;
-  position: relative;
-}
-
-#modalStudentSubscription .modal-close-text {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-
-#modalStudentSubscription .modal-body {
   text-align: center;
-  padding: 1rem 0;
 }
+
+.descarga-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.descarga-link:hover {
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.descarga-link i {
+  font-size: 30px;
+}
+.descarga-link p {
+  margin: 0;          
+  line-height: 1;     
+  margin-left: 10px;
+}
+/* Responsive: ajuste de cards */
+@media (max-width: 1199px) {
+
+  /* Pantallas intermedias: usar flex-wrap y ancho mínimo para que no se adelgacen */
+  .row.g-4 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .col-md-4 {
+    flex: 1 1 300px;
+    /* mínimo ancho de 300px */
+    max-width: 33%;
+  }
+}
+
+@media (max-width: 992px) {
+  .col-md-4 {
+    flex: 1 1 100%;
+    /* pasa a columna única */
+    max-width: 100%;
+  }
+
+  .contenidos-card-body {
+    padding: 1rem;
+  }
+}
+/* Estado inicial */
+#modalStudentSubscription .modal-dialog {
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: transform 0.85s ease, opacity 0.35s ease;
+}
+
+/* Cuando Bootstrap lo muestra */
+#modalStudentSubscription.show .modal-dialog {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ===== TOP BAR suscripción ===== */
+#modalStudentSubscription .modern-modal {
+  background: #0e0e11;
+}
+
+.modern-modal .modal-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #0e0e11;
+  background: #0e0e11;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.modal-topbar .topbar-left {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+
+.modal-topbar .topbar-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+
+/* ===== CARDS ===== */
+#modalStudentSubscription .modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  gap: 8px;
+  color: #000951;
+}
+
+.topbar-logo {
+  width: 32px; /* ajusta al tamaño que quieras */
+  height: 32px;
+  object-fit: contain;
+  border-radius: 24px;
+}
+.topbar-close {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.topbar-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+.topbar-close i {
+  font-size: 1.2rem;
+}
+
+/* Card general */
+.sub-card {
+  background: #2c2c2c;
+  border-radius: 18px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+  animation: fadeUp 0.35s ease;
+}
+
+/* Título */
+.sub-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: .3rem;
+  color: #f0f0f0;
+}
+
+/* Texto */
+.sub-desc {
+  color: #f0f0f0;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Imagen o logo del plan */
+.sub-img {
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Botón */
+.sub-btn {
+  background: #007bff;
+  color: rgb(234, 234, 234);
+  border: none;
+  border-radius: 36px;
+  padding: .7rem 2.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Texto pequeño inferior */
+.sub-small {
+  color: #777;
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+/* Animación tipo iOS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===== FEEDBACK SECTION ===== */
 #alumni-feedback-section {
   padding: 60px 20px;
@@ -1388,7 +1707,24 @@ header nav a:hover {
   text-align: center;
   white-space: nowrap;
 }
+/* --- Botón que va en horizontal --- */
+.btn-icon-horizontal {
+  flex-direction: row !important;
+  gap: 0.6rem;
+  padding: 1.2rem 1.5rem;
+}
 
+/* Ocultar la línea divisoria en este botón */
+.btn-icon-horizontal .divider {
+  display: none;
+}
+
+/* Ícono whatsapp del mismo tamaño del texto */
+.btn-icon-horizontal .whatsapp-icon {
+  font-size: 1.2rem;
+  color: #25D366;
+  margin: 0;
+}
 @media (max-width: 768px) {
   .recursos-btns {
     flex-direction: column;
@@ -1420,10 +1756,11 @@ header nav a:hover {
 #creditsCollapse .card-body {
   font-size: 0.85rem;
   text-align: center;
+  justify-content: center;
   border-radius: 16px;
   padding: 10px 10px;
   background: #ffffff;
-  line-height: 1;
+  line-height: 1.1;
   margin-top: 10px;
   margin: 15px;
 }
@@ -1459,7 +1796,28 @@ header nav a:hover {
     transform: none !important;
   }
 }
+/* CONTENEDOR EXPANDIDO */
+#reviewCollapse {
+  width: 100%;
+  
+}
 
+#reviewCollapse .card {
+  width: 100%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  background: #ffffff;
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+/* Animación cuando se abre */
+#reviewCollapse.show .card {
+  transform: translateY(0);
+  opacity: 1;
+}
 /* ===== Sección Cursos ===== */
 .cursos-section {
   width: 100vw;
@@ -1473,13 +1831,20 @@ header nav a:hover {
 /* ===== Título Contenidos del Curso Online ===== */
 .cursos-title {
   position: relative;
-  /* necesario para ubicar el guion */
   font-weight: 600;
   color: #111;
   font-size: 50px;
-  text-align: left;
   margin-bottom: 60px;
   padding-top: 25px;
+  margin-left: 0;
+}
+
+.cursos-title small {
+  display: block;
+  font-size: 22px;
+  font-weight: 400;
+  color: #555;
+  margin-top: 5px;
 }
 
 /* 🔹 Guion azul arriba del texto */
@@ -1588,6 +1953,7 @@ header nav a:hover {
   max-height: 0;
   overflow: hidden;
   margin-bottom: 1.5rem;
+  z-index: 2000;
 }
 
 .curso-accordion.active {
@@ -1609,6 +1975,7 @@ header nav a:hover {
   align-items: center;
   text-align: center;
   position: relative;
+  
 }
 
 /* ===== Ícono principal ===== */
@@ -1774,4 +2141,122 @@ header nav a:hover {
   .icon-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+/* Fondo oscuro + blur */
+#modalCodigo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+}
+
+/* Caja del modal */
+#modalCodigo .modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  padding: 25px 25px 30px;
+  border-radius: 14px;
+  position: relative;
+  animation: floatUp 0.3s ease;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+/* Botón cerrar (X) */
+#modalCodigo .close-modal {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+#modalCodigo .close-modal:hover {
+  opacity: 1;
+}
+
+/* Título */
+#modalCodigo h2 {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Input */
+#modalCodigo input[type="text"] {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: 0.25s ease;
+  margin-bottom: 15px;
+}
+
+#modalCodigo input[type="text"]:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.25);
+}
+
+/* Botón validar */
+#modalCodigo #btnValidarCodigo {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-bottom: 15px;
+}
+
+#modalCodigo #btnValidarCodigo:hover {
+  background: #222;
+}
+
+/* Enlace solicitar código */
+#modalCodigo .solicitar-enlace {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.95rem;
+  color: #0078ff;
+  text-decoration: none;
+}
+
+#modalCodigo .solicitar-enlace:hover {
+  text-decoration: underline;
+}
+
+/* Mensaje estado */
+#modalCodigo #mensajeEstado {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatUp {
+  from { transform: translateY(14px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
