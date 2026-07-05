@@ -1,12 +1,27 @@
-# Ignorar todo por defecto
-*
+# Carpetas de dependencias
+node_modules/
+bower_components/
 
-# Permitir estos archivos
-!index.html
-!*.css
-!*.js
-!.gitignore
-!README.md
+# Sistemas operativos y carpetas temporales
+.DS_Store
+Thumbs.db
+._*
+Desktop.ini
 
-# Ignorar este archivo 
-pop_edit.js
+# Editores de código
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Carpetas de compilación y salida (común en frameworks o bundlers)
+dist/
+build/
+out/
+
+# Archivos de entorno y logs
+.env
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

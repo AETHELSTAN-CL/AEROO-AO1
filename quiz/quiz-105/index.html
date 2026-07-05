@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Teórico de Conducción memanejo.cl</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Pantalla de bienvenida -->
+<div id="pantalla-bienvenida" class="quiz-container">
+  <div class="contenido">
+    <div class="logo-texto">
+      <a href="https://www.memanejomanejando.cl" target="_blank">
+  <img src="img/newnewlogo.jpg" alt="Logo Memanejo" class="logo-bienvenida">
+</a>
+      <h2>¡HOLA! <br>SOY <br>MEMANEJO <br>MANEJANDO</h2>
+    </div>
+
+    <p class="subtitulo">Elige la dificultad del Quiz</p>
+
+    <div class="botones-bienvenida">
+      <button id="btn-facil" class="btn">Fácil</button>
+      <button id="btn-avanzado" class="btn">Avanzado</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Contenedor del quiz -->
+  <div class="quiz-container" id="quiz-container" style="display:none;">
+    <h2 id="question">Pregunta aparecerá aquí</h2>
+    <div id="progress">Pregunta 1 de 1</div>
+    <div id="answer-buttons" class="btn-container"></div>
+    <button id="next-btn" class="next-btn">Siguiente</button>
+    <button id="btn-volver" class="btn-volver">← Volver al Inicio</button>
+    
+  </div>
+
+  <!-- Modal de resultado único -->
+  <div id="modal-memanejo" class="modal-memanejo oculto">
+    <div class="contenido-modal" id="captura">
+      <img src="img/logo.jpeg" alt="Logo Me Manejo" class="logo-modal">
+      <h2 class="titulo-modal">Resultado del Quiz | memanejo.cl</h2>
+      <p id="texto-puntaje" class="texto-puntaje-modal"></p>
+
+      <!-- Contenedor de botones finales con espacio uniforme -->
+      <div class="modal-buttons">
+        <button id="btn-descargar-img" class="btn">Descargar Imagen</button>
+        <a id="btn-compartir" class="btn" target="_blank">Compartir en Twitter</a>
+        <button id="btn-reintentar" class="btn">Reintentar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>

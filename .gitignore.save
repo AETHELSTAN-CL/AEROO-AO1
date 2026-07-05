@@ -1,0 +1,10 @@
+*
+!index.html
+!*.css
+!*.js
+!.gitignore
+pop_edit.js
+:qa
+:qa
+qa
+
