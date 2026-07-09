@@ -384,8 +384,8 @@ const form = document.getElementById('form-usuario');
 ========================= */
 const tiempoElemento = document.createElement('div');
 tiempoElemento.id = 'tiempo-restante';
-tiempoElemento.style.marginBottom = '12px';
-tiempoElemento.style.fontWeight = '700';
+tiempoElemento.style.marginBottom = '65px';
+tiempoElemento.style.fontWeight = 'bold';
 quizContainer.insertBefore(tiempoElemento, preguntaElemento);
 
 /* =========================
@@ -507,7 +507,7 @@ function mostrarResultado() {
   mensaje.style.marginTop = '12px';
   mensaje.innerText = aprobado
     ? "🎉 ¡Aprobaste el Quiz!"
-    : "❌ No alcanzaste el puntaje mínimo para aprobar este Quiz.";
+    : "❌ No alcanzaste el puntaje mínimo para aprobar.";
   textoPuntaje.parentNode.appendChild(mensaje);
 
   // ⚡️ INCENTIVO DE PAGO
@@ -587,17 +587,3 @@ form.addEventListener('submit', (e) => {
   iniciarQuiz();
 });
 });
-// ⚡ DEBUG: saltar directo al final del quiz sin responder nada
-if (window.location.search.includes('debug=1')) {
-  console.warn("⚠️ Modo debug activado: mostrando resultado final");
-
-  // Simular datos mínimos para mostrar el resultado
-  preguntasActuales = [...preguntasNivelacion];
-  indice = preguntasActuales.length;
-  score = Math.floor(Math.random() * preguntasActuales.length);
-  
-  // Ocultar bienvenida y mostrar directamente el resultado
-  pantallaBienvenida.style.display = 'none';
-  quizContainer.style.display = 'none';
-  mostrarResultado();
-}
