@@ -75,7 +75,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="img/logopng.png" alt="Logo">
+      <img src="img/newnewlogo.jpg" alt="Logo">
       <p>Formación Vial</p>
     </div>
 
@@ -92,44 +92,57 @@
     </div>
   </header>
 
-  <!-- VIDEO FULLSCREEN -->
-  <div class="onboard-video-bg">
-    <video src="vid/publicidad3.mov" autoplay muted loop playsinline></video>
+<!-- VIDEO FULLSCREEN -->
+<div class="onboard-video-bg">
+  <video src="vid/publicidad3.mov" autoplay muted loop playsinline></video>
+  <img src="img/alfaromeo159ti.jpeg" alt="" class="onboard-img-bg">
+</div>
+
+<!-- CAPA OSCURA SOBRE EL VIDEO/IMAGEN -->
+<div class="onboard-dim-overlay"></div>
+
+<!-- CONTENIDO -->
+<div class="onboard-content">
+
+  <!-- Columna izquierda: solo visible en desktop -->
+  <div class="onboard-left">
+    <h1 class="onboard-welcome">Bienvenidos<br>a memanejo</h1>
   </div>
 
-  <!-- BLUR + NEBLINA EN MITAD INFERIOR -->
-  <div class="onboard-blur-full"></div>
+  <!-- Columna derecha: card glass (mobile y desktop) -->
+  <div class="onboard-right">
+    <div class="login-card-glass">
 
-  <!-- CONTENIDO -->
-  <div class="onboard-content">
-
-    <!-- TÍTULO + LOGO EN FILA -->
-    <div class="title-wrapper">
-      <img src="img/newnewlogo.jpg" alt="Logo">
-      <div class="card-title">App Online</div>
-    </div>
-
-    <div class="card-subblock">
-      <div class="card-subtitle">AQUI COMIENZA TU CAMINO</div>
-      <div class="card-text">Ingresa para obtener tu licencia de conducir Clase B</div>
-    </div>
-
-    <!-- ICONOS EN COLUMNA  -->
-    <div class="card-icons">
-      <div class="icon-item" data-role="new">
-        <i class="fas fa-car-side"></i>
-        <span class="pill">Nuevo estudiante</span>
+      <!-- TÍTULO + LOGO EN FILA -->
+      <div class="title-wrapper">
+        <img src="img/newnewlogo.jpg" alt="Logo">
+        <div class="card-title">App Web</div>
       </div>
 
-      <div class="icon-item" data-role="alumno">
-        <i class="fas fa-user-graduate"></i>
-        <span class="pill">memanejo ID</span>
+      <div class="card-subblock">
+        <div class="card-subtitle">AQUI COMIENZA TU CAMINO</div>
+        <div class="card-text">Ingresa para obtener tu licencia de conducir Clase B</div>
       </div>
+
+      <!-- ICONOS EN COLUMNA -->
+      <div class="card-icons">
+        <div class="icon-item" data-role="new">
+          <i class="fas fa-car-side"></i>
+          <span class="pill">Nuevo estudiante</span>
+        </div>
+
+        <div class="icon-item" data-role="alumno">
+          <i class="fas fa-user-graduate"></i>
+          <span class="pill">memanejo ID</span>
+        </div>
+      </div>
+
+      <button id="btnContinuar" class="card-btn">Continuar</button>
+
     </div>
-
-    <button id="btnContinuar" class="card-btn">Continuar</button>
-
   </div>
+
+</div>
 
 
   <!-- 🎥 Sección de Videos -->
@@ -240,7 +253,7 @@
       <input type="email" id="studentEmail" placeholder="Correo de acceso" class="card-input" />
       <input type="text" id="studentID" placeholder="Código memanejo ID" class="card-input" />
       <button id="studentIngresar" class="card-btn">Ingresar</button>
-     
+
       <!-- toggle de  bienvenida -->
       <div class="student-welcome" id="studentWelcome" style="display:none;">
         <h3>Bienvenido 👋</h3>
@@ -1126,13 +1139,21 @@
         aria-expanded="false" aria-controls="creditsCollapse">
         Créditos <i class="fas fa-chevron-down ms-1"></i>
       </button>
-      <button class="btn btn-dark btn-sg" type="button" data-bs-toggle="collapse" data-bs-target="#creditsCollapse"
-        aria-expanded="false" aria-controls="creditsCollapse">
-        Un Beneficio MEMANEJO <i class="fas fa-gift"></i>
-      </button>
       <div class="collapse" id="creditsCollapse">
         <div class="card card-body bg-white shadow-sm">
-          <strong>ÆROO Studio web design <br>ÆTHELSTAN</strong> <br>Prueba <strong>MEMANEJO ID</strong> x 24 horas.
+          <strong>ÆROO Studio web design <br>ÆTHELSTAN</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 credits-wrapper">
+      <button class="btn btn-dark btn-sg" type="button" data-bs-toggle="collapse"
+        data-bs-target="#creditsCollapse_beneficios" aria-expanded="false" aria-controls="creditsCollapse_beneficios">
+        Un Beneficio MEMANEJO <i class="fas fa-gift"></i>
+      </button>
+      <div class="collapse" id="creditsCollapse_beneficios">
+        <div class="card card-body bg-white shadow-sm">
+          Prueba <strong>MEMANEJO ID</strong> x 24 horas.
           Solicita <strong>tu código.</strong>
         </div>
       </div>

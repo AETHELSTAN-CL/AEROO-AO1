@@ -33,6 +33,7 @@ header .logo {
 header .logo img {
   height: 50px;
   object-fit: contain;
+  border-radius: 14px;
 }
 
 header .logo p {
@@ -149,6 +150,40 @@ header nav a:hover {
     display: none;
   }
 }
+/* Por defecto (mobile/tablet): se ve el video, se oculta la imagen */
+.onboard-img-bg {
+  display: none;
+}
+
+/* Desktop: se oculta el video, se ve la imagen */
+@media (min-width: 1220px) {
+  .onboard-video-bg video {
+    display: none;
+  }
+
+  .onboard-img-bg {
+    display: block;
+  }
+}
+
+/* ===== VIDEO / IMAGEN FULLSCREEN ===== */
+.onboard-video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 70;
+}
+
+.onboard-video-bg video,
+.onboard-video-bg .onboard-img-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
 
 
 /* ===== VIDEO FULLSCREEN ===== */
@@ -162,57 +197,106 @@ header nav a:hover {
   z-index: 70;
 }
 
-.onboard-video-bg video {
+.onboard-video-bg video,
+.onboard-video-bg .onboard-img-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top;
 }
 
-/* ===== BLUR + NEBLINA EN MITAD INFERIOR ===== */
-.onboard-blur-full {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 50vh;
-
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.416) 35%,
-      rgba(0, 0, 0, 0.662) 45%,
-      rgba(0, 0, 0, 0.862) 60%,
-      rgba(0, 0, 0, 0.913) 75%,
-      rgba(0, 0, 0, 0.961) 90%,
-      rgba(0, 0, 0, 0.998) 100%);
-
-  z-index: 84;
+.onboard-img-bg {
+  display: none;
 }
 
-/* ===== CONTENIDO SOBRE EL BLUR ===== */
-.onboard-content {
+@media (min-width: 992px) {
+  .onboard-video-bg video {
+    display: none;
+  }
+
+  .onboard-img-bg {
+    display: block;
+  }
+}
+
+/* ===== CAPA OSCURA (baja el brillo del video/imagen, sin blur) ===== */
+.onboard-dim-overlay {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 80;
+}
+
+/* ===== CONTENIDO SOBRE EL VIDEO/IMAGEN ===== */
+.onboard-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   color: #fff;
   z-index: 90;
   font-family: 'Montserrat', sans-serif;
   padding: 20px;
+  box-sizing: border-box;
 }
+
+.onboard-left {
+  display: none;
+}
+
+.onboard-right {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== CARD GLASS (mobile y desktop) ===== */
+.login-card-glass {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 28px 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .portal-form {
   max-width: 720px;
   margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+
 .portal-form .card-input {
   margin: 0.8rem;
 }
+
 /* ===== Título ordenado (logo izquierda, texto derecha) ===== */
 .title-wrapper {
   display: flex;
   flex-direction: row;
-  /* ← antes era column */
   justify-content: center;
   align-items: center;
   gap: 15px;
@@ -268,8 +352,8 @@ header nav a:hover {
   margin-bottom: 8px;
 }
 .icon-item i:hover {
-  transform: scale(1.2);
-  transition: transform 0.2s ease, color 0.3s ease;
+  transform: scale(1.1);
+  transition: transform 0.4s ease, color 0.3s ease;
 }
 
 .pill {
@@ -280,13 +364,18 @@ header nav a:hover {
   font-weight: 600;
   font-size: 0.9rem;
   color: #000;
-
+  transition: background 0.4s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .pill:hover {
   transform: scale(1.1);
-  transition: transform 0.9s ease, color 0.3s ease;
-  
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+/* Solo el pill seleccionado se pinta; nada más cambia */
+.pill.selected {
+  background: #001089;
+  color: #fff;
 }
 
 /* ===== Botón ===== */
@@ -304,11 +393,10 @@ header nav a:hover {
 }
 
 .card-btn:hover {
-  background: rgba(0, 0, 0, 0.35); /* capa oscura suave */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   color: #f0f0f0;
   border: 1px solid #f0f0f0;
+  transform: scale(1.1);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .portal-overlay-aula {
@@ -317,22 +405,12 @@ header nav a:hover {
   bottom: 0;
   width: 100%;
   height: 50vh;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.416) 45%,
-      rgba(0, 0, 0, 0.562) 55%,
-      rgba(0, 0, 0, 0.679) 65%,
-      rgba(0, 0, 0, 0.729) 75%,
-      rgba(0, 0, 0, 0.773) 80%,
-      rgba(0, 0, 0, 0.875) 90%,
-      rgb(0, 0, 0) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
   z-index: 1000;
 }
-
 
 .card-title-aula {
   font-size: 2rem;
@@ -354,18 +432,14 @@ header nav a:hover {
   text-align: center;
   margin-bottom: 12px;
   margin-top: 6px;
-
 }
 
-/* Opcional: responsive */
 @media (max-width: 768px) {
   .card-input {
     width: 90%;
-    /* más ancho en mobile si quieres */
   }
 }
 
-/* Opcional: responsive */
 @media (max-width: 420px) {
   .card-input {
     width: 100%;
@@ -373,7 +447,6 @@ header nav a:hover {
   }
 }
 
-/* Opcional: responsive */
 @media (max-width: 540px) {
   .card-input {
     width: 90%;
@@ -381,7 +454,6 @@ header nav a:hover {
   }
 }
 
-/* Opcional: responsive */
 @media (max-width: 680px) {
   .card-input {
     width: 100%;
@@ -393,16 +465,45 @@ header nav a:hover {
   margin-top: 20px;
   margin-bottom: 25px;
 }
+
+/* ===== DESKTOP: SPLIT SCREEN ===== */
 @media (min-width: 992px) {
   .onboard-content {
-    top: 50%;
-    bottom: auto;
-    transform: translateY(-25%);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
   }
+
+  .onboard-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 50%;
+  }
+
+  .onboard-welcome {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .onboard-right {
+    width: 45%;
+    max-width: 420px;
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  .login-card-glass {
+    padding: 32px 24px;
+  }
+
   .portal-overlay-aula {
     bottom: auto;
   }
-  
 }
 /* ===== SECCIÓN VIDEOS ===== */
 #videos {
@@ -2260,3 +2361,13 @@ header nav a:hover {
   from { transform: translateY(14px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+/* Oculta el header mientras el onboarding esté activo, en cualquier resolución */
+body.onboarding-activo header {
+  display: none !important;
+}
+
+/* Evita que el contenido de la card se corte arriba en pantallas bajas (mobile) */
+.onboard-content {
+  overflow-y: auto;
+}
+

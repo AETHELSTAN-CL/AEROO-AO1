@@ -2,115 +2,140 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== ONBOARDING =====
   const onboardVideoBg = document.querySelector('.onboard-video-bg');
-  const onboardBlur = document.querySelector('.onboard-blur-full');
+  const onboardDim = document.querySelector('.onboard-dim-overlay');
   const onboardContent = document.querySelector('.onboard-content');
-  const iconItems = Array.from(document.querySelectorAll('.icon-item'));
-  const btnContinuar = document.getElementById('btnContinuar');
+  const loginCardGlass = document.querySelector('.login-card-glass');
   const videosSection = document.getElementById('videos');
   const pillNav = document.getElementById('pillNav');
-  const pillItems = Array.from(document.querySelectorAll('.pill-item'));
 
-  if(onboardContent && btnContinuar){
-    const originalOnboardHTML = onboardContent.innerHTML;
+  if (onboardContent && loginCardGlass) {
+    document.body.classList.add('onboarding-activo');
+    document.body.style.overflow = 'hidden';
+
+    const originalCardHTML = loginCardGlass.innerHTML;
     let selectedRole = null;
 
-    function markSelected(iconEl){
-      iconItems.forEach(it=>it.querySelector('.pill')?.classList.remove('selected'));
-      iconEl.querySelector('.pill')?.classList.add('selected');
-    }
-
-    iconItems.forEach(icon=>{
-      icon.addEventListener('click', ()=>{
-        selectedRole = icon.dataset.role;
-        markSelected(icon);
-      });
-    });
-
-    function entrarComoVisitante(){
-      onboardVideoBg && (onboardVideoBg.style.display='none');
-      onboardBlur && (onboardBlur.style.display='none');
-      onboardContent && (onboardContent.style.display='none');
-      pillNav && (pillNav.style.display='flex');
-      if(videosSection){
-        videosSection.style.display='flex';
-        videosSection.scrollIntoView({behavior:'smooth', block:'start'});
-        document.body.style.overflow='auto';
+    function entrarAlCurso() {
+      document.body.classList.remove('onboarding-activo');
+      document.body.style.overflow = 'auto';
+      onboardVideoBg && (onboardVideoBg.style.display = 'none');
+      onboardDim && (onboardDim.style.display = 'none');
+      onboardContent && (onboardContent.style.display = 'none');
+      pillNav && (pillNav.style.display = 'flex');
+      if (videosSection) {
+        videosSection.style.display = 'flex';
+        videosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         const primerVideo = videosSection.querySelector('video');
-        primerVideo && (primerVideo.muted=true, primerVideo.play().catch(()=>{}));
+        primerVideo && (primerVideo.muted = true, primerVideo.play().catch(() => {}));
       }
     }
 
-    function mostrarPortalAlumno(){
-      onboardBlur && (onboardBlur.style.display='none');
-      onboardContent.innerHTML=`
-        <div class="title-wrapper">
-          <div class="card-title">Aula Estudiante</div>
+    function mostrarPortalLogin(role) {
+      const esNuevo = role === 'new';
+
+      const titulo = esNuevo ? 'Nuevo Estudiante' : 'Aula Estudiante';
+      const textoIntro = esNuevo
+        ? 'Completa tus datos para comenzar tu proceso.'
+        : 'Ingresa a tu cuenta memanejo ID para acceder al contenido.';
+
+      const campo1 = esNuevo
+        ? `<input type="text" id="portalNombre" class="card-input" placeholder="Nombre completo" />`
+        : `<input type="email" id="portalEmail" class="card-input" placeholder="Correo electrónico" />`;
+
+      const campo2 = esNuevo
+        ? `<input type="email" id="portalCorreo" class="card-input" placeholder="Correo electrónico" />`
+        : `<input type="text" id="portalId" class="card-input" placeholder="memanejo ID" />`;
+
+      const textoBoton = esNuevo ? 'Comenzar' : 'Ingresar';
+
+      loginCardGlass.innerHTML = `
+        <div class="title-wrapper portal-title">
+          <div class="card-title">${titulo}</div>
         </div>
         <div class="card-subblock portal-intro">
-          <div class="card-text">Ingresa a tu cuenta memanejo ID para acceder al contenido.</div>
+          <div class="card-text">${textoIntro}</div>
         </div>
         <div class="portal-form">
-          <input type="email" id="portalEmail" class="card-input" placeholder="Correo electrónico" />
-          <input type="text" id="portalId" class="card-input" placeholder="memanejo ID" />
-          <button id="portalIngresar" class="card-btn">Ingresar</button>
-          <div id="portalVolver" class="card-back" style="margin-top:12px; cursor:pointer;">
+          ${campo1}
+          ${campo2}
+          <button id="portalIngresar" class="card-btn">${textoBoton}</button>
+          <div id="portalVolver" class="card-back" style="cursor:pointer;">
             <i class="fas fa-arrow-left"></i> Volver
           </div>
         </div>
       `;
-      const portalIngresar = document.getElementById('portalIngresar');
-      const portalVolver = document.getElementById('portalVolver');
-
-      portalIngresar?.addEventListener('click', ()=>{
-        const email = document.getElementById('portalEmail')?.value.trim();
-        const id = document.getElementById('portalId')?.value.trim();
-        if(!email||!id){
-          const e = document.createElement('div');
-          e.className='error-msg'; e.textContent='Completa correo e memanejo ID';
-          e.style.color='salmon'; e.style.marginTop='8px';
-          const prev = onboardContent.querySelector('.error-msg'); if(prev) prev.remove();
-          onboardContent.querySelector('.portal-form')?.appendChild(e);
-          return;
-        }
-        entrarComoVisitante();
-      });
-
-      portalVolver?.addEventListener('click', ()=>{
-        onboardContent.innerHTML = originalOnboardHTML;
-        reattachOnboardHandlers();
-        onboardBlur && (onboardBlur.style.display='');
-      });
     }
 
-    function ejecutarContinuar(){
-      if(!selectedRole){
-        const prev = onboardContent.querySelector('.error-msg'); if(prev) prev.remove();
-        const msg = document.createElement('div'); msg.className='error-msg';
-        msg.textContent='Selecciona Visitante o memanejo ID antes de continuar';
-        msg.style.color='#ffb4b4'; msg.style.marginTop='8px';
-        onboardContent.querySelector('.card-icons')?.after(msg);
-        setTimeout(()=>msg.remove(),3000);
+    function volverAlInicio() {
+      loginCardGlass.innerHTML = originalCardHTML;
+      selectedRole = null;
+    }
+
+    function ejecutarContinuar() {
+      if (!selectedRole) {
+        const prev = loginCardGlass.querySelector('.error-msg');
+        if (prev) prev.remove();
+        const msg = document.createElement('div');
+        msg.className = 'error-msg';
+        msg.textContent = 'Selecciona Nuevo estudiante o memanejo ID antes de continuar';
+        msg.style.color = '#ffb4b4';
+        msg.style.marginTop = '8px';
+        loginCardGlass.querySelector('.card-icons')?.after(msg);
+        setTimeout(() => msg.remove(), 3000);
         return;
       }
-      selectedRole==='visitante'? entrarComoVisitante(): mostrarPortalAlumno();
+      mostrarPortalLogin(selectedRole);
     }
 
-    btnContinuar.addEventListener('click', ejecutarContinuar);
+    loginCardGlass.addEventListener('click', (e) => {
+      const icon = e.target.closest('.icon-item');
+      if (icon) {
+        selectedRole = icon.dataset.role;
+        loginCardGlass.querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
+        icon.querySelector('.pill')?.classList.add('selected');
+        console.log('Rol seleccionado:', selectedRole); // 👈 déjalo un rato para confirmar en consola
+        return;
+      }
 
-    function reattachOnboardHandlers(){
-      const newIconItems = Array.from(document.querySelectorAll('.icon-item'));
-      const newBtn = document.getElementById('btnContinuar');
-      selectedRole=null;
-      newIconItems.forEach(icon=>{
-        icon.addEventListener('click', ()=>{
-          selectedRole = icon.dataset.role;
-          document.querySelectorAll('.pill').forEach(p=>p.classList.remove('selected'));
-          icon.querySelector('.pill')?.classList.add('selected');
-        });
-      });
-      if(newBtn) newBtn.addEventListener('click', ejecutarContinuar);
-    }
+      if (e.target.closest('#btnContinuar')) {
+        ejecutarContinuar();
+        return;
+      }
+
+      if (e.target.closest('#portalIngresar')) {
+        const esNuevo = !!document.getElementById('portalNombre');
+        const campoA = esNuevo
+          ? document.getElementById('portalNombre')?.value.trim()
+          : document.getElementById('portalEmail')?.value.trim();
+        const campoB = esNuevo
+          ? document.getElementById('portalCorreo')?.value.trim()
+          : document.getElementById('portalId')?.value.trim();
+
+        if (!campoA || !campoB) {
+          const prev = loginCardGlass.querySelector('.error-msg');
+          if (prev) prev.remove();
+          const err = document.createElement('div');
+          err.className = 'error-msg';
+          err.textContent = 'Completa todos los campos';
+          err.style.color = 'salmon';
+          err.style.marginTop = '8px';
+          loginCardGlass.querySelector('.portal-form')?.appendChild(err);
+          return;
+        }
+        entrarAlCurso();
+        return;
+      }
+
+      if (e.target.closest('#portalVolver')) {
+        volverAlInicio();
+        return;
+      }
+    });
   }
+
+  // ===== resto de tu JS (notificación iOS, acordeones, tooltips, slider, hamburguesa, likes) =====
+  // ... sin cambios, tal como lo tenías ...
+});
 
   // ===== NOTIFICACIÓN iOS =====
   const cursosSection = document.getElementById("cursos-section");

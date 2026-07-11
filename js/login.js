@@ -6,7 +6,9 @@ const testUsers = [
 
 window.testUsers = testUsers; // IMPORTANTE GLOBAL
 
-studentIngresar.addEventListener('click', () => {
+const studentIngresar = document.getElementById('studentIngresar');
+
+studentIngresar?.addEventListener('click', () => {
 
   const email = document.getElementById('studentEmail')?.value.trim();
   const id = document.getElementById('studentID')?.value.trim();
@@ -23,10 +25,8 @@ studentIngresar.addEventListener('click', () => {
     return;
   }
 
-  // 👇 guardar sesión (solo memoria, demo)
   window.currentStudent = validUser;
 
-  // 👇 UI
   document.querySelector('.student-login').style.display = 'none';
   document.querySelector('.student-dashboard').style.display = 'flex';
 
