@@ -166,24 +166,6 @@ header nav a:hover {
   }
 }
 
-/* ===== VIDEO / IMAGEN FULLSCREEN ===== */
-.onboard-video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 70;
-}
-
-.onboard-video-bg video,
-.onboard-video-bg .onboard-img-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
 
 
 /* ===== VIDEO FULLSCREEN ===== */
@@ -249,12 +231,11 @@ header nav a:hover {
 
 .onboard-left {
   display: none;
-  
 }
 
 .onboard-right {
   width: 100%;
-  max-width: 420px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -263,7 +244,7 @@ header nav a:hover {
 /* ===== CARD GLASS (mobile y desktop) ===== */
 .login-card-glass {
   width: 100%;
-  max-width: 640px;
+  max-width: 720px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -278,18 +259,30 @@ header nav a:hover {
   text-align: center;
 }
 
+/* ===== FORMULARIOS DENTRO DEL CARD (portal alumno / nuevo estudiante) ===== */
 .portal-form {
   max-width: 720px;
-  margin: 0 auto;
+  margin: 1rem auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.portal-form .card-input {
-  margin: 0.8rem;
+.card-input {
+  width: 100%;
+  max-width: 300px;
+  margin: 1rem auto 0 auto; /* auto fuerza el centrado horizontal siempre */
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  display: block; /* evita comportamientos raros entre input type=email vs type=text */
 }
 
 /* ===== Título ordenado (logo izquierda, texto derecha) ===== */
@@ -315,7 +308,8 @@ header nav a:hover {
 }
 .card-title-line1,
 .card-title-line2 {
-  line-height: 1.1; /* controla qué tan pegadas están las líneas entre sí */
+  line-height: 1.1;
+  text-align: left;
 }
 
 /* Textos */
@@ -335,7 +329,6 @@ header nav a:hover {
   display: flex;
   justify-content: center;
   gap: 28px;
-  margin-top: 45px;
 }
 
 .icon-item {
@@ -347,7 +340,7 @@ header nav a:hover {
 }
 
 .icon-item i {
-  font-size: 2.4rem;
+  font-size: 2rem;
   margin-bottom: 8px;
 }
 .icon-item i:hover {
@@ -357,7 +350,7 @@ header nav a:hover {
 
 .pill {
   display: inline-block;
-  padding: 5px 20px;
+  padding: 5px 24px;
   border-radius: 22px;
   background: #fff;
   font-weight: 600;
@@ -388,7 +381,8 @@ header nav a:hover {
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 30px;
+  margin: 20px auto 0 auto;
+  display: block;
 }
 
 .card-btn:hover {
@@ -420,33 +414,57 @@ header nav a:hover {
   font-size: 0.95rem;
 }
 
-.card-input {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 12px;
-  margin-top: 6px;
-}
-
-#portalVolver {
+/* ===== Botón "Volver" — unificado para AMBOS portales (alumno y nuevo estudiante) ===== */
+#portalVolver,
+#nuevoVolver {
   margin-top: 20px;
-  margin-bottom: 65px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+#portalVolver:hover,
+#nuevoVolver:hover {
+  transform: translateX(-6px);
+  opacity: 0.8;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 @media (max-width: 991px) {
   .card-subtitle {
-  font-size: 1.6rem;
-  font-weight: 600;
-  font-family: 'Avenir', sans-serif;
-  margin-top: 80px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Avenir', sans-serif;
+    margin-top: 60px;
+  }
+
+  .onboard-right {
+    max-width: 420px;
+  }
+
+  .login-card-glass {
+    min-height: 55vh;
+    padding: 2rem 1.5rem;
+    justify-content: center;
+  }
+
+  .card-icons {
+    margin-top: 36px;
+    margin-bottom: 16px;
+  }
+
+  .portal-form {
+    width: 100%;
+  }
+
+  .card-input {
+    max-width: 280px;
+  }
 }
-}
+
 /* ===== DESKTOP: SPLIT SCREEN ===== */
-@media (min-width: 992px) {
+@media (min-width: 1140px) {
   .onboard-content {
     flex-direction: row;
     justify-content: space-between;
@@ -471,8 +489,7 @@ header nav a:hover {
   }
 
   .onboard-right {
-    max-width: 720px;
-    min-width: 450px;
+    max-width: 550px;
     justify-content: flex-end;
     margin: 0;
   }
@@ -1194,346 +1211,6 @@ header nav a:hover {
   top: -160px !important;
 }
 
-/* CONTENIDOS - EXCLUSIVO */
-#contenidos {
-  background: #f8f9fa;
-  position: relative;
-}
-
-#contenidos h2.cursos-title {
-  font-weight: 600;
-  color: #111;
-  font-size: 50px;
-  text-align: left;
-  padding-top: 25px;
-  margin-bottom: 60px;
-}
-
-#contenidos h2.cursos-title::after {
-  content: "";
-  display: block;
-  width: 360px;
-  height: 3px;
-  background-color: #2261ff;
-  border-radius: 2px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* Wrapper y subtítulos de card */
-.contenidos-card-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
-}
-
-.contenidos-card-subtitle {
-  font-weight: 600;
-  color: #0237cb;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-}
-
-/* Card principal */
-.contenidos-card {
-  border: none;
-  border-radius: 1rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-  background: #fff;
-}
-
-.contenidos-card:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  transform: scale(1.03);
-}
-
-.contenidos-card-body {
-  padding: 2rem 1.5rem;
-}
-
-.contenidos-card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #111;
-  display: flex;
-  align-items: left;
-  justify-content: center;
-}
-
-.contenidos-card-title i {
-  color: #0237cb;
-  font-size: 1.5rem;
-  margin-right: 0.5rem;
-}
-#contenidos-card-subtitle {
-  font-size: 18px;
-}
-.contenidos-card-text {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Botones de card */
-.contenidos-card-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.contenidos-btn-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 1.4rem;
-  border-radius: 12px;
-  background: #0237cb;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  width: 100px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  margin: 10px;
-}
-
-.contenidos-btn-icon i {
-  font-size: 24px;
-  margin-bottom: 4px;
-  color: #dadde3;
-}
-
-.contenidos-btn-icon .divider {
-  width: 50%;
-  height: 2px;
-  background: rgba(34, 97, 255, 0.3);
-  margin: 4px 0;
-}
-
-.contenidos-btn-icon p {
-  font-size: 0.75rem;
-  margin: 0;
-  text-align: center;
-  color: #003194;
-  white-space: nowrap;
-  
-}
-
-.contenidos-btn-icon:hover {
-  background: #6284ff;
-  transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.btn-izq-rounded p{
-  color: #f0f0f0;
-}
-.contenidos-descarga {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.descarga-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #000;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.descarga-link:hover {
-  transform: translateY(6px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.descarga-link i {
-  font-size: 30px;
-}
-.descarga-link p {
-  margin: 0;          
-  line-height: 1;     
-  margin-left: 10px;
-}
-/* Responsive: ajuste de cards */
-@media (max-width: 1199px) {
-
-  /* Pantallas intermedias: usar flex-wrap y ancho mínimo para que no se adelgacen */
-  .row.g-4 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .col-md-4 {
-    flex: 1 1 300px;
-    /* mínimo ancho de 300px */
-    max-width: 33%;
-  }
-}
-
-@media (max-width: 992px) {
-  .col-md-4 {
-    flex: 1 1 100%;
-    /* pasa a columna única */
-    max-width: 100%;
-  }
-
-  .contenidos-card-body {
-    padding: 1rem;
-  }
-}
-/* Estado inicial */
-#modalStudentSubscription .modal-dialog {
-  transform: translateY(-100px);
-  opacity: 0;
-  transition: transform 0.85s ease, opacity 0.35s ease;
-}
-
-/* Cuando Bootstrap lo muestra */
-#modalStudentSubscription.show .modal-dialog {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* ===== TOP BAR suscripción ===== */
-#modalStudentSubscription .modern-modal {
-  background: #0e0e11;
-}
-
-.modern-modal .modal-topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.2rem;
-  border-bottom: 1px solid #0e0e11;
-  background: #0e0e11;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.modal-topbar .topbar-left {
-  font-size: 1.2rem;
-  color: #f0f0f0;
-}
-
-.modal-topbar .topbar-title {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-
-/* ===== CARDS ===== */
-#modalStudentSubscription .modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.topbar-left {
-  display: flex;
-  align-items: center;
-  font-size: 1.1rem;
-  font-weight: bold;
-  gap: 8px;
-  color: #000951;
-}
-
-.topbar-logo {
-  width: 32px; /* ajusta al tamaño que quieras */
-  height: 32px;
-  object-fit: contain;
-  border-radius: 24px;
-}
-.topbar-close {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  color: #fff;
-  transition: background 0.2s ease, transform 0.15s ease;
-}
-
-.topbar-close:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: scale(1.1);
-}
-
-.topbar-close i {
-  font-size: 1.2rem;
-}
-
-/* Card general */
-.sub-card {
-  background: #2c2c2c;
-  border-radius: 18px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
-  animation: fadeUp 0.35s ease;
-}
-
-/* Título */
-.sub-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: .3rem;
-  color: #f0f0f0;
-}
-
-/* Texto */
-.sub-desc {
-  color: #f0f0f0;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-/* Imagen o logo del plan */
-.sub-img {
-  width: 100%;
-  height: 120px;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-
-/* Botón */
-.sub-btn {
-  background: #007bff;
-  color: rgb(234, 234, 234);
-  border: none;
-  border-radius: 36px;
-  padding: .7rem 2.5rem;
-  font-size: 1rem;
-  margin-bottom: 0.7rem;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-/* Texto pequeño inferior */
-.sub-small {
-  color: #777;
-  font-size: 0.8rem;
-  margin-top: 8px;
-}
-
-/* Animación tipo iOS */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* ===== FEEDBACK SECTION ===== */
 #alumni-feedback-section {
@@ -1977,7 +1654,6 @@ header nav a:hover {
   cursor: pointer;
   font-size: 0.8rem;
   white-space: nowrap;
-  /* 🔹 evita cortes en dos líneas */
   transition: all 0.3s ease;
 }
 
@@ -1989,7 +1665,6 @@ header nav a:hover {
 @media (min-width: 768px) {
   .curso-row {
     padding: 0 2rem;
-    /* 🔹 separa del borde */
   }
 
   .curso-km {
@@ -2011,7 +1686,6 @@ header nav a:hover {
 @media (min-width: 1024px) {
   .curso-row {
     padding: 0 4rem;
-    /* 🔹 aún más separación de bordes */
   }
 
   .curso-km {
@@ -2035,6 +1709,7 @@ header nav a:hover {
   overflow: hidden;
   margin-bottom: 1.5rem;
   z-index: 2000;
+  transition: max-height 0.4s ease; /* antes no existía: abría de golpe sin animación */
 }
 
 .curso-accordion.active {
@@ -2047,7 +1722,7 @@ header nav a:hover {
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
   margin-top: 30px;
-  margin-bottom: 140px;
+  margin-bottom: 40px; /* antes: 140px — ese exceso era el hueco enorme antes del título siguiente */
 }
 
 .icon-wrapper {
@@ -2056,7 +1731,6 @@ header nav a:hover {
   align-items: center;
   text-align: center;
   position: relative;
-  
 }
 
 /* ===== Ícono principal ===== */
@@ -2125,7 +1799,6 @@ header nav a:hover {
   content: attr(data-tooltip);
   position: absolute;
   top: 30px;
-  /* debajo del ícono o pill */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.85);
@@ -2159,7 +1832,6 @@ header nav a:hover {
   z-index: 10;
 }
 
-/* Mostrar tooltip solo si tiene data-tooltip */
 .icon-pill[data-tooltip]:hover::after,
 .icon-pill[data-tooltip]:hover::before,
 .icon-pill[data-tooltip].active::after,
@@ -2189,7 +1861,6 @@ header nav a:hover {
 
 /* Hover solo en escritorio */
 @media (hover: hover) {
-
   .icon-pill[data-tooltip]:hover::after,
   .icon-pill[data-tooltip]:hover::before {
     opacity: 1;
@@ -2213,7 +1884,7 @@ header nav a:hover {
 @media (min-width: 768px) {
   .icon-grid {
     grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 120px;
+    margin-bottom: 30px;
   }
 }
 
@@ -2223,6 +1894,7 @@ header nav a:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 /* Fondo oscuro + blur */
 #modalCodigo {
   position: fixed;
@@ -2230,7 +1902,7 @@ header nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(4px);
   display: none;
   justify-content: center;
@@ -2248,7 +1920,7 @@ header nav a:hover {
   border-radius: 14px;
   position: relative;
   animation: floatUp 0.3s ease;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
 
@@ -2290,7 +1962,7 @@ header nav a:hover {
 
 #modalCodigo input[type="text"]:focus {
   border-color: #000;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.25);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, .25);
 }
 
 /* Botón validar */
@@ -2341,6 +2013,7 @@ header nav a:hover {
   from { transform: translateY(14px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
 /* Oculta el header mientras el onboarding esté activo, en cualquier resolución */
 body.onboarding-activo header {
   display: none !important;
@@ -2351,3 +2024,153 @@ body.onboarding-activo header {
   overflow-y: auto;
 }
 
+/* ------------------ CONTENIDOS DEL CURSO ------------------ */
+#contenidos {
+  background: #f8f9fa;
+  padding: 5rem 0;
+}
+
+/* ===== Título "Contenidos del Curso" — consistente con .cursos-title ===== */
+#contenidos h3 {
+  position: relative;
+  font-weight: 600;
+  color: #111;
+  font-size: 50px;
+  margin-bottom: 60px;
+  padding-top: 25px;
+}
+
+#contenidos h3::before {
+  content: "";
+  display: block;
+  width: 160px;
+  height: 3px;
+  background-color: #2261ff;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== Grid de cards ===== */
+/* Mobile e intermedias: 1 columna (vertical) */
+.row-cursos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Desktop: 3 columnas en fila, ocupando más espacio */
+@media (min-width: 1140px) {
+  .row-cursos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1400px;
+    padding: 0 3rem;
+  }
+}
+
+/* ===== Card: plana, con borde azul que la delimita ===== */
+#contenidos .card {
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.card-gris {
+  border: 1px solid #2261ff;
+  background: #e0e0e0;
+}
+
+#contenidos .card-body {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Ícono a la izquierda, título a la derecha, conjunto centrado ===== */
+#contenidos .card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #111;
+  text-align: center;
+}
+
+#contenidos .card-title i {
+  color: #2261ff;
+  font-size: 1.5rem;
+}
+
+#contenidos .card-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.linea-divide {
+  width: 100%;
+  height: 2px;
+  background-color: #2261ff;
+  margin-bottom: 5px;
+}
+
+.acceso-text {
+  font-size: 0.68rem;
+  opacity: 0.75;
+  letter-spacing: 0.2px;
+}
+
+/* ===== Botones dentro de las cards ===== */
+.d-flex .btn {
+  display: inline-block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.d-flex .btn:hover {
+  transform: scale(1.05);
+}
+
+.d-flex button.btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.08);
+  background-color: #000000;
+}
+
+/* ===== Triángulo / chevron que abre-cierra el collapse ===== */
+[data-bs-toggle="collapse"] i.fa-chevron-down {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+  will-change: transform;
+}
+
+[data-bs-toggle="collapse"] i.fa-chevron-down.rotated {
+  transform: rotate(180deg);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  #contenidos h3 {
+    font-size: 2rem;
+  }
+
+  #contenidos .card-body {
+    padding: 1.5rem 1rem;
+  }
+}
+@media (min-width: 750px) and (max-width: 1139px) {
+  .row-cursos {
+    max-width: 700px;
+    padding: 0 1.5rem;
+  }
+}

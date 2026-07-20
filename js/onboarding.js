@@ -159,7 +159,7 @@ function mostrarNuevoEstudiante() {
       <div class="card-text">Completa tus datos para comenzar tu proceso.</div>
     </div>
     <div class="portal-form">
-      <input type="text" id="nuevoNombre" class="card-input" placeholder="Nombre completo" />
+      <input type="text" id="nuevoNombre" class="card-input" placeholder="Nombre y Apellido" />
       <input type="email" id="nuevoEmail" class="card-input" placeholder="Correo electrónico" />
       <button id="nuevoCrear" class="card-btn">Comenzar</button>
       <div id="nuevoVolver" class="card-back" style="cursor:pointer;">
@@ -214,8 +214,20 @@ function showError(msg) {
   div.style.color = '#ffb4b4';
   div.style.marginTop = '8px';
 
-  loginCardGlass.querySelector('.portal-form')?.appendChild(div)
-    || loginCardGlass.querySelector('.card-icons')?.after(div);
+  const portalForm = loginCardGlass.querySelector('.portal-form');
+
+  if (portalForm) {
+    const inputs = portalForm.querySelectorAll('.card-input');
+    const lastInput = inputs[inputs.length - 1];
+
+    if (lastInput) {
+      lastInput.insertAdjacentElement('afterend', div);
+    } else {
+      portalForm.appendChild(div);
+    }
+  } else {
+    loginCardGlass.querySelector('.card-icons')?.after(div);
+  }
 
   setTimeout(() => div.remove(), 4000);
 }
