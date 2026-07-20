@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  font-family: sans-serif;
+  font-family: 'Avenir', sans-serif;
   background-color: #111;
 }
 
@@ -244,13 +244,12 @@ header nav a:hover {
   text-align: center;
   color: #fff;
   z-index: 90;
-  font-family: 'Montserrat', sans-serif;
-  padding: 20px;
   box-sizing: border-box;
 }
 
 .onboard-left {
   display: none;
+  
 }
 
 .onboard-right {
@@ -264,13 +263,13 @@ header nav a:hover {
 /* ===== CARD GLASS (mobile y desktop) ===== */
 .login-card-glass {
   width: 100%;
-  max-width: 540px;
+  max-width: 640px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
-  padding: 28px 20px;
+  padding: 68px 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   display: flex;
@@ -300,7 +299,6 @@ header nav a:hover {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  margin-bottom: 10px;
 }
 
 .title-wrapper img {
@@ -308,35 +306,36 @@ header nav a:hover {
   height: 90px;
   border-radius: 22px;
   object-fit: cover;
-  margin-bottom: 10px;
 }
 
 .card-title {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  font-size: 36px;
+}
+.card-title-line1,
+.card-title-line2 {
+  line-height: 1.1; /* controla qué tan pegadas están las líneas entre sí */
 }
 
 /* Textos */
-.card-subblock {
-  margin-bottom: 42px;
-}
 
 .card-subtitle {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 600;
+  margin-top: 80px;
 }
 
 .card-text {
   opacity: 0.85;
-  margin-bottom: 42px;
+  font-size: 12px;
 }
 
 .card-icons {
   display: flex;
   justify-content: center;
   gap: 28px;
-  margin-bottom: 22px;
+  margin-top: 45px;
 }
 
 .icon-item {
@@ -389,7 +388,7 @@ header nav a:hover {
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .card-btn:hover {
@@ -434,45 +433,25 @@ header nav a:hover {
   margin-top: 6px;
 }
 
-@media (max-width: 768px) {
-  .card-input {
-    width: 90%;
-  }
-}
-
-@media (max-width: 420px) {
-  .card-input {
-    width: 100%;
-    max-width: 250px;
-  }
-}
-
-@media (max-width: 540px) {
-  .card-input {
-    width: 90%;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 680px) {
-  .card-input {
-    width: 100%;
-    max-width: 280px;
-  }
-}
-
 #portalVolver {
   margin-top: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 65px;
 }
-
+@media (max-width: 991px) {
+  .card-subtitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: 'Avenir', sans-serif;
+  margin-top: 80px;
+}
+}
 /* ===== DESKTOP: SPLIT SCREEN ===== */
 @media (min-width: 992px) {
   .onboard-content {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 80px;
+    padding: 60px 60px;
   }
 
   .onboard-left {
@@ -481,24 +460,25 @@ header nav a:hover {
     justify-content: center;
     align-items: flex-start;
     text-align: left;
-    width: 50%;
+    width: 100%;
   }
 
   .onboard-welcome {
-    font-size: 3.5rem;
+    font-size: 7rem;
     font-weight: 800;
     line-height: 1.2;
+    font-family: 'Avenir', sans-serif;
   }
 
   .onboard-right {
-    width: 45%;
-    max-width: 420px;
+    max-width: 720px;
+    min-width: 450px;
     justify-content: flex-end;
     margin: 0;
   }
 
   .login-card-glass {
-    padding: 32px 24px;
+    padding: 62px 24px;
   }
 
   .portal-overlay-aula {
