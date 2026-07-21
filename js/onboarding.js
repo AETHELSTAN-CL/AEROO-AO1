@@ -97,7 +97,7 @@ function entrarComoVisitante() {
     videosNormales.scrollIntoView({ behavior: 'smooth', block: 'start' });
     const video = videosNormales.querySelector('video');
     video && (video.muted = true);
-    video?.play().catch(() => {});
+    video?.play().catch(() => { });
   }
 }
 
@@ -107,10 +107,10 @@ function entrarComoVisitante() {
 function mostrarPortalAlumno() {
   loginCardGlass.innerHTML = `
     <div class="title-wrapper portal-title">
-      <div class="card-title">Aula Estudiante</div>
+      <div class="card-title"><strong>Aula Virtual</strong></div>
     </div>
     <div class="card-subblock portal-intro">
-      <div class="card-text">Ingresa a tu cuenta memanejo ID para acceder al contenido.</div>
+      <div class="card-text">Inicia sesión con <strong>memanejo ID</strong> para revisar tu progreso, tareas y contenido del curso.</div>
     </div>
     <div class="portal-form">
       <input type="email" id="portalEmail" class="card-input" placeholder="Correo electrónico" />
@@ -153,10 +153,10 @@ function mostrarPortalAlumno() {
 function mostrarNuevoEstudiante() {
   loginCardGlass.innerHTML = `
     <div class="title-wrapper portal-title">
-      <div class="card-title">Nuevo Estudiante</div>
+      <div class="card-title"><strong>Crea tu memanejo ID</strong></div>
     </div>
     <div class="card-subblock portal-intro">
-      <div class="card-text">Completa tus datos para comenzar tu proceso.</div>
+      <div class="card-text">Completa tus datos para acceder a contenido gratuito y conocer nuestros cursos.</div>
     </div>
     <div class="portal-form">
       <input type="text" id="nuevoNombre" class="card-input" placeholder="Nombre y Apellido" />
