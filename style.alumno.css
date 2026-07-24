@@ -1,4 +1,3 @@
-/* ------------------ BASE ------------------ */
 html,
 body {
   max-width: 100%;
@@ -8,6 +7,14 @@ body {
   scroll-behavior: smooth;
   font-family: 'Avenir', sans-serif;
   background-color: #111;
+}
+
+body.onboard-lock {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overscroll-behavior: none;
 }
 
 /* ===== HEADER BASE ===== */
@@ -37,7 +44,7 @@ header .logo img {
 }
 
 header .logo p {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0;
   color: #fff;
@@ -167,6 +174,13 @@ header nav a:hover {
   }
 }
 
+body.onboarding-activo {
+  position: fixed;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  overscroll-behavior: none;
+}
 
 
 /* ===== VIDEO FULLSCREEN ===== */
@@ -176,6 +190,9 @@ header nav a:hover {
   left: 0;
   width: 100%;
   height: 100vh;
+  /* fallback */
+  height: 100dvh;
+  /* real */
   overflow: hidden;
   z-index: 70;
 }
@@ -209,6 +226,7 @@ header nav a:hover {
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.45);
   z-index: 80;
 }
@@ -220,6 +238,7 @@ header nav a:hover {
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -236,7 +255,7 @@ header nav a:hover {
 
 .onboard-right {
   width: 100%;
-  max-width: 600px;
+  max-width: 450px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -307,7 +326,7 @@ header nav a:hover {
 .card-title {
   display: flex;
   flex-direction: column;
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .card-title-line1,
@@ -439,16 +458,20 @@ header nav a:hover {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 491px) {
   .card-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     font-family: 'Avenir', sans-serif;
     margin-top: 60px;
   }
 
+  .card-text {
+    font-size: 0.5rem;
+  }
+
   .onboard-right {
-    max-width: 420px;
+    max-width: 380px;
   }
 
   .login-card-glass {
@@ -471,13 +494,50 @@ header nav a:hover {
   }
 }
 
+/* ===== INTERMEDIO: TABLETS / LAPTOPS PEQUEÑOS ===== */
+@media (min-width: 492px) and (max-width: 1239px) {
+  .card-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Avenir', sans-serif;
+    margin-top: 40px;
+  }
+
+  .card-text {
+    font-size: 0.7rem;
+  }
+
+  .onboard-right {
+    max-width: 450px;
+  }
+
+  .login-card-glass {
+    min-height: 60vh;
+    padding: 3rem 2rem;
+    justify-content: center;
+  }
+
+  .card-icons {
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+
+  .portal-form {
+    width: 100%;
+  }
+
+  .card-input {
+    max-width: 320px;
+  }
+}
+
 /* ===== DESKTOP: SPLIT SCREEN ===== */
-@media (min-width: 1140px) {
+@media (min-width: 1249px) {
   .onboard-content {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 60px;
+    padding: 80px 80px;
   }
 
   .onboard-left {
@@ -520,9 +580,15 @@ header nav a:hover {
 #videos {
   width: 100%;
   overflow-x: auto;
-  padding-top: 100px;
+  padding-top: 85px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+  #videos {
+    padding-top: 0;
+  }
 }
 
 .tarjeta-video-container {
@@ -549,7 +615,7 @@ header nav a:hover {
   position: relative;
   width: 450px;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 36px;
   background: #000;
   flex: 0 0 auto;
   margin-bottom: 10px;
@@ -676,7 +742,7 @@ header nav a:hover {
 /* Pill principal */
 .pill-nav {
   position: fixed;
-  bottom: 4px;
+  bottom: 10px;
   left: 40%;
   transform: translateX(-50%);
   display: flex;
@@ -698,7 +764,6 @@ header nav a:hover {
   justify-content: center;
   margin: 0 15px;
   color: #fff;
-  font-size: 12px;
   cursor: pointer;
   text-decoration: none;
 }
@@ -706,8 +771,8 @@ header nav a:hover {
 
 /* CSS: efecto al presionar (ponlo en tu CSS) */
 .pill-item i {
-  font-size: 22px;
-  margin-bottom: 3px;
+  font-size: 18px;
+  margin-top: 3px;
   transition: transform 0.2s ease, color 0.2s ease;
 
 }
@@ -721,7 +786,7 @@ header nav a:hover {
 /* Icono estudiante separado */
 .pill-student {
   position: fixed;
-  bottom: 4px;
+  bottom: 10px;
   right: 30px;
   display: flex;
   align-items: center;
@@ -1608,22 +1673,26 @@ header nav a:hover {
 /* ===== Sección Cursos ===== */
 .cursos-section {
   width: 100vw;
-  min-height: 100vh;
-  padding: 1.9rem 0.9rem;
+  padding: 2em 1rem;
   box-sizing: border-box;
   background-color: #fff;
   overflow-x: hidden;
 }
 
-/* ===== Título Contenidos del Curso Online ===== */
+/* ===== Título Contenidos del Curso Teórico ===== */
 .cursos-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
   font-weight: 600;
   color: #111;
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 60px;
   padding-top: 25px;
   margin-left: 0;
+  text-align: center;
 }
 
 .cursos-title small {
@@ -1634,7 +1703,7 @@ header nav a:hover {
   margin-top: 5px;
 }
 
-/* 🔹 Guion azul arriba del texto */
+/* 🔹 Guion azul arriba del texto, centrado */
 .cursos-title::before {
   content: "";
   display: block;
@@ -1644,7 +1713,8 @@ header nav a:hover {
   border-radius: 2px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* ===== Fila principal ===== */
@@ -1653,7 +1723,7 @@ header nav a:hover {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  margin-top: 3.5rem;
 }
 
 /* ===== Info curso ===== */
@@ -1692,9 +1762,6 @@ header nav a:hover {
 
 /* ===== Pantallas intermedias (>=768px) ===== */
 @media (min-width: 768px) {
-  .curso-row {
-    padding: 0 2rem;
-  }
 
   .curso-km {
     font-size: 3.5rem;
@@ -1713,9 +1780,7 @@ header nav a:hover {
 
 /* ===== Escritorio (>=1024px) ===== */
 @media (min-width: 1024px) {
-  .curso-row {
-    padding: 0 4rem;
-  }
+  
 
   .curso-km {
     font-size: 4rem;
@@ -1743,7 +1808,7 @@ header nav a:hover {
 }
 
 .curso-accordion.active {
-  max-height: 600px;
+  max-height: 1000px;
 }
 
 /* ===== Grid de íconos ===== */
@@ -1751,9 +1816,7 @@ header nav a:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
-  margin-top: 30px;
-  margin-bottom: 40px;
-  /* antes: 140px — ese exceso era el hueco enorme antes del título siguiente */
+  margin-top: 2rem;
 }
 
 .icon-wrapper {
@@ -1762,6 +1825,8 @@ header nav a:hover {
   align-items: center;
   text-align: center;
   position: relative;
+  
+  
 }
 
 /* ===== Ícono principal ===== */
@@ -1782,7 +1847,7 @@ header nav a:hover {
 
 .icon-card:hover {
   background-color: #000000;
-  transform: translateY(3px);
+  transform: scale(1.05);
 }
 
 .icon-card i {
@@ -1818,20 +1883,8 @@ header nav a:hover {
   position: relative;
   cursor: pointer;
 }
-
-/* Tooltip solo si existe data-tooltip */
-.icon-pill[data-tooltip]::after,
-.icon-pill[data-tooltip]::before {
-  display: block;
-}
-
-/* ===== Tooltip general ===== */
-.icon-pill::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+.tooltip-box {
+  position: fixed;
   background: rgba(0, 0, 0, 0.85);
   color: #fff;
   padding: 6px 10px;
@@ -1845,59 +1898,25 @@ header nav a:hover {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
-  z-index: 10;
+  z-index: 9999;
 }
 
-/* Flechita */
-.icon-pill::before {
+.tooltip-box.show {
+  opacity: 1;
+}
+
+/* Flechita apuntando hacia el botón */
+.tooltip-box::before {
   content: '';
   position: absolute;
-  top: 26px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  z-index: 10;
+  border-color: transparent transparent rgba(0, 0, 0, 0.85) transparent;
 }
 
-.icon-pill[data-tooltip]:hover::after,
-.icon-pill[data-tooltip]:hover::before,
-.icon-pill[data-tooltip].active::after,
-.icon-pill[data-tooltip].active::before {
-  opacity: 1;
-}
-
-/* 📱 Tooltip más horizontal y compacto en mobile */
-@media (max-width: 768px) {
-  .icon-pill[data-tooltip]::after {
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 5px);
-    width: 140px;
-    max-width: 90vw;
-    padding: 4px 4px;
-    border-radius: 6px;
-    font-size: 0.78rem;
-    line-height: 1.1;
-    text-align: center;
-  }
-
-  .cursos-title::before {
-    width: 260px;
-  }
-}
-
-/* Hover solo en escritorio */
-@media (hover: hover) {
-
-  .icon-pill[data-tooltip]:hover::after,
-  .icon-pill[data-tooltip]:hover::before {
-    opacity: 1;
-  }
-}
 
 /* ===== Enlaces de íconos ===== */
 .icon-link {
@@ -1907,7 +1926,7 @@ header nav a:hover {
 }
 
 .icon-link:hover .icon-card {
-  transform: translateY(4px);
+  transform: scale(1.05);
   opacity: 0.9;
   transition: all 0.2s ease;
 }
@@ -2068,10 +2087,10 @@ body.onboarding-activo header {
   overflow-y: auto;
 }
 
-/* ------------------ CONTENIDOS DEL CURSO ------------------ */
+/* ------------------ memanejo manejando curso personalizado ------------------ */
 #contenidos {
   background: #f8f9fa;
-  padding: 5rem 0;
+  padding: 2rem 1rem;
 }
 
 /* ===== Título "Contenidos del Curso" — consistente con .cursos-title ===== */
@@ -2079,15 +2098,16 @@ body.onboarding-activo header {
   position: relative;
   font-weight: 600;
   color: #111;
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 60px;
+  margin-top: 60px;
   padding-top: 25px;
 }
 
 #contenidos h3::before {
   content: "";
   display: block;
-  width: 160px;
+  width: 360px;
   height: 3px;
   background-color: #2261ff;
   border-radius: 2px;
@@ -2096,7 +2116,13 @@ body.onboarding-activo header {
   left: 50%;
   transform: translateX(-50%);
 }
-
+#contenidos h3 small {
+  display: block;
+  font-size: 22px;
+  font-weight: 400;
+  color: #555;
+  margin-top: 5px;
+}
 /* ===== Grid de cards ===== */
 /* Mobile e intermedias: 1 columna (vertical) */
 .row-cursos {
@@ -2204,8 +2230,9 @@ body.onboarding-activo header {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  #contenidos h3 {
-    font-size: 2rem;
+  
+  #contenidos h3 small {
+    margin-top: 0.5rem;
   }
 
   #contenidos .card-body {
@@ -2218,4 +2245,180 @@ body.onboarding-activo header {
     max-width: 700px;
     padding: 0 1.5rem;
   }
+}
+
+/* ============================================= */
+/* ===== MODAL MEMANEJO PAY (estilo iOS) ======== */
+/* ============================================= */
+
+/* Contenedor del modal pegado abajo en mobile, centrado en desktop */
+.modal-dialog-bottom {
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  max-width: 480px;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog-bottom {
+    align-items: center;
+    min-height: calc(100vh - 3.5rem);
+  }
+}
+
+.modern-modal {
+  border: none;
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 576px) {
+  .modern-modal {
+    border-radius: 24px;
+  }
+}
+
+/* ===== TOP BAR estilo iOS ===== */
+.modal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #111;
+  color: #fff;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.topbar-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  object-fit: contain;
+}
+
+.topbar-close {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #fff;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.topbar-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ===== BODY con cards ===== */
+.modal-body {
+  background: #f5f6f8;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* ===== CARD individual dentro del modal ===== */
+.sub-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  border: 1px solid #0026ff;
+}
+
+.sub-card:last-child {
+  margin-bottom: 0;
+}
+
+.sub-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.sub-desc {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* ===== Iconos tipo app dentro de cada plan ===== */
+.sub-icons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.sub-icon-item {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(34, 97, 255, 0.1);
+  border: 1px solid rgba(34, 97, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sub-icon-item i {
+  font-size: 1.2rem;
+  color: #2261ff;
+}
+
+.sub-icon-item:hover {
+  transform: scale(1.08);
+  background: rgba(34, 97, 255, 0.18);
+}
+
+/* ===== Botón principal de cada card ===== */
+.sub-btn {
+  width: 100%;
+  border: none;
+  border-radius: 36px;
+  background: #2261ff;
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1.3;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.sub-btn strong {
+  font-weight: 700;
+}
+
+.sub-btn small {
+  font-weight: 400;
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.sub-btn:hover {
+  background: #1a4fd6;
+  transform: scale(1.02);
+}
+
+.sub-small {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 10px;
+  margin-bottom: 0;
 }

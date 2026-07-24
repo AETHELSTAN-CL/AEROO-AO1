@@ -167,47 +167,34 @@ document.addEventListener('click', e => {
   }, 400); // debe calzar con transition: max-height 0.4s del CSS
 });
 
-// =====================
-// TOOLTIP RESPONSIVO EN ICON-PILL
-// =====================
 document.querySelectorAll('.icon-pill').forEach(el => {
-  // Hover en escritorio
-  el.addEventListener('mouseenter', e => {
-    if (!window.matchMedia('(hover: none)').matches && e.target === el) {
-      el.classList.add('show-tooltip');
-    }
-  });
-  el.addEventListener('mouseleave', e => {
-    if (e.target === el) el.classList.remove('show-tooltip');
-  });
+  const box = el.querySelector('.tooltip-box');
+  if (!box) return;
+  box.textContent = el.dataset.tooltip || '';
 
-  // Click en móvil
+  function showTooltip() {
+    const rect = el.getBoundingClientRect();
+    box.style.top = `${rect.bottom + 8}px`;
+    box.style.left = `${rect.left + rect.width / 2}px`;
+    box.style.transform = 'translateX(-50%)';
+    box.classList.add('show');
+  }
+
+  function hideTooltip() {
+    box.classList.remove('show');
+  }
+
+  el.addEventListener('mouseenter', () => {
+    if (!window.matchMedia('(hover: none)').matches) showTooltip();
+  });
+  el.addEventListener('mouseleave', hideTooltip);
+
   el.addEventListener('click', e => {
     e.stopPropagation();
+    e.preventDefault();
     if (window.matchMedia('(hover: none)').matches) {
-      // Cierra otros tooltips
-      document.querySelectorAll('.icon-pill.show-tooltip').forEach(t => {
-        if (t !== el) t.classList.remove('show-tooltip');
-      });
-
-      el.classList.toggle('show-tooltip');
-      setTimeout(() => el.classList.remove('show-tooltip'), 500);
-    }
-  });
-});
-
-// =====================
-// BLOQUEA CLIC EN EL PILL
-// =====================
-document.querySelectorAll('.icon-pill').forEach(pill => {
-  pill.addEventListener('click', e => {
-    e.stopPropagation();  // evita que el clic suba al .icon-link
-    e.preventDefault();   // evita abrir modales o descargas
-
-    // Muestra tooltip en mobile
-    if (window.matchMedia('(hover: none)').matches && pill.dataset.tooltip) {
-      pill.classList.add('active');
-      setTimeout(() => pill.classList.remove('active'), 500);
+      showTooltip();
+      setTimeout(hideTooltip, 1500);
     }
   });
 });

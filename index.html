@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <!-- 🔑 SEO Básico -->
   <title>Aula Virtual | Cursos de Conducción y Seguridad Vial - memanejo.cl</title>
   <meta name="description"
     content="Accede al Aula Virtual de memanejo.cl. Cursos de conducción Clase B, mecánica básica y seguridad vial. Aprende a conducir con confianza y aprueba tu examen con éxito.">
-  <meta name="author" content="Leonardo AZO" />
+  <meta name="author" content="Leonardo Azo" />
   <link rel="canonical" href="https://www.memanejomanejando.cl/" />
 
   <!-- 📱 Favicons -->
@@ -125,8 +125,9 @@
         <div class="card-subblock">
           <div class="card-subtitle">AQUÍ COMIENZA TU CAMINO</div>
         </div>
-<div class="card-selector">
-          <div class="card-text mb-1">Selecciona una opción y accede al contenido para obtener tu Licencia de Conducir Clase B.</div>
+        <div class="card-selector">
+          <div class="card-text mb-1">Selecciona una opción y accede al contenido para obtener tu Licencia de Conducir
+            Clase B.</div>
         </div>
         <!-- ICONOS EN COLUMNA -->
         <div class="card-icons">
@@ -379,283 +380,312 @@
 
   <!-- ===== CURSOS App ===== -->
   <section id="cursos-section" class="cursos-section">
-    <h2 class="cursos-title" data-aos="fade-up">Cursos de Conducción <br><small> Online</small></h2>
+    <h2 class="cursos-title" data-aos="fade-up">memanejo + <br><small> Online</small></h2>
 
-    <!-- ===== CURSO 0KM ===== -->
-    <div class="curso-row">
-      <div class="curso-info">
-        <h3 class="curso-km"><strong>0Km</strong></h3>
-        <p class="curso-subtitle">PEATÓN</p>
+   <!-- ===== CURSO 0KM ===== -->
+<div class="curso-row">
+  <div class="curso-info">
+    <h3 class="curso-km"><strong>0Km</strong></h3>
+    <p class="curso-subtitle">PEATÓN</p>
+  </div>
+  <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
+</div>
+<div class="curso-accordion">
+  <div class="icon-grid">
+    <!-- Icono Estudiante / Suscripción -->
+    <div class="icon-wrapper">
+      <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+        data-bs-target="#modalStudentSubscription"
+        style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+        <div class="icon-card">
+          <span class="icon-text">memanejo ID</span>
+          <i class="fas fa-user-graduate fa-2x"></i>
+        </div>
+      </button>
+      <span class="icon-pill"
+        data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+
+
+    <!-- Icono Resumen PDF -->
+    <div class="icon-wrapper" data-item-id="resumen1y2" data-download="/archivos/Resumen y tips C.1y2.pdf">
+      <a href="#" class="icon-link open-modal">
+        <div class="icon-card">
+          <span class="icon-text">Resumen Capítulo 1 y 2</span>
+          <i class="fa-solid fa-download"></i>
+        </div>
+      </a>
+      <span class="icon-pill" data-tooltip="Interactivo y fácil de leer" data-default="$3.900">$3.900
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+
+    <!-- Icono Glosario -->
+    <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
+      <div class="icon-wrapper">
+        <div class="icon-card">
+          <span class="icon-text">Glosario Vial</span>
+          <i class="fa-solid fa-download"></i>
+        </div>
+        <span class="icon-pill" data-tooltip="Descargar">GRATIS
+          <span class="tooltip-box"></span>
+        </span>
       </div>
-      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
-    </div>
-    <div class="curso-accordion">
-      <div class="icon-grid">
-        <!-- Icono Estudiante / Suscripción -->
-        <div class="icon-wrapper">
-          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
-            data-bs-target="#modalStudentSubscription"
-            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-            <div class="icon-card">
-              <span class="icon-text">memanejo ID</span>
-              <i class="fas fa-user-graduate fa-2x"></i>
-            </div>
-          </button>
-          <span class="icon-pill"
-            data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!</span>
+    </a>
+
+
+    <!-- Icono Test 10 Preguntas -->
+    <a href="quiz/quiz-nivelacion/" target="_blank" class="icon-link">
+      <div class="icon-wrapper">
+        <div class="icon-card">
+          <span class="icon-text">Quiz Nivelación</span>
+          <i class="fas fa-book fa-2x"></i>
         </div>
-
-
-        <!-- Icono Resumen PDF -->
-        <div class="icon-wrapper" data-item-id="resumen1y2" data-download="/archivos/Resumen y tips C.1y2.pdf">
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">Resumen Capítulo 1 y 2</span>
-              <i class="fa-solid fa-download"></i>
-            </div>
-          </a>
-          <span class="icon-pill" data-tooltip="Interactivo y fácil de leer" data-default="$3.900">$3.900</span>
-        </div>
-
-        <!-- Icono Glosario -->
-        <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
-          <div class="icon-wrapper">
-            <div class="icon-card">
-              <span class="icon-text">Glosario Vial</span>
-              <i class="fa-solid fa-download"></i>
-            </div>
-            <span class="icon-pill" data-tooltip="Descargar">GRATIS</span>
-          </div>
-        </a>
-
-
-        <!-- Icono Test 10 Preguntas -->
-        <a href="quiz/quiz-nivelacion/" target="_blank" class="icon-link">
-          <div class="icon-wrapper">
-            <div class="icon-card">
-              <span class="icon-text">Quiz Nivelación</span>
-              <i class="fas fa-book fa-2x"></i>
-            </div>
-            <span class="icon-pill" data-tooltip="Quiz municipal con 35 preguntas nivel: Fácil">GRATIS</span>
-          </div>
-        </a>
-
-
-        <!-- Icono Test 30 Preguntas -->
-        <div class="icon-wrapper" data-item-id="nivelacion30" data-download="/quiz/quiz-nivelacion/"
-          data-action-type="quiz">
-
-          <!-- Tarjeta que abre modal -->
-          <div class="icon-card open-modal">
-            <span class="icon-text">Examen Municipal</span>
-            <i class="fas fa-book fa-2x"></i>
-          </div>
-
-          <!-- Precio / cambio de texto al desbloquear -->
-          <span class="icon-pill" data-tooltip="20 preguntas nivel: Fácil y 35 preguntas nivel: Avanzado"
-            data-default="$3.900">
-            $3.900
-          </span>
-        </div>
-
-        <!-- Icono Profesor -->
-        <div class="icon-wrapper">
-          <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
-            <div class="icon-card">
-              <span class="icon-text">Clases Guiada</span>
-              <i class="fas fa-chalkboard-teacher fa-2x"></i>
-            </div>
-          </a>
-
-          <span class="icon-pill"
-            data-tooltip="Tutoria de estudio online con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
-            $29.900
-          </span>
-        </div>
+        <span class="icon-pill" data-tooltip="Quiz municipal con 35 preguntas nivel: Fácil">GRATIS
+          <span class="tooltip-box"></span>
+        </span>
       </div>
-    </div>
-    </div>
-    </div>
+    </a>
 
 
-    <!-- ===== CURSO 100KM ===== -->
-    <div class="curso-row">
-      <div class="curso-info">
-        <h3 class="curso-km"><strong>100Km</strong></h3>
-        <p class="curso-subtitle">APRENDIZ</p>
+    <!-- Icono Test 30 Preguntas -->
+    <div class="icon-wrapper" data-item-id="nivelacion30" data-download="/quiz/quiz-nivelacion/"
+      data-action-type="quiz">
+
+      <!-- Tarjeta que abre modal -->
+      <div class="icon-card open-modal">
+        <span class="icon-text">Examen Municipal</span>
+        <i class="fas fa-book fa-2x"></i>
       </div>
-      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
+
+      <!-- Precio / cambio de texto al desbloquear -->
+      <span class="icon-pill" data-tooltip="20 preguntas nivel: Fácil y 35 preguntas nivel: Avanzado"
+        data-default="$3.900">
+        $3.900
+        <span class="tooltip-box"></span>
+      </span>
     </div>
-    <div class="curso-accordion">
-      <div class="icon-grid">
-        <!-- Icono Estudiante / Suscripción -->
-        <div class="icon-wrapper">
-          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
-            data-bs-target="#modalStudentSubscription"
-            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-            <div class="icon-card">
-              <span class="icon-text">memanejo ID</span>
-              <i class="fas fa-user-graduate fa-2x"></i>
-            </div>
-          </button>
-          <span class="icon-pill"
-            data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!</span>
+
+    <!-- Icono Profesor -->
+    <div class="icon-wrapper">
+      <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
+        <div class="icon-card">
+          <span class="icon-text">Clases Guiada</span>
+          <i class="fas fa-chalkboard-teacher fa-2x"></i>
         </div>
+      </a>
 
-        <!-- Icono Resumen PDF -->
-        <div class="icon-wrapper" data-item-id="resumen3y4" data-download="/archivos/Resumen y tips C.1y2.pdf">
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">Resumen Capítulo 3 y 4</span>
-              <i class="fa-solid fa-download"></i>
-            </div>
-          </a>
-          <span class="icon-pill" data-tooltip="Interactivo y fácil de leer. Online" data-default="$3.900">$3.900</span>
+      <span class="icon-pill" data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">
+        ¡Suscríbete!
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== CURSO 100KM ===== -->
+<div class="curso-row">
+  <div class="curso-info">
+    <h3 class="curso-km"><strong>100Km</strong></h3>
+    <p class="curso-subtitle">APRENDIZ</p>
+  </div>
+  <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
+</div>
+<div class="curso-accordion">
+  <div class="icon-grid">
+    <!-- Icono Estudiante / Suscripción -->
+    <div class="icon-wrapper">
+      <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+        data-bs-target="#modalStudentSubscription"
+        style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+        <div class="icon-card">
+          <span class="icon-text">memanejo ID</span>
+          <i class="fas fa-user-graduate fa-2x"></i>
         </div>
+      </button>
+      <span class="icon-pill"
+        data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
 
-        <!-- Icono Glosario -->
-        <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
-          <div class="icon-wrapper">
-            <div class="icon-card">
-              <span class="icon-text">Glosario Vial</span>
-              <i class="fa-solid fa-download"></i>
-            </div>
-            <span class="icon-pill" data-tooltip="Descargar">GRATIS</span>
-          </div>
-        </a>
-
-        <!-- Icono Test 35 Preguntas -->
-        <div class="icon-wrapper" data-item-id="intermedio35" data-download="/quiz/quiz-35/" data-action-type="quiz">
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">Quiz Intermedio</span>
-              <i class="fas fa-book fa-2x"></i>
-            </div>
-          </a>
-          <span class="icon-pill" data-tooltip="1 Quiz con 35 preguntas nivel: Intermedio"
-            data-default="$3.900">$3.900</span>
+    <!-- Icono Resumen PDF -->
+    <div class="icon-wrapper" data-item-id="resumen3y4" data-download="/archivos/Resumen y tips C.1y2.pdf">
+      <a href="#" class="icon-link open-modal">
+        <div class="icon-card">
+          <span class="icon-text">Resumen Capítulo 3 y 4</span>
+          <i class="fa-solid fa-download"></i>
         </div>
+      </a>
+      <span class="icon-pill" data-tooltip="Interactivo y fácil de leer. Online" data-default="$3.900">$3.900
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
 
-        <!-- Icono Test 105 Preguntas -->
-        <div class="icon-wrapper" data-item-id="intermedio105" data-download="/quiz/quiz-105/" data-action-type="quiz">
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">Quiz 105 Preguntas</span>
-              <i class="fas fa-book fa-2x"></i>
-            </div>
-          </a>
-          <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Intermedio"
-            data-default="$7.900">$7.900</span>
+    <!-- Icono Glosario -->
+    <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
+      <div class="icon-wrapper">
+        <div class="icon-card">
+          <span class="icon-text">Glosario Vial</span>
+          <i class="fa-solid fa-download"></i>
         </div>
-
-        <!-- Icono Profesor -->
-        <div class="icon-wrapper">
-          <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
-            <div class="icon-card">
-              <span class="icon-text">Clases Guiada</span>
-              <i class="fas fa-chalkboard-teacher fa-2x"></i>
-            </div>
-          </a>
-
-          <span class="icon-pill"
-            data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
-            $29.900
-          </span>
-        </div>
+        <span class="icon-pill" data-tooltip="Descargar">GRATIS
+          <span class="tooltip-box"></span>
+        </span>
       </div>
+    </a>
+
+    <!-- Icono Test 35 Preguntas -->
+    <div class="icon-wrapper" data-item-id="intermedio35" data-download="/quiz/quiz-35/" data-action-type="quiz">
+      <a href="#" class="icon-link open-modal">
+        <div class="icon-card">
+          <span class="icon-text">Quiz Intermedio</span>
+          <i class="fas fa-book fa-2x"></i>
+        </div>
+      </a>
+      <span class="icon-pill" data-tooltip="1 Quiz con 35 preguntas nivel: Intermedio"
+        data-default="$3.900">$3.900
+        <span class="tooltip-box"></span>
+      </span>
     </div>
 
-    <!-- ===== CURSO 1000KM ===== -->
-    <div class="curso-row">
-      <div class="curso-info">
-        <h3 class="curso-km"><strong>1000Km</strong></h3>
-        <p class="curso-subtitle">PRACTICANTE</p>
+    <!-- Icono Test 105 Preguntas -->
+    <div class="icon-wrapper" data-item-id="intermedio105" data-download="/quiz/quiz-105/" data-action-type="quiz">
+      <a href="#" class="icon-link open-modal">
+        <div class="icon-card">
+          <span class="icon-text">Quiz 105 Preguntas</span>
+          <i class="fas fa-book fa-2x"></i>
+        </div>
+      </a>
+      <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Intermedio"
+        data-default="$7.900">$7.900
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+
+    <!-- Icono Profesor -->
+    <div class="icon-wrapper">
+      <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
+        <div class="icon-card">
+          <span class="icon-text">Clases Guiada</span>
+          <i class="fas fa-chalkboard-teacher fa-2x"></i>
+        </div>
+      </a>
+
+      <span class="icon-pill"
+        data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
+        $29.900
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CURSO 1000KM ===== -->
+<div class="curso-row">
+  <div class="curso-info">
+    <h3 class="curso-km"><strong>1000Km</strong></h3>
+    <p class="curso-subtitle">PRACTICANTE</p>
+  </div>
+  <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
+</div>
+<div class="curso-accordion">
+  <div class="icon-grid">
+    <!-- Icono Estudiante / Suscripción -->
+    <div class="icon-wrapper">
+      <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+        data-bs-target="#modalStudentSubscription"
+        style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+        <div class="icon-card">
+          <span class="icon-text">memanejo ID</span>
+          <i class="fas fa-user-graduate fa-2x"></i>
+        </div>
+      </button>
+      <span class="icon-pill"
+        data-tooltip="Acceso a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+
+    <!-- Icono Resumen PDF -->
+    <div class="icon-wrapper" data-item-id="resumen5y8" data-download="/archivos/Resumen y tips C.1y2.pdf">
+      <a href="#" class="icon-link open-modal">
+        <div class="icon-card">
+          <span class="icon-text">Resumen Capítulo 5 y 8</span>
+          <i class="fa-solid fa-download"></i>
+        </div>
+      </a>
+      <span class="icon-pill"
+        data-tooltip="Confirma tu nivel en QUIZGAME. Interactivo y fácil de usar. Material de estudio final. "
+        data-default="$3.900">$3.900
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+
+    <!-- Icono Glosario -->
+    <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
+      <div class="icon-wrapper">
+        <div class="icon-card">
+          <span class="icon-text">Glosario</span>
+          <i class="fa-solid fa-download"></i>
+        </div>
+        <span class="icon-pill" data-tooltip="Descargar">GRATIS
+          <span class="tooltip-box"></span>
+        </span>
       </div>
-      <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
+    </a>
+
+    <!-- Icono Test 105 Preguntas -->
+    <div class="icon-wrapper" data-item-id="quiz_dificil" data-download="/quiz/quiz-105/" data-action-type="quiz">
+      <a href="#" class="icon-link open-modal">
+        <div class="icon-card">
+          <span class="icon-text">QUIZ GAME</span>
+          <i class="fas fa-book fa-2x"></i>
+        </div>
+      </a>
+      <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Díficil"
+        data-default="$7.900">
+        $17.900
+        <span class="tooltip-box"></span>
+      </span>
     </div>
-    <div class="curso-accordion">
-      <div class="icon-grid">
-        <!-- Icono Estudiante / Suscripción -->
-        <div class="icon-wrapper">
-          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
-            data-bs-target="#modalStudentSubscription"
-            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-            <div class="icon-card">
-              <span class="icon-text">memanejo ID</span>
-              <i class="fas fa-user-graduate fa-2x"></i>
-            </div>
-          </button>
-          <span class="icon-pill"
-            data-tooltip="Acceso a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!</span>
+
+    <div class="icon-wrapper" data-item-id="quiz_210" data-download="/quiz/quiz-210/" data-action-type="quiz">
+
+      <a href="#" class="icon-link open-modal">
+        <div class="icon-card">
+          <span class="icon-text">Quiz nivel: Difícil</span>
+          <i class="fas fa-book fa-2x"></i>
         </div>
+      </a>
 
-        <!-- Icono Resumen PDF -->
-        <div class="icon-wrapper" data-item-id="resumen5y8" data-download="/archivos/Resumen y tips C.1y2.pdf">
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">Resumen Capítulo 5 y 8</span>
-              <i class="fa-solid fa-download"></i>
-            </div>
-          </a>
-          <span class="icon-pill"
-            data-tooltip="Confirma tu nivel en QUIZGAME. Interactivo y fácil de usar. Material de estudio final. "
-            data-default="$3.900">$3.900</span>
-        </div>
-
-        <!-- Icono Glosario -->
-        <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
-          <div class="icon-wrapper">
-            <div class="icon-card">
-              <span class="icon-text">Glosario</span>
-              <i class="fa-solid fa-download"></i>
-            </div>
-            <span class="icon-pill" data-tooltip="Descargar">GRATIS</span>
-          </div>
-        </a>
-
-        <!-- Icono Test 105 Preguntas -->
-        <div class="icon-wrapper" data-item-id="quiz_dificil" data-download="/quiz/quiz-105/" data-action-type="quiz">
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">QUIZ GAME</span>
-              <i class="fas fa-book fa-2x"></i>
-            </div>
-          </a>
-          <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Díficil"
-            data-default="$7.900">$17.900</span>
-        </div>
-
-        <div class="icon-wrapper" data-item-id="quiz_210" data-download="/quiz/quiz-210/" data-action-type="quiz">
-
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">Quiz nivel: Difícil</span>
-              <i class="fas fa-book fa-2x"></i>
-            </div>
-          </a>
-
-          <span class="icon-pill"
-            data-tooltip="6 Cuestionarios con 35 preguntas cada uno. 210 Preguntas en total tipo Examen Municipal.   ">
-            $12.900
-          </span>
-        </div>
-
-        <!-- Icono Profesor -->
-        <div class="icon-wrapper">
-          <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
-            <div class="icon-card">
-              <span class="icon-text">Clases Guiada</span>
-              <i class="fas fa-chalkboard-teacher fa-2x"></i>
-            </div>
-          </a>
-
-          <span class="icon-pill"
-            data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
-            $29.900
-          </span>
-        </div>
-      </div>
+      <span class="icon-pill"
+        data-tooltip="6 Cuestionarios con 35 preguntas cada uno. 210 Preguntas en total tipo Examen Municipal.   ">
+        $12.900
+        <span class="tooltip-box"></span>
+      </span>
     </div>
+
+    <!-- Icono Profesor -->
+    <div class="icon-wrapper">
+      <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
+        <div class="icon-card">
+          <span class="icon-text">Clases Guiada</span>
+          <i class="fas fa-chalkboard-teacher fa-2x"></i>
+        </div>
+      </a>
+
+      <span class="icon-pill"
+        data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
+        $29.900
+        <span class="tooltip-box"></span>
+      </span>
+    </div>
+  </div>
+</div>
   </section>
   <!-- Modal universal -->
   <div class="modal" id="modalCodigo" style="display:none;">
@@ -677,309 +707,321 @@
   </div>
   <!-- Contenidos -->
   <section id="contenidos">
-          <!-- Título con guion azul -->
-      <h3 class="text-center mb-4" data-aos="fade-up">Contenidos del Curso</h3>
-      <div class="row-cursos"> <!-- Card 1 -->
-        <div class="curso-item" data-aos="fade-up">
-          <div class="card card-gris">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title"><i class="fas fa-road me-2"></i>Plan Inicial 0km</h5>
-              <p class="card-text"> <strong>TEORÍA</strong> DEL CONDUCTOR<br> Normas, señalética, comportamiento
-                vial y todo lo necesario para aprobar tu prueba teórica. </p>
-              <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100"
-                  href="https://memanejomanejando.cl/quiz/quiz-nivelacion/" target="_blank">
-                  <strong>Realizar examen de nivelación
-                    <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong>
-                </a>
-                <div class="linea-divide"></div>
-                <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel0"
-                  aria-expanded="false">
-                  <strong>memanejo ID</strong> <i class="fas fa-chevron-down ms-1"></i>
-                </button>
-              </div>
-              <small class="d-block text-center text-secondary mt-1 acceso-text">
-                Desbloquea contenido exclusivo y test online de práctica
-              </small>
-              <!-- Burbuja de precios -->
-              <div id="precioNivel0" class="collapse precios-burbuja mt-2">
-                <div class="card card-body shadow-sm text-dark"> <strong>NIVEL: CONOCIMIENTO
-                    INICIAL</strong><small>Clase teórica
-                    online</small>
-                  <strong><br>Objetivo:</strong> Dar a conocer los primeros conceptos teóricos del tránsito.
-                  Normas básicas + Señales de tránsito + Elementos de seguridad. <br>
-                  <br>
-                  <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Conocimiento%20Inicial"
-                    target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo<span
-                      class="d-block text-light fw-bold fs-6">$9.900</span></a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    Acceso por 7 días.
-                  </small>
-                  <hr> <strong>NIVEL: ANTES DE MANEJAR</strong><small>Clase teórica online</small> <strong>
-                    <br>Objetivo:</strong> Completar la
-                  teoría
-                  esencial y
-                  preparar mental y emocionalmente para
-                  la práctica. <br> <a
-                    href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Antes%20de%20Manejar"
-                    target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo<span
-                      class="d-block text-light fw-bold fs-6">$19.900</span></a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    Acceso por 7 días.
-                  </small>
-                  <hr> <strong>NIVEL: FULL TEÓRICO</strong><small>Clase online</small> <strong><br>Objetivo:</strong>
-                  Preparación
-                  completa
-                  para la
-                  práctica en terreno y
-                  simulación de
-                  examen municipal.<br> <a
-                    href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Full%20Teorico" target="_blank"
-                    class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo <span
-                      class="d-block text-light fw-bold fs-6">$27.900</span></a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    Acceso por 7 días.
-                  </small>
-                </div>
-              </div>
+    <!-- Título con guion azul -->
+    <h3 class="text-center" data-aos="fade-up">memanejo manejando <br><small> Personalizado</small></h3>
+    <div class="row-cursos"> <!-- Card 1 -->
+      <div class="curso-item" data-aos="fade-up">
+        <div class="card card-gris">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><i class="fas fa-road me-2"></i>Plan Inicial 0km</h5>
+            <p class="card-text"> <strong>TEORÍA</strong> DEL CONDUCTOR<br> Normas, señalética, comportamiento
+              vial y todo lo necesario para aprobar tu prueba teórica. </p>
+            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100"
+                href="https://memanejomanejando.cl/quiz/quiz-nivelacion/" target="_blank">
+                <strong>Realizar examen de nivelación
+                  <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong>
+              </a>
+              <div class="linea-divide"></div>
+              <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel0"
+                aria-expanded="false">
+                <strong>memanejo ID</strong> <i class="fas fa-chevron-down ms-1"></i>
+              </button>
             </div>
-          </div>
-        </div>
-        <!-- Card 2 con scroll -->
-        <div class="curso-item" data-aos="fade-up">
-          <div class="card card-gris">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title"><i class="fas fa-car me-2"></i>Plan 100km</h5>
-
-              <p class="card-text"><strong>PRÁCTICA DE MANEJO</strong> EN TERRENO<br>Técnicas, maniobras, tips y
-                simulaciones para una conducción segura y consciente.</p>
-              <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="paginas/quiz/index.html"
-                  target="_blank"><strong>Realizar examen teórico <i
-                      class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong></a>
-                <div class="linea-divide"></div>
-                <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel1"
-                  aria-expanded="false">
-                  <strong>memanejo ID</strong> <i class="fas fa-chevron-down ms-1"></i>
-                </button>
-              </div>
-              <small class="d-block text-center text-secondary mt-1 acceso-text">
-                Desbloquea contenido exclusivo y test online de práctica
-              </small>
-              <div id="precioNivel1" class="collapse precios-burbuja mt-2">
-                <div class="card card-body shadow-sm text-dark" style="max-height:750px; overflow-y:auto;">
-
-                  <div class="alert py-2 px-3 mb-3"
-                    style="background:#eef4ff; border:1px solid #2261ff; color:#2261ff;">
-                    <i class="fas fa-info-circle me-2"></i>
-                    <strong>Debes aprobar el examen teórico antes de agendar.</strong>
-                  </div>
-
-                  <strong>NIVEL: MIS PRIMEROS KILÓMETROS</strong><small>Clase práctica estática</small>
-                  <strong> <i class="fa-regular fa-clock"></i> 45 min.</strong> <br>
-                  <small><strong>Objetivo:</strong> Para quienes
-                    parten de cero, combinando teoría esencial y manejo inicial para adquirir confianza y
-                    familiarizarse con controles básicos del vehículo (postura, asiento, volante, luces y nociones
-                    de mecánica básica). Clase en Vivo </small> <a
-                    href="https://wa.me/56946914558?text=Quiero%20comenzar%20pack%20principiante%200km" target="_blank"
-                    class="btn btn-primary btn-sm rounded-pill w-100 mt-3">Agendar Clase <span
-                      class="d-block text-light fw-bold fs-6">$11.900</span></a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    No incluye auto de práctica.
-                  </small>
-                  <hr> <strong>NIVEL: REENTRENAMIENTO </strong><small>Reforzamiento de técnicas, confianza y dominio en
-                    calle</small> <strong><i class="fa-regular fa-clock"></i> 60 min.</strong>
-                  <br><small><strong>Objetivo:</strong> Mejorar habilidades de conducción de quienes superan
-                    el Examen de
-                    Nivelación o ya cuenten con licencia de conducir, reforzando control, maniobras, seguridad y
-                    desempeño
-                    en ruta mediante práctica supervisada con reglamentación vial según Ley 18.290. Clase en Ruta
-                  </small> <a href="https://wa.me/56946914558?text=Quiero%20agendar%20clase%20práctica%20100km"
-                    target="_blank" class="btn btn-primary btn-sm rounded-pill w-100 mt-3">Agendar Clase <span
-                      class="d-block text-light fw-bold fs-6">$11.900</span></a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    No incluye auto de práctica.
-                  </small>
-                  <hr>
-                  <h6 style="color:#2261ff; font-weight:600; cursor:pointer;" data-bs-toggle="collapse"
-                    data-bs-target="#condicionesGeneralCard2"> Condiciones Generales <i
-                      class="fas fa-chevron-down ms-1"></i> </h6>
-                  <div class="collapse" id="condicionesGeneralCard2">
-                    <ul style="font-size:0.85rem; padding-left:1rem; color:#555;">
-                      <li>Agenda tu clase hasta 36 horas antes.</li>
-                      <li>Se utiliza vehículo particular de confianza del alumno o del instructor según
-                        disponibilidad.</li>
-                      <li>El auto debe contar con seguro vigente contra daños y terceros.</li>
-                      <li>Reagendamiento con al menos 24h de anticipación.</li>
-                      <li><strong>Clase de prueba:</strong> Evaluación municipal estática: Postura de conducción, ajuste
-                        de cinturón, espejos y luces. Uso correcto de pedales. Incluye enseñanza de mecánica básica
-                        para alumnos nuevos.</li>
-                      <li><strong>Costo clase de prueba: CLP$9.900.</strong> <br><small class="d-block text-muted mb-2">
-                          No incluye auto de práctica.
-                        </small></li>
-                      <li><strong>Clases prácticas reforzadas:</strong> Incluyen simulaciones en calle y técnicas de
-                        seguridad vial.
-                      </li>
-                      <li>Se recomienda llegar con ropa y calzado cómodo para práctica en terreno.</li>
-                      <li><strong>Auto de práctica:</strong> Solo disponible previa coordinación. <br><strong>Costo auto
-                          práctica:
-                          $69.900</strong> <br><small class="d-block text-muted mt-1">
-                          Válido para 2 clases de hasta
-                          2 horas seguidas.
-                        </small></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> <!-- Card 3 -->
-        <div class="curso-item" data-aos="fade-up">
-          <div class="card card-gris">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title"><i class="fas fa-tools me-2"></i>Plan 1.000km</h5>
-              <p class="card-text"><strong>TUTORIA PARTICULAR</strong> <br> Aprende a conocer tu vehículo: niveles,
-                luces,
-                neumáticos, cómo reaccionar ante fallas comunes, elementos de seguridad y más.</p>
-              <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="https://www.memanejomanejando.cl"
-                  target="_blank">¡Suscríbete! a<strong> memanejo ID <i
-                      class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong></a>
-                <div class="linea-divide"></div>
-                <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel2"
-                  aria-expanded="false">
-                  Módulos adicionales <i class="fas fa-chevron-down ms-1"></i>
-                </button>
-              </div>
-              <small class="d-block text-center text-secondary mt-1 acceso-text">
-                Clase en vivo con un profesional en mecánica automotriz
-              </small>
-              <div id="precioNivel2" class="collapse precios-burbuja mt-2">
-                <div class="card card-body shadow-sm text-dark"> <strong>MÓDULO MECÁNICA
-                    BÁSICA</strong><small>Clase Estática</small><strong><i class="fa-regular fa-clock"></i> 45
-                    min.</strong> <br>
-                  <strong>Conceptos
-                    teóricos y prácticos sobre el mantenimiento de tu vehículo y su cuidado.</strong>
-                  <small>Incluye revisión de niveles
-                    de líquidos, luces, neumáticos, fallas comunes y asesoramiento técnico para su correcta
-                    mantención.</small><br>
-                  <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Modulo%20Mecanica%20Basica"
-                    target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">Agendar a solo <span
-                      class="d-block text-light fw-bold fs-6">$19.900</span></a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    No incluye auto de práctica.
-                  </small>
-                  <hr> <strong>MÓDULO NORMATIVA VIAL</strong><small>Clase en Ruta</small> <strong><i
-                      class="fa-regular fa-clock"></i>
-                    60
-                    min.</strong> <br> <strong>Revisión de normas de tránsito aplicadas y señalética.</strong>
-                  <small>Profundización en comportamiento vial y seguridad.</small><br> <a
-                    href="https://wa.me/56946914558?text=Quiero%20comenzar%20Modulo%20Normativa%20Vial" target="_blank"
-                    class="btn btn-primary btn-sm rounded-pill mt-2">
-                    Agendar a solo <span class="d-block text-light fw-bold fs-6">$29.900</span>
-                  </a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    No incluye auto de práctica.
-                  </small>
-                  <hr>
-
-                  <strong>MÓDULO CONDUCCIÓN EXTREMA</strong><small>Clase en Ruta</small> <strong><i
-                      class="fa-regular fa-clock"></i> 4
-                    horas.</strong><br>
-                  <strong>Aprende a manejar de manera segura y efectiva en terrenos desafiantes con autos 4x4 o
-                    estándar.</strong>
-                  <small>Este módulo incluye maniobras avanzadas en montaña y autopistas, control del vehículo en
-                    pendientes, curvas
-                    cerradas y situaciones complejas de tráfico o terreno. Una experiencia práctica que fortalece tu
-                    confianza al volante y prepara para cualquier situación real.</small><br>
-
-                  <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Modulo%20Conduccion%20Extrema"
-                    target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">
-                    Agendar a solo <span class="d-block text-light fw-bold fs-6">$59.900</span>
-                  </a>
-                  <small class="d-block text-center text-secondary mt-1 acceso-text">
-                    No incluye auto de práctica.
-                  </small>
-                </div>
+            <small class="d-block text-center text-secondary mt-1 acceso-text">
+              Desbloquea contenido exclusivo y test online de práctica
+            </small>
+            <!-- Burbuja de precios -->
+            <div id="precioNivel0" class="collapse precios-burbuja mt-2">
+              <div class="card card-body shadow-sm text-dark"> <strong>NIVEL: CONOCIMIENTO
+                  INICIAL</strong><small>Clase teórica
+                  online</small>
+                <strong><br>Objetivo:</strong> Dar a conocer los primeros conceptos teóricos del tránsito.
+                Normas básicas + Señales de tránsito + Elementos de seguridad. <br>
+                <br>
+                <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Conocimiento%20Inicial"
+                  target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo<span
+                    class="d-block text-light fw-bold fs-6">$9.900</span></a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  Acceso por 7 días.
+                </small>
+                <hr> <strong>NIVEL: ANTES DE MANEJAR</strong><small>Clase teórica online</small> <strong>
+                  <br>Objetivo:</strong> Completar la
+                teoría
+                esencial y
+                preparar mental y emocionalmente para
+                la práctica. <br> <a
+                  href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Antes%20de%20Manejar" target="_blank"
+                  class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo<span
+                    class="d-block text-light fw-bold fs-6">$19.900</span></a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  Acceso por 7 días.
+                </small>
+                <hr> <strong>NIVEL: FULL TEÓRICO</strong><small>Clase online</small> <strong><br>Objetivo:</strong>
+                Preparación
+                completa
+                para la
+                práctica en terreno y
+                simulación de
+                examen municipal.<br> <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Full%20Teorico"
+                  target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo <span
+                    class="d-block text-light fw-bold fs-6">$27.900</span></a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  Acceso por 7 días.
+                </small>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- Card 2 con scroll -->
+      <div class="curso-item" data-aos="fade-up">
+        <div class="card card-gris">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><i class="fas fa-car me-2"></i>Plan 100km</h5>
+
+            <p class="card-text"><strong>PRÁCTICA DE MANEJO</strong> EN TERRENO<br>Técnicas, maniobras, tips y
+              simulaciones para una conducción segura y consciente.</p>
+            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="paginas/quiz/index.html"
+                target="_blank"><strong>Realizar examen teórico <i
+                    class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong></a>
+              <div class="linea-divide"></div>
+              <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel1"
+                aria-expanded="false">
+                <strong>memanejo ID</strong> <i class="fas fa-chevron-down ms-1"></i>
+              </button>
+            </div>
+            <small class="d-block text-center text-secondary mt-1 acceso-text">
+              Desbloquea contenido exclusivo y test online de práctica
+            </small>
+            <div id="precioNivel1" class="collapse precios-burbuja mt-2">
+              <div class="card card-body shadow-sm text-dark" style="max-height:750px; overflow-y:auto;">
+
+                <div class="alert py-2 px-3 mb-3" style="background:#eef4ff; border:1px solid #2261ff; color:#2261ff;">
+                  <i class="fas fa-info-circle me-2"></i>
+                  <strong>Debes aprobar el examen teórico antes de agendar.</strong>
+                </div>
+
+                <strong>NIVEL: MIS PRIMEROS KILÓMETROS</strong><small>Clase práctica estática</small>
+                <strong> <i class="fa-regular fa-clock"></i> 45 min.</strong> <br>
+                <small><strong>Objetivo:</strong> Para quienes
+                  parten de cero, combinando teoría esencial y manejo inicial para adquirir confianza y
+                  familiarizarse con controles básicos del vehículo (postura, asiento, volante, luces y nociones
+                  de mecánica básica). Clase en Vivo </small> <a
+                  href="https://wa.me/56946914558?text=Quiero%20comenzar%20pack%20principiante%200km" target="_blank"
+                  class="btn btn-primary btn-sm rounded-pill w-100 mt-3">Agendar Clase <span
+                    class="d-block text-light fw-bold fs-6">$11.900</span></a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  No incluye auto de práctica.
+                </small>
+                <hr> <strong>NIVEL: REENTRENAMIENTO </strong><small>Reforzamiento de técnicas, confianza y dominio en
+                  calle</small> <strong><i class="fa-regular fa-clock"></i> 60 min.</strong>
+                <br><small><strong>Objetivo:</strong> Mejorar habilidades de conducción de quienes superan
+                  el Examen de
+                  Nivelación o ya cuenten con licencia de conducir, reforzando control, maniobras, seguridad y
+                  desempeño
+                  en ruta mediante práctica supervisada con reglamentación vial según Ley 18.290. Clase en Ruta
+                </small> <a href="https://wa.me/56946914558?text=Quiero%20agendar%20clase%20práctica%20100km"
+                  target="_blank" class="btn btn-primary btn-sm rounded-pill w-100 mt-3">Agendar Clase <span
+                    class="d-block text-light fw-bold fs-6">$11.900</span></a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  No incluye auto de práctica.
+                </small>
+                <hr>
+                <h6 style="color:#2261ff; font-weight:600; cursor:pointer;" data-bs-toggle="collapse"
+                  data-bs-target="#condicionesGeneralCard2"> Condiciones Generales <i
+                    class="fas fa-chevron-down ms-1"></i> </h6>
+                <div class="collapse" id="condicionesGeneralCard2">
+                  <ul style="font-size:0.85rem; padding-left:1rem; color:#555;">
+                    <li>Agenda tu clase hasta 36 horas antes.</li>
+                    <li>Se utiliza vehículo particular de confianza del alumno o del instructor según
+                      disponibilidad.</li>
+                    <li>El auto debe contar con seguro vigente contra daños y terceros.</li>
+                    <li>Reagendamiento con al menos 24h de anticipación.</li>
+                    <li><strong>Clase de prueba:</strong> Evaluación municipal estática: Postura de conducción, ajuste
+                      de cinturón, espejos y luces. Uso correcto de pedales. Incluye enseñanza de mecánica básica
+                      para alumnos nuevos.</li>
+                    <li><strong>Costo clase de prueba: CLP$9.900.</strong> <br><small class="d-block text-muted mb-2">
+                        No incluye auto de práctica.
+                      </small></li>
+                    <li><strong>Clases prácticas reforzadas:</strong> Incluyen simulaciones en calle y técnicas de
+                      seguridad vial.
+                    </li>
+                    <li>Se recomienda llegar con ropa y calzado cómodo para práctica en terreno.</li>
+                    <li><strong>Auto de práctica:</strong> Solo disponible previa coordinación. <br><strong>Costo auto
+                        práctica:
+                        $69.900</strong> <br><small class="d-block text-muted mt-1">
+                        Válido para 2 clases de hasta
+                        2 horas seguidas.
+                      </small></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- Card 3 -->
+      <div class="curso-item" data-aos="fade-up">
+        <div class="card card-gris">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><i class="fas fa-tools me-2"></i>Plan 1.000km</h5>
+            <p class="card-text"><strong>TUTORIA PARTICULAR</strong> <br> Aprende a conocer tu vehículo: niveles,
+              luces,
+              neumáticos, cómo reaccionar ante fallas comunes, elementos de seguridad y más.</p>
+            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="https://www.memanejomanejando.cl"
+                target="_blank">¡Suscríbete! a<strong> memanejo ID <i
+                    class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong></a>
+              <div class="linea-divide"></div>
+              <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel2"
+                aria-expanded="false">
+                Módulos adicionales <i class="fas fa-chevron-down ms-1"></i>
+              </button>
+            </div>
+            <small class="d-block text-center text-secondary mt-1 acceso-text">
+              Clase en vivo con un profesional en mecánica automotriz
+            </small>
+            <div id="precioNivel2" class="collapse precios-burbuja mt-2">
+              <div class="card card-body shadow-sm text-dark"> <strong>MÓDULO MECÁNICA
+                  BÁSICA</strong><small>Clase Estática</small><strong><i class="fa-regular fa-clock"></i> 45
+                  min.</strong> <br>
+                <strong>Conceptos
+                  teóricos y prácticos sobre el mantenimiento de tu vehículo y su cuidado.</strong>
+                <small>Incluye revisión de niveles
+                  de líquidos, luces, neumáticos, fallas comunes y asesoramiento técnico para su correcta
+                  mantención.</small><br>
+                <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Modulo%20Mecanica%20Basica" target="_blank"
+                  class="btn btn-primary btn-sm rounded-pill mt-2">Agendar a solo <span
+                    class="d-block text-light fw-bold fs-6">$19.900</span></a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  No incluye auto de práctica.
+                </small>
+                <hr> <strong>MÓDULO NORMATIVA VIAL</strong><small>Clase en Ruta</small> <strong><i
+                    class="fa-regular fa-clock"></i>
+                  60
+                  min.</strong> <br> <strong>Revisión de normas de tránsito aplicadas y señalética.</strong>
+                <small>Profundización en comportamiento vial y seguridad.</small><br> <a
+                  href="https://wa.me/56946914558?text=Quiero%20comenzar%20Modulo%20Normativa%20Vial" target="_blank"
+                  class="btn btn-primary btn-sm rounded-pill mt-2">
+                  Agendar a solo <span class="d-block text-light fw-bold fs-6">$29.900</span>
+                </a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  No incluye auto de práctica.
+                </small>
+                <hr>
+
+                <strong>MÓDULO CONDUCCIÓN EXTREMA</strong><small>Clase en Ruta</small> <strong><i
+                    class="fa-regular fa-clock"></i> 4
+                  horas.</strong><br>
+                <strong>Aprende a manejar de manera segura y efectiva en terrenos desafiantes con autos 4x4 o
+                  estándar.</strong>
+                <small>Este módulo incluye maniobras avanzadas en montaña y autopistas, control del vehículo en
+                  pendientes, curvas
+                  cerradas y situaciones complejas de tráfico o terreno. Una experiencia práctica que fortalece tu
+                  confianza al volante y prepara para cualquier situación real.</small><br>
+
+                <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Modulo%20Conduccion%20Extrema"
+                  target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">
+                  Agendar a solo <span class="d-block text-light fw-bold fs-6">$59.900</span>
+                </a>
+                <small class="d-block text-center text-secondary mt-1 acceso-text">
+                  No incluye auto de práctica.
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     </div>
   </section>
   <!-- Modal Suscripción -->
-  <div class="modal fade" id="modalStudentSubscription" tabindex="-1" aria-labelledby="modalStudentSubscriptionLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-bottom modal-fullscreen-sm-down">
-      <div class="modal-content modern-modal">
+<div class="modal fade" id="modalStudentSubscription" tabindex="-1" aria-labelledby="modalStudentSubscriptionLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-bottom modal-fullscreen-sm-down">
+    <div class="modal-content modern-modal">
 
-        <!-- TOP BAR estilo iOS -->
-        <div class="modal-topbar">
-          <span class="topbar-left">
-            <img src="img/newnewlogo.jpg" alt="Logo" class="topbar-logo">
-            memanejo pay
-          </span>
-          <span class="topbar-close" data-bs-dismiss="modal">
-            <i class="fas fa-sign-out-alt"></i>
-          </span>
+      <!-- TOP BAR estilo iOS -->
+      <div class="modal-topbar">
+        <span class="topbar-left">
+          <img src="img/newnewlogo.jpg" alt="Logo" class="topbar-logo">
+          memanejo pay
+        </span>
+        <span class="topbar-close" data-bs-dismiss="modal">
+          <i class="fas fa-sign-out-alt"></i>
+        </span>
+      </div>
+
+      <!-- ===== BODY con 4 CARDS ===== -->
+      <div class="modal-body p-3">
+
+        <!-- Card 1 – Suscripción Total -->
+        <div class="sub-card">
+          <h3 class="sub-title">Suscripción <strong>memanejo ID</strong></h3>
+          <p class="sub-desc">Accede a nuestra Aula Virtual con todo el contenido liberado durante 30 días</p>
+
+          <div class="sub-icons">
+            <div class="sub-icon-item"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="sub-icon-item"><i class="fas fa-book"></i></div>
+            <div class="sub-icon-item"><i class="fa-solid fa-download"></i></div>
+          </div>
+
+          <button class="sub-btn">Acceder con <strong>memanejo ID</strong> <br><small>promoción inicial
+              $7.900</small></button>
+
+          <p class="sub-small">Luego $16.900/mes</p>
         </div>
 
-        <!-- ===== BODY con 3 CARDS flotantes ===== -->
-        <div class="modal-body p-3">
+        <!-- Card 2 – Quiz -->
+        <div class="sub-card">
+          <h3 class="sub-title">Plan Quiz</h3>
+          <p class="sub-desc">Desbloquea todos los quiz por 30 días</p>
 
-          <!-- Card 1 – Suscripción Total -->
-          <div class="sub-card">
-            <h3 class="sub-title">Suscripción <strong>memanejo ID</strong></h3>
-            <p class="sub-desc">Accede a nuestra Aula Virtual con todo el contenido liberado durante 30 días</p>
-
-            <div class="sub-img"></div>
-
-            <button class="sub-btn">Acceder con <strong>memanejo ID</strong> <br><small>promoción inicial
-                $7.900</small></button>
-
-            <p class="sub-small">Luego $16.900/mes</p>
+          <div class="sub-icons">
+            <div class="sub-icon-item"><i class="fas fa-book"></i></div>
+            <div class="sub-icon-item"><i class="fa-solid fa-list-check"></i></div>
           </div>
 
-          <!-- Card 2 – Quiz -->
-          <div class="sub-card">
-            <h3 class="sub-title">Plan Quiz</h3>
-            <p class="sub-desc">Desbloquea todos los quiz por 30 días</p>
+          <button class="sub-btn"><strong>Desbloquear Quiz</strong><br><small>$9.900</small></button>
 
-            <div class="sub-img"></div>
-
-            <button class="sub-btn"><strong>Desbloquear Quiz</strong><br><small>$9.900</small></button>
-
-            <p class="sub-small">Luego $12.900/mes</p>
-          </div>
-
-          <!-- Card 3 – Resúmenes PDF -->
-          <div class="sub-card">
-            <h3 class="sub-title">Plan Resúmenes PDF</h3>
-            <p class="sub-desc">Acceso a todo el contenido resumidos del libro del conductor año 2026</p>
-
-            <div class="sub-img"></div>
-
-            <button class="sub-btn"><strong>Acceder a Resúmenes</strong><br><small>$9.900</small></button>
-
-            <p class="sub-small">Formación Vial Aplicada</p>
-          </div>
-          <!-- Card 4 – Resúmenes PDF -->
-          <div class="sub-card">
-            <h3 class="sub-title">Agendar Clase</h3>
-            <p class="sub-desc">Si cuentas con auto propio. La clase de prueba tiene un costo de $9.900</p>
-
-            <div class="sub-img"></div>
-
-            <button class="sub-btn"><strong>Solicitar Clase</strong></button>
-
-            <p class="sub-small">Con auto particular de práctica. <br>clases adicionales $16.900/hora</p>
-          </div>
-
+          <p class="sub-small">Luego $12.900/mes</p>
         </div>
-        <!-- /modal-body -->
+
+        <!-- Card 3 – Resúmenes PDF -->
+        <div class="sub-card">
+          <h3 class="sub-title">Plan Resúmenes PDF</h3>
+          <p class="sub-desc">Acceso a todo el contenido resumidos del libro del conductor año 2026</p>
+
+          <div class="sub-icons">
+            <div class="sub-icon-item"><i class="fa-solid fa-download"></i></div>
+            <div class="sub-icon-item"><i class="fas fa-file-alt"></i></div>
+          </div>
+
+          <button class="sub-btn"><strong>Acceder a Resúmenes</strong><br><small>$9.900</small></button>
+
+          <p class="sub-small">Formación Vial Aplicada</p>
+        </div>
+
+        <!-- Card 4 – Agendar Clase -->
+        <div class="sub-card">
+          <h3 class="sub-title">Agendar Clase</h3>
+          <p class="sub-desc">Si cuentas con auto propio. La clase de prueba tiene un costo de $9.900</p>
+
+          <div class="sub-icons">
+            <div class="sub-icon-item"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="sub-icon-item"><i class="fa-solid fa-calendar-check"></i></div>
+          </div>
+
+          <button class="sub-btn"><strong>Solicitar Clase</strong></button>
+
+          <p class="sub-small">Con auto particular de práctica. <br>clases adicionales $16.900/hora</p>
+        </div>
 
       </div>
+      <!-- /modal-body -->
+
     </div>
   </div>
+</div>
   <!-- ===== SECCIÓN FEEDBACK ===== -->
   <section id="alumni-feedback-section">
     <div class="container" data-aos="fade-up">
@@ -1238,7 +1280,7 @@
   <section id="recursos" class="py-5">
     <div class="container" data-aos="fade-up">
       <h3 class="mb-4">Conoce más</h3>
-      <p class="text-center">En <strong>memanejo.cl</strong> Encuentras todo lo que tu auto necesita. <strong>Manejamos
+      <p class="text-center">En <strong>memanejo.cl</strong> encuentras todo lo que tu auto necesita.<strong><br> Manejamos
           tu tranquilidad.</strong></p>
 
       <div class="recursos-btns">

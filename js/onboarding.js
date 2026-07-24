@@ -41,7 +41,6 @@ function initOnboarding() {
 
   originalCardHTML = loginCardGlass.innerHTML;
   document.body.classList.add('onboarding-activo');
-  document.body.style.overflow = 'hidden';
 
   bindOnboardingEvents();
 }
@@ -79,7 +78,6 @@ function restoreOnboarding() {
 // =====================
 function cerrarOnboarding() {
   document.body.classList.remove('onboarding-activo');
-  document.body.style.overflow = 'auto';
   onboardVideoBg?.style.setProperty('display', 'none');
   onboardDim?.style.setProperty('display', 'none');
   onboardContent?.style.setProperty('display', 'none');
