@@ -128,9 +128,6 @@ reviewForm.addEventListener('submit', (e) => {
   reviewForm.reset();
 });
 
-// =====================
-// CURSO-ACCORDION
-// =====================
 document.addEventListener('click', e => {
   let btn = e.target.closest('.curso-btn');
   if (!btn) return;
@@ -144,27 +141,26 @@ document.addEventListener('click', e => {
   }
   if (!accordion) return;
 
-  // Alterna el actual y cierra los demás
   document.querySelectorAll('.curso-accordion').forEach(acc => {
-    if (acc !== accordion) acc.classList.remove('active');
+    if (acc !== accordion) {
+      acc.classList.remove('active');
+      const otroBtn = acc.previousElementSibling?.querySelector('.curso-btn');
+      otroBtn?.querySelector('.curso-chevron')?.classList.remove('rotated');
+    }
   });
 
   const isOpening = !accordion.classList.contains('active');
   accordion.classList.toggle('active');
+  btn.querySelector('.curso-chevron')?.classList.toggle('rotated', isOpening);
 
-  if (!isOpening) return; // si se está cerrando, no hacemos scroll
+  if (!isOpening) return;
 
-  // Esperamos a que termine la transición de max-height (0.4s en el CSS)
   setTimeout(() => {
     const rowRect = parentRow.getBoundingClientRect();
     const isMobile = window.innerWidth < 768;
-
-    // Siempre alineamos arriba: el título/botón presionado queda en el top,
-    // con un margen fijo para que no quede pegado al borde de la pantalla
     const targetScroll = window.scrollY + rowRect.top - (isMobile ? 50 : 130);
-
     window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-  }, 400); // debe calzar con transition: max-height 0.4s del CSS
+  }, 400);
 });
 
 document.querySelectorAll('.icon-pill').forEach(el => {
@@ -345,10 +341,17 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(trigger => {
   targetEl.addEventListener('show.bs.collapse', () => icon.classList.add('rotated'));
   targetEl.addEventListener('hide.bs.collapse', () => icon.classList.remove('rotated'));
 });
-  // ===== NOTIFICACION IOS =====
-  let visible = false;
-  window.addEventListener("scroll", () => {
-    if (!cursosSection) return;
+
+// ===== NOTIFICACION IOS =====
+let visible = false;
+let tickingNotif = false;
+
+window.addEventListener("scroll", () => {
+  if (tickingNotif) return;
+  tickingNotif = true;
+
+  requestAnimationFrame(() => {
+    if (!cursosSection) { tickingNotif = false; return; }
     const rect = cursosSection.getBoundingClientRect();
     const isVisible = rect.top < window.innerHeight * 0.4 && rect.bottom > window.innerHeight * 0.2;
     if (isVisible && !visible) {
@@ -357,7 +360,9 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(trigger => {
       setTimeout(() => notificacion?.classList.remove("show"), 12000);
     }
     if (!isVisible) visible = false;
+    tickingNotif = false;
   });
+});
   btnEntendido?.addEventListener('click', () => notificacion?.classList.remove("show"));
 });
 // ===== SWIPE UP PARA DESCARTAR NOTIFICACIÓN iOS =====
@@ -374,18 +379,24 @@ if (notif) {
     notif.classList.add("swiping");
   });
 
-  notif.addEventListener("touchmove", (e) => {
-    if (!dragging) return;
+let tickingTouch = false;
 
-    currentY = e.touches[0].clientY;
+notif.addEventListener("touchmove", (e) => {
+  if (!dragging) return;
+  currentY = e.touches[0].clientY;
+
+  if (tickingTouch) return;
+  tickingTouch = true;
+
+  requestAnimationFrame(() => {
     const deltaY = currentY - startY;
-
-    // Solo mover si arrastra hacia arriba
     if (deltaY < 0) {
       notif.style.top = `calc(25px + ${deltaY}px)`;
       notif.style.opacity = `${1 + deltaY / 120}`;
     }
+    tickingTouch = false;
   });
+});
 
   notif.addEventListener("touchend", () => {
     if (!dragging) return;

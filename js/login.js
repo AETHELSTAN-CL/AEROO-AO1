@@ -1,37 +1,44 @@
+// =====================
+// USUARIOS DE PRUEBA
+// =====================
 const testUsers = [
-  { email: "alumno@memanejo.cl", id: "memanejo" },
-  { email: "alumnoprueba@memanejo.cl", id: "memanejo" },
-  { email: "hola", id: "hola" }
+  { email: "alumno@memanejo.cl", id: "memanejo", nombre: "Alumno de Prueba" },
+  { email: "alumnoprueba@memanejo.cl", id: "memanejo", nombre: "Alumno de Prueba 2" },
+  { email: "hola", id: "hola", nombre: "Hola" }
 ];
 
-window.testUsers = testUsers; // IMPORTANTE GLOBAL
+window.testUsers = testUsers;
 
+// =====================
+// LOGIN DESDE EL MENÚ FLOTANTE (.pill-student)
+// =====================
 const studentIngresar = document.getElementById('studentIngresar');
 
 studentIngresar?.addEventListener('click', () => {
-
   const email = document.getElementById('studentEmail')?.value.trim();
   const id = document.getElementById('studentID')?.value.trim();
 
   if (!email || !id) {
-    alert("Ingresa datos");
+    alert("Ingresa tu correo y código memanejo ID");
     return;
   }
 
   const validUser = testUsers.find(u => u.email === email && u.id === id);
 
   if (!validUser) {
-    alert("Error login");
+    alert("Correo o ID incorrecto");
     return;
   }
 
   window.currentStudent = validUser;
 
-  document.querySelector('.student-login').style.display = 'none';
-  document.querySelector('.student-dashboard').style.display = 'flex';
+  setSession({
+    nombre: validUser.nombre,
+    memanejoId: validUser.id,
+    email: validUser.email
+  });
 
   requestAnimationFrame(() => {
-    initStudentProgressCircles();
-    openStudentMenu();
+    initStudentProgressCircles?.();
   });
 });

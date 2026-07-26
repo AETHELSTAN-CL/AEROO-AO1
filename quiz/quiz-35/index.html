@@ -1,59 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Teórico de Conducción memanejo.cl</title>
+  <title>Quiz Teórico de Conducción | memanejo.cl</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<!-- Pantalla de bienvenida -->
-<div id="pantalla-bienvenida" class="quiz-container">
-  <div class="contenido">
-    <div class="logo-texto">
-      <a href="https://www.memanejomanejando.cl" target="_blank">
-  <img src="img/newnewlogo.jpg" alt="Logo Memanejo" class="logo-bienvenida">
-</a>
-      <h2>¡HOLA! <br>SOY <br>MEMANEJO <br>MANEJANDO</h2>
-    </div>
+  <!-- Pantalla de bienvenida -->
+  <div id="pantalla-bienvenida" class="quiz-container">
+    <div class="contenido">
+      <div class="logo-texto">
+        <a href="https://www.memanejo.cl" target="_blank">
+          <img src="img/newnewlogo.jpg" alt="Logo Memanejo" class="logo-bienvenida">
+        </a>
+        <h2>memanejo <br>QUIZ</h2>
+      </div>
+      <p class="subtitulo">Prepárate para tu examen de conducción.</p>
 
-    <p class="subtitulo">Elige la dificultad del Quiz</p>
+      <p class="subtitulo-info">Selecciona el nivel de dificultad</p>
 
-    <div class="botones-bienvenida">
-      <button id="btn-facil" class="btn">Fácil</button>
-      <button id="btn-avanzado" class="btn">Avanzado</button>
+      <div class="botones-bienvenida">
+        <button id="btn-facil" class="btn">Fácil</button>
+        <button id="btn-avanzado" class="btn">Avanzado</button>
+      </div>
+      <p class="examen-info">Necesita</p>
+
+      <!-- 🔙 Enlace debajo de los botones -->
+      <a href="https://www.memanejo.cl" class="volver-inicio">
+        ← Volver a la página principal
+      </a>
     </div>
   </div>
-</div>
+
 
   <!-- Contenedor del quiz -->
   <div class="quiz-container" id="quiz-container" style="display:none;">
+    <div id="tiempo-restante"></div>
     <h2 id="question">Pregunta aparecerá aquí</h2>
-    <div id="progress">Pregunta 1 de 1</div>
     <div id="answer-buttons" class="btn-container"></div>
+    <div id="progress">Pregunta 1 de 1</div>
     <button id="next-btn" class="next-btn">Siguiente</button>
     <button id="btn-volver" class="btn-volver">← Volver al Inicio</button>
-    
+
   </div>
 
   <!-- Modal de resultado único -->
   <div id="modal-memanejo" class="modal-memanejo oculto">
     <div class="contenido-modal" id="captura">
-      <img src="img/logo.jpeg" alt="Logo Me Manejo" class="logo-modal">
-      <h2 class="titulo-modal">Resultado del Quiz | memanejo.cl</h2>
+
+      <div class="score-ring" id="scoreRing">
+        <div class="score-ring-inner">
+          <span id="scorePuntos" class="score-numero">0/0</span>
+          <span class="score-label">puntos</span>
+        </div>
+      </div>
+
+      <div id="badgeEstado" class="badge-estado">
+        <i class="fas fa-check"></i>
+        <span id="badgeTexto">Aprobado</span>
+      </div>
+
+      <h2 class="titulo-modal">Resultado del Quiz</h2>
       <p id="texto-puntaje" class="texto-puntaje-modal"></p>
 
-      <!-- Contenedor de botones finales con espacio uniforme -->
+      <div class="stats-grid">
+        <div class="stat-item">
+          <p id="statCorrectas" class="stat-valor">0</p>
+          <p class="stat-label">correctas</p>
+        </div>
+        <div class="stat-item">
+          <p id="statErradas" class="stat-valor">0</p>
+          <p class="stat-label">erradas</p>
+        </div>
+        <div class="stat-item">
+          <p id="statTiempo" class="stat-valor">0:00</p>
+          <p class="stat-label">tiempo</p>
+        </div>
+      </div>
+
       <div class="modal-buttons">
-        <button id="btn-descargar-img" class="btn">Descargar Imagen</button>
-        <a id="btn-compartir" class="btn" target="_blank">Compartir en Twitter</a>
-        <button id="btn-reintentar" class="btn">Reintentar</button>
+
+        <button id="btn-descargar-img" class="modal-btn modal-btn-principal">
+          <i class="fas fa-download"></i>
+          Descargar Imagen
+        </button>
+
+        <a id="btn-compartir" class="modal-btn modal-btn-secundario" target="_blank">
+          <i class="fab fa-twitter"></i>
+          Compartir en Twitter
+        </a>
+
+        <a id="btn-instagram" class="modal-btn modal-btn-instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+          Compartir en Instagram
+        </a>
+
+        <button id="btn-reintentar" class="modal-btn modal-btn-reintentar">
+          <i class="fas fa-redo"></i>
+          Reintentar
+        </button>
+
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="preguntas.js"></script>
   <script src="quiz.js"></script>
 </body>
+
 </html>

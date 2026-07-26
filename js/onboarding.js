@@ -37,6 +37,12 @@ let originalCardHTML = null;
 // INIT ONBOARDING
 // =====================
 function initOnboarding() {
+  // ⚠️ BYPASS DE DESARROLLO
+  if (localStorage.getItem('skipOnboarding') === 'true') {
+    cerrarOnboarding();
+    return;
+  }
+
   if (!loginCardGlass || !btnContinuar) return;
 
   originalCardHTML = loginCardGlass.innerHTML;
@@ -137,10 +143,20 @@ function mostrarPortalAlumno() {
     }
 
     window.currentStudent = validUser;
-    cerrarOnboarding();
-    initStudentProgressCircles?.();
-    openStudentMenu();
-  });
+
+setSession({
+  nombre: validUser.nombre || "Alumno",
+  memanejoId: validUser.id,
+  email: validUser.email
+});
+
+cerrarOnboarding();
+
+requestAnimationFrame(() => {
+  initStudentProgressCircles?.();
+  openStudentMenu();
+});
+});
 
   document.getElementById('portalVolver')?.addEventListener('click', restoreOnboarding);
 }

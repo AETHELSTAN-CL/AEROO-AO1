@@ -1,16 +1,23 @@
 /* === GENERAL === */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #121212;
   color: #fff;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  height: 100vh;
-  overflow: hidden;
+  align-items: safe center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-y: auto;
 }
+
 /* === CONTENEDOR DE PREGUNTA === */
 #quiz-container {
   display: flex;
@@ -19,88 +26,106 @@ body {
   justify-content: space-between;
   width: 100%;
   max-width: 600px;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
 }
+
 #tiempo-restante {
   width: 100%;
   text-align: center;
-  margin-bottom: 10px;
 }
+
 #question {
   width: 100%;
-  max-width: 550px; /* 🔧 límite visual del texto */
-  text-align: left; /* o center si prefieres */
-  margin-top: 140px;
-  margin-bottom: 60px;
+  max-width: 550px;
+  text-align: left;
+  margin-bottom: 40px;
   font-size: 24px;
   line-height: 1.5;
 }
+
 /* === PANTALLA DE BIENVENIDA === */
 #pantalla-bienvenida {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100%;
-  padding-top: 40px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 30px;
+  border-radius: 12px;
   box-sizing: border-box;
-  text-align: left;
 }
 
 .contenido {
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* centra el bloque completo */
-  justify-content: flex-start;
-  text-align: left;
-  max-width: 600px;
   width: 100%;
+  max-width: 550px;
+  text-align: center;
 }
 
 .logo-texto {
   display: flex;
-  align-items: center;      /* centra logo y texto verticalmente */
-  justify-content: center;  /* centra el conjunto en pantalla */
+  align-items: center;
+  justify-content: center;
   gap: 20px;
-  margin-bottom: 10px;
 }
 
 .logo-bienvenida {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
-  border-radius: 20px;
-  margin-bottom: 60px;
+  border-radius: 24px;
 }
 
 .logo-texto h2 {
+  font-family: 'Avenir';
   margin: 0;
-  font-size: 2rem;
-  line-height: 1.2;
-  text-align: left; 
-  margin-bottom: 60px;
+  font-size: 1.5rem;
+  text-align: left;
 }
 
 .subtitulo {
-  text-align: left;
-  font-size: 36px;
-  margin-top: 10px;
-  margin-bottom: 60px;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
+
+.titulo-input {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.subtitulo-info {
+  font-size: 16px;
+  color: #e1e1e1;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.examen-info {
+  text-align: center;
+  font-size: 10px;
+  color: #b8b8b8;
+}
+
 /*  el número de la pregunta */
 #progress {
   margin-top: 25px;
+  margin-bottom: 15px;
   text-align: center;
   font-size: 12px;
   color: #bbb;
 }
+
 /* === BOTONES BIENVENIDA === */
 .botones-bienvenida {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  margin-top: 20px;
   flex-wrap: wrap;
 }
 
@@ -116,9 +141,17 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-align: center;
-  min-width: 200px;
+  min-width: 220px;
   min-height: 50px;
   z-index: 1;
+}
+
+.btn-container {
+  width: 100%;
+}
+
+.btn-container button {
+  width: 90%;
 }
 
 .btn::before {
@@ -150,13 +183,11 @@ body {
   color: #df0016 !important;
 }
 
-/* Estado hover normal */
 .btn.wrong:hover {
   background-color: #ffffff !important;
   color: #df0016 !important;
 }
 
-/* Estado seleccionado (mantiene hover activo) */
 .btn.selected-wrong {
   background-color: #ffffff !important;
   color: #df0016 !important;
@@ -165,7 +196,6 @@ body {
 
 /* === RESPONSIVE === */
 @media (max-width: 600px) {
-
   .botones-bienvenida {
     flex-direction: column;
     gap: 15px;
@@ -223,9 +253,20 @@ body {
 #form-usuario button:hover {
   background-color: #00a759;
 }
+
+.texto-privacidad {
+  font-size: 11px;
+  color: #aaa;
+  text-align: center;
+  max-width: 300px;
+  line-height: 1.3;
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
 /* === BOTÓN SIGUIENTE === */
 .next-btn {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 8px 24px;
   font-size: 16px;
   background-color: #3429ff;
@@ -254,173 +295,311 @@ body {
 .next-btn:hover::before {
   width: 100%;
 }
-.texto-privacidad {
-  font-size: 11px;
-  color: #aaa;
-  text-align: center;
-  max-width: 300px;
-  line-height: 1.3;
-  margin-top: 6px;
-  opacity: 0.8;
-}
-/* === BOTÓN VOLVER === */
+
+/* === BOTÓN VOLVER Inicio === */
 .btn-volver {
-  margin-top: 60px;
+  margin-top: 20px;
   padding: 12px 34px;
   font-size: 16px;
   color: #bbb;
   border: none;
   border-radius: 36px;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
   background-color: transparent;
 }
 
 .btn-volver:hover {
-  color: #bbb;
+  color: #fff;
   transform: translateX(-6px);
-}
-#progress {
-  margin-bottom: 15px; /* separa el número de la pregunta de los botones */
-  font-weight: bold;
-  text-align: center;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* === MODAL === */
+/* === PANTALLA RESULTADO === */
 .modal-memanejo {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
-  height: 100%;
-  transform: none; /* ya no lo necesitas si usas top/left 0 + 100% */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  height: 100dvh;
+  background: #111;
   overflow-y: auto;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.6); /* si quieres overlay, revisa que lo tengas */
-  box-sizing: border-box;
 }
 
-.contenido-modal {
-  background-color: #2d2d2d;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-  color: white;
-  width: 100%;
-  max-width: 400px; /* limita el ancho en desktop */
-  max-height: 100vh; /* evita que se corte en mobile */
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-}
 .modal-memanejo.oculto {
   display: none;
 }
 
-.logo-modal {
-  width: 220px;
-  border-radius: 4px;
+.contenido-modal {
+  width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 48px 20px 32px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ===== Anillo de puntaje ===== */
+.score-ring {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(#28a745 var(--progreso, 0%), #3a3a3a 0);
+}
+
+.score-ring-inner {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-numero {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.score-label {
+  font-size: 10px;
+  color: #999;
+}
+
+/* ===== Badge Aprobado/Reprobado ===== */
+.badge-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  background: rgba(40, 167, 69, 0.15);
+  color: #4ade80;
+}
+
+.badge-estado.reprobado {
+  background: rgba(223, 0, 22, 0.15);
+  color: #ff6b6b;
 }
 
 .titulo-modal {
   font-size: 18px;
-  margin-bottom: 5px;
+  margin: 6px 0 2px;
   color: #fff;
 }
 
 .texto-puntaje-modal {
-  font-size: 14px;
+  font-size: 13px;
+  color: #bbb;
+  margin-bottom: 16px;
 }
 
+/* ===== Grid de estadísticas ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  max-width: 340px;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 10px 4px;
+}
+
+.stat-valor {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #999;
+  margin: 2px 0 0;
+}
+
+/* ===== Botones Modal Resultado ===== */
 .modal-buttons {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 10px;
+  gap: 10px;
+  width: 100%;
   align-items: center;
+  margin-top: 20px;
 }
 
-.modal-buttons .btn,
-.modal-buttons a.btn {
-  width: 250px;
-  height: 30px;
-  font-size: 12px;
-  text-align: center;
+.modal-buttons .modal-btn,
+.modal-buttons a.modal-btn {
+  width: 100%;
+  max-width: 360px;
+  height: 46px;
+  font-size: 13px;
+  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  text-align: center;
   text-decoration: none;
-  background-color: #007bff;
-  color: #fff;
   border-radius: 24px;
-  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: transform .25s ease,
+              background-color .25s ease,
+              border-color .25s ease;
   box-sizing: border-box;
+  white-space: nowrap;
 }
 
-.modal-buttons .btn::before,
-.modal-buttons a.btn::before {
+.modal-buttons .btn i,
+.modal-buttons a.btn i {
+  font-size: 14px;
+}
+
+/* Descargar imagen */
+.modal-btn-principal {
+  background: #fff;
+  color: #111;
+  border: 1px solid #fff;
+}
+
+.modal-btn-principal:hover {
+  transform: scale(1.04);
+  background: #eaeaea;
+}
+
+/* Twitter / X */
+.modal-btn-secundario {
+  background: #000;
+  color: #fff;
+  border: 1px solid #333 !important;
+}
+.modal-btn-secundario i {
+  color: #1DA1F2;
+}
+
+.modal-btn-secundario:hover {
+  transform: scale(1.04);
+  background: #181818;
+}
+
+/* Instagram */
+.modal-btn-instagram {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.modal-btn-instagram i {
+  color: #dd2a7b;
+  font-size: 15px;
+}
+
+.modal-btn-instagram:hover {
+  transform: scale(1.04);
+  background: #1b1b1b;
+  border-color: rgba(255,255,255,.35);
+}
+/* Por defecto, oculto */
+.modal-btn-instagram {
   display: none;
 }
 
-.modal-buttons .btn:hover,
-.modal-buttons a.btn:hover {
-  background-color: #2d2d2d;
+/* Solo se muestra si el navegador soporta compartir nativo (mobile) */
+@media (hover: none) and (pointer: coarse) {
+  .modal-btn-instagram {
+    display: flex;
+  }
+}
+/* Reintentar */
+.modal-btn-reintentar {
+  background: transparent;
+  color: #999;
+  border: none;
+  padding: 0;
+  min-height: auto;
 }
 
-.mensaje-pantallazo {
-  font-size: 12px;
-  color: #ccc;
-  margin-bottom: 20px;
+.modal-btn-reintentar:hover {
+  transform: scale(1.04);
+  color: #fff;
+  background: transparent;
 }
-/* ✅ CENTRADO REAL DE LA BIENVENIDA SIN AFECTAR AL QUIZ */
-#pantalla-bienvenida {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.btn-incentivo {
+  display: block;
   width: 100%;
-  max-width: 600px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 36px;
+  text-decoration: none;
+  font-size: 13px;        /* 👈 texto "Revisa tus errores" pequeño */
   text-align: center;
-  padding: 20px;
-  box-sizing: border-box;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#pantalla-bienvenida .contenido {
-  width: 100%;
+.btn-incentivo:hover {
+  background-color: #00a759;
+  transform: scale(1.03);
 }
 
-#form-usuario {
-  margin-top: 25px;
+.btn-incentivo-precio {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;         /* 👈 precio más grande */
+  margin-top: 2px;
+}
+
+.acceso-text {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  color: #888;
+  font-size: 11px;
+  margin-top: 10px;
 }
-.btn i {
-  margin-right: 8px;
-  font-size: 1rem;
-  vertical-align: middle;
+
+.acceso-text i {
+  color: #25D366;
+  font-size: 13px;
 }
+
 .volver-inicio {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  font-size: 14px;
   color: #ccc;
+  font-size: 14px;
   text-decoration: none;
-  margin-top: 55px;
+  margin-top: 50px;
   width: 100%;
   text-align: center;
 }
@@ -432,5 +611,5 @@ body {
 .volver-inicio:hover {
   color: #fff;
   transform: translateX(-6px);
-  transition: color 0.3s, transform 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }

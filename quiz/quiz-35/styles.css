@@ -1,45 +1,65 @@
 /* === GENERAL === */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #121212;
   color: #fff;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  align-items: flex-start;
+  min-height: 100vh;
+  /* fallback */
+  min-height: 100dvh;
+  /* real */
+  overflow-y: auto;
 }
+
 /* === CONTENEDOR DE PREGUNTA === */
 #quiz-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
-  max-width: 600px; /* 🔧 limita el ancho */
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 600px;
+  padding: 10px;
   box-sizing: border-box;
+}
+
+#tiempo-restante {
+  width: 100%;
+  text-align: center;
 }
 
 #question {
   width: 100%;
-  max-width: 550px; /* 🔧 límite visual del texto */
-  text-align: left; /* o center si prefieres */
-  margin-bottom: 25px;
-  font-size: 20px;
+  max-width: 550px;
+  text-align: left;
+  /* o center si prefieres */
+  margin-bottom: 40px;
+  font-size: 24px;
   line-height: 1.5;
 }
+
 /* === PANTALLA DE BIENVENIDA === */
 #pantalla-bienvenida {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
+  /* fallback */
+  min-height: 100dvh;
+  /* real */
   padding: 30px;
   border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .contenido {
@@ -51,8 +71,10 @@ body {
 .logo-texto {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
 }
+
 
 .logo-bienvenida {
   width: 90px;
@@ -61,15 +83,23 @@ body {
   border-radius: 24px;
 }
 
-.texto h2 {
-  margin: 0;
-  line-height: 1.2;
+.subtitulo {
+  text-align: left;
+  font-size: 36px;
 }
 
-.subtitulo {
+.subtitulo-info {
+  font-size: 16px;
+  color: #e1e1e1;
+  font-weight: 400;
   text-align: center;
-  margin-top: 25px;
-  font-size: 18px;
+  margin-top: 20px;
+}
+
+.examen-info {
+  text-align: center;
+  font-size: 10px;
+  color: #b8b8b8;
 }
 
 /* === BOTONES BIENVENIDA === */
@@ -94,10 +124,19 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-align: center;
-  min-width: 200px;
+  min-width: 220px;
   min-height: 50px;
   z-index: 1;
 }
+
+.btn-container {
+  width: 100%;
+}
+
+.btn-container button {
+  width: 90%;
+}
+
 
 .btn::before {
   content: "";
@@ -141,24 +180,17 @@ body {
   border: 2px solid #df0016;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 600px) {
-
-  .botones-bienvenida {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-  }
+/*  el número de la pregunta */
+#progress {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 12px;
+  color: #bbb;
 }
 
 /* === BOTÓN SIGUIENTE === */
 .next-btn {
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 8px 24px;
   font-size: 16px;
   background-color: #3429ff;
@@ -189,7 +221,7 @@ body {
 }
 
 
-/* === BOTÓN VOLVER === */
+/* === BOTÓN VOLVER Inicio === */
 .btn-volver {
   margin-top: 20px;
   padding: 12px 34px;
@@ -203,27 +235,20 @@ body {
 }
 
 .btn-volver:hover {
-  color: #bbb;
+  color: #fff;
   transform: translateX(-6px);
-}
-#progress {
-  margin-bottom: 15px; /* separa el número de la pregunta de los botones */
-  font-weight: bold;
-  text-align: center;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* === MODAL === */
+
+
+/* === PANTALLA RESULTADO === */
 .modal-memanejo {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  max-width: 95vw;
-  max-height: 95vh;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  background: #111;
   overflow-y: auto;
   z-index: 9999;
 }
@@ -233,72 +258,257 @@ body {
 }
 
 .contenido-modal {
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-  color: white;
   width: 100%;
-  max-width: 360px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 48px 20px 32px;
+  background: #111;
+  color: #fff;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.logo-modal {
-  width: 320px;
-  margin-bottom: 10px;
-  border-radius: 3%;
+
+/* ===== Anillo de puntaje ===== */
+.score-ring {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(#28a745 var(--progreso, 0%), #3a3a3a 0);
+}
+
+.score-ring-inner {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-numero {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.score-label {
+  font-size: 10px;
+  color: #999;
+}
+
+/* ===== Badge Aprobado/Reprobado ===== */
+.badge-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  background: rgba(40, 167, 69, 0.15);
+  color: #4ade80;
+}
+
+.badge-estado.reprobado {
+  background: rgba(223, 0, 22, 0.15);
+  color: #ff6b6b;
 }
 
 .titulo-modal {
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 18px;
+  margin: 6px 0 2px;
+  color: #fff;
 }
 
 .texto-puntaje-modal {
-  font-size: 16px;
+  font-size: 13px;
+  color: #bbb;
+  margin-bottom: 16px;
 }
+
+/* ===== Grid de estadísticas ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 10px 4px;
+}
+
+.stat-valor {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #999;
+  margin: 2px 0 0;
+}
+
+/* ===== Botones Modal Resultado ===== */
 
 .modal-buttons {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 10px;
+  width: 100%;
   align-items: center;
 }
 
-.modal-buttons .btn,
-.modal-buttons a.btn {
-  width: 250px;
-  height: 50px;
-  font-size: 16px;
-  text-align: center;
+.modal-buttons .modal-btn,
+.modal-buttons a.modal-btn {
+
+  width: 100%;
+  max-width: 360px;
+  height: 46px;
+
+  font-size: 13px;
+  font-weight: 600;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+
+  text-align: center;
   text-decoration: none;
-  background-color: #007bff;
-  color: #fff;
+
   border-radius: 24px;
-  border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition: transform .25s ease, 
+              background-color .25s ease,
+              border-color .25s ease;
+
   box-sizing: border-box;
+  white-space: nowrap;
 }
 
-.modal-buttons .btn::before,
-.modal-buttons a.btn::before {
-  display: none;
+.modal-buttons .btn i,
+.modal-buttons a.btn i {
+  font-size: 14px;
 }
 
-.modal-buttons .btn:hover,
-.modal-buttons a.btn:hover {
-  background-color: #2d2d2d;
+
+/* Descargar imagen */
+.modal-btn-principal {
+  background: #fff;
+  color: #111;
+  border: 1px solid #fff;
 }
 
+.modal-btn-principal:hover {
+  transform: scale(1.04);
+  background: #eaeaea;
+}
+
+
+/* Twitter / X */
+.modal-btn-secundario {
+  background: #000;
+  color: #fff;
+  border: 1px solid #333 !important;
+}
+
+.modal-btn-secundario:hover {
+  transform: scale(1.04);
+  background: #181818;
+}
+
+
+/* Instagram */
+.modal-btn-instagram {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.modal-btn-instagram i {
+  background: linear-gradient(
+    45deg,
+    #f58529,
+    #dd2a7b,
+    #8134af,
+    #515bd4
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  font-size: 15px;
+}
+
+.modal-btn-instagram:hover {
+  transform: scale(1.04);
+  background: #1b1b1b;
+  border-color: rgba(255,255,255,.35);
+}
+
+
+/* Reintentar */
+/* Reintentar */
+.modal-btn-reintentar {
+  background: transparent;
+  color: #999;
+  border: none;
+  padding: 0;
+
+  min-height: auto;
+}
+
+.modal-btn-reintentar:hover {
+  transform: scale(1.04);
+  color: #fff;
+  background: transparent;
+}
 .mensaje-pantallazo {
   font-size: 12px;
   color: #ccc;
   margin-bottom: 20px;
+}
+
+.volver-inicio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.volver-inicio i {
+  font-size: 13px;
+}
+
+.volver-inicio:hover {
+  color: #fff;
+  transform: translateX(-6px);
+  transition: color 0.3s ease, transform 0.3s ease;
 }

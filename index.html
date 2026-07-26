@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- 🔑 SEO Básico -->
   <title>Aula Virtual | Cursos de Conducción y Seguridad Vial - memanejo.cl</title>
@@ -14,8 +17,12 @@
 
   <!-- 📱 Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/img/logopngicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/img/apple-touch-icon-167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon-180.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- 🌐 Open Graph (Facebook / WhatsApp / LinkedIn) -->
@@ -33,7 +40,7 @@
     content="Aprende a conducir con confianza. Cursos en línea Clase B, mecánica básica y seguridad vial." />
   <meta name="twitter:image" content="https://www.memanejomanejando.cl/img/photo-output_3.jpeg" />
 
-  <!-- 📊 Schema Markup (Organization + Course + Person) -->
+  <!-- 📊 Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -269,7 +276,9 @@
 
     <!-- Dashboard del estudiante -->
     <div class="student-dashboard" style="display:none;">
-
+<button id="btnCerrarSesion" class="btn-cerrar-sesion">
+    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+  </button>
       <h3 class="sd-title">Tu progreso</h3>
 
       <div class="sd-progress-grid">
@@ -380,312 +389,317 @@
 
   <!-- ===== CURSOS App ===== -->
   <section id="cursos-section" class="cursos-section">
-    <h2 class="cursos-title" data-aos="fade-up">memanejo + <br><small> Online</small></h2>
+    <h2 class="cursos-title" data-aos="fade-up">memanejo + <br><small> Tu centro de entrenamiento para aprobar el examen
+        de conducción. </small></h2>
 
-   <!-- ===== CURSO 0KM ===== -->
-<div class="curso-row">
-  <div class="curso-info">
-    <h3 class="curso-km"><strong>0Km</strong></h3>
-    <p class="curso-subtitle">PEATÓN</p>
-  </div>
-  <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
-</div>
-<div class="curso-accordion">
-  <div class="icon-grid">
-    <!-- Icono Estudiante / Suscripción -->
-    <div class="icon-wrapper">
-      <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
-        data-bs-target="#modalStudentSubscription"
-        style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-        <div class="icon-card">
-          <span class="icon-text">memanejo ID</span>
-          <i class="fas fa-user-graduate fa-2x"></i>
-        </div>
+    <!-- ===== CURSO 0KM ===== -->
+    <div class="curso-row">
+      <div class="curso-info">
+        <h3 class="curso-km"><strong>0Km</strong></h3>
+        <p class="curso-subtitle">PEATÓN</p>
+      </div>
+      <button class="curso-btn" data-aos="fade-up">
+        Ver contenido <i class="fas fa-chevron-down curso-chevron"></i>
       </button>
-      <span class="icon-pill"
-        data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
-        <span class="tooltip-box"></span>
-      </span>
     </div>
-
-
-    <!-- Icono Resumen PDF -->
-    <div class="icon-wrapper" data-item-id="resumen1y2" data-download="/archivos/Resumen y tips C.1y2.pdf">
-      <a href="#" class="icon-link open-modal">
-        <div class="icon-card">
-          <span class="icon-text">Resumen Capítulo 1 y 2</span>
-          <i class="fa-solid fa-download"></i>
+    <div class="curso-accordion">
+      <div class="icon-grid">
+        <!-- Icono Estudiante / Suscripción -->
+        <div class="icon-wrapper">
+          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+            data-bs-target="#modalStudentSubscription"
+            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+            <div class="icon-card">
+              <span class="icon-text">memanejo ID</span>
+              <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+          </button>
+          <span class="icon-pill"
+            data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
+            <span class="tooltip-box"></span>
+          </span>
         </div>
-      </a>
-      <span class="icon-pill" data-tooltip="Interactivo y fácil de leer" data-default="$3.900">$3.900
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
 
-    <!-- Icono Glosario -->
-    <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
-      <div class="icon-wrapper">
-        <div class="icon-card">
-          <span class="icon-text">Glosario Vial</span>
-          <i class="fa-solid fa-download"></i>
+
+        <!-- Icono Resumen PDF -->
+        <div class="icon-wrapper" data-item-id="resumen1y2" data-download="/archivos/Resumen y tips C.1y2.pdf">
+          <a href="#" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">Resumen Capítulo 1 y 2</span>
+              <i class="fa-solid fa-download"></i>
+            </div>
+          </a>
+          <span class="icon-pill" data-tooltip="Interactivo y fácil de leer" data-default="$3.900">$3.900
+            <span class="tooltip-box"></span>
+          </span>
         </div>
-        <span class="icon-pill" data-tooltip="Descargar">GRATIS
-          <span class="tooltip-box"></span>
-        </span>
+
+        <!-- Icono Glosario -->
+        <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
+          <div class="icon-wrapper">
+            <div class="icon-card">
+              <span class="icon-text">Glosario Vial</span>
+              <i class="fa-solid fa-download"></i>
+            </div>
+            <span class="icon-pill" data-tooltip="Descargar">GRATIS
+              <span class="tooltip-box"></span>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Icono Test 10 Preguntas -->
+        <a href="quiz/quiz-nivelacion/" target="_blank" class="icon-link">
+          <div class="icon-wrapper">
+            <div class="icon-card">
+              <span class="icon-text">Quiz Nivelación</span>
+              <i class="fas fa-book fa-2x"></i>
+            </div>
+            <span class="icon-pill" data-tooltip="Quiz municipal con 35 preguntas nivel: Fácil">GRATIS
+              <span class="tooltip-box"></span>
+            </span>
+          </div>
+        </a>
+
+
+        <!-- Icono Test 30 Preguntas -->
+        <div class="icon-wrapper" data-item-id="nivelacion30" data-download="/quiz/quiz-nivelacion/"
+          data-action-type="quiz">
+
+          <!-- Tarjeta que abre modal -->
+          <div class="icon-card open-modal">
+            <span class="icon-text">Examen Municipal</span>
+            <i class="fas fa-book fa-2x"></i>
+          </div>
+
+          <!-- Precio / cambio de texto al desbloquear -->
+          <span class="icon-pill" data-tooltip="20 preguntas nivel: Fácil y 35 preguntas nivel: Avanzado"
+            data-default="$3.900">
+            $3.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
+
+        <!-- Icono Profesor -->
+        <div class="icon-wrapper">
+          <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
+            <div class="icon-card">
+              <span class="icon-text">Clases Guiada</span>
+              <i class="fas fa-chalkboard-teacher fa-2x"></i>
+            </div>
+          </a>
+
+          <span class="icon-pill" data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">
+            ¡Suscríbete!
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
       </div>
-    </a>
-
-
-    <!-- Icono Test 10 Preguntas -->
-    <a href="quiz/quiz-nivelacion/" target="_blank" class="icon-link">
-      <div class="icon-wrapper">
-        <div class="icon-card">
-          <span class="icon-text">Quiz Nivelación</span>
-          <i class="fas fa-book fa-2x"></i>
-        </div>
-        <span class="icon-pill" data-tooltip="Quiz municipal con 35 preguntas nivel: Fácil">GRATIS
-          <span class="tooltip-box"></span>
-        </span>
-      </div>
-    </a>
-
-
-    <!-- Icono Test 30 Preguntas -->
-    <div class="icon-wrapper" data-item-id="nivelacion30" data-download="/quiz/quiz-nivelacion/"
-      data-action-type="quiz">
-
-      <!-- Tarjeta que abre modal -->
-      <div class="icon-card open-modal">
-        <span class="icon-text">Examen Municipal</span>
-        <i class="fas fa-book fa-2x"></i>
-      </div>
-
-      <!-- Precio / cambio de texto al desbloquear -->
-      <span class="icon-pill" data-tooltip="20 preguntas nivel: Fácil y 35 preguntas nivel: Avanzado"
-        data-default="$3.900">
-        $3.900
-        <span class="tooltip-box"></span>
-      </span>
     </div>
 
-    <!-- Icono Profesor -->
-    <div class="icon-wrapper">
-      <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
-        <div class="icon-card">
-          <span class="icon-text">Clases Guiada</span>
-          <i class="fas fa-chalkboard-teacher fa-2x"></i>
-        </div>
-      </a>
 
-      <span class="icon-pill" data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">
-        ¡Suscríbete!
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
-  </div>
-</div>
-
-
-<!-- ===== CURSO 100KM ===== -->
-<div class="curso-row">
-  <div class="curso-info">
-    <h3 class="curso-km"><strong>100Km</strong></h3>
-    <p class="curso-subtitle">APRENDIZ</p>
-  </div>
-  <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
-</div>
-<div class="curso-accordion">
-  <div class="icon-grid">
-    <!-- Icono Estudiante / Suscripción -->
-    <div class="icon-wrapper">
-      <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
-        data-bs-target="#modalStudentSubscription"
-        style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-        <div class="icon-card">
-          <span class="icon-text">memanejo ID</span>
-          <i class="fas fa-user-graduate fa-2x"></i>
-        </div>
+    <!-- ===== CURSO 100KM ===== -->
+    <div class="curso-row">
+      <div class="curso-info">
+        <h3 class="curso-km"><strong>100Km</strong></h3>
+        <p class="curso-subtitle">APRENDIZ</p>
+      </div>
+      <button class="curso-btn" data-aos="fade-up">
+        Ver contenido <i class="fas fa-chevron-down curso-chevron"></i>
       </button>
-      <span class="icon-pill"
-        data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
-        <span class="tooltip-box"></span>
-      </span>
     </div>
-
-    <!-- Icono Resumen PDF -->
-    <div class="icon-wrapper" data-item-id="resumen3y4" data-download="/archivos/Resumen y tips C.1y2.pdf">
-      <a href="#" class="icon-link open-modal">
-        <div class="icon-card">
-          <span class="icon-text">Resumen Capítulo 3 y 4</span>
-          <i class="fa-solid fa-download"></i>
+    <div class="curso-accordion">
+      <div class="icon-grid">
+        <!-- Icono Estudiante / Suscripción -->
+        <div class="icon-wrapper">
+          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+            data-bs-target="#modalStudentSubscription"
+            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+            <div class="icon-card">
+              <span class="icon-text">memanejo ID</span>
+              <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+          </button>
+          <span class="icon-pill"
+            data-tooltip="Accede a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
+            <span class="tooltip-box"></span>
+          </span>
         </div>
-      </a>
-      <span class="icon-pill" data-tooltip="Interactivo y fácil de leer. Online" data-default="$3.900">$3.900
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
 
-    <!-- Icono Glosario -->
-    <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
-      <div class="icon-wrapper">
-        <div class="icon-card">
-          <span class="icon-text">Glosario Vial</span>
-          <i class="fa-solid fa-download"></i>
+        <!-- Icono Resumen PDF -->
+        <div class="icon-wrapper" data-item-id="resumen3y4" data-download="/archivos/Resumen y tips C.1y2.pdf">
+          <a href="#" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">Resumen Capítulo 3 y 4</span>
+              <i class="fa-solid fa-download"></i>
+            </div>
+          </a>
+          <span class="icon-pill" data-tooltip="Interactivo y fácil de leer. Online" data-default="$3.900">$3.900
+            <span class="tooltip-box"></span>
+          </span>
         </div>
-        <span class="icon-pill" data-tooltip="Descargar">GRATIS
-          <span class="tooltip-box"></span>
-        </span>
+
+        <!-- Icono Glosario -->
+        <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
+          <div class="icon-wrapper">
+            <div class="icon-card">
+              <span class="icon-text">Glosario Vial</span>
+              <i class="fa-solid fa-download"></i>
+            </div>
+            <span class="icon-pill" data-tooltip="Descargar">GRATIS
+              <span class="tooltip-box"></span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Icono Test 35 Preguntas -->
+        <div class="icon-wrapper" data-item-id="intermedio35" data-download="/quiz/quiz-35/" data-action-type="quiz">
+          <a href="#" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">Quiz Intermedio</span>
+              <i class="fas fa-book fa-2x"></i>
+            </div>
+          </a>
+          <span class="icon-pill" data-tooltip="1 Quiz con 35 preguntas nivel: Intermedio" data-default="$3.900">$3.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
+
+        <!-- Icono Test 105 Preguntas -->
+        <div class="icon-wrapper" data-item-id="intermedio105" data-download="/quiz/quiz-105/" data-action-type="quiz">
+          <a href="#" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">Quiz 105 Preguntas</span>
+              <i class="fas fa-book fa-2x"></i>
+            </div>
+          </a>
+          <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Intermedio"
+            data-default="$7.900">$7.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
+
+        <!-- Icono Profesor -->
+        <div class="icon-wrapper">
+          <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
+            <div class="icon-card">
+              <span class="icon-text">Clases Guiada</span>
+              <i class="fas fa-chalkboard-teacher fa-2x"></i>
+            </div>
+          </a>
+
+          <span class="icon-pill"
+            data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
+            $29.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
       </div>
-    </a>
-
-    <!-- Icono Test 35 Preguntas -->
-    <div class="icon-wrapper" data-item-id="intermedio35" data-download="/quiz/quiz-35/" data-action-type="quiz">
-      <a href="#" class="icon-link open-modal">
-        <div class="icon-card">
-          <span class="icon-text">Quiz Intermedio</span>
-          <i class="fas fa-book fa-2x"></i>
-        </div>
-      </a>
-      <span class="icon-pill" data-tooltip="1 Quiz con 35 preguntas nivel: Intermedio"
-        data-default="$3.900">$3.900
-        <span class="tooltip-box"></span>
-      </span>
     </div>
 
-    <!-- Icono Test 105 Preguntas -->
-    <div class="icon-wrapper" data-item-id="intermedio105" data-download="/quiz/quiz-105/" data-action-type="quiz">
-      <a href="#" class="icon-link open-modal">
-        <div class="icon-card">
-          <span class="icon-text">Quiz 105 Preguntas</span>
-          <i class="fas fa-book fa-2x"></i>
-        </div>
-      </a>
-      <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Intermedio"
-        data-default="$7.900">$7.900
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
-
-    <!-- Icono Profesor -->
-    <div class="icon-wrapper">
-      <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
-        <div class="icon-card">
-          <span class="icon-text">Clases Guiada</span>
-          <i class="fas fa-chalkboard-teacher fa-2x"></i>
-        </div>
-      </a>
-
-      <span class="icon-pill"
-        data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
-        $29.900
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
-  </div>
-</div>
-
-<!-- ===== CURSO 1000KM ===== -->
-<div class="curso-row">
-  <div class="curso-info">
-    <h3 class="curso-km"><strong>1000Km</strong></h3>
-    <p class="curso-subtitle">PRACTICANTE</p>
-  </div>
-  <button class="curso-btn" data-aos="fade-up" onclick="toggleAccordion(this)">Ver contenido</button>
-</div>
-<div class="curso-accordion">
-  <div class="icon-grid">
-    <!-- Icono Estudiante / Suscripción -->
-    <div class="icon-wrapper">
-      <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
-        data-bs-target="#modalStudentSubscription"
-        style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
-        <div class="icon-card">
-          <span class="icon-text">memanejo ID</span>
-          <i class="fas fa-user-graduate fa-2x"></i>
-        </div>
+    <!-- ===== CURSO 1000KM ===== -->
+    <div class="curso-row">
+      <div class="curso-info">
+        <h3 class="curso-km"><strong>1000Km</strong></h3>
+        <p class="curso-subtitle">PRACTICANTE</p>
+      </div>
+      <button class="curso-btn" data-aos="fade-up">
+        Ver contenido <i class="fas fa-chevron-down curso-chevron"></i>
       </button>
-      <span class="icon-pill"
-        data-tooltip="Acceso a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
-        <span class="tooltip-box"></span>
-      </span>
     </div>
-
-    <!-- Icono Resumen PDF -->
-    <div class="icon-wrapper" data-item-id="resumen5y8" data-download="/archivos/Resumen y tips C.1y2.pdf">
-      <a href="#" class="icon-link open-modal">
-        <div class="icon-card">
-          <span class="icon-text">Resumen Capítulo 5 y 8</span>
-          <i class="fa-solid fa-download"></i>
+    <div class="curso-accordion">
+      <div class="icon-grid">
+        <!-- Icono Estudiante / Suscripción -->
+        <div class="icon-wrapper">
+          <button type="button" class="pill-student btn btn-link p-0" data-bs-toggle="modal"
+            data-bs-target="#modalStudentSubscription"
+            style="all: unset; cursor:pointer; display:flex; flex-direction:column; align-items:center;">
+            <div class="icon-card">
+              <span class="icon-text">memanejo ID</span>
+              <i class="fas fa-user-graduate fa-2x"></i>
+            </div>
+          </button>
+          <span class="icon-pill"
+            data-tooltip="Acceso a nuestra Aula Virtual con todo el contenido liberado">¡Suscríbete!
+            <span class="tooltip-box"></span>
+          </span>
         </div>
-      </a>
-      <span class="icon-pill"
-        data-tooltip="Confirma tu nivel en QUIZGAME. Interactivo y fácil de usar. Material de estudio final. "
-        data-default="$3.900">$3.900
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
 
-    <!-- Icono Glosario -->
-    <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
-      <div class="icon-wrapper">
-        <div class="icon-card">
-          <span class="icon-text">Glosario</span>
-          <i class="fa-solid fa-download"></i>
+        <!-- Icono Resumen PDF -->
+        <div class="icon-wrapper" data-item-id="resumen5y8" data-download="/archivos/Resumen y tips C.1y2.pdf">
+          <a href="#" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">Resumen Capítulo 5 y 8</span>
+              <i class="fa-solid fa-download"></i>
+            </div>
+          </a>
+          <span class="icon-pill"
+            data-tooltip="Confirma tu nivel en QUIZGAME. Interactivo y fácil de usar. Material de estudio final. "
+            data-default="$3.900">$3.900
+            <span class="tooltip-box"></span>
+          </span>
         </div>
-        <span class="icon-pill" data-tooltip="Descargar">GRATIS
-          <span class="tooltip-box"></span>
-        </span>
+
+        <!-- Icono Glosario -->
+        <a href="archivos/Glosario GRATIS.pdf" target="_blank" class="icon-link">
+          <div class="icon-wrapper">
+            <div class="icon-card">
+              <span class="icon-text">Glosario</span>
+              <i class="fa-solid fa-download"></i>
+            </div>
+            <span class="icon-pill" data-tooltip="Descargar">GRATIS
+              <span class="tooltip-box"></span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Icono Test 105 Preguntas -->
+        <div class="icon-wrapper" data-item-id="quiz_dificil" data-download="/quiz/quiz-105/" data-action-type="quiz">
+          <a href="#" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">QUIZ GAME</span>
+              <i class="fas fa-book fa-2x"></i>
+            </div>
+          </a>
+          <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Díficil" data-default="$7.900">
+            $17.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
+
+        <div class="icon-wrapper" data-item-id="quiz_210" data-download="/quiz/quiz-210/" data-action-type="quiz">
+
+          <a href="#" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">Quiz nivel: Difícil</span>
+              <i class="fas fa-book fa-2x"></i>
+            </div>
+          </a>
+
+          <span class="icon-pill"
+            data-tooltip="6 Cuestionarios con 35 preguntas cada uno. 210 Preguntas en total tipo Examen Municipal.   ">
+            $12.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
+
+        <!-- Icono Profesor -->
+        <div class="icon-wrapper">
+          <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
+            <div class="icon-card">
+              <span class="icon-text">Clases Guiada</span>
+              <i class="fas fa-chalkboard-teacher fa-2x"></i>
+            </div>
+          </a>
+
+          <span class="icon-pill"
+            data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
+            $29.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
       </div>
-    </a>
-
-    <!-- Icono Test 105 Preguntas -->
-    <div class="icon-wrapper" data-item-id="quiz_dificil" data-download="/quiz/quiz-105/" data-action-type="quiz">
-      <a href="#" class="icon-link open-modal">
-        <div class="icon-card">
-          <span class="icon-text">QUIZ GAME</span>
-          <i class="fas fa-book fa-2x"></i>
-        </div>
-      </a>
-      <span class="icon-pill" data-tooltip="3 Quiz con 35 preguntas cada uno. nivel: Díficil"
-        data-default="$7.900">
-        $17.900
-        <span class="tooltip-box"></span>
-      </span>
     </div>
-
-    <div class="icon-wrapper" data-item-id="quiz_210" data-download="/quiz/quiz-210/" data-action-type="quiz">
-
-      <a href="#" class="icon-link open-modal">
-        <div class="icon-card">
-          <span class="icon-text">Quiz nivel: Difícil</span>
-          <i class="fas fa-book fa-2x"></i>
-        </div>
-      </a>
-
-      <span class="icon-pill"
-        data-tooltip="6 Cuestionarios con 35 preguntas cada uno. 210 Preguntas en total tipo Examen Municipal.   ">
-        $12.900
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
-
-    <!-- Icono Profesor -->
-    <div class="icon-wrapper">
-      <a href="#" class="icon-link" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
-        <div class="icon-card">
-          <span class="icon-text">Clases Guiada</span>
-          <i class="fas fa-chalkboard-teacher fa-2x"></i>
-        </div>
-      </a>
-
-      <span class="icon-pill"
-        data-tooltip="Tutoria de estudio online. Detallada con ejercicios y videos interactivos por 10 días. Facetime | Zoom 1 hora.">
-        $29.900
-        <span class="tooltip-box"></span>
-      </span>
-    </div>
-  </div>
-</div>
   </section>
   <!-- Modal universal -->
   <div class="modal" id="modalCodigo" style="display:none;">
@@ -699,7 +713,7 @@
       <button id="btnValidarCodigo">Validar código</button>
 
       <a id="solicitarCodigo" href="#" target="_blank" class="solicitar-enlace">
-        Solicitar código por WhatsApp
+        <i class="fab fa-whatsapp whatsapp-icon"></i> Solicitar código por WhatsApp
       </a>
 
       <p id="mensajeEstado"></p>
@@ -708,7 +722,8 @@
   <!-- Contenidos -->
   <section id="contenidos">
     <!-- Título con guion azul -->
-    <h3 class="text-center" data-aos="fade-up">memanejo manejando <br><small> Personalizado</small></h3>
+    <h3 class="text-center" data-aos="fade-up">memanejo manejando <br><small> Entrenamiento vial personalizado.</small>
+    </h3>
     <div class="row-cursos"> <!-- Card 1 -->
       <div class="curso-item" data-aos="fade-up">
         <div class="card card-gris">
@@ -728,7 +743,8 @@
               </button>
             </div>
             <small class="d-block text-center text-secondary mt-1 acceso-text">
-              Desbloquea contenido exclusivo y test online de práctica
+              Exámenes ilimitados, avance de tu progreso, resúmenes, clases en vivo para resolver dudas, explicación de
+              cada respuesta incorrecta y más.
             </small>
             <!-- Burbuja de precios -->
             <div id="precioNivel0" class="collapse precios-burbuja mt-2">
@@ -935,93 +951,128 @@
     </div>
   </section>
   <!-- Modal Suscripción -->
-<div class="modal fade" id="modalStudentSubscription" tabindex="-1" aria-labelledby="modalStudentSubscriptionLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-bottom modal-fullscreen-sm-down">
-    <div class="modal-content modern-modal">
+  <div class="modal fade" id="modalStudentSubscription" tabindex="-1" aria-labelledby="modalStudentSubscriptionLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-bottom modal-fullscreen-sm-down">
+      <div class="modal-content modern-modal">
 
-      <!-- TOP BAR estilo iOS -->
-      <div class="modal-topbar">
-        <span class="topbar-left">
-          <img src="img/newnewlogo.jpg" alt="Logo" class="topbar-logo">
-          memanejo pay
-        </span>
-        <span class="topbar-close" data-bs-dismiss="modal">
-          <i class="fas fa-sign-out-alt"></i>
-        </span>
+        <div class="modal-topbar">
+          <span class="topbar-left">
+            <img src="img/newnewlogo.jpg" alt="Logo" class="topbar-logo">
+            memanejo pay
+          </span>
+          <span class="topbar-close" data-bs-dismiss="modal">
+            <i class="fas fa-right-from-bracket"></i>
+          </span>
+        </div>
+
+        <div class="modal-body p-3">
+
+          <!-- Card 1 – Suscripción Total -->
+          <div class="sub-card">
+            <h3 class="sub-title">Suscripción <strong>memanejo ID</strong></h3>
+            <p class="sub-desc">Accede a nuestra Aula Virtual con todo el contenido liberado durante 30 días</p>
+
+            <div class="sub-icons">
+              <div class="sub-icon-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span class="sub-icon-label">Clases en vivo</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-list-check"></i>
+                <span class="sub-icon-label">Quiz</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fas fa-book"></i>
+                <span class="sub-icon-label">Resúmenes</span>
+              </div>
+            </div>
+
+            <button class="sub-btn">
+              <span class="sub-btn-text">Acceder con memanejo ID · promoción inicial</span>
+              <span class="sub-btn-price">$7.900</span>
+            </button>
+
+            <p class="sub-small">Luego $16.900/mes</p>
+          </div>
+
+          <!-- Card 2 – Quiz -->
+          <div class="sub-card">
+            <h3 class="sub-title">Plan Quiz</h3>
+            <p class="sub-desc">Desbloquea todos los quiz por 30 días</p>
+
+            <div class="sub-icons">
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-list-check"></i>
+                <span class="sub-icon-label">Quiz aleatorios</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fas fa-chart-bar"></i>
+                <span class="sub-icon-label">Estadísticas</span>
+              </div>
+            </div>
+
+            <button class="sub-btn">
+              <span class="sub-btn-text">Desbloquear Quiz</span>
+              <span class="sub-btn-price">$9.900</span>
+            </button>
+
+            <p class="sub-small">Luego $12.900/mes</p>
+          </div>
+
+          <!-- Card 3 – Resúmenes PDF -->
+          <div class="sub-card">
+            <h3 class="sub-title">Plan Resúmenes PDF</h3>
+            <p class="sub-desc">Acceso a todo el contenido resumido del libro del conductor año 2026</p>
+
+            <div class="sub-icons">
+              <div class="sub-icon-item">
+                <i class="fas fa-book"></i>
+                <span class="sub-icon-label">Resúmenes</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-download"></i>
+                <span class="sub-icon-label">Descarga PDF</span>
+              </div>
+            </div>
+
+            <button class="sub-btn">
+              <span class="sub-btn-text">Acceder a Resúmenes</span>
+              <span class="sub-btn-price">$9.900</span>
+            </button>
+
+            <p class="sub-small">Formación Vial Aplicada</p>
+          </div>
+
+          <!-- Card 4 – Agendar Clase -->
+          <div class="sub-card">
+            <h3 class="sub-title">Agendar Clase</h3>
+            <p class="sub-desc">Si cuentas con auto propio. La clase de prueba tiene un costo de $9.900</p>
+
+            <div class="sub-icons">
+              <div class="sub-icon-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span class="sub-icon-label">Clase en vivo</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span class="sub-icon-label">Agendar</span>
+              </div>
+            </div>
+
+            <button class="sub-btn">
+              <span class="sub-btn-text">Solicitar Clase</span>
+            </button>
+
+            <p class="sub-small">Con auto particular de práctica. <br>Clases adicionales $16.900/hora</p>
+          </div>
+
+        </div>
       </div>
-
-      <!-- ===== BODY con 4 CARDS ===== -->
-      <div class="modal-body p-3">
-
-        <!-- Card 1 – Suscripción Total -->
-        <div class="sub-card">
-          <h3 class="sub-title">Suscripción <strong>memanejo ID</strong></h3>
-          <p class="sub-desc">Accede a nuestra Aula Virtual con todo el contenido liberado durante 30 días</p>
-
-          <div class="sub-icons">
-            <div class="sub-icon-item"><i class="fas fa-chalkboard-teacher"></i></div>
-            <div class="sub-icon-item"><i class="fas fa-book"></i></div>
-            <div class="sub-icon-item"><i class="fa-solid fa-download"></i></div>
-          </div>
-
-          <button class="sub-btn">Acceder con <strong>memanejo ID</strong> <br><small>promoción inicial
-              $7.900</small></button>
-
-          <p class="sub-small">Luego $16.900/mes</p>
-        </div>
-
-        <!-- Card 2 – Quiz -->
-        <div class="sub-card">
-          <h3 class="sub-title">Plan Quiz</h3>
-          <p class="sub-desc">Desbloquea todos los quiz por 30 días</p>
-
-          <div class="sub-icons">
-            <div class="sub-icon-item"><i class="fas fa-book"></i></div>
-            <div class="sub-icon-item"><i class="fa-solid fa-list-check"></i></div>
-          </div>
-
-          <button class="sub-btn"><strong>Desbloquear Quiz</strong><br><small>$9.900</small></button>
-
-          <p class="sub-small">Luego $12.900/mes</p>
-        </div>
-
-        <!-- Card 3 – Resúmenes PDF -->
-        <div class="sub-card">
-          <h3 class="sub-title">Plan Resúmenes PDF</h3>
-          <p class="sub-desc">Acceso a todo el contenido resumidos del libro del conductor año 2026</p>
-
-          <div class="sub-icons">
-            <div class="sub-icon-item"><i class="fa-solid fa-download"></i></div>
-            <div class="sub-icon-item"><i class="fas fa-file-alt"></i></div>
-          </div>
-
-          <button class="sub-btn"><strong>Acceder a Resúmenes</strong><br><small>$9.900</small></button>
-
-          <p class="sub-small">Formación Vial Aplicada</p>
-        </div>
-
-        <!-- Card 4 – Agendar Clase -->
-        <div class="sub-card">
-          <h3 class="sub-title">Agendar Clase</h3>
-          <p class="sub-desc">Si cuentas con auto propio. La clase de prueba tiene un costo de $9.900</p>
-
-          <div class="sub-icons">
-            <div class="sub-icon-item"><i class="fas fa-chalkboard-teacher"></i></div>
-            <div class="sub-icon-item"><i class="fa-solid fa-calendar-check"></i></div>
-          </div>
-
-          <button class="sub-btn"><strong>Solicitar Clase</strong></button>
-
-          <p class="sub-small">Con auto particular de práctica. <br>clases adicionales $16.900/hora</p>
-        </div>
-
-      </div>
-      <!-- /modal-body -->
-
     </div>
   </div>
-</div>
+  <!-- /modal-body -->
+
   <!-- ===== SECCIÓN FEEDBACK ===== -->
   <section id="alumni-feedback-section">
     <div class="container" data-aos="fade-up">
@@ -1187,20 +1238,19 @@
     </div>
   </section>
 
-
   <!-- ===== Sección Recursos ===== -->
   <section id="recursos" class="py-5">
     <div class="container" data-aos="fade-up">
-      <h3 class="mb-4">Recursos e información</h3>
+      <h3 class="section-title section-title-recursos">Recursos e información</h3>
       <p class="text-center">Descarga el material de estudio<br> e infórmate sobre la reglamentación</p>
 
-      <div class="recursos-btns">
+      <div class="action-btns">
         <a href="archivos/Libro para la conduccion en Chile Clase B.pdf" class="btn-icon">
           <i class="fa-solid fa-book" style="color:#007bff;"></i>
           <span class="divider"></span>
           <p>Libro para la <br>Conducción en Chile</p>
         </a>
-        <a href="archivos/Documentación Cursos de Conducción.pdf" class="btn-icon">
+        <a href="archivos/Documentación Cursos de Conducción.pdf" class="btn-icon">
           <i class="fa-solid fa-circle-info"></i>
           <span class="divider"></span>
           <p>Formación Vial <br>Ley 18.290</p>
@@ -1212,28 +1262,24 @@
   <!-- ===== Sección Soporte ===== -->
   <section id="soporte" class="py-5">
     <div class="container" data-aos="fade-up">
-      <h3 class="mb-4">Soporte al Alumno</h3>
+      <h3 class="section-title section-title-soporte">Soporte al Alumno</h3>
       <p class="text-center">¿Tienes dudas o necesitas ayuda personalizada?</p>
 
-      <div class="recursos-btns">
+      <div class="action-btns">
         <a href="https://wa.me/56946914558" class="btn-icon btn-icon-horizontal">
           <i class="fab fa-whatsapp whatsapp-icon"></i>
           <p>Soporte en línea</p>
         </a>
-        <!-- Botón Escribir Reseña -->
         <a href="#reviewCollapse" class="btn-icon" data-bs-toggle="collapse">
           <i class="fa-solid fa-laptop-code"></i>
           <span class="divider"></span>
           <p>Escribir a Soporte</p>
         </a>
 
-        <!-- Panel de Reseña -->
         <div class="collapse mt-3" id="reviewCollapse">
           <div class="card card-body bg-white shadow-sm p-3">
 
             <form id="reviewForm" class="mt-2">
-
-              <!-- Checkbox anónimo -->
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" id="reviewAnon">
                 <label class="form-check-label" for="reviewAnon">
@@ -1241,19 +1287,16 @@
                 </label>
               </div>
 
-              <!-- Nombre opcional -->
               <div class="mb-2" id="nameGroup">
                 <label for="reviewName" class="form-label">Nombre</label>
                 <input type="text" id="reviewName" class="form-control" placeholder="Ingresar aquí">
               </div>
 
-              <!-- Correo -->
               <div class="mb-2" id="emailGroup">
                 <label for="reviewEmail" class="form-label">Correo</label>
                 <input type="email" id="reviewEmail" class="form-control" placeholder="Ingresar aquí">
               </div>
 
-              <!-- Texto -->
               <div class="mb-2">
                 <label for="reviewText" class="form-label">Escríbenos</label>
                 <textarea id="reviewText" class="form-control" rows="3"
@@ -1275,24 +1318,20 @@
     </div>
   </section>
 
-
-  <!-- ===== Sección Recursos ===== -->
-  <section id="recursos" class="py-5">
+  <!-- ===== Sección Conoce Más ===== -->
+  <section id="conoce-mas" class="py-5">
     <div class="container" data-aos="fade-up">
-      <h3 class="mb-4">Conoce más</h3>
-      <p class="text-center">En <strong>memanejo.cl</strong> encuentras todo lo que tu auto necesita.<strong><br> Manejamos
-          tu tranquilidad.</strong></p>
+      <h3 class="section-title section-title-conoce">Conoce más</h3>
+      <p class="text-center">En <strong>memanejo.cl</strong> encuentras todo lo que tu auto necesita.<strong><br>
+          Manejamos tu tranquilidad.</strong></p>
 
-      <div class="recursos-btns">
-        <!-- Página Principal -->
+      <div class="action-btns">
         <a href="https://www.memanejo.cl" class="btn-icon">
           <i class="fa-solid fa-screwdriver-wrench" style="color:#ffcc00;"></i>
           <span class="divider"></span>
           <p>Servicios Automotrices</p>
         </a>
 
-
-        <!-- Repuestos -->
         <a href="https://www.memanejo.cl/Catalogo" class="btn-icon" target="_blank">
           <i class="fa-solid fa-gear"></i>
           <span class="divider"></span>
@@ -1300,19 +1339,8 @@
         </a>
       </div>
     </div>
-    <!-- Créditos -->
-    <div class="text-center mt-4 credits-wrapper">
-      <button class="btn btn-dark btn-sg" type="button" data-bs-toggle="collapse" data-bs-target="#creditsCollapse"
-        aria-expanded="false" aria-controls="creditsCollapse">
-        Créditos <i class="fas fa-chevron-down ms-1"></i>
-      </button>
-      <div class="collapse" id="creditsCollapse">
-        <div class="card card-body bg-white shadow-sm">
-          <strong>ÆROO Studio web design <br>ÆTHELSTAN</strong>
-        </div>
-      </div>
-    </div>
 
+    <!-- Beneficio -->
     <div class="text-center mt-4 credits-wrapper">
       <button class="btn btn-dark btn-sg" type="button" data-bs-toggle="collapse"
         data-bs-target="#creditsCollapse_beneficios" aria-expanded="false" aria-controls="creditsCollapse_beneficios">
@@ -1325,15 +1353,29 @@
         </div>
       </div>
     </div>
+
+    <!-- Créditos -->
+    <div class="text-center mt-4 credits-wrapper">
+      <button class="btn btn-dark btn-sg" type="button" data-bs-toggle="collapse" data-bs-target="#creditsCollapse"
+        aria-expanded="false" aria-controls="creditsCollapse">
+        Créditos <i class="fas fa-chevron-down ms-1"></i>
+      </button>
+      <div class="collapse" id="creditsCollapse">
+        <div class="card card-body bg-white shadow-sm">
+          <strong>ÆROO Studio web design <br>ÆTHELSTAN</strong>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="js/pop.alumno.js"></script>
-  <script src="js/onboarding.js"></script>
-  <script src="js/login.js" defer></script>
-  <script src="js/toggleStudent.js" defer></script>
-  <script src="js/feedbackStudent.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/session.js"></script>
+<script src="js/pop.alumno.js"></script>
+<script src="js/onboarding.js"></script>
+<script src="js/login.js" defer></script>
+<script src="js/toggleStudent.js" defer></script>
+<script src="js/feedbackStudent.js" defer></script>
 </body>
 
 </html>
