@@ -110,55 +110,108 @@ function entrarComoVisitante() {
 // =====================
 function mostrarPortalAlumno() {
   loginCardGlass.innerHTML = `
+  <div class="card-plus">
     <div class="title-wrapper portal-title">
-      <div class="card-title"><strong>Aula Virtual</strong></div>
+      <div class="card-title card-plus-title"><strong>memanejo +</strong></div>
     </div>
+
     <div class="card-subblock portal-intro">
-      <div class="card-text">Inicia sesión con <strong>memanejo ID</strong> para revisar tu progreso, tareas y contenido del curso.</div>
+      <div class="card-text card-plus-text">
+        Prepárate con <strong>quiz ilimitados</strong>, accede a tu progreso, mide tu rendimiento en ranking nacional y más.
+      </div>
     </div>
+
     <div class="portal-form">
+      <input type="text" id="portalNombre" class="card-input" placeholder="Nombre" />
+      <input type="text" id="portalApellido" class="card-input" placeholder="Apellido" />
       <input type="email" id="portalEmail" class="card-input" placeholder="Correo electrónico" />
-      <input type="text" id="portalId" class="card-input" placeholder="memanejo ID" />
-      <button id="portalIngresar" class="card-btn">Ingresar</button>
+
+      <button id="portalIngresar" class="card-btn">
+        <strong>Crear memanejo ID</strong>
+      </button>
+
+      <div class="card-sub-text">
+        Recibirás tu <strong>memanejo ID</strong> para acceder a la plataforma directo en tu correo.
+      </div>
+
       <div id="portalVolver" class="card-back" style="cursor:pointer;">
         <i class="fas fa-arrow-left"></i> Volver
       </div>
     </div>
+  </div>
   `;
 
   document.getElementById('portalIngresar')?.addEventListener('click', () => {
+    const nombre = document.getElementById('portalNombre')?.value.trim();
+    const apellido = document.getElementById('portalApellido')?.value.trim();
     const email = document.getElementById('portalEmail')?.value.trim();
-    const id = document.getElementById('portalId')?.value.trim();
 
-    if (!email || !id) {
-      showError("Completa los datos");
+    if (!nombre || !apellido || !email) {
+      showError("Completa todos los campos");
       return;
     }
 
-    const validUser = window.testUsers?.find(u => u.email === email && u.id === id);
+    const memanejoId = generarMemanejoId(nombre, apellido);
+    const nuevoUsuario = { email, id: memanejoId, nombre: `${nombre} ${apellido}` };
 
-    if (!validUser) {
-      showError("Datos incorrectos");
-      return;
-    }
+    // Guarda el nuevo usuario junto a los de prueba, para que el login lo reconozca
+    const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
+    registrados.push(nuevoUsuario);
+    localStorage.setItem('usuariosRegistrados', JSON.stringify(registrados));
+    window.testUsers.push(nuevoUsuario);
 
-    window.currentStudent = validUser;
+    enviarMemanejoIdPorCorreo(nombre, email, memanejoId);
 
-setSession({
-  nombre: validUser.nombre || "Alumno",
-  memanejoId: validUser.id,
-  email: validUser.email
+loginCardGlass.innerHTML = `
+  <div class="card-plus">
+    <div class="card-title card-plus-title"><strong>¡Listo!</strong></div>
+    <div class="card-text card-plus-text" style="margin-top:16px;">
+      Enviamos tu <strong>memanejo ID</strong> a <strong>${email}</strong>.<br>
+      Revisa tu correo (y la carpeta de spam) para obtenerlo.
+    </div>
+
+    <button id="btnYaTengoId" class="card-btn card-btn-wide" style="margin-top:20px;">
+  Ya tengo mi <strong>memanejo ID</strong>
+</button>
+  </div>
+`;
+
+document.getElementById('btnYaTengoId')?.addEventListener('click', () => {
+  cerrarOnboarding();
+
+  const pillStudent = document.querySelector('.pill-student');
+  pillStudent?.classList.add('visible');
+
+  requestAnimationFrame(() => {
+    openStudentMenu();
+  });
 });
 
-cerrarOnboarding();
-
-requestAnimationFrame(() => {
-  initStudentProgressCircles?.();
-  openStudentMenu();
-});
-});
+document.getElementById('portalVolverFinal')?.addEventListener('click', restoreOnboarding);
+  });
 
   document.getElementById('portalVolver')?.addEventListener('click', restoreOnboarding);
+}
+
+// ===== Generador de memanejo ID =====
+function generarMemanejoId(nombre, apellido) {
+  const inicialNombre = nombre.charAt(0).toUpperCase();
+  const inicialApellido = apellido.charAt(0).toUpperCase();
+  const numero = Math.floor(1000 + Math.random() * 9000); // 4 dígitos
+  return `MM${inicialNombre}${inicialApellido}${numero}`;
+}
+
+// ===== Envío del ID por correo (EmailJS) =====
+function enviarMemanejoIdPorCorreo(nombre, email, memanejoId) {
+  emailjs.send("service_ijgm7ie", "template_s6jxj1h", {
+    nombre: nombre,
+    correo: email,
+    memanejo_id: memanejoId
+  }).then(() => {
+    console.log("memanejo ID enviado correctamente");
+  }).catch(err => {
+    console.error("Error enviando memanejo ID:", err);
+  });
 }
 
 // =====================
@@ -167,7 +220,7 @@ requestAnimationFrame(() => {
 function mostrarNuevoEstudiante() {
   loginCardGlass.innerHTML = `
     <div class="title-wrapper portal-title">
-      <div class="card-title"><strong>Crea tu memanejo ID</strong></div>
+      <div class="card-title"><strong>¡Hola Visitante!</strong></div>
     </div>
     <div class="card-subblock portal-intro">
       <div class="card-text">Completa tus datos para acceder a contenido gratuito y conocer nuestros cursos.</div>

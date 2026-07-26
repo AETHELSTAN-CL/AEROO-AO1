@@ -145,7 +145,7 @@
 
           <div class="icon-item" data-role="alumno">
             <i class="fas fa-user-graduate"></i>
-            <span class="pill">memanejo ID</span>
+            <span class="pill">memanejo +</span>
           </div>
         </div>
 
@@ -265,20 +265,19 @@
       <input type="email" id="studentEmail" placeholder="Correo de acceso" class="card-input" />
       <input type="text" id="studentID" placeholder="Código memanejo ID" class="card-input" />
       <button id="studentIngresar" class="card-btn">Ingresar</button>
-
-      <!-- toggle de  bienvenida -->
-      <div class="student-welcome" id="studentWelcome" style="display:none;">
-        <h3>Bienvenido 👋</h3>
-        <p id="welcomeName">Usuario</p>
-        <p id="welcomeId">MEMANEJO ID: ---</p>
-      </div>
     </div>
 
     <!-- Dashboard del estudiante -->
     <div class="student-dashboard" style="display:none;">
-<button id="btnCerrarSesion" class="btn-cerrar-sesion">
-    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-  </button>
+      <button id="btnCerrarSesion" class="btn-cerrar-sesion">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+       <!-- toggle de  bienvenida -->
+      <div class="student-welcome" id="studentWelcome" style="display:none;">
+        <h3>¡Qué bueno verte de nuevo!</h3>
+        <p id="welcomeName">Usuario</p>
+        <p id="welcomeId">MEMANEJO ID: </p>
+      </div>
       <h3 class="sd-title">Tu progreso</h3>
 
       <div class="sd-progress-grid">
@@ -706,7 +705,7 @@
     <div class="modal-content">
       <button class="close-modal">&times;</button>
 
-      <h2>Ingresar código de compra</h2>
+      <h2>Ingresar memanejo ID</h2>
 
       <input type="text" id="codigoInput" placeholder="Ej: ML0001LF">
 
@@ -729,10 +728,12 @@
         <div class="card card-gris">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><i class="fas fa-road me-2"></i>Plan Inicial 0km</h5>
-            <p class="card-text"> <strong>TEORÍA</strong> DEL CONDUCTOR<br> Normas, señalética, comportamiento
-              vial y todo lo necesario para aprobar tu prueba teórica. </p>
-            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100"
-                href="https://memanejomanejando.cl/quiz/quiz-nivelacion/" target="_blank">
+            <p class="card-text"> <strong>TEORÍA</strong> DEL CONDUCTOR
+              <br>Aprende las normas de tránsito, señalización, seguridad vial y contenidos del Libro del Nuevo
+              Conductor para preparar tu examen Clase B.
+            </p>
+            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="/quiz/quiz-nivelacion/index.html"
+                target="_blank">
                 <strong>Realizar examen de nivelación
                   <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong>
               </a>
@@ -795,19 +796,20 @@
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><i class="fas fa-car me-2"></i>Plan 100km</h5>
 
-            <p class="card-text"><strong>PRÁCTICA DE MANEJO</strong> EN TERRENO<br>Técnicas, maniobras, tips y
-              simulaciones para una conducción segura y consciente.</p>
-            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="paginas/quiz/index.html"
+            <p class="card-text"><strong>PRÁCTICA DE MANEJO</strong> EN RUTA<br>
+              Aplica los conocimientos del conductor mediante maniobras, técnicas de conducción y ejercicios prácticos
+              para desenvolverte con seguridad al volante.</p>
+            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="/quiz/quiz-35/index.html"
                 target="_blank"><strong>Realizar examen teórico <i
                     class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong></a>
               <div class="linea-divide"></div>
               <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel1"
                 aria-expanded="false">
-                <strong>memanejo ID</strong> <i class="fas fa-chevron-down ms-1"></i>
+                <strong>Agendar clase</strong> <i class="fas fa-chevron-down ms-1"></i>
               </button>
             </div>
             <small class="d-block text-center text-secondary mt-1 acceso-text">
-              Desbloquea contenido exclusivo y test online de práctica
+              Debes contar con una cuenta memaneojo ID para agendar.
             </small>
             <div id="precioNivel1" class="collapse precios-burbuja mt-2">
               <div class="card card-body shadow-sm text-dark" style="max-height:750px; overflow-y:auto;">
@@ -880,12 +882,14 @@
         <div class="card card-gris">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><i class="fas fa-tools me-2"></i>Plan 1.000km</h5>
-            <p class="card-text"><strong>TUTORIA PARTICULAR</strong> <br> Aprende a conocer tu vehículo: niveles,
-              luces,
-              neumáticos, cómo reaccionar ante fallas comunes, elementos de seguridad y más.</p>
-            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="https://www.memanejomanejando.cl"
-                target="_blank">¡Suscríbete! a<strong> memanejo ID <i
-                    class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong></a>
+            <p class="card-text"><strong>TUTORIA PARTICULAR</strong> <br>
+              Refuerza tu preparación Clase B con conocimientos de mecánica básica, normas viales aplicadas y conducción
+              en diferentes tipos de terreno.</p>
+            <div class="d-flex gap-2 flex-wrap mt-auto"> <a class="btn w-100" href="#" data-bs-toggle="modal"
+                data-bs-target="#modalStudentSubscription">
+                Suscríbete a <strong>memanejo +
+                </strong>
+              </a>
               <div class="linea-divide"></div>
               <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel2"
                 aria-expanded="false">
@@ -893,7 +897,7 @@
               </button>
             </div>
             <small class="d-block text-center text-secondary mt-1 acceso-text">
-              Clase en vivo con un profesional en mecánica automotriz
+              Complementa tu aprendizaje con módulos de mecánica básica, seguridad vial y conducción 4x4.
             </small>
             <div id="precioNivel2" class="collapse precios-burbuja mt-2">
               <div class="card card-body shadow-sm text-dark"> <strong>MÓDULO MECÁNICA
@@ -970,7 +974,7 @@
 
           <!-- Card 1 – Suscripción Total -->
           <div class="sub-card">
-            <h3 class="sub-title">Suscripción <strong>memanejo ID</strong></h3>
+            <h3 class="sub-title">Suscripción <strong>memanejo +</strong></h3>
             <p class="sub-desc">Accede a nuestra Aula Virtual con todo el contenido liberado durante 30 días</p>
 
             <div class="sub-icons">
@@ -980,26 +984,63 @@
               </div>
               <div class="sub-icon-item">
                 <i class="fa-solid fa-list-check"></i>
-                <span class="sub-icon-label">Quiz</span>
+                <span class="sub-icon-label">Quiz aleatorios</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="sub-icon-label">Errores explicados</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fas fa-chart-bar"></i>
+                <span class="sub-icon-label">Estadísticas</span>
               </div>
               <div class="sub-icon-item">
                 <i class="fas fa-book"></i>
                 <span class="sub-icon-label">Resúmenes</span>
               </div>
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-download"></i>
+                <span class="sub-icon-label">Material de estudio</span>
+              </div>
             </div>
 
             <button class="sub-btn">
-              <span class="sub-btn-text">Acceder con memanejo ID · promoción inicial</span>
-              <span class="sub-btn-price">$7.900</span>
+              <span class="sub-btn-price">$27.900</span>
             </button>
 
-            <p class="sub-small">Luego $16.900/mes</p>
+            <p class="sub-small">Promoción inicial. Luego $36.900/mes</p>
           </div>
 
-          <!-- Card 2 – Quiz -->
+
+          <!-- Quiz 180 -->
           <div class="sub-card">
             <h3 class="sub-title">Plan Quiz</h3>
-            <p class="sub-desc">Desbloquea todos los quiz por 30 días</p>
+            <p class="sub-desc">
+              Accede a <strong>180 preguntas</strong> y escoge entre nivel fácil o avanzado para preparar tu examen
+              Clase B.
+            </p>
+
+            <div class="sub-icons">
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-list-check"></i>
+                <span class="sub-icon-label">Quiz aleatorios</span>
+              </div>
+            </div>
+
+            <button class="sub-btn">
+              <span class="sub-btn-text">Desbloquear Quiz</span>
+              <span class="sub-btn-price">$9.900</span>
+            </button>
+
+            <p class="sub-small">Luego $12.900/mes</p>
+          </div>
+          <!-- Quiz 500 -->
+          <div class="sub-card">
+            <h3 class="sub-title">Plan Quiz</h3>
+            <p class="sub-desc">
+              Entrena con hasta <strong>500 preguntas</strong> para reforzar tus conocimientos y avanzar en tu
+              preparación Clase B.
+            </p>
 
             <div class="sub-icons">
               <div class="sub-icon-item">
@@ -1014,13 +1055,43 @@
 
             <button class="sub-btn">
               <span class="sub-btn-text">Desbloquear Quiz</span>
-              <span class="sub-btn-price">$9.900</span>
+              <span class="sub-btn-price">$12.900</span>
             </button>
 
-            <p class="sub-small">Luego $12.900/mes</p>
+            <p class="sub-small">Luego $16.900/mes</p>
           </div>
 
-          <!-- Card 3 – Resúmenes PDF -->
+          <!-- Quiz 800 -->
+          <div class="sub-card">
+            <h3 class="sub-title">Plan Quiz</h3>
+            <p class="sub-desc">
+              Accede a más de <strong>800 preguntas</strong> para practicar los contenidos del Libro del Conductor y
+              fortalecer tu preparación.
+            </p>
+
+            <div class="sub-icons">
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-list-check"></i>
+                <span class="sub-icon-label">Quiz aleatorios</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fas fa-chart-bar"></i>
+                <span class="sub-icon-label">Estadísticas</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="sub-icon-label">Errores explicados</span>
+              </div>
+            </div>
+
+            <button class="sub-btn">
+              <span class="sub-btn-text">Desbloquear Quiz</span>
+              <span class="sub-btn-price">$19.900</span>
+            </button>
+
+            <p class="sub-small">Luego $24.900/mes</p>
+          </div>
+          <!-- Resúmenes PDF -->
           <div class="sub-card">
             <h3 class="sub-title">Plan Resúmenes PDF</h3>
             <p class="sub-desc">Acceso a todo el contenido resumido del libro del conductor año 2026</p>
@@ -1032,7 +1103,7 @@
               </div>
               <div class="sub-icon-item">
                 <i class="fa-solid fa-download"></i>
-                <span class="sub-icon-label">Descarga PDF</span>
+                <span class="sub-icon-label">Material de estudio</span>
               </div>
             </div>
 
@@ -1044,7 +1115,7 @@
             <p class="sub-small">Formación Vial Aplicada</p>
           </div>
 
-          <!-- Card 4 – Agendar Clase -->
+          <!--  Agendar Clase -->
           <div class="sub-card">
             <h3 class="sub-title">Agendar Clase</h3>
             <p class="sub-desc">Si cuentas con auto propio. La clase de prueba tiene un costo de $9.900</p>
@@ -1368,14 +1439,18 @@
     </div>
   </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="js/session.js"></script>
-<script src="js/pop.alumno.js"></script>
-<script src="js/onboarding.js"></script>
-<script src="js/login.js" defer></script>
-<script src="js/toggleStudent.js" defer></script>
-<script src="js/feedbackStudent.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("qKZF6ysJ-Q1zPo83y");
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/session.js"></script>
+  <script src="js/pop.alumno.js"></script>
+  <script src="js/onboarding.js"></script>
+  <script src="js/login.js" defer></script>
+  <script src="js/toggleStudent.js" defer></script>
+  <script src="js/feedbackStudent.js" defer></script>
 </body>
 
 </html>

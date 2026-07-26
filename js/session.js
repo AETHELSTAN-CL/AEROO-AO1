@@ -41,6 +41,7 @@ function aplicarEstadoUsuario() {
     } else {
         dashboard.style.display = 'none';
         welcome.style.display = 'none';
+        loginForm.style.display = 'block';
     }
 
     // 2) Precios → "Disponible" en TODOS los icon-pill de suscripción

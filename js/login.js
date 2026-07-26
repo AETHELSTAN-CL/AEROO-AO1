@@ -7,7 +7,9 @@ const testUsers = [
   { email: "hola", id: "hola", nombre: "Hola" }
 ];
 
-window.testUsers = testUsers;
+// Recupera usuarios registrados anteriormente (persistente en este navegador)
+const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
+window.testUsers = [...testUsers, ...registrados];
 
 // =====================
 // LOGIN DESDE EL MENÚ FLOTANTE (.pill-student)
@@ -23,7 +25,7 @@ studentIngresar?.addEventListener('click', () => {
     return;
   }
 
-  const validUser = testUsers.find(u => u.email === email && u.id === id);
+  const validUser = window.testUsers.find(u => u.email === email && u.id === id);
 
   if (!validUser) {
     alert("Correo o ID incorrecto");
