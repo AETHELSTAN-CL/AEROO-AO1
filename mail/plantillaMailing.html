@@ -16,7 +16,7 @@
     <title>Tu memanejo ID está listo</title>
 </head>
 
-<body bgcolor="#f1f1f1" style="margin:0; padding:0; background-color:#f1f1f1; font-family: Arial, sans-serif;">
+<body bgcolor="#f1f1f1" style="margin:0; padding:0; background-color:#f1f1f1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
 
     <!-- Preheader -->
     <span style="display:none; font-size:1px; color:#fff; max-height:0; max-width:0; opacity:0; overflow:hidden;">
@@ -30,16 +30,15 @@
                     style="background-color:#ffffff; border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,0.08); overflow:hidden;">
 
                     <!-- Top bar oscuro con logo real -->
-                    <!-- Top bar oscuro con logo real -->
                     <tr>
                         <td bgcolor="#111111" style="background-color:#111111; padding:16px 28px;">
                             <table cellpadding="0" cellspacing="0" border="0" align="center">
                                 <tr>
                                     <td align="center" style="padding-right:12px;">
-                                        <img src="https://www.memanejo.cl/img/newnewlogo.jpg" alt="Logo" width="36"
+                                        <img src="https://www.memanejomanejando.cl/img/newnewlogo.jpg" alt="Logo" width="36"
                                             height="36" style="display:block; border-radius:10px; object-fit:cover;">
                                     </td>
-                                    <td style="color:#ffffff; font-size:16px; font-weight:bold;">
+                                    <td style="color:#ffffff; font-size:16px; font-weight:bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                                         <span x-apple-data-detectors="false">memanejo.cl</span>
                                     </td>
                                 </tr>
@@ -51,14 +50,17 @@
                     <tr>
                         <td style="padding:36px 32px 28px;">
 
-                            <h2 style="color:#111111; margin:0 0 8px; font-size:22px;">
-                                ¡Tu cuenta está lista, {{nombre}}!
-                            </h2>
+                            <h2 style="color:#111111; margin:0 0 8px; font-size:22px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight:700;">
 
-                            <p style="font-size:15px; line-height:1.6; color:#555; margin:0 0 24px;">
-                                Ya puedes acceder a tu Aula Virtual con este código. Guárdalo, lo necesitarás junto a tu
-                                correo cada vez que ingreses.
-                            </p>
+    ¡Tu cuenta está lista!
+
+</h2>
+
+<p style="font-size:15px; line-height:1.6; color:#555; margin:0 0 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+
+    <strong>{{nombre}}</strong>, ya puedes acceder a tu Aula Virtual con este código. Guárdalo, lo necesitarás junto a tu correo cuando ingreses.
+
+</p>
 
                             <!-- Bloque del memanejo ID -->
                             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
@@ -66,11 +68,11 @@
                                     <td align="center"
                                         style="background-color:#2261ff; border-radius:16px; padding:22px;">
                                         <p
-                                            style="margin:0; color:#ffffff; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85;">
+                                            style="margin:0; color:#ffffff; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; opacity:0.85; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                                             Tu memanejo ID
                                         </p>
                                         <p
-                                            style="margin:6px 0 0; color:#ffffff; font-size:28px; font-weight:bold; letter-spacing:2px;">
+                                            style="margin:6px 0 0; color:#ffffff; font-size:28px; font-weight:bold; letter-spacing:2px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                                             {{memanejo_id}}
                                         </p>
                                     </td>
@@ -82,33 +84,46 @@
                                 style="background-color:#f7f8fa; border-radius:14px; margin-bottom:28px;">
                                 <tr>
                                     <td style="padding:16px 20px;">
-                                        <p style="margin:0 0 4px; font-size:12px; color:#888;">Correo de acceso</p>
-                                        <p style="margin:0; font-size:15px; color:#111; font-weight:600;">{{correo}}</p>
+                                        <p style="margin:0 0 4px; font-size:12px; color:#888; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">Correo de acceso</p>
+                                        <p style="margin:0; font-size:15px; color:#111; font-weight:600; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">{{correo}}</p>
                                     </td>
                                 </tr>
                             </table>
 
-                            <p style="font-size:14px; line-height:1.6; color:#555; margin:0 0 8px;">
-                                Con memanejo + accedes a:
+                            <p style="font-size:14px; line-height:1.6; color:#555; margin:0 0 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                                Con <strong>memanejo +</strong> accedes a:
                             </p>
 
                             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
                                 <tr>
-                                    <td style="padding:4px 0; font-size:14px; color:#333;">✓ Exámenes ilimitados con
-                                        preguntas aleatorias</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:4px 0; font-size:14px; color:#333;">✓ Seguimiento de tu progreso
-                                        y evolución</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:4px 0; font-size:14px; color:#333;">✓ Explicación de cada
-                                        respuesta incorrecta</td>
-                                </tr>
-                                <tr>
-                                    <td style="padding:4px 0; font-size:14px; color:#333;">✓ Ranking nacional y clases
-                                        en vivo</td>
-                                </tr>
+    <td style="padding:4px 0; font-size:14px; color:#333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        ✓ Exámenes ilimitados con preguntas aleatorias
+    </td>
+</tr>
+
+<tr>
+    <td style="padding:4px 0; font-size:14px; color:#333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        ✓ Seguimiento de tu progreso y evolución
+    </td>
+</tr>
+
+<tr>
+    <td style="padding:4px 0; font-size:14px; color:#333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        ✓ Explicación de cada respuesta incorrecta
+    </td>
+</tr>
+
+<tr>
+    <td style="padding:4px 0; font-size:14px; color:#333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        ✓ Clases en vivo
+    </td>
+</tr>
+
+<tr>
+    <td style="padding:4px 0; font-size:14px; color:#333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+        ✓ Ranking nacional <span style="font-size:12px; color:#999;">(Próximamente)</span>
+    </td>
+</tr>
                             </table>
 
                             <table cellpadding="0" cellspacing="0" border="0" align="center"
@@ -117,7 +132,7 @@
                                     <td bgcolor="#111111" style="background-color:#111111; border-radius:30px;">
                                         <a href="https://www.memanejomanejando.cl/?utm_source=mailing&utm_medium=email&utm_campaign=memanejo_id"
                                             target="_blank"
-                                            style="display:inline-block; padding:14px 40px; color:#ffffff; text-decoration:none; font-weight:bold; font-size:15px;">
+                                            style="display:inline-block; padding:14px 40px; color:#ffffff; text-decoration:none; font-weight:bold; font-size:15px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                                             Ir a mi Aula Virtual
                                         </a>
                                     </td>
@@ -131,7 +146,7 @@
                     <tr>
                         <td style="padding:0 32px 28px;">
                             <p
-                                style="font-size:13px; color:#999; border-top:1px solid #eee; padding-top:20px; margin:0; text-align:center;">
+                                style="font-size:13px; color:#999; border-top:1px solid #eee; padding-top:20px; margin:0; text-align:center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                                 Mantención automotriz, repuestos y entrenamiento vial.<br>
                                 <a href="https://www.memanejo.cl" target="_blank"
                                     style="color:#2261ff; text-decoration:none;">www.memanejo.cl</a>

@@ -1,22 +1,28 @@
 // =====================
-// USUARIOS DE PRUEBA
+// CARGA DE USUARIOS DESDE JSON (reemplaza testUsers hardcodeado)
 // =====================
-const testUsers = [
-  { email: "alumno@memanejo.cl", id: "memanejo", nombre: "Alumno de Prueba" },
-  { email: "alumnoprueba@memanejo.cl", id: "memanejo", nombre: "Alumno de Prueba 2" },
-  { email: "hola", id: "hola", nombre: "Hola" }
-];
+let usuariosDB = [];
 
-// Recupera usuarios registrados anteriormente (persistente en este navegador)
-const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
-window.testUsers = [...testUsers, ...registrados];
+async function cargarUsuarios() {
+  try {
+    const res = await fetch('/data/usuarios.json');
+    usuariosDB = await res.json();
+    window.usuariosDB = usuariosDB;
+  } catch (err) {
+    console.error("Error cargando usuarios:", err);
+    usuariosDB = [];
+  }
+}
+
+// Carga apenas arranca la página
+cargarUsuarios();
 
 // =====================
 // LOGIN DESDE EL MENÚ FLOTANTE (.pill-student)
 // =====================
 const studentIngresar = document.getElementById('studentIngresar');
 
-studentIngresar?.addEventListener('click', () => {
+studentIngresar?.addEventListener('click', async () => {
   const email = document.getElementById('studentEmail')?.value.trim();
   const id = document.getElementById('studentID')?.value.trim();
 
@@ -25,7 +31,12 @@ studentIngresar?.addEventListener('click', () => {
     return;
   }
 
-  const validUser = window.testUsers.find(u => u.email === email && u.id === id);
+  // Por si el fetch aún no terminó, esperamos a que cargue
+  if (usuariosDB.length === 0) {
+    await cargarUsuarios();
+  }
+
+  const validUser = usuariosDB.find(u => u.email === email && u.memanejoId === id);
 
   if (!validUser) {
     alert("Correo o ID incorrecto");
@@ -36,8 +47,9 @@ studentIngresar?.addEventListener('click', () => {
 
   setSession({
     nombre: validUser.nombre,
-    memanejoId: validUser.id,
-    email: validUser.email
+    memanejoId: validUser.memanejoId,
+    email: validUser.email,
+    desbloqueado: validUser.desbloqueado || {}
   });
 
   requestAnimationFrame(() => {

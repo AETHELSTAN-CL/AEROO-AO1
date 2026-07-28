@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.AOS) AOS.init();
 
   // ===== ELEMENTOS =====
-
   const videosNormales = document.getElementById('videos');
   const pillNav = document.getElementById('pillNav');
   const pillItems = Array.from(document.querySelectorAll('.pill-item'));
@@ -19,30 +18,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const notificacion = document.getElementById("ios-notificacion");
   const btnEntendido = document.getElementById("btn-entendido");
 
+  // ===== SELECCIÓN DE ROL (onboarding) =====
+  const items = document.querySelectorAll(".icon-item");
 
-const items = document.querySelectorAll(".icon-item");
+  if (items.length > 0) {
+    let selected = null;
 
-if (items.length > 0) {
-  let selected = null;
-
-  items.forEach(item => {
-    item.addEventListener("click", () => {
-
-      // quitar anterior
-      if (selected) selected.classList.remove("selected");
-
-      // activar nuevo
-      item.classList.add("selected");
-      selected = item;
-
-      console.log("seleccionado:", item.dataset.role);
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        if (selected) selected.classList.remove("selected");
+        item.classList.add("selected");
+        selected = item;
+      });
     });
-  });
-}
+  }
+
   // === SHOW PILL NAV ON SCROLL (MOBILE ONLY) ===
   document.addEventListener("scroll", () => {
     const pill = document.getElementById("pillNav");
-
     if (!pill) return;
 
     if (window.innerWidth > 768) {
@@ -57,314 +50,206 @@ if (items.length > 0) {
     }
   });
 
-
   // === Icon select scale + blue + auto-reset ===
-  const pillitems = document.querySelectorAll("#pillNav .pill-item");
-
   pillItems.forEach(item => {
-    item.addEventListener("click", ev => {
+    item.addEventListener("click", () => {
       const icon = item.querySelector("i");
       if (!icon) return;
 
-      // limpiar efectos previos
       pillItems.forEach(i =>
         i.querySelector("i")?.classList.remove("active-effect")
       );
 
-      // aplicar efecto
       icon.classList.add("active-effect");
 
-      // remover efecto después de 1.8s
       setTimeout(() => {
         icon.classList.remove("active-effect");
       }, 1800);
     });
   });
-// ===== LÓGICA DE RESEÑA CON OPCIÓN ANÓNIMA =====
-const reviewForm = document.getElementById('reviewForm');
-const reviewResult = document.getElementById('reviewResult');
-const submittedEmail = document.getElementById('submittedEmail');
-const submittedText = document.getElementById('submittedText');
 
-const anonCheck = document.getElementById('reviewAnon');
-const nameGroup = document.getElementById('nameGroup');
-const emailGroup = document.getElementById('emailGroup');
+  // ===== LÓGICA DE RESEÑA CON OPCIÓN ANÓNIMA =====
+  const reviewForm = document.getElementById('reviewForm');
+  const reviewResult = document.getElementById('reviewResult');
+  const submittedEmail = document.getElementById('submittedEmail');
+  const submittedText = document.getElementById('submittedText');
+  const anonCheck = document.getElementById('reviewAnon');
+  const nameGroup = document.getElementById('nameGroup');
+  const emailGroup = document.getElementById('emailGroup');
 
-// Ocultar/mostrar inputs según modo anónimo
-anonCheck.addEventListener('change', () => {
-  if (anonCheck.checked) {
-    nameGroup.style.display = "none";
-    emailGroup.style.display = "none";
-  } else {
-    nameGroup.style.display = "block";
-    emailGroup.style.display = "block";
-  }
-});
-
-reviewForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const anon = anonCheck.checked;
-  const email = document.getElementById('reviewEmail').value.trim();
-  const name = document.getElementById('reviewName').value.trim();
-  const text = document.getElementById('reviewText').value.trim();
-
-  if (!text) {
-    alert("Escribe tu comentario antes de enviar.");
-    return;
-  }
-
-  if (!anon && !email) {
-    alert("Ingresa tu correo o marca 'Enviar como anónimo'.");
-    return;
-  }
-
-  const finalName = anon ? "Anónimo" : (name || email);
-
-  submittedEmail.textContent = finalName;
-  submittedText.textContent = text;
-  reviewResult.style.display = "block";
-
-  reviewForm.reset();
-});
-
-document.addEventListener('click', e => {
-  let btn = e.target.closest('.curso-btn');
-  if (!btn) return;
-
-  let parentRow = btn.closest('.curso-row');
-  if (!parentRow) return;
-
-  let accordion = parentRow.nextElementSibling;
-  while (accordion && !accordion.classList.contains('curso-accordion')) {
-    accordion = accordion.nextElementSibling;
-  }
-  if (!accordion) return;
-
-  document.querySelectorAll('.curso-accordion').forEach(acc => {
-    if (acc !== accordion) {
-      acc.classList.remove('active');
-      const otroBtn = acc.previousElementSibling?.querySelector('.curso-btn');
-      otroBtn?.querySelector('.curso-chevron')?.classList.remove('rotated');
+  anonCheck?.addEventListener('change', () => {
+    if (anonCheck.checked) {
+      nameGroup.style.display = "none";
+      emailGroup.style.display = "none";
+    } else {
+      nameGroup.style.display = "block";
+      emailGroup.style.display = "block";
     }
   });
 
-  const isOpening = !accordion.classList.contains('active');
-  accordion.classList.toggle('active');
-  btn.querySelector('.curso-chevron')?.classList.toggle('rotated', isOpening);
-
-  if (!isOpening) return;
-
-  setTimeout(() => {
-    const rowRect = parentRow.getBoundingClientRect();
-    const isMobile = window.innerWidth < 768;
-    const targetScroll = window.scrollY + rowRect.top - (isMobile ? 50 : 130);
-    window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-  }, 400);
-});
-
-document.querySelectorAll('.icon-pill').forEach(el => {
-  const box = el.querySelector('.tooltip-box');
-  if (!box) return;
-  box.textContent = el.dataset.tooltip || '';
-
-  function showTooltip() {
-    const rect = el.getBoundingClientRect();
-    box.style.top = `${rect.bottom + 8}px`;
-    box.style.left = `${rect.left + rect.width / 2}px`;
-    box.style.transform = 'translateX(-50%)';
-    box.classList.add('show');
-  }
-
-  function hideTooltip() {
-    box.classList.remove('show');
-  }
-
-  el.addEventListener('mouseenter', () => {
-    if (!window.matchMedia('(hover: none)').matches) showTooltip();
-  });
-  el.addEventListener('mouseleave', hideTooltip);
-
-  el.addEventListener('click', e => {
-    e.stopPropagation();
+  reviewForm?.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (window.matchMedia('(hover: none)').matches) {
-      showTooltip();
-      setTimeout(hideTooltip, 1500);
-    }
-  });
-});
 
-// =====================
-// BASE DE CÓDIGOS → solo desbloquean su producto exacto
-// =====================
-const codigosValidos = {
-  "MEMANEJOID001": "resumen1y2",
-  "MEMANEJOID002": "resumen3y4",
-  "MEMANEJOID003": "nivelacion30",
-  "MEMANEJOID004": "clasesguiadas",
-  "MEMANEJOID005": "intermedio35",
-  "MEMANEJOID006": "intermedio105",
-  "MEMANEJOID007": "resumen5y8",
-  "MEMANEJOID008": "quiz_dificil",
-  "MEMANEJOID009": "resumen5y8",
-  "MEMANEJOID0010": "quiz_210"
-};
+    const anon = anonCheck.checked;
+    const email = document.getElementById('reviewEmail').value.trim();
+    const name = document.getElementById('reviewName').value.trim();
+    const text = document.getElementById('reviewText').value.trim();
 
-let itemActual = null;
-
-function norm(s) {
-  return (s || "").toString().trim().toLowerCase();
-}
-
-// =====================
-// ABRIR MODAL
-// =====================
-document.querySelectorAll(".open-modal").forEach(btn => {
-  btn.addEventListener("click", e => {
-    const wrapper = btn.closest(".icon-wrapper");
-    const pill = wrapper.querySelector(".icon-pill");
-
-    // Ya desbloqueado → NO abrir modal
-    if (norm(pill.innerText) === "descargar" || wrapper.dataset.unlocked === "true") {
+    if (!text) {
+      alert("Escribe tu comentario antes de enviar.");
       return;
     }
 
-    e.preventDefault();
-
-    itemActual = norm(wrapper.getAttribute("data-item-id"));
-
-    const textoContenido = wrapper.querySelector(".icon-text").innerText;
-    document.getElementById("solicitarCodigo").href =
-      `https://wa.me/56946914558?text=Hola, quiero solicitar el código para: ${encodeURIComponent(textoContenido)}`;
-
-    document.getElementById("modalCodigo").style.display = "flex";
-  });
-});
-
-// =====================
-// VALIDAR CÓDIGO
-// =====================
-document.getElementById("btnValidarCodigo").addEventListener("click", () => {
-  const input = document.getElementById("codigoInput").value.trim().toUpperCase();
-  const msj = document.getElementById("mensajeEstado");
-
-  const codigoValidoPara = codigosValidos[input];
-
-  if (!codigoValidoPara) {
-    msj.innerText = "Código incorrecto.";
-    msj.style.color = "red";
-    return;
-  }
-
-  // Debe coincidir EXACTO con el producto que está intentando desbloquear
-  if (norm(codigoValidoPara) !== itemActual) {
-    msj.innerText = "Este código no corresponde a este contenido.";
-    msj.style.color = "orange";
-    return;
-  }
-
-  // Si coincide...
-  msj.innerText = "Código válido. Contenido desbloqueado.";
-  msj.style.color = "#25D366";
-
-  const wrapper = Array.from(document.querySelectorAll(".icon-wrapper"))
-    .find(w => norm(w.getAttribute("data-item-id")) === itemActual);
-
-  const pill = wrapper.querySelector(".icon-pill");
-  const link = wrapper.querySelector(".icon-link");
-  const actionType = wrapper.dataset.actionType || "download"; // fallback
-
-  // Cambiar texto y tooltip según tipo
-  if (actionType === "download") {
-    pill.innerText = "Descargar";
-    pill.setAttribute("data-tooltip", "¡Listo para descargar!");
-  } else if (actionType === "quiz") {
-    pill.innerText = "Realizar";
-    pill.setAttribute("data-tooltip", "Haz clic para comenzar el quiz");
-  }
-
-  // Marcar desbloqueado
-  wrapper.dataset.unlocked = "true";
-
-  // Habilitar enlace
-  link.href = wrapper.dataset.download || "#";
-  link.target = "_blank";
-
-  // cerrar modal
-  setTimeout(() => {
-    document.getElementById("modalCodigo").style.display = "none";
-    document.getElementById("codigoInput").value = "";
-    msj.innerText = "";
-  }, 600);
-});
-
-// =====================
-// CERRAR MODAL
-// =====================
-document.querySelector(".close-modal").addEventListener("click", () => {
-  document.getElementById("modalCodigo").style.display = "none";
-});
-
-// ===== HAMBURGER =====
-const hamburger = document.querySelector('.hamburger');
-const nav = document.querySelector('header nav');
-hamburger?.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  nav?.classList.toggle('show');
-});
-// ===== like count =====
-document.querySelectorAll('.heart-btn').forEach(btn => {
-  let likes = 0;
-  const icon = btn.querySelector('i');
-  const count = btn.querySelector('.like-count');
-
-  btn.addEventListener('click', () => {
-    btn.classList.toggle('active');
-    if (btn.classList.contains('active')) {
-      likes++;
-    } else {
-      likes = Math.max(0, likes - 1);
+    if (!anon && !email) {
+      alert("Ingresa tu correo o marca 'Enviar como anónimo'.");
+      return;
     }
-    count.textContent = `${likes} me gusta`;
+
+    const finalName = anon ? "Anónimo" : (name || email);
+
+    submittedEmail.textContent = finalName;
+    submittedText.textContent = text;
+    reviewResult.style.display = "block";
+
+    reviewForm.reset();
   });
-// =====================
-// CHEVRON / TRIÁNGULO: rota al abrir, vuelve al cerrar
-// =====================
-document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(trigger => {
-  const icon = trigger.querySelector('i.fa-chevron-down');
-  const targetSelector = trigger.getAttribute('data-bs-target');
-  const targetEl = targetSelector && document.querySelector(targetSelector);
 
-  if (!icon || !targetEl) return;
+  // =====================
+  // CURSO-ACCORDION
+  // =====================
+  document.addEventListener('click', e => {
+    let btn = e.target.closest('.curso-btn');
+    if (!btn) return;
 
-  targetEl.addEventListener('show.bs.collapse', () => icon.classList.add('rotated'));
-  targetEl.addEventListener('hide.bs.collapse', () => icon.classList.remove('rotated'));
-});
+    let parentRow = btn.closest('.curso-row');
+    if (!parentRow) return;
 
-// ===== NOTIFICACION IOS =====
-let visible = false;
-let tickingNotif = false;
-
-window.addEventListener("scroll", () => {
-  if (tickingNotif) return;
-  tickingNotif = true;
-
-  requestAnimationFrame(() => {
-    if (!cursosSection) { tickingNotif = false; return; }
-    const rect = cursosSection.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight * 0.4 && rect.bottom > window.innerHeight * 0.2;
-    if (isVisible && !visible) {
-      visible = true;
-      notificacion?.classList.add("show");
-      setTimeout(() => notificacion?.classList.remove("show"), 12000);
+    let accordion = parentRow.nextElementSibling;
+    while (accordion && !accordion.classList.contains('curso-accordion')) {
+      accordion = accordion.nextElementSibling;
     }
-    if (!isVisible) visible = false;
-    tickingNotif = false;
+    if (!accordion) return;
+
+    document.querySelectorAll('.curso-accordion').forEach(acc => {
+      if (acc !== accordion) {
+        acc.classList.remove('active');
+        const otroBtn = acc.previousElementSibling?.querySelector('.curso-btn');
+        otroBtn?.querySelector('.curso-chevron')?.classList.remove('rotated');
+      }
+    });
+
+    const isOpening = !accordion.classList.contains('active');
+    accordion.classList.toggle('active');
+    btn.querySelector('.curso-chevron')?.classList.toggle('rotated', isOpening);
+
+    if (!isOpening) return;
+
+    setTimeout(() => {
+      const rowRect = parentRow.getBoundingClientRect();
+      const isMobile = window.innerWidth < 768;
+      const targetScroll = window.scrollY + rowRect.top - (isMobile ? 50 : 130);
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    }, 400);
   });
-});
+
+  // =====================
+  // TOOLTIPS
+  // =====================
+  document.querySelectorAll('.icon-pill').forEach(el => {
+    const box = el.querySelector('.tooltip-box');
+    if (!box) return;
+    box.textContent = el.dataset.tooltip || '';
+
+    function showTooltip() {
+      const rect = el.getBoundingClientRect();
+      box.style.top = `${rect.bottom + 8}px`;
+      box.style.left = `${rect.left + rect.width / 2}px`;
+      box.style.transform = 'translateX(-50%)';
+      box.classList.add('show');
+    }
+
+    function hideTooltip() {
+      box.classList.remove('show');
+    }
+
+    el.addEventListener('mouseenter', () => {
+      if (!window.matchMedia('(hover: none)').matches) showTooltip();
+    });
+    el.addEventListener('mouseleave', hideTooltip);
+
+    el.addEventListener('click', e => {
+      e.stopPropagation();
+      e.preventDefault();
+      if (window.matchMedia('(hover: none)').matches) {
+        showTooltip();
+        setTimeout(hideTooltip, 1500);
+      }
+    });
+  });
+
+  // ===== HAMBURGER =====
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('header nav');
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav?.classList.toggle('show');
+  });
+
+  // ===== LIKE COUNT =====
+  document.querySelectorAll('.heart-btn').forEach(btn => {
+    let likes = 0;
+    const count = btn.querySelector('.like-count');
+
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      if (btn.classList.contains('active')) {
+        likes++;
+      } else {
+        likes = Math.max(0, likes - 1);
+      }
+      count.textContent = `${likes} me gusta`;
+    });
+  });
+
+  // =====================
+  // CHEVRON / TRIÁNGULO: rota al abrir, vuelve al cerrar
+  // =====================
+  document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(trigger => {
+    const icon = trigger.querySelector('i.fa-chevron-down');
+    const targetSelector = trigger.getAttribute('data-bs-target');
+    const targetEl = targetSelector && document.querySelector(targetSelector);
+
+    if (!icon || !targetEl) return;
+
+    targetEl.addEventListener('show.bs.collapse', () => icon.classList.add('rotated'));
+    targetEl.addEventListener('hide.bs.collapse', () => icon.classList.remove('rotated'));
+  });
+
+  // ===== NOTIFICACION IOS =====
+  let visible = false;
+  let tickingNotif = false;
+
+  window.addEventListener("scroll", () => {
+    if (tickingNotif) return;
+    tickingNotif = true;
+
+    requestAnimationFrame(() => {
+      if (!cursosSection) { tickingNotif = false; return; }
+      const rect = cursosSection.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.4 && rect.bottom > window.innerHeight * 0.2;
+      if (isVisible && !visible) {
+        visible = true;
+        notificacion?.classList.add("show");
+        setTimeout(() => notificacion?.classList.remove("show"), 12000);
+      }
+      if (!isVisible) visible = false;
+      tickingNotif = false;
+    });
+  });
+
   btnEntendido?.addEventListener('click', () => notificacion?.classList.remove("show"));
 });
+
 // ===== SWIPE UP PARA DESCARTAR NOTIFICACIÓN iOS =====
 const notif = document.getElementById("ios-notificacion");
 
@@ -372,6 +257,7 @@ if (notif) {
   let startY = 0;
   let currentY = 0;
   let dragging = false;
+  let tickingTouch = false;
 
   notif.addEventListener("touchstart", (e) => {
     dragging = true;
@@ -379,24 +265,22 @@ if (notif) {
     notif.classList.add("swiping");
   });
 
-let tickingTouch = false;
+  notif.addEventListener("touchmove", (e) => {
+    if (!dragging) return;
+    currentY = e.touches[0].clientY;
 
-notif.addEventListener("touchmove", (e) => {
-  if (!dragging) return;
-  currentY = e.touches[0].clientY;
+    if (tickingTouch) return;
+    tickingTouch = true;
 
-  if (tickingTouch) return;
-  tickingTouch = true;
-
-  requestAnimationFrame(() => {
-    const deltaY = currentY - startY;
-    if (deltaY < 0) {
-      notif.style.top = `calc(25px + ${deltaY}px)`;
-      notif.style.opacity = `${1 + deltaY / 120}`;
-    }
-    tickingTouch = false;
+    requestAnimationFrame(() => {
+      const deltaY = currentY - startY;
+      if (deltaY < 0) {
+        notif.style.top = `calc(25px + ${deltaY}px)`;
+        notif.style.opacity = `${1 + deltaY / 120}`;
+      }
+      tickingTouch = false;
+    });
   });
-});
 
   notif.addEventListener("touchend", () => {
     if (!dragging) return;
@@ -405,15 +289,12 @@ notif.addEventListener("touchmove", (e) => {
 
     const delta = currentY - startY;
 
-    // si arrastró más de -50px → se descarta
     if (delta < -50) {
       notif.classList.add("hide");
       setTimeout(() => notif.classList.remove("show"), 300);
     } else {
-      // vuelve suave a su posición original
       notif.style.top = "25px";
       notif.style.opacity = "1";
     }
   });
 }
-});

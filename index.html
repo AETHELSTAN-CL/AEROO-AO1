@@ -270,9 +270,9 @@
     <!-- Dashboard del estudiante -->
     <div class="student-dashboard" style="display:none;">
       <button id="btnCerrarSesion" class="btn-cerrar-sesion">
-      Cerrar sesión<i class="fas fa-sign-out-alt"></i>
+        Cerrar sesión<i class="fas fa-sign-out-alt"></i>
       </button>
-       <!-- toggle de  bienvenida -->
+      <!-- toggle de  bienvenida -->
       <div class="student-welcome" id="studentWelcome" style="display:none;">
         <h3>¡Qué bueno verte de nuevo!</h3>
         <p id="welcomeName">Usuario</p>
@@ -389,6 +389,7 @@
   <!-- ===== CURSOS App ===== -->
   <section id="cursos-section" class="cursos-section">
     <h2 class="cursos-title" data-aos="fade-up">memanejo + <br><small> Tu centro de entrenamiento para aprobar el examen
+        teórico
         de conducción. </small></h2>
 
     <!-- ===== CURSO 0KM ===== -->
@@ -564,11 +565,12 @@
           </span>
         </div>
 
-        <!-- Icono Test 105 Preguntas -->
+        <!-- Icono Test 180 Preguntas -->
         <div class="icon-wrapper" data-item-id="intermedio105" data-download="/quiz/quiz-105/" data-action-type="quiz">
-          <a href="#" class="icon-link open-modal">
+          <a href="#" class="icon-link" data-requiere="quiz180" data-href-desbloqueado="/quiz/quiz-35/index.html"
+            data-bs-toggle="modal" data-bs-target="#modalStudentSubscription">
             <div class="icon-card">
-              <span class="icon-text">Quiz 105 Preguntas</span>
+              <span class="icon-text">Quiz 180 preguntas</span>
               <i class="fas fa-book fa-2x"></i>
             </div>
           </a>
@@ -721,9 +723,11 @@
   <!-- Contenidos -->
   <section id="contenidos">
     <!-- Título con guion azul -->
-    <h3 class="text-center" data-aos="fade-up">memanejo manejando <br><small> Entrenamiento vial personalizado.</small>
+    <h3 class="text-center" data-aos="fade-up">memanejo manejando <br><small> Entrenamiento vial con estudio guiado
+        personalizado.</small>
     </h3>
-    <div class="row-cursos"> <!-- Card 1 -->
+    <div class="row-cursos">
+      <!-- Card 1 -->
       <div class="curso-item" data-aos="fade-up">
         <div class="card card-gris">
           <div class="card-body d-flex flex-column">
@@ -744,47 +748,107 @@
               </button>
             </div>
             <small class="d-block text-center text-secondary mt-1 acceso-text">
-              Exámenes ilimitados, avance de tu progreso, resúmenes, clases en vivo para resolver dudas, explicación de
+              Accede a nuestros quiz de estudio y clases en vivo para resolver dudas, explicación de
               cada respuesta incorrecta y más.
             </small>
+
             <!-- Burbuja de precios -->
             <div id="precioNivel0" class="collapse precios-burbuja mt-2">
-              <div class="card card-body shadow-sm text-dark"> <strong>NIVEL: CONOCIMIENTO
-                  INICIAL</strong><small>Clase teórica
-                  online</small>
+              <div class="card card-body shadow-sm text-dark">
+
+                <strong>NIVEL: CONOCIMIENTO INICIAL</strong><small>Clase particular</small>
                 <strong><br>Objetivo:</strong> Dar a conocer los primeros conceptos teóricos del tránsito.
-                Normas básicas + Señales de tránsito + Elementos de seguridad. <br>
-                <br>
-                <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Conocimiento%20Inicial"
-                  target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo<span
-                    class="d-block text-light fw-bold fs-6">$9.900</span></a>
+                Normas básicas + Señales de tránsito + Elementos de seguridad.
+                <div class="sub-icons">
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="sub-icon-label">Quiz fácil</span>
+                  </div>
+
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-video"></i>
+                    <span class="sub-icon-label">Clases en vivo</span>
+                  </div>
+
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span class="sub-icon-label">Estudio guiado</span>
+                  </div>
+                </div>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription"
+                  class="btn btn-primary btn-sm rounded-pill mt-2">
+
+                  <span class="d-block text-light fw-bold fs-6">$19.900</span>
+                </a>
                 <small class="d-block text-center text-secondary mt-1 acceso-text">
-                  Acceso por 7 días.
+                  Incluye suscripción <strong>memanejo +</strong> <br>Estudio guiado con instructor
+                  para resolver dudas y reforzar aprendizaje. <br>
+                  <i class="fa-regular fa-clock ms-1"></i> 30 min
                 </small>
-                <hr> <strong>NIVEL: ANTES DE MANEJAR</strong><small>Clase teórica online</small> <strong>
-                  <br>Objetivo:</strong> Completar la
-                teoría
-                esencial y
-                preparar mental y emocionalmente para
-                la práctica. <br> <a
-                  href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Antes%20de%20Manejar" target="_blank"
-                  class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo<span
-                    class="d-block text-light fw-bold fs-6">$19.900</span></a>
+
+                <hr>
+
+                <strong>NIVEL: ANTES DE MANEJAR</strong><small>Clase particular</small>
+                <strong><br>Objetivo:</strong> Completar la teoría esencial y preparar mental y
+                emocionalmente para la práctica.
+                <div class="sub-icons">
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="sub-icon-label">Quiz intermedio</span>
+                  </div>
+
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-video"></i>
+                    <span class="sub-icon-label">Clases en vivo</span>
+                  </div>
+
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span class="sub-icon-label">Estudio guiado</span>
+                  </div>
+                </div>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription"
+                  class="btn btn-primary btn-sm rounded-pill mt-2">
+                  <span class="d-block text-light fw-bold fs-6">$29.900</span>
+                </a>
                 <small class="d-block text-center text-secondary mt-1 acceso-text">
-                  Acceso por 7 días.
+                  Incluye suscripción <strong>memanejo +</strong><br>
+                  Estudio guiado con instructor para revisar respuestas incorrectas.
+                  <i class="fa-regular fa-clock ms-1"></i> 30 min
                 </small>
-                <hr> <strong>NIVEL: FULL TEÓRICO</strong><small>Clase online</small> <strong><br>Objetivo:</strong>
-                Preparación
-                completa
-                para la
-                práctica en terreno y
-                simulación de
-                examen municipal.<br> <a href="https://wa.me/56946914558?text=Quiero%20comenzar%20Pack%20Full%20Teorico"
-                  target="_blank" class="btn btn-primary btn-sm rounded-pill mt-2">Suscríbete a solo <span
-                    class="d-block text-light fw-bold fs-6">$27.900</span></a>
+
+                <hr>
+
+                <strong>NIVEL: FULL TEÓRICO</strong><small>Clase particular</small>
+                <strong><br>Objetivo:</strong> Preparación completa para la práctica en terreno y
+                simulación de examen municipal.
+                <div class="sub-icons">
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span class="sub-icon-label">Quiz aleatorios</span>
+                  </div>
+
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-video"></i>
+                    <span class="sub-icon-label">Clases en vivo</span>
+
+                  </div>
+
+                  <div class="sub-icon-item">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span class="sub-icon-label">Estudio guiado</span>
+                  </div>
+                </div>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalStudentSubscription"
+                  class="btn btn-primary btn-sm rounded-pill mt-2">
+                  <span class="d-block text-light fw-bold fs-6">$39.900</span>
+                </a>
                 <small class="d-block text-center text-secondary mt-1 acceso-text">
-                  Acceso por 7 días.
+                  Incluye suscripción <strong>memanejo +</strong> <br> Simulación de examen municipal y revision de
+                  errores con Instructor. <br>
+                  <i class="fa-regular fa-clock ms-1"></i> 30 min
                 </small>
+
               </div>
             </div>
           </div>
@@ -809,7 +873,7 @@
               </button>
             </div>
             <small class="d-block text-center text-secondary mt-1 acceso-text">
-              Debes contar con una cuenta memaneojo ID para agendar.
+              Debes contar con una cuenta memanejo ID para agendar.
             </small>
             <div id="precioNivel1" class="collapse precios-burbuja mt-2">
               <div class="card card-body shadow-sm text-dark" style="max-height:750px; overflow-y:auto;">
@@ -893,7 +957,7 @@
               <div class="linea-divide"></div>
               <button class="btn btn-dark rounded-pill w-100" data-bs-toggle="collapse" data-bs-target="#precioNivel2"
                 aria-expanded="false">
-                Módulos adicionales <i class="fas fa-chevron-down ms-1"></i>
+                <strong>Módulos adicionales</strong> <i class="fas fa-chevron-down ms-1"></i>
               </button>
             </div>
             <small class="d-block text-center text-secondary mt-1 acceso-text">
@@ -1014,9 +1078,10 @@
 
           <!-- Quiz 180 -->
           <div class="sub-card">
-            <h3 class="sub-title">Plan Quiz</h3>
+            <h3 class="sub-title">Plan Quiz <strong>180 preguntas</strong></h3>
             <p class="sub-desc">
-              Accede a <strong>180 preguntas</strong> y escoge entre nivel fácil o avanzado para preparar tu examen
+              Accede a preguntas aleatorias con opción entre nivel fácil o avanzado para preparar tu examen de
+              conducción
               Clase B.
             </p>
 
@@ -1036,10 +1101,11 @@
           </div>
           <!-- Quiz 500 -->
           <div class="sub-card">
-            <h3 class="sub-title">Plan Quiz</h3>
+            <h3 class="sub-title">Plan Quiz <strong>500 preguntas</strong></h3>
             <p class="sub-desc">
-              Entrena con hasta <strong>500 preguntas</strong> para reforzar tus conocimientos y avanzar en tu
-              preparación Clase B.
+              Entrena con preguntas aleatorias que simulan un examen municial para reforzar tus conocimientos y avanzar
+              en tu
+              preparación para obtener licencia Clase B.
             </p>
 
             <div class="sub-icons">
@@ -1063,9 +1129,10 @@
 
           <!-- Quiz 800 -->
           <div class="sub-card">
-            <h3 class="sub-title">Plan Quiz</h3>
+            <h3 class="sub-title">Plan Quiz <strong>800 preguntas</strong></h3>
             <p class="sub-desc">
-              Accede a más de <strong>800 preguntas</strong> para practicar los contenidos del Libro del Conductor y
+              Accede a preguntas aleatorias que simulan un examen municipal para practicar los contenidos del Libro del
+              Nuevo Conductor y
               fortalecer tu preparación.
             </p>
 
@@ -1114,6 +1181,29 @@
 
             <p class="sub-small">Formación Vial Aplicada</p>
           </div>
+          <!-- Resúmenes PDF -->
+          <div class="sub-card">
+            <h3 class="sub-title">Plan Resúmenes PDF</h3>
+            <p class="sub-desc">Acceso a todo el contenido resumido del libro del conductor año 2026</p>
+
+            <div class="sub-icons">
+              <div class="sub-icon-item">
+                <i class="fas fa-book"></i>
+                <span class="sub-icon-label">Resúmenes</span>
+              </div>
+              <div class="sub-icon-item">
+                <i class="fa-solid fa-download"></i>
+                <span class="sub-icon-label">Material de estudio</span>
+              </div>
+            </div>
+
+            <button class="sub-btn">
+              <span class="sub-btn-text">Acceder a Resúmenes</span>
+              <span class="sub-btn-price">$9.900</span>
+            </button>
+
+            <p class="sub-small">Formación Vial Aplicada</p>
+          </div>
 
           <!--  Agendar Clase -->
           <div class="sub-card">
@@ -1127,7 +1217,7 @@
               </div>
               <div class="sub-icon-item">
                 <i class="fa-solid fa-calendar-check"></i>
-                <span class="sub-icon-label">Agendar</span>
+                <span class="sub-icon-label">Clase en terreno</span>
               </div>
             </div>
 
@@ -1447,8 +1537,8 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/session.js"></script>
   <script src="js/pop.alumno.js"></script>
-  <script src="js/onboarding.js"></script>
   <script src="js/login.js" defer></script>
+  <script src="js/onboarding.js"></script>
   <script src="js/toggleStudent.js" defer></script>
   <script src="js/feedbackStudent.js" defer></script>
 </body>
