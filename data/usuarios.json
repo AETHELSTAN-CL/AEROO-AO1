@@ -1,25 +1,40 @@
 [
-  {
-    "memanejoId": "MMML8821",
-    "nombre": "María López",
-    "email": "maria@gmail.com",
-    "desbloqueado": {
-      "quiz180": true,
-      "quiz500": false,
-      "quiz800": false,
-      "resumenes": false,
-      "full": false
+    {
+        "memanejoId": "MMMM0001",
+        "nombre": "Leonardo Azo",
+        "email": "hola@hola.cl",
+        "desbloqueado": {
+            "quiz180": true,
+            "quiz500": false,
+            "quiz800": false,
+            "resumenes": false,
+            "full": false
+        },
+        "referidoPor": null,
+        "fechaRegistro": "2026-07-28"
     },
-    "referidoPor": null,
-    "fechaRegistro": "2026-07-28"
-  },
-  {
-    "memanejoId": "TEST1234",
-    "nombre": "Prueba Test",
-    "email": "test@test.com",
-    "desbloqueado": { "quiz180": true },
-    "referidoPor": null,
-    "fechaRegistro": "2026-07-28"
-  }
-
+    {
+        "memanejoId": "MMML8821",
+        "nombre": "María López",
+        "email": "maria@gmail.com",
+        "desbloqueado": {
+            "quiz180": true,
+            "quiz500": false,
+            "quiz800": false,
+            "resumenes": false,
+            "full": false
+        },
+        "referidoPor": null,
+        "fechaRegistro": "2026-07-28"
+    },
+    {
+        "memanejoId": "TEST1234",
+        "nombre": "Prueba Test",
+        "email": "test@test.com",
+        "desbloqueado": {
+            "quiz180": true
+        },
+        "referidoPor": null,
+        "fechaRegistro": "2026-07-28"
+    }
 ]

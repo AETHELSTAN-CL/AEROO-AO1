@@ -1648,7 +1648,10 @@ body.onboarding-activo {
 .curso-chevron.rotated {
   transform: rotate(180deg);
 }
-
+.sub-icon-item.disabled {
+  opacity: 0.35;
+  filter: grayscale(1);
+}
 /* ===== Pantallas intermedias (>=768px) ===== */
 @media (min-width: 768px) {
 
