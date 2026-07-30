@@ -853,7 +853,7 @@ body.onboarding-activo {
 
 .student-menu.show {
   opacity: 1;
-  max-height: 75vh;      /* 👈 antes 600px fijo, ahora relativo a la pantalla */
+  max-height: 90vh;      /* 👈 antes 600px fijo, ahora relativo a la pantalla */
   display: flex;
   justify-content: center;
   text-align: center;
@@ -933,14 +933,14 @@ body.onboarding-activo {
 }
 
 .student-welcome p {
-  font-size: 0.85rem;
+  font-size: 1.1rem;
   color: #1a1a1a;
-  margin: 2px 0;
+  margin-top: 10px ;
 }
 
 #welcomeId {
-  font-weight: 600;
-  color: #001089;
+  font-size: 1.1rem;
+  color: #1a1a1a;
 }
 
 /* ===============================
@@ -1547,7 +1547,7 @@ body.onboarding-activo {
 
 
 
-/* ===== Sección Cursos ===== */
+/* ===== Contenido memanejo + ===== */
 .cursos-section {
   width: 100vw;
   padding: 2em 1rem;
@@ -1556,7 +1556,7 @@ body.onboarding-activo {
   overflow-x: hidden;
 }
 
-/* ===== Título Contenidos del Curso Teórico ===== */
+/* ===== Título memanejo + ===== */
 .cursos-title {
   display: flex;
   flex-direction: column;
@@ -1652,8 +1652,26 @@ body.onboarding-activo {
   opacity: 0.35;
   filter: grayscale(1);
 }
+@media (max-width: 480px) {
+  .curso-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .curso-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
 /* ===== Pantallas intermedias (>=768px) ===== */
 @media (min-width: 768px) {
+  .curso-row,
+.curso-accordion {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
   .curso-km {
     font-size: 3.5rem;

@@ -1,26 +1,28 @@
 [
     {
-        "memanejoId": "MMMM0001",
+        "memanejoId": "1",
         "nombre": "Leonardo Azo",
-        "email": "hola@hola.cl",
+        "email": "l@l.cl",
         "desbloqueado": {
-            "quiz180": true,
+            "quiz180": false,
             "quiz500": false,
             "quiz800": false,
+            "clasesEnVivo": true,
             "resumenes": false,
-            "full": false
+            "full": true
         },
         "referidoPor": null,
         "fechaRegistro": "2026-07-28"
     },
     {
-        "memanejoId": "MMML8821",
-        "nombre": "María López",
-        "email": "maria@gmail.com",
+        "memanejoId": "TEST1234",
+        "nombre": "Prueba Test",
+        "email": "1@1.com",
         "desbloqueado": {
-            "quiz180": true,
-            "quiz500": false,
+            "quiz180": false,
+            "quiz500": true,
             "quiz800": false,
+            "clasesEnVivo": true,
             "resumenes": false,
             "full": false
         },
@@ -32,7 +34,12 @@
         "nombre": "Prueba Test",
         "email": "test@test.com",
         "desbloqueado": {
-            "quiz180": true
+            "quiz180": false,
+            "quiz500": false,
+            "quiz800": false,
+            "clasesEnVivo": false,
+            "resumenes": true,
+            "full": false
         },
         "referidoPor": null,
         "fechaRegistro": "2026-07-28"
