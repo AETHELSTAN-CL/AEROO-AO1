@@ -57,6 +57,14 @@ function tieneAcceso(clave) {
     return !!(session.desbloqueado?.full || session.desbloqueado?.[clave]);
 }
 
+function actualizarTextoPill(pill, texto) {
+    const box = pill.querySelector('.tooltip-box');
+    Array.from(pill.childNodes).forEach(nodo => {
+        if (nodo !== box) pill.removeChild(nodo);
+    });
+    pill.insertBefore(document.createTextNode(texto + ' '), box);
+}
+
 function aplicarControlDeContenido() {
     document.querySelectorAll('[data-requiere]').forEach(el => {
         const clave = el.dataset.requiere;
@@ -67,28 +75,27 @@ function aplicarControlDeContenido() {
         const pill = wrapper?.querySelector('.icon-pill');
 
         if (pill && !pill.dataset.original) {
-            pill.dataset.original = pill.innerHTML;
+            pill.dataset.original = pill.textContent.trim();
         }
 
         if (acceso) {
             if (esAgendable) {
-                // Ya tiene el plan, pero igual debe agendar con un humano
                 el.setAttribute('href', el.dataset.hrefAgendar || '#');
                 el.setAttribute('target', '_blank');
                 el.removeAttribute('data-bs-toggle');
                 el.removeAttribute('data-bs-target');
-                if (pill) pill.innerHTML = `${el.dataset.pillDesbloqueado || 'Agendar'} <span class="tooltip-box"></span>`;
+                if (pill) actualizarTextoPill(pill, el.dataset.pillDesbloqueado || 'Agendar');
             } else {
                 el.setAttribute('href', el.dataset.hrefDesbloqueado || '#');
                 el.removeAttribute('data-bs-toggle');
                 el.removeAttribute('data-bs-target');
-                if (pill) pill.innerHTML = `${el.dataset.pillDesbloqueado || 'Liberado'} <span class="tooltip-box"></span>`;
+                if (pill) actualizarTextoPill(pill, el.dataset.pillDesbloqueado || 'Liberado');
             }
         } else {
             el.setAttribute('href', '#');
             el.setAttribute('data-bs-toggle', 'modal');
             el.setAttribute('data-bs-target', el.dataset.hrefBloqueado || '#modalStudentSubscription');
-            if (pill && pill.dataset.original) pill.innerHTML = pill.dataset.original;
+            if (pill && pill.dataset.original) actualizarTextoPill(pill, pill.dataset.original);
         }
     });
 }
