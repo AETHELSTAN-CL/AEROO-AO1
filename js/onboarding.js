@@ -117,7 +117,7 @@ function mostrarPortalAlumno() {
 
     <div class="card-subblock portal-intro">
       <div class="card-text card-plus-text">
-        Prepárate con <strong>quiz ilimitados</strong>, accede a tu progreso, mide tu rendimiento en ranking nacional y más.
+        Prepárate con <strong>quiz ilimitados</strong>, accede a tu progreso, mide tu rendimiento, próximamente ranking nacional y más.
       </div>
     </div>
 
