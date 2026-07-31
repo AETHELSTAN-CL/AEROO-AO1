@@ -243,12 +243,13 @@ body.onboarding-activo {
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: safe center;
   align-items: center;
   text-align: center;
   color: #fff;
   z-index: 90;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .onboard-left {
@@ -261,6 +262,7 @@ body.onboarding-activo {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 /* ===== CARD GLASS (mobile y desktop) ===== */
@@ -342,7 +344,7 @@ body.onboarding-activo {
 .card-subtitle {
   font-size: 2rem;
   font-weight: 600;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .card-text {
@@ -470,14 +472,15 @@ body.onboarding-activo {
   text-align: center;
   line-height: 1.3;
 }
-
 @media (max-width: 499px) {
-
+  .card-title {
+    font-size: 1.5rem;
+  }
   .card-subtitle {
     font-size: 1.2rem;
     font-weight: 600;
     font-family: 'Avenir', sans-serif;
-    margin-top: 60px;
+    margin-top: 40px;
   }
 
   .card-text {
@@ -495,9 +498,7 @@ body.onboarding-activo {
   }
 
   .login-card-glass {
-    min-height: 55vh;
     padding: 2rem 1.5rem;
-    justify-content: center;
   }
 
   .card-icons {
@@ -514,7 +515,6 @@ body.onboarding-activo {
   }
 }
 
-/* ===== INTERMEDIO: TABLETS / LAPTOPS PEQUEÑOS ===== */
 @media (min-width: 500px) and (max-width: 1239px) {
   .card-subtitle {
     font-size: 1.5rem;
@@ -532,9 +532,7 @@ body.onboarding-activo {
   }
 
   .login-card-glass {
-    min-height: 60vh;
     padding: 3rem 2rem;
-    justify-content: center;
   }
 
   .card-icons {
@@ -550,7 +548,6 @@ body.onboarding-activo {
     max-width: 320px;
   }
 }
-
 /* ===== DESKTOP: SPLIT SCREEN ===== */
 @media (min-width: 1249px) {
   .onboard-content {
