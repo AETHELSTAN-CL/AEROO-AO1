@@ -27,17 +27,17 @@ function aplicarEstadoUsuario() {
 
     const loginForm = document.querySelector('.student-login');
     const dashboard = document.querySelector('.student-dashboard');
-    const welcome = document.getElementById('studentWelcome');
+    const welcomeName = document.getElementById('welcomeName');
+    const welcomeId = document.getElementById('welcomeId');
 
     if (estaLogueado) {
-        loginForm?.querySelector('#studentEmail')?.closest('div')?.style.setProperty('display', 'none');
+        loginForm?.style.setProperty('display', 'none');
         dashboard.style.display = 'flex';
-        welcome.style.display = 'block';
-        document.getElementById('welcomeName').innerText = session.nombre;
-        document.getElementById('welcomeId').innerText = `memanejo ID: ${session.memanejoId}`;
+
+        welcomeName.textContent = session.nombre;
+        welcomeId.textContent = `memanejo ID: ${session.memanejoId}`;
     } else {
         dashboard.style.display = 'none';
-        welcome.style.display = 'none';
         loginForm.style.display = 'block';
     }
 

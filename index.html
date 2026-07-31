@@ -174,18 +174,24 @@
             <strong class="titulo">Entrenamiento Vial</strong>
             <span class="student-id">memanejo ID: ML001PA</span>
           </div>
-          <div class="texto-derecha text-center">
-            <i class="fas fa-user-graduate me-1"></i>
-            Nivel Practicante <br>0km
-            <div class="barra-progreso-inline">
-              <div class="barra-llena" style="width: 70%;"></div>
+          <div class="texto-derecha">
+            <span class="nivel">
+              <i class="fas fa-user-graduate me-1"></i>
+              <strong>Nivel Practicante</strong>
+            </span>
+
+            <div class="progreso">
+              <span>0km</span>
+              <div class="barra-progreso-inline">
+                <div class="barra-llena" style="width:50%;"></div>
+              </div>
+              <span>100km</span>
             </div>
-            100km
           </div>
         </div>
       </div>
 
-      <!-- Video 3 -->
+      <!-- Video 2 -->
       <div class="video-wrapper">
         <video src="vid/publicidad2.mov" muted autoplay loop playsinline></video>
         <!-- ❤️ Botón Me gusta -->
@@ -198,13 +204,19 @@
             <strong class="titulo">Entrenamiento Vial</strong>
             <span class="student-id">memanejo ID: IL001LF</span>
           </div>
-          <div class="texto-derecha text-center">
-            <i class="fas fa-user-graduate me-1"></i>
-            Nivel Practicante <br>0km
-            <div class="barra-progreso-inline">
-              <div class="barra-llena" style="width: 55%;"></div>
+          <div class="texto-derecha">
+            <span class="nivel">
+              <i class="fas fa-user-graduate me-1"></i>
+              <strong>Nivel Practicante</strong>
+            </span>
+
+            <div class="progreso">
+              <span>0km</span>
+              <div class="barra-progreso-inline">
+                <div class="barra-llena" style="width:30%;"></div>
+              </div>
+              <span>100km</span>
             </div>
-            100km
           </div>
         </div>
       </div>
@@ -222,13 +234,19 @@
             <strong class="titulo">Entrenamiento Vial</strong>
             <span class="student-id">memanejo ID: JP001LÑÑ</span>
           </div>
-          <div class="texto-derecha text-center">
-            <i class="fas fa-user-graduate me-1"></i>
-            Nivel Practicante <br>0km
-            <div class="barra-progreso-inline">
-              <div class="barra-llena" style="width: 55%;"></div>
+          <div class="texto-derecha">
+            <span class="nivel">
+              <i class="fas fa-user-graduate me-1"></i>
+              <strong>Nivel Practicante</strong>
+            </span>
+
+            <div class="progreso">
+              <span>0km</span>
+              <div class="barra-progreso-inline">
+                <div class="barra-llena" style="width:80%;"></div>
+              </div>
+              <span>100km</span>
             </div>
-            100km
           </div>
         </div>
       </div>
@@ -259,121 +277,74 @@
 
   <!-- Menú flotante del estudiante -->
   <div class="student-menu">
+
     <!-- Formulario de ingreso -->
     <div class="student-login">
-      <h3>Aula Virtual</h3>
-      <small class="text-center">
-        Accede con tu <strong>memanejo ID</strong>
-      </small>
+      <h3>Acceso Aula Virtual</h3>
       <input type="email" id="studentEmail" placeholder="Correo de acceso" class="card-input" />
       <input type="text" id="studentID" placeholder="Código memanejo ID" class="card-input" />
       <button id="studentIngresar" class="card-btn">Ingresar</button>
     </div>
 
     <!-- Dashboard del estudiante -->
-    <div class="student-dashboard" style="display:none;">
-      <button id="btnCerrarSesion" class="btn-cerrar-sesion">
-        Cerrar sesión<i class="fas fa-sign-out-alt"></i>
-      </button>
-      <!-- toggle de  bienvenida -->
-      <div class="student-welcome" id="studentWelcome" style="display:none;">
-        <h3>¡Qué bueno verte de nuevo!</h3>
-        <p id="welcomeName">Usuario</p>
-        <p id="welcomeId">memanejo ID: </p>
-      </div>
-      <h3 class="sd-title">Tu progreso</h3>
+    <div class="student-dashboard">
 
-      <div class="sd-progress-grid">
-
-        <!-- Curso 1 -->
-        <div class="sd-item">
-          <div class="sd-circle" data-progress="80">
-            <svg viewBox="0 0 100 100">
-              <circle class="bg" cx="50" cy="50" r="45"></circle>
-              <circle class="bar" cx="50" cy="50" r="45"></circle>
-            </svg>
-            <span class="percent">80%</span>
-          </div>
-          <p class="sd-name">Curso:<br>Antes de Manejar</p>
+      <div class="sd-header">
+        <div>
+          <p class="sd-greeting" id="welcomeName">Usuario</p>
+          <p class="sd-id" id="welcomeId">memanejo ID: ---</p>
         </div>
-
-        <!-- Curso 2 -->
-        <div class="sd-item">
-          <div class="sd-circle" data-progress="50">
-            <svg viewBox="0 0 100 100">
-              <circle class="bg" cx="50" cy="50" r="45"></circle>
-              <circle class="bar" cx="50" cy="50" r="45"></circle>
-            </svg>
-            <span class="percent">50%</span>
-          </div>
-          <p class="sd-name">Curso:<br>Mecánica Básica</p>
-        </div>
-
-        <!-- Quiz -->
-        <div class="sd-item">
-          <div class="sd-circle" data-progress="90">
-            <svg viewBox="0 0 100 100">
-              <circle class="bg" cx="50" cy="50" r="45"></circle>
-              <circle class="bar" cx="50" cy="50" r="45"></circle>
-            </svg>
-            <span class="percent">Quiz</span>
-          </div>
-          <div class="stats-box">
-            <div class="stat-block">
-              <span class="label">Puntaje</span>
-              <span class="value">30/35</span>
-            </div>
-
-            <div class="stat-block">
-              <span class="label">Tiempo</span>
-              <span class="value">27:59min</span>
-            </div>
-          </div>
-        </div>
-        <!-- Quiz 2 -->
-        <div class="sd-item">
-          <div class="sd-circle" data-progress="60">
-            <svg viewBox="0 0 100 100">
-              <circle class="bg" cx="50" cy="50" r="45"></circle>
-              <circle class="bar" cx="50" cy="50" r="45"></circle>
-            </svg>
-            <span class="percent">Quiz</span>
-          </div>
-          <div class="stats-box">
-            <div class="stat-block">
-              <span class="label">Puntaje</span>
-              <span class="value">33/35</span>
-            </div>
-
-            <div class="stat-block">
-              <span class="label">Tiempo</span>
-              <span class="value">23:09min</span>
-            </div>
-          </div>
-        </div>
-
+        <button id="btnCerrarSesion" class="btn-cerrar-sesion">
+        Cerrar sesión <i class="fas fa-sign-out-alt"></i>
+        </button>
       </div>
 
-      <!-- Mensaje IA -->
+      <p class="sd-section-label">Preparación teórica — memanejo +</p>
+
+      <div class="sd-hero-stat">
+        <div class="sd-hero-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="sd-hero-content">
+          <p class="sd-hero-value">33<span>/38</span></p>
+          <p class="sd-hero-label">Mejor puntaje · Aprobado</p>
+          <div class="sd-bar">
+            <div class="sd-bar-fill" style="width: 87%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sd-stats-grid">
+        <div class="sd-stat-card">
+          <i class="fas fa-rotate"></i>
+          <p class="sd-stat-value">7</p>
+          <p class="sd-stat-label">Intentos</p>
+        </div>
+        <div class="sd-stat-card">
+          <i class="fas fa-stopwatch"></i>
+          <p class="sd-stat-value">23:09</p>
+          <p class="sd-stat-label">Mejor tiempo</p>
+        </div>
+      </div>
+
+      <p class="sd-section-label">Preparación práctica — memanejo manejando</p>
+
+      <div class="sd-empty-state">
+        <i class="fas fa-car sd-empty-icon"></i>
+        <p class="sd-empty-title">Aún no agendas tu primera clase</p>
+        <p class="sd-empty-text">Reserva Mis primeros kilómetros para comenzar</p>
+        <a href="https://wa.me/56946914558?text=Quiero%20agendar%20mi%20primera%20clase" target="_blank"
+          class="sd-btn-agendar">Agendar</a>
+      </div>
+
       <div class="sd-ai-msg">
-        <small>memanejo IA: Recuerda que tienes un examen por rendir. <br>¡Vas muy bien! <br> Desafia al mejor puntaje.
-          memanejo ID:
-          ML001PA <br>
-          <div class="stats-box">
-            <div class="stat-block">
-              <span class="label">Puntaje</span>
-              <span class="value">33/35</span>
-            </div>
-
-            <div class="stat-block">
-              <span class="label">Tiempo</span>
-              <span class="value">23:09min</span>
-            </div>
-          </div>
-        </small>
+        <i class="fas fa-lightbulb"></i>
+        <small>Vas muy bien en teoría. Rinde el examen municipal cuando quieras — tu puntaje ya supera el mínimo para
+          aprobar.</small>
       </div>
 
     </div>
+
   </div>
 
 

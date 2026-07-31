@@ -298,6 +298,20 @@ function showError(msg) {
 
   setTimeout(() => div.remove(), 4000);
 }
+// Click fuera 
+document.addEventListener('click', (e) => {
+    const menu = document.querySelector('.student-menu');
+    const boton = document.querySelector('.pill-student');
+
+    if (!menu || !menu.classList.contains('show')) return;
+
+    const clickDentroDelMenu = menu.contains(e.target);
+    const clickEnElBoton = boton?.contains(e.target);
+
+    if (!clickDentroDelMenu && !clickEnElBoton) {
+        menu.classList.remove('show');
+    }
+});
 
 // =====================
 // INIT
