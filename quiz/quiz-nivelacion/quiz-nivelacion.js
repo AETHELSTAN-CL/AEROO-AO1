@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
       textoPuntaje.parentNode.appendChild(incentivo);
     }
 
-emailjs.send("service_ijgm7ie", "template_bwlp1hk", {
+emailjs.send("service_ujyq6hg", "template_o43bfnj", {
   nombre: localStorage.getItem("nombre") || "Invitado",
   correo: localStorage.getItem("correo") || "sin_correo",
   telefono: localStorage.getItem("telefono") || "sin_telefono",

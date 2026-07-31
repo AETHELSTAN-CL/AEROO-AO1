@@ -147,8 +147,15 @@ function mostrarPortalAlumno() {
     const apellido = document.getElementById('portalApellido')?.value.trim();
     const email = document.getElementById('portalEmail')?.value.trim();
 
-    if (!nombre || !apellido || !email) {
+    if (!nombre || !email) {
       showError("Completa todos los campos");
+      return;
+    }
+
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailValido.test(email)) {
+      showError("Ingresa un correo válido");
       return;
     }
 
@@ -163,7 +170,7 @@ function mostrarPortalAlumno() {
 
     enviarMemanejoIdPorCorreo(nombre, email, memanejoId);
 
-loginCardGlass.innerHTML = `
+    loginCardGlass.innerHTML = `
   <div class="card-plus">
     <div class="card-title card-plus-title"><strong>¡Listo!</strong></div>
     <div class="card-text card-plus-text" style="margin-top:16px;">
@@ -177,18 +184,18 @@ loginCardGlass.innerHTML = `
   </div>
 `;
 
-document.getElementById('btnYaTengoId')?.addEventListener('click', () => {
-  cerrarOnboarding();
+    document.getElementById('btnYaTengoId')?.addEventListener('click', () => {
+      cerrarOnboarding();
 
-  const pillStudent = document.querySelector('.pill-student');
-  pillStudent?.classList.add('visible');
+      const pillStudent = document.querySelector('.pill-student');
+      pillStudent?.classList.add('visible');
 
-  requestAnimationFrame(() => {
-    openStudentMenu();
-  });
-});
+      requestAnimationFrame(() => {
+        openStudentMenu();
+      });
+    });
 
-document.getElementById('portalVolverFinal')?.addEventListener('click', restoreOnboarding);
+    document.getElementById('portalVolverFinal')?.addEventListener('click', restoreOnboarding);
   });
 
   document.getElementById('portalVolver')?.addEventListener('click', restoreOnboarding);
@@ -202,19 +209,37 @@ function generarMemanejoId(nombre, apellido) {
   return `MM${inicialNombre}${inicialApellido}${numero}`;
 }
 
-// ===== Envío del ID por correo (EmailJS) =====
 function enviarMemanejoIdPorCorreo(nombre, email, memanejoId) {
-  emailjs.send("service_ijgm7ie", "template_s6jxj1h", {
+
+  const datos = {
     nombre: nombre,
     correo: email,
     memanejo_id: memanejoId
-  }).then(() => {
-    console.log("memanejo ID enviado correctamente");
-  }).catch(err => {
-    console.error("Error enviando memanejo ID:", err);
-  });
-}
+  };
 
+  // Envío al alumno
+  emailjs.send("service_ujyq6hg", "template_s6jxj1h", datos)
+    .then(() => {
+      console.log("Correo enviado al alumno");
+    })
+    .catch(err => {
+      console.error("Error alumno:", err);
+    });
+
+
+  // Copia interna
+  emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
+    ...datos,
+    destino: "contacto@memanejo.cl"
+  })
+    .then(() => {
+      console.log("Copia enviada");
+    })
+    .catch(err => {
+      console.error("Error copia:", err);
+    });
+
+}
 // =====================
 // NUEVO ESTUDIANTE
 // =====================
@@ -236,51 +261,56 @@ function mostrarNuevoEstudiante() {
     </div>
   `;
 
-document.getElementById('nuevoCrear')?.addEventListener('click', () => {
-  const nombre = document.getElementById('nuevoNombre')?.value.trim();
-  const email = document.getElementById('nuevoEmail')?.value.trim();
+  document.getElementById('nuevoCrear')?.addEventListener('click', () => {
+    const nombre = document.getElementById('nuevoNombre')?.value.trim();
+    const email = document.getElementById('nuevoEmail')?.value.trim();
 
-  if (!nombre || !email) {
-    showError("Completa todos los campos");
-    return;
-  }
+    if (!nombre || !email) {
+      showError("Completa todos los campos");
+      return;
+    }
 
-  const nombreCompleto = nombre.split(' ');
-  const primerNombre = nombreCompleto[0];
-  const apellido = nombreCompleto.length > 1 
-    ? nombreCompleto[nombreCompleto.length - 1] 
-    : '';
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const memanejoId = generarMemanejoId(primerNombre, apellido);
+    if (!emailValido.test(email)) {
+      showError("Ingresa un correo válido");
+      return;
+    }
 
-  const nuevoUsuario = {
-    email: email,
-    id: memanejoId,
-    nombre: nombre
-  };
+    const nombreCompleto = nombre.split(' ');
+    const primerNombre = nombreCompleto[0];
+    const apellido = nombreCompleto.length > 1
+      ? nombreCompleto[nombreCompleto.length - 1]
+      : '';
 
-  // Guardar usuario
-  const registrados = JSON.parse(
-    localStorage.getItem('usuariosRegistrados') || '[]'
-  );
+    const memanejoId = generarMemanejoId(primerNombre, apellido);
 
-  registrados.push(nuevoUsuario);
+    const nuevoUsuario = {
+      email: email,
+      id: memanejoId,
+      nombre: nombre
+    };
 
-  localStorage.setItem(
-    'usuariosRegistrados',
-    JSON.stringify(registrados)
-  );
+    // Guardar usuario
+    const registrados = JSON.parse(
+      localStorage.getItem('usuariosRegistrados') || '[]'
+    );
 
-  // Mantener disponible para login
-  window.testUsers = window.testUsers || [];
-  window.testUsers.push(nuevoUsuario);
+    registrados.push(nuevoUsuario);
 
-  // Enviar correo con memanejo ID
-  enviarMemanejoIdPorCorreo(nombre, email, memanejoId);
+    localStorage.setItem(
+      'usuariosRegistrados',
+      JSON.stringify(registrados)
+    );
 
-  // Continuar como visitante
-  entrarComoVisitante();
-});
+    // Mantener disponible para login
+    window.testUsers = window.testUsers || [];
+    window.testUsers.push(nuevoUsuario);
+
+
+    // Continuar como visitante
+    entrarComoVisitante();
+  });
 
   document.getElementById('nuevoVolver')?.addEventListener('click', restoreOnboarding);
 }
@@ -335,17 +365,17 @@ function showError(msg) {
 }
 // Click fuera 
 document.addEventListener('click', (e) => {
-    const menu = document.querySelector('.student-menu');
-    const boton = document.querySelector('.pill-student');
+  const menu = document.querySelector('.student-menu');
+  const boton = document.querySelector('.pill-student');
 
-    if (!menu || !menu.classList.contains('show')) return;
+  if (!menu || !menu.classList.contains('show')) return;
 
-    const clickDentroDelMenu = menu.contains(e.target);
-    const clickEnElBoton = boton?.contains(e.target);
+  const clickDentroDelMenu = menu.contains(e.target);
+  const clickEnElBoton = boton?.contains(e.target);
 
-    if (!clickDentroDelMenu && !clickEnElBoton) {
-        menu.classList.remove('show');
-    }
+  if (!clickDentroDelMenu && !clickEnElBoton) {
+    menu.classList.remove('show');
+  }
 });
 
 // =====================
