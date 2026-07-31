@@ -895,11 +895,12 @@ body.onboarding-activo {
 
 .student-login h3 {
   font-size: 22px;
-  margin: 0 0 20px;
   font-weight: 700;
   color: #0c19af;
 }
-
+.subtitle-aula {
+  font-size: 12px;
+}
 .student-login input {
   width: 100%;
   margin-bottom: 10px;

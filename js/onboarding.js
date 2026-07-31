@@ -2,6 +2,7 @@
 // ELEMENTOS GLOBALES
 // =====================
 window.currentStudent = null;
+window.testUsers = window.testUsers || [];
 const videosNormales = document.getElementById('videos');
 const pillNav = document.getElementById('pillNav');
 
@@ -235,17 +236,51 @@ function mostrarNuevoEstudiante() {
     </div>
   `;
 
-  document.getElementById('nuevoCrear')?.addEventListener('click', () => {
-    const nombre = document.getElementById('nuevoNombre')?.value.trim();
-    const email = document.getElementById('nuevoEmail')?.value.trim();
+document.getElementById('nuevoCrear')?.addEventListener('click', () => {
+  const nombre = document.getElementById('nuevoNombre')?.value.trim();
+  const email = document.getElementById('nuevoEmail')?.value.trim();
 
-    if (!nombre || !email) {
-      showError("Completa todos los campos");
-      return;
-    }
+  if (!nombre || !email) {
+    showError("Completa todos los campos");
+    return;
+  }
 
-    entrarComoVisitante();
-  });
+  const nombreCompleto = nombre.split(' ');
+  const primerNombre = nombreCompleto[0];
+  const apellido = nombreCompleto.length > 1 
+    ? nombreCompleto[nombreCompleto.length - 1] 
+    : '';
+
+  const memanejoId = generarMemanejoId(primerNombre, apellido);
+
+  const nuevoUsuario = {
+    email: email,
+    id: memanejoId,
+    nombre: nombre
+  };
+
+  // Guardar usuario
+  const registrados = JSON.parse(
+    localStorage.getItem('usuariosRegistrados') || '[]'
+  );
+
+  registrados.push(nuevoUsuario);
+
+  localStorage.setItem(
+    'usuariosRegistrados',
+    JSON.stringify(registrados)
+  );
+
+  // Mantener disponible para login
+  window.testUsers = window.testUsers || [];
+  window.testUsers.push(nuevoUsuario);
+
+  // Enviar correo con memanejo ID
+  enviarMemanejoIdPorCorreo(nombre, email, memanejoId);
+
+  // Continuar como visitante
+  entrarComoVisitante();
+});
 
   document.getElementById('nuevoVolver')?.addEventListener('click', restoreOnboarding);
 }
