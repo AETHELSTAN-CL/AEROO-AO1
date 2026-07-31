@@ -283,7 +283,8 @@
     <!-- Formulario de ingreso -->
     <div class="student-login">
       <h3>Acceso Aula Virtual</h3>
-      <span class="subtitle-aula">Ingresa a <strong>memanejo +</strong> para acceder a tu contenido personalizado.</span>
+      <span class="subtitle-aula">Ingresa a <strong>memanejo +</strong> para acceder a tu contenido
+        personalizado.</span>
       <input type="email" id="studentEmail" placeholder="Correo de acceso" class="card-input" />
       <input type="text" id="studentID" placeholder="Código memanejo ID" class="card-input" />
       <button id="studentIngresar" class="card-btn">Ingresar</button>
@@ -1489,13 +1490,20 @@
         </a>
 
         <div class="collapse mt-3" id="reviewCollapse">
-          <div class="card card-body bg-white shadow-sm p-3">
+          <div class="card card-body shadow-sm p-3">
 
             <form id="reviewForm" class="mt-2">
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" id="reviewAnon">
-                <label class="form-check-label" for="reviewAnon">
-                  Enviar como anónimo
+              <div class="review-toggle mb-3">
+                <input type="radio" name="reviewMode" id="reviewNormal" checked>
+                <label for="reviewNormal">
+                      <i class="far fa-circle-user"></i>
+                  <span>Con nombre</span>
+                </label>
+
+                <input type="radio" name="reviewMode" id="reviewAnon">
+                <label for="reviewAnon">
+                      <i class="fas fa-user-ninja"></i>
+                  <span>Anónimo</span>
                 </label>
               </div>
 

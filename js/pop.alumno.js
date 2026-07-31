@@ -73,19 +73,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const reviewResult = document.getElementById('reviewResult');
   const submittedEmail = document.getElementById('submittedEmail');
   const submittedText = document.getElementById('submittedText');
-  const anonCheck = document.getElementById('reviewAnon');
+  const reviewNormal = document.getElementById('reviewNormal');
+  const reviewAnon = document.getElementById('reviewAnon');
   const nameGroup = document.getElementById('nameGroup');
   const emailGroup = document.getElementById('emailGroup');
 
-  anonCheck?.addEventListener('change', () => {
-    if (anonCheck.checked) {
-      nameGroup.style.display = "none";
-      emailGroup.style.display = "none";
-    } else {
-      nameGroup.style.display = "block";
-      emailGroup.style.display = "block";
-    }
-  });
+  function actualizarModoReview() {
+    const anon = reviewAnon.checked;
+
+    nameGroup.style.display = anon ? "none" : "block";
+    emailGroup.style.display = anon ? "none" : "block";
+  }
+
+  reviewNormal?.addEventListener("change", actualizarModoReview);
+  reviewAnon?.addEventListener("change", actualizarModoReview);
+
+  // Estado inicial
+  actualizarModoReview();
 
   reviewForm?.addEventListener('submit', (e) => {
     e.preventDefault();
