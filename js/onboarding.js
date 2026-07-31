@@ -210,35 +210,15 @@ function generarMemanejoId(nombre, apellido) {
 }
 
 function enviarMemanejoIdPorCorreo(nombre, email, memanejoId) {
-
-  const datos = {
+  emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
     nombre: nombre,
     correo: email,
     memanejo_id: memanejoId
-  };
-
-  // Envío al alumno
-  emailjs.send("service_ujyq6hg", "template_s6jxj1h", datos)
-    .then(() => {
-      console.log("Correo enviado al alumno");
-    })
-    .catch(err => {
-      console.error("Error alumno:", err);
-    });
-
-
-  // Copia interna
-  emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
-    ...datos,
-    destino: "contacto@memanejo.cl"
-  })
-    .then(() => {
-      console.log("Copia enviada");
-    })
-    .catch(err => {
-      console.error("Error copia:", err);
-    });
-
+  }).then(() => {
+    console.log("memanejo ID enviado correctamente");
+  }).catch(err => {
+    console.error("Error enviando memanejo ID:", err);
+  });
 }
 // =====================
 // NUEVO ESTUDIANTE
@@ -261,60 +241,66 @@ function mostrarNuevoEstudiante() {
     </div>
   `;
 
-  document.getElementById('nuevoCrear')?.addEventListener('click', () => {
-    const nombre = document.getElementById('nuevoNombre')?.value.trim();
-    const email = document.getElementById('nuevoEmail')?.value.trim();
+document.getElementById('nuevoCrear')?.addEventListener('click', () => {
+  const nombre = document.getElementById('nuevoNombre')?.value.trim();
+  const email = document.getElementById('nuevoEmail')?.value.trim();
 
-    if (!nombre || !email) {
-      showError("Completa todos los campos");
-      return;
-    }
+  if (!nombre || !email) {
+    showError("Completa todos los campos");
+    return;
+  }
 
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailValido.test(email)) {
+    showError("Ingresa un correo válido");
+    return;
+  }
 
-    if (!emailValido.test(email)) {
-      showError("Ingresa un correo válido");
-      return;
-    }
+  emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
+    nombre: nombre,
+    correo: email,
+    tipo_visitante: "true"
+  }).catch(err => console.error("Error enviando bienvenida visitante:", err));
 
-    const nombreCompleto = nombre.split(' ');
-    const primerNombre = nombreCompleto[0];
-    const apellido = nombreCompleto.length > 1
-      ? nombreCompleto[nombreCompleto.length - 1]
-      : '';
+  const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
+  registrados.push({ email, nombre });
+  localStorage.setItem('usuariosRegistrados', JSON.stringify(registrados));
 
-    const memanejoId = generarMemanejoId(primerNombre, apellido);
-
-    const nuevoUsuario = {
-      email: email,
-      id: memanejoId,
-      nombre: nombre
-    };
-
-    // Guardar usuario
-    const registrados = JSON.parse(
-      localStorage.getItem('usuariosRegistrados') || '[]'
-    );
-
-    registrados.push(nuevoUsuario);
-
-    localStorage.setItem(
-      'usuariosRegistrados',
-      JSON.stringify(registrados)
-    );
-
-    // Mantener disponible para login
-    window.testUsers = window.testUsers || [];
-    window.testUsers.push(nuevoUsuario);
-
-
-    // Continuar como visitante
-    entrarComoVisitante();
-  });
+  entrarComoVisitante();
+});
 
   document.getElementById('nuevoVolver')?.addEventListener('click', restoreOnboarding);
 }
+reviewForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
 
+  const anon = anonCheck.checked;
+  const email = document.getElementById('reviewEmail').value.trim();
+  const name = document.getElementById('reviewName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+
+  if (!text) {
+    alert("Escribe tu comentario antes de enviar.");
+    return;
+  }
+  if (!anon && !email) {
+    alert("Ingresa tu correo o marca 'Enviar como anónimo'.");
+    return;
+  }
+
+  const finalName = anon ? "Anónimo" : (name || email);
+
+  emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
+    nombre: finalName,
+    correo: email || "sin correo (anónimo)",
+    mensaje_soporte: text
+  }).catch(err => console.error("Error enviando soporte:", err));
+
+  submittedEmail.textContent = finalName;
+  submittedText.textContent = text;
+  reviewResult.style.display = "block";
+  reviewForm.reset();
+});
 // =====================
 // CONTINUAR
 // =====================

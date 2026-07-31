@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
@@ -8,33 +7,23 @@
         a[x-apple-data-detectors] {
             color: inherit !important;
             text-decoration: none !important;
-            font-size: inherit !important;
-            font-family: inherit !important;
-            font-weight: inherit !important;
         }
     </style>
-    <title>Bienvenido a memanejo.cl</title>
 </head>
-
-<body bgcolor="#f1f1f1" style="margin:0; padding:0; background-color:#f1f1f1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-
-    <span style="display:none; font-size:1px; color:#fff; max-height:0; max-width:0; opacity:0; overflow:hidden;">
-        Gracias por unirte a memanejo.cl. Ya puedes explorar contenido gratuito para tu examen de conducción.
-    </span>
+<body bgcolor="#f1f1f1" style="margin:0; padding:0; background-color:#f1f1f1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#f1f1f1">
         <tr>
             <td align="center" style="padding: 30px 16px;">
                 <table width="480" cellpadding="0" cellspacing="0" border="0"
-                    style="background-color:#ffffff; border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,0.08); overflow:hidden;">
+                    style="background-color:#ffffff; border-radius:20px; overflow:hidden;">
 
                     <tr>
-                        <td bgcolor="#111111" style="background-color:#111111; padding:16px 28px;">
+                        <td bgcolor="#111111" style="padding:16px 28px;">
                             <table cellpadding="0" cellspacing="0" border="0" align="center">
                                 <tr>
-                                    <td align="center" style="padding-right:12px;">
-                                        <img src="https://www.memanejomanejando.cl/img/newnewlogo.jpg" alt="Logo" width="36"
-                                            height="36" style="display:block; border-radius:10px; object-fit:cover;">
+                                    <td style="padding-right:12px;">
+                                        <img src="https://www.memanejomanejando.cl/img/newnewlogo.jpg" alt="Logo" width="36" height="36" style="display:block; border-radius:10px;">
                                     </td>
                                     <td style="color:#ffffff; font-size:16px; font-weight:bold;">
                                         <span x-apple-data-detectors="false">Formación Vial</span>
@@ -47,43 +36,76 @@
                     <tr>
                         <td style="padding:36px 32px 28px;">
 
-                            <h2 style="color:#111111; margin:0 0 8px; font-size:22px;">
-                                ¡Hola {{nombre}}, bienvenido a memanejo!
-                            </h2>
+                            {{#memanejo_id}}
+                            <h2 style="color:#111; margin:0 0 8px; font-size:22px;">¡Tu cuenta está lista, {{nombre}}!</h2>
+                            <p style="font-size:15px; line-height:1.6; color:#555; margin:0 0 24px;">
+                                Ya puedes acceder a tu Aula Virtual con este código.
+                            </p>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:24px;">
+                                <tr>
+                                    <td align="center" style="background-color:#2261ff; border-radius:16px; padding:22px;">
+                                        <p style="margin:0; color:#fff; font-size:11px; text-transform:uppercase;">Tu memanejo ID</p>
+                                        <p style="margin:6px 0 0; color:#fff; font-size:28px; font-weight:bold;">{{memanejo_id}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            {{/memanejo_id}}
 
+                            {{#tipo_visitante}}
+                            <h2 style="color:#111; margin:0 0 8px; font-size:22px;">¡Hola {{nombre}}, bienvenido a memanejo!</h2>
                             <p style="font-size:15px; line-height:1.6; color:#555; margin:0 0 24px;">
                                 Gracias por unirte. Ya puedes explorar contenido gratuito para preparar tu examen
                                 de conducción Clase B: quiz de nivelación, glosario vial y más.
                             </p>
+                            {{/tipo_visitante}}
 
-                            <table cellpadding="0" cellspacing="0" border="0" align="center"
-                                style="margin:8px auto 24px;">
+                            {{#mensaje_soporte}}
+                            <h2 style="color:#111; margin:0 0 8px; font-size:22px;">Nuevo mensaje de soporte</h2>
+                            <p style="font-size:14px; color:#555; margin:0 0 8px;"><strong>De:</strong> {{nombre}} ({{correo}})</p>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f7f8fa; border-radius:14px; margin-bottom:24px;">
                                 <tr>
-                                    <td bgcolor="#111111" style="background-color:#111111; border-radius:30px;">
-                                        <a href="https://www.memanejomanejando.cl/?utm_source=mailing&utm_medium=email&utm_campaign=bienvenida_visitante"
-                                            target="_blank"
-                                            style="display:inline-block; padding:14px 40px; color:#ffffff; text-decoration:none; font-weight:bold; font-size:15px;">
+                                    <td style="padding:16px 20px; font-size:14px; color:#111;">{{mensaje_soporte}}</td>
+                                </tr>
+                            </table>
+                            {{/mensaje_soporte}}
+
+                            {{#memanejo_id}}
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:8px auto 0;">
+                                <tr>
+                                    <td bgcolor="#111111" style="border-radius:30px;">
+                                        <a href="https://www.memanejomanejando.cl" target="_blank"
+                                            style="display:inline-block; padding:14px 40px; color:#fff; text-decoration:none; font-weight:bold; font-size:15px;">
+                                            Ir a mi Aula Virtual
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            {{/memanejo_id}}
+
+                            {{#tipo_visitante}}
+                            <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin:8px auto 0;">
+                                <tr>
+                                    <td bgcolor="#111111" style="border-radius:30px;">
+                                        <a href="https://www.memanejomanejando.cl" target="_blank"
+                                            style="display:inline-block; padding:14px 40px; color:#fff; text-decoration:none; font-weight:bold; font-size:15px;">
                                             Explorar contenido
                                         </a>
                                     </td>
                                 </tr>
                             </table>
-
-                            <p style="font-size:12px; line-height:1.6; color:#999; margin:0; text-align:center;">
-                                Usaremos tu correo <strong>{{correo}}</strong> para enviarte novedades, promociones
-                                y recordatorios sobre tu preparación. Puedes darte de baja cuando quieras.
+                            <p style="font-size:12px; color:#999; margin:20px 0 0; text-align:center;">
+                                Usaremos tu correo para enviarte novedades y promociones. Puedes darte de baja cuando quieras.
                             </p>
+                            {{/tipo_visitante}}
 
                         </td>
                     </tr>
 
                     <tr>
                         <td style="padding:0 32px 28px;">
-                            <p
-                                style="font-size:13px; color:#999; border-top:1px solid #eee; padding-top:20px; margin:0; text-align:center;">
-                                memanejo.cl — Formación Vial y Cursos de Conducción<br>
-                                <a href="https://www.memanejo.cl" target="_blank"
-                                    style="color:#2261ff; text-decoration:none;">www.memanejo.cl</a>
+                            <p style="font-size:13px; color:#999; border-top:1px solid #eee; padding-top:20px; margin:0; text-align:center;">
+                                memanejo.cl — Formación Vial<br>
+                                <a href="https://www.memanejo.cl" style="color:#2261ff; text-decoration:none;">www.memanejo.cl</a>
                             </p>
                         </td>
                     </tr>
@@ -93,5 +115,4 @@
         </tr>
     </table>
 </body>
-
 </html>
