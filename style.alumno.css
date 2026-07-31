@@ -332,7 +332,11 @@ body.onboarding-activo {
   flex-direction: column;
   font-size: 32px;
 }
-
+.card-title-visitante {
+  display: flex;
+  flex-direction: column;
+  font-size: 32px;
+}
 .card-title-line1,
 .card-title-line2 {
   line-height: 1.1;

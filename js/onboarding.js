@@ -117,7 +117,7 @@ function mostrarPortalAlumno() {
 
     <div class="card-subblock portal-intro">
       <div class="card-text card-plus-text">
-        Prepárate con <strong>quiz ilimitados</strong>, revisa tu progreso y mide tu rendimiento Próximamente ranking nacional y más.
+        Prepárate con <strong>quiz ilimitados</strong>, revisa tu progreso y mide tu rendimiento. Próximamente ranking nacional y más.
       </div>
     </div>
 
@@ -220,10 +220,10 @@ function enviarMemanejoIdPorCorreo(nombre, email, memanejoId) {
 function mostrarNuevoEstudiante() {
   loginCardGlass.innerHTML = `
     <div class="title-wrapper portal-title">
-      <div class="card-title"><strong>¡Hola Visitante!</strong></div>
+      <div class="card-title-visitante"><strong>¡Hola Visitante!</strong></div>
     </div>
     <div class="card-subblock portal-intro">
-      <div class="card-text">Completa tus datos para acceder a contenido gratuito y conocer nuestros cursos.</div>
+      <div class="card-text">Completa tus datos para acceder a <strong>contenido gratuito</strong> y conocer nuestros cursos.</div>
     </div>
     <div class="portal-form">
       <input type="text" id="nuevoNombre" class="card-input" placeholder="Nombre y Apellido" />
