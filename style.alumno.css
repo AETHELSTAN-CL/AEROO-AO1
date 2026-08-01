@@ -1965,136 +1965,6 @@ body.onboarding-activo {
   }
 }
 
-/* Fondo oscuro + blur */
-#modalCodigo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(4px);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  animation: fadeIn 0.25s ease;
-}
-
-/* Caja del modal */
-#modalCodigo .modal-content {
-  background: #fff;
-  width: 90%;
-  max-width: 420px;
-  padding: 25px 25px 30px;
-  border-radius: 14px;
-  position: relative;
-  animation: floatUp 0.3s ease;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-
-/* Botón cerrar (X) */
-#modalCodigo .close-modal {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  background: none;
-  border: none;
-  font-size: 1.7rem;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-#modalCodigo .close-modal:hover {
-  opacity: 1;
-}
-
-/* Título */
-#modalCodigo h2 {
-  margin-top: 10px;
-  margin-bottom: 18px;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-/* Input */
-#modalCodigo input[type="text"] {
-  width: 100%;
-  padding: 14px;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  transition: 0.25s ease;
-  margin-bottom: 15px;
-}
-
-#modalCodigo input[type="text"]:focus {
-  border-color: #000;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, .25);
-}
-
-/* Botón validar */
-#modalCodigo #btnValidarCodigo {
-  width: 100%;
-  padding: 12px;
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.25s ease;
-  margin-bottom: 15px;
-}
-
-#modalCodigo #btnValidarCodigo:hover {
-  background: #222;
-}
-
-/* Enlace solicitar código */
-#modalCodigo .solicitar-enlace {
-  display: inline-block;
-  margin-top: 5px;
-  font-size: 0.95rem;
-  color: #0078ff;
-  text-decoration: none;
-}
-
-#modalCodigo .solicitar-enlace:hover {
-  text-decoration: underline;
-}
-
-/* Mensaje estado */
-#modalCodigo #mensajeEstado {
-  margin-top: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-/* Animaciones */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes floatUp {
-  from {
-    transform: translateY(14px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 /* Oculta el header mientras el onboarding esté activo, en cualquier resolución */
 body.onboarding-activo header {
@@ -2452,11 +2322,13 @@ body.onboarding-activo header {
   align-items: center;
   gap: 2px;
   transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
 }
 
 .sub-btn:hover {
   background: #1a4fd6;
   transform: scale(1.02);
+
 }
 
 .sub-btn-text {
@@ -2555,7 +2427,7 @@ body.onboarding-activo header {
 }
 
 .btn-icon:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -2758,4 +2630,168 @@ body.onboarding-activo header {
   font-size: 13px;
   color: #555;
   margin: 0;
+}
+/* ==========================
+   BENEFICIO MEMANEJO
+========================== */
+/* Card beneficio premium */
+.benefit-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.927);
+  border: 1px solid rgba(0, 30, 255, 0.9);
+  border-radius: 20px;
+  padding: 28px 22px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.credits-wrapper {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefit-btn {
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: all .3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.benefit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+}
+
+.benefit-card h6 {
+  font-size: 1.05rem;
+  color: #222;
+}
+
+.benefit-card p {
+  color: #666;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.benefit-card ul {
+  padding-left: 20px;
+  color: #555;
+}
+
+.benefit-card li {
+  margin-bottom: 7px;
+}
+
+
+.benefit-card strong {
+  font-size: .95rem;
+  color: #222;
+}
+
+
+.benefit-card .btn-primary {
+  border-radius: 50px;
+  padding: 10px 25px;
+  font-weight: 600;
+}
+
+.benefit-action {
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  transition: transform .25s ease;
+}
+
+.benefit-action:hover {
+  transform: translateX(6px);
+  background-color: #212529; 
+  color: #fff;
+}
+/* Animación apertura */
+@keyframes benefitFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 576px) {
+
+  .credits-wrapper {
+    width: 90%;
+  }
+
+  .benefit-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .benefit-card {
+    padding: 22px 18px;
+  }
+
+}
+.credits-wrapper {
+  position: relative;
+  padding-top: 20px;
+}
+
+.credits-wrapper::before {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #111;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.app-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  background: #101010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-icon i {
+  font-size: 28px;
+  color: #ffffff;
+}
+.credit-divider {
+  display: block;
+  width: 189px;
+  height: 2px;
+  background: #111;
+  border-radius: 10px;
+  margin: 8px auto;
+}
+.condicion-beneficio {
+  color: #949494;
+  font-size: .7rem;
+}
+.condicion-beneficio .whatsapp-icon {
+  color: #25D366;
+  margin-right: 0.1rem;
 }

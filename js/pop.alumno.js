@@ -254,3 +254,21 @@ if (notif) {
     }
   });
 }
+
+document.querySelectorAll('.whatsapp-sub').forEach(btn => {
+
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const plan = this.dataset.plan;
+
+    const mensaje = `Hola memanejo.cl, quiero suscribirme al plan ${plan}.`;
+
+    const numero = "56912345678";
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+  });
+
+});
