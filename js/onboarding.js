@@ -12,6 +12,13 @@ const onboardContent = document.querySelector('.onboard-content');
 const loginCardGlass = document.querySelector('.login-card-glass');
 const btnContinuar = document.getElementById('btnContinuar');
 const studentMenu = document.querySelector('.student-menu');
+const reviewForm = document.getElementById('reviewForm');
+const reviewResult = document.getElementById('reviewResult');
+const submittedEmail = document.getElementById('submittedEmail');
+const submittedText = document.getElementById('submittedText');
+const anonCheck = document.getElementById('reviewAnon');
+const nameGroup = document.getElementById('nameGroup');
+const emailGroup = document.getElementById('emailGroup');
 
 function getIconItems() {
   return Array.from(document.querySelectorAll('.icon-item'));
@@ -241,40 +248,41 @@ function mostrarNuevoEstudiante() {
     </div>
   `;
 
-document.getElementById('nuevoCrear')?.addEventListener('click', () => {
-  const nombre = document.getElementById('nuevoNombre')?.value.trim();
-  const email = document.getElementById('nuevoEmail')?.value.trim();
+  document.getElementById('nuevoCrear')?.addEventListener('click', () => {
+    const nombre = document.getElementById('nuevoNombre')?.value.trim();
+    const email = document.getElementById('nuevoEmail')?.value.trim();
 
-  if (!nombre || !email) {
-    showError("Completa todos los campos");
-    return;
-  }
+    if (!nombre || !email) {
+      showError("Completa todos los campos");
+      return;
+    }
 
-  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailValido.test(email)) {
-    showError("Ingresa un correo válido");
-    return;
-  }
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailValido.test(email)) {
+      showError("Ingresa un correo válido");
+      return;
+    }
 
-  emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
-    nombre: nombre,
-    correo: email,
-    tipo_visitante: "true"
-  }).catch(err => console.error("Error enviando bienvenida visitante:", err));
+    emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
+      nombre: nombre,
+      correo: email,
+      tipo_visitante: "true"
+    }).catch(err => console.error("Error enviando bienvenida visitante:", err));
 
-  const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
-  registrados.push({ email, nombre });
-  localStorage.setItem('usuariosRegistrados', JSON.stringify(registrados));
+    const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
+    registrados.push({ email, nombre });
+    localStorage.setItem('usuariosRegistrados', JSON.stringify(registrados));
 
-  entrarComoVisitante();
-});
+    entrarComoVisitante();
+  });
 
   document.getElementById('nuevoVolver')?.addEventListener('click', restoreOnboarding);
 }
+
 reviewForm?.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const anon = anonCheck.checked;
+  const anon = reviewAnonRadio.checked;
   const email = document.getElementById('reviewEmail').value.trim();
   const name = document.getElementById('reviewName').value.trim();
   const text = document.getElementById('reviewText').value.trim();
@@ -297,10 +305,22 @@ reviewForm?.addEventListener('submit', (e) => {
   }).catch(err => console.error("Error enviando soporte:", err));
 
   submittedEmail.textContent = finalName;
-  submittedText.textContent = text;
   reviewResult.style.display = "block";
   reviewForm.reset();
+  actualizarModoReview();
 });
+const reviewNormalRadio = document.getElementById('reviewNormal');
+const reviewAnonRadio = document.getElementById('reviewAnon');
+
+function actualizarModoReview() {
+  const esAnonimo = reviewAnonRadio.checked;
+  nameGroup.style.display = esAnonimo ? "none" : "block";
+  emailGroup.style.display = esAnonimo ? "none" : "block";
+}
+
+reviewNormalRadio?.addEventListener('change', actualizarModoReview);
+reviewAnonRadio?.addEventListener('change', actualizarModoReview);
+actualizarModoReview();
 // =====================
 // CONTINUAR
 // =====================

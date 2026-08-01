@@ -1496,13 +1496,13 @@
               <div class="review-toggle mb-3">
                 <input type="radio" name="reviewMode" id="reviewNormal" checked>
                 <label for="reviewNormal">
-                      <i class="far fa-circle-user"></i>
+                  <i class="far fa-circle-user"></i>
                   <span>Público</span>
                 </label>
 
                 <input type="radio" name="reviewMode" id="reviewAnon">
                 <label for="reviewAnon">
-                      <i class="fas fa-user-ninja"></i>
+                  <i class="fas fa-user-ninja"></i>
                   <span>Anónimo</span>
                 </label>
               </div>
@@ -1526,10 +1526,11 @@
               <button type="submit" class="btn btn-dark btn-sg w-100 mt-2">Enviar</button>
             </form>
 
-            <div id="reviewResult" class="mt-2" style="display:none;">
-              <p>Tu mensaje fue enviado por: <span id="submittedEmail"></span></p>
-              <p>Contenido:</p>
-              <p id="submittedText"></p>
+            <div id="reviewResult" class="review-success mt-2" style="display:none;">
+              <i class="fas fa-check-circle"></i>
+              <p class="review-success-title">¡Gracias por tu mensaje!</p>
+              <p class="review-success-text">Lo revisaremos pronto. Enviado por: <strong id="submittedEmail"></strong>
+              </p>
             </div>
 
           </div>

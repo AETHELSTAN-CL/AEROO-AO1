@@ -68,55 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ===== LÓGICA DE RESEÑA CON OPCIÓN ANÓNIMA =====
-  const reviewForm = document.getElementById('reviewForm');
-  const reviewResult = document.getElementById('reviewResult');
-  const submittedEmail = document.getElementById('submittedEmail');
-  const submittedText = document.getElementById('submittedText');
-  const reviewNormal = document.getElementById('reviewNormal');
-  const reviewAnon = document.getElementById('reviewAnon');
-  const nameGroup = document.getElementById('nameGroup');
-  const emailGroup = document.getElementById('emailGroup');
 
-  function actualizarModoReview() {
-    const anon = reviewAnon.checked;
-
-    nameGroup.style.display = anon ? "none" : "block";
-    emailGroup.style.display = anon ? "none" : "block";
-  }
-
-  reviewNormal?.addEventListener("change", actualizarModoReview);
-  reviewAnon?.addEventListener("change", actualizarModoReview);
-
-  // Estado inicial
-  actualizarModoReview();
-
-  reviewForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const anon = anonCheck.checked;
-    const email = document.getElementById('reviewEmail').value.trim();
-    const name = document.getElementById('reviewName').value.trim();
-    const text = document.getElementById('reviewText').value.trim();
-
-    if (!text) {
-      alert("Escribe tu comentario antes de enviar.");
-      return;
-    }
-
-    if (!anon && !email) {
-      alert("Ingresa tu correo o marca 'Enviar como anónimo'.");
-      return;
-    }
-
-    const finalName = anon ? "Anónimo" : (name || email);
-
-    submittedEmail.textContent = finalName;
-    submittedText.textContent = text;
-    reviewResult.style.display = "block";
-
-    reviewForm.reset();
-  });
 
   // =====================
   // CURSO-ACCORDION
