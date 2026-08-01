@@ -264,7 +264,7 @@ document.querySelectorAll('.whatsapp-sub').forEach(btn => {
 
     const mensaje = `Hola memanejo.cl, quiero suscribirme al plan ${plan}.`;
 
-    const numero = "56912345678";
+    const numero = "56946914558";
 
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
