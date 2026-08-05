@@ -310,7 +310,6 @@ body.onboarding-activo {
   text-align: center;
   box-sizing: border-box;
   display: block;
-  /* evita comportamientos raros entre input type=email vs type=text */
 }
 
 /* ===== Título ordenado (logo izquierda, texto derecha) ===== */
@@ -455,6 +454,7 @@ body.onboarding-activo {
 
 .card-sub-text-login {
   font-size: 10px;
+  margin-bottom: 8px;
 
 
 }
@@ -2842,4 +2842,125 @@ body.onboarding-activo header {
 .condicion-beneficio .whatsapp-icon {
   color: #25D366;
   margin-right: 0.1rem;
+}
+/* ==========================
+   FOOTER MEMANEJO
+========================== */
+
+.memanejo-footer {
+  background:#000;
+  color:#fff;
+  padding: 20px 20px 150px;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+
+
+.footer-accordion {
+  max-width:900px;
+  margin:auto;
+}
+
+
+.footer-item {
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+
+/* Todos los acordeones iguales */
+.footer-toggle {
+  width:100%;
+  background:none;
+  border:0;
+  color:#fff;
+  padding:18px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.95rem;
+  cursor:pointer;
+}
+
+
+.footer-toggle i {
+  font-size:.8rem;
+  transition:transform .35s ease;
+}
+
+
+.footer-content {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+
+
+.footer-content p {
+  color:rgba(255,255,255,.65);
+  font-size:.85rem;
+  line-height:1.5;
+  margin:0;
+  padding:0 0 18px;
+}
+
+
+/* Movimiento + a X */
+.footer-item.active .footer-toggle i {
+  transform:rotate(45deg);
+}
+
+
+
+/* ==========================
+   COPYRIGHT + CHILE
+========================== */
+
+.footer-bottom {
+  max-width:900px;
+  margin:20px auto 0;
+  padding-top:14px;
+  border-top:none; /* evita doble línea */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:rgba(255,255,255,.55);
+  font-size:.8rem;
+}
+
+
+.footer-chile {
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:600px){
+
+  .memanejo-footer {
+    padding-bottom:120px;
+  }
+
+  .footer-toggle {
+    padding:16px 0;
+    font-size:.9rem;
+  }
+
+
+  .footer-content p {
+    padding-bottom:16px;
+  }
+
+
+  .footer-bottom {
+    margin-top:12px;
+    padding-top:12px;
+    flex-direction:row;
+    justify-content:space-between;
+    gap:10px;
+  }
+
 }

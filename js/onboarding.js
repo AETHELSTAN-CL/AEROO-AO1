@@ -124,7 +124,7 @@ function mostrarPortalAlumno() {
 
     <div class="title-wrapper portal-title">
       <div class="card-title card-plus-title">
-        <strong>¡Crea tu acceso!</strong>
+        <strong>¡Nos encanta conocerte!</strong>
       </div>
     </div>
 
@@ -133,7 +133,7 @@ function mostrarPortalAlumno() {
       <div class="card-text card-plus-text">
 
         Obtén tu <strong>memanejo ID</strong> para ingresar a la plataforma.
-        Podrás guardar tu progreso, acceder a tus evaluaciones y recibir futuras novedades.
+        <Br>Accederás a material de estudio gratis, quiz de nivelación y recibir futuras novedades.
 
       </div>
     </div>
@@ -350,7 +350,7 @@ function mostrarPortalAlumno() {
 
 
 
-      <div class="card-text card-plus-text" style="margin-top:16px;">
+      <div class="card-text card-plus-text" style="margin-top:14px;">
 
         Tu acceso fue creado correctamente.
 
@@ -369,12 +369,10 @@ function mostrarPortalAlumno() {
 
       </div>
 
-
-
       <button 
       id="btnEntrarPlataforma"
       class="card-btn card-btn-wide"
-      style="margin-top:20px;">
+      style="margin-top:16px;">
 
        Ingresar
 
@@ -660,7 +658,7 @@ function ejecutarContinuar() {
 
   // memanejo +
   // Ya tengo código → iniciar sesión
-  if (selectedRole === 'new') {
+  if (selectedRole === 'alumno') {
     mostrarNuevoEstudiante();
     return;
   }
@@ -668,7 +666,7 @@ function ejecutarContinuar() {
 
   // Primer acceso
   // Crear cuenta → recibir código
-  if (selectedRole === 'alumno') {
+  if (selectedRole === 'new') {
     mostrarPortalAlumno();
     return;
   }
