@@ -203,9 +203,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  btnEntendido?.addEventListener('click', () => notificacion?.classList.remove("show"));
 });
+document.getElementById('btnReferidos')
+?.addEventListener('click', () => {
 
+  const session = getSession();
+
+  if (!session) return;
+
+
+  const nombre = session.nombre;
+
+  const mensaje = encodeURIComponent(
+`Hola memanejo
+
+Quiero activar mi código de referido para recomendar la plataforma.
+
+Nombre: ${nombre}
+memanejo ID: ${session.memanejoId}`
+  );
+
+
+  window.open(
+    `https://wa.me/56946914558?text=${mensaje}`,
+    '_blank'
+  );
+
+});
 // ===== SWIPE UP PARA DESCARTAR NOTIFICACIÓN iOS =====
 const notif = document.getElementById("ios-notificacion");
 

@@ -62,6 +62,7 @@ function initOnboarding() {
 // =====================
 // SELECCIÓN DE ROL
 // =====================
+
 function bindOnboardingEvents() {
   getIconItems().forEach(icon => {
     icon.onclick = () => {
@@ -114,98 +115,319 @@ function entrarComoVisitante() {
 }
 
 // =====================
-// PORTAL ALUMNO (memanejo ID)
+// PRIMER ACCESO (Crear memanejo ID)
 // =====================
 function mostrarPortalAlumno() {
+
   loginCardGlass.innerHTML = `
   <div class="card-plus">
+
     <div class="title-wrapper portal-title">
-      <div class="card-title card-plus-title"><strong>memanejo +</strong></div>
+      <div class="card-title card-plus-title">
+        <strong>¡Crea tu acceso!</strong>
+      </div>
     </div>
+
 
     <div class="card-subblock portal-intro">
       <div class="card-text card-plus-text">
-        Prepárate con <strong>quiz ilimitados</strong>, revisa tu progreso y mide tu rendimiento. Próximamente ranking nacional y más.
+
+        Obtén tu <strong>memanejo ID</strong> para ingresar a la plataforma.
+        Podrás guardar tu progreso, acceder a tus evaluaciones y recibir futuras novedades.
+
       </div>
     </div>
+
 
     <div class="portal-form">
-      <input type="text" id="portalNombre" class="card-input" placeholder="Nombre" />
-      <input type="text" id="portalApellido" class="card-input" placeholder="Apellido" />
-      <input type="email" id="portalEmail" class="card-input" placeholder="Correo electrónico" />
 
-      <button id="portalIngresar" class="card-btn">
+
+      <input 
+      type="text" 
+      id="portalNombre" 
+      class="card-input" 
+      placeholder="Nombre">
+
+
+      <input 
+      type="text" 
+      id="portalApellido" 
+      class="card-input" 
+      placeholder="Apellido">
+
+
+      <input 
+      type="email" 
+      id="portalEmail" 
+      class="card-input" 
+      placeholder="Correo electrónico">
+
+
+      <button 
+      id="portalIngresar" 
+      class="card-btn">
+
         <strong>Crear memanejo ID</strong>
+
       </button>
 
+
       <div class="card-sub-text">
-        Recibirás tu <strong>memanejo ID</strong> para acceder a la plataforma directo en tu correo.
+
+        Recibirás un correo de bienvenida con tu código personal de acceso.
+
       </div>
 
-      <div id="portalVolver" class="card-back" style="cursor:pointer;">
+
+      <div 
+      id="portalVolver" 
+      class="card-back" 
+      style="cursor:pointer;">
+
         <i class="fas fa-arrow-left"></i> Volver
+
       </div>
+
+
     </div>
+
   </div>
   `;
 
-  document.getElementById('portalIngresar')?.addEventListener('click', () => {
-    const nombre = document.getElementById('portalNombre')?.value.trim();
-    const apellido = document.getElementById('portalApellido')?.value.trim();
-    const email = document.getElementById('portalEmail')?.value.trim();
 
-    if (!nombre || !email) {
+
+  document
+  .getElementById('portalIngresar')
+  ?.addEventListener('click',()=>{
+
+
+    const nombre =
+    document
+    .getElementById('portalNombre')
+    ?.value.trim();
+
+
+
+    const apellido =
+    document
+    .getElementById('portalApellido')
+    ?.value.trim();
+
+
+
+    const email =
+    document
+    .getElementById('portalEmail')
+    ?.value.trim();
+
+
+
+    if(!nombre || !email){
+
       showError("Completa todos los campos");
       return;
+
     }
 
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailValido.test(email)) {
+
+    const emailValido =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+
+    if(!emailValido.test(email)){
+
       showError("Ingresa un correo válido");
       return;
+
     }
 
-    const memanejoId = generarMemanejoId(nombre, apellido);
-    const nuevoUsuario = { email, id: memanejoId, nombre: `${nombre} ${apellido}` };
 
-    // Guarda el nuevo usuario junto a los de prueba, para que el login lo reconozca
-    const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
+
+    // Genera código único
+    const memanejoId =
+    generarMemanejoId(nombre,apellido);
+
+
+
+    const nuevoUsuario = {
+
+
+      memanejoId,
+
+
+      nombre:
+      `${nombre} ${apellido || ""}`
+      .trim(),
+
+
+      email,
+
+
+      desbloqueado:{
+
+        quiz180:false,
+
+        quiz500:false,
+
+        quiz800:false,
+
+        clasesEnVivo:false,
+
+        resumenes:false,
+
+        full:false
+
+      },
+
+
+      referidoPor:null,
+
+
+      fechaRegistro:
+      new Date()
+      .toISOString()
+      .split('T')[0]
+
+    };
+
+
+
+    // Guarda usuario MVP local
+    const registrados =
+    JSON.parse(
+      localStorage.getItem('usuariosRegistrados') || '[]'
+    );
+
+
+
     registrados.push(nuevoUsuario);
-    localStorage.setItem('usuariosRegistrados', JSON.stringify(registrados));
-    window.testUsers.push(nuevoUsuario);
 
-    enviarMemanejoIdPorCorreo(nombre, email, memanejoId);
 
-    loginCardGlass.innerHTML = `
-  <div class="card-plus">
-    <div class="card-title card-plus-title"><strong>¡Listo!</strong></div>
-    <div class="card-text card-plus-text" style="margin-top:16px;">
-      Enviamos tu <strong>memanejo ID</strong> a <strong>${email}</strong>.<br>
-      Revisa tu correo (y la carpeta de spam) para obtenerlo.
-    </div>
 
-    <button id="btnYaTengoId" class="card-btn card-btn-wide" style="margin-top:20px;">
-  Ya tengo mi <strong>memanejo ID</strong>
-</button>
-  </div>
-`;
+    localStorage.setItem(
+      'usuariosRegistrados',
+      JSON.stringify(registrados)
+    );
 
-    document.getElementById('btnYaTengoId')?.addEventListener('click', () => {
-      cerrarOnboarding();
 
-      const pillStudent = document.querySelector('.pill-student');
-      pillStudent?.classList.add('visible');
 
-      requestAnimationFrame(() => {
-        openStudentMenu();
-      });
+    // Login automático
+    setSession({
+
+      nombre:nuevoUsuario.nombre,
+
+      email:nuevoUsuario.email,
+
+      memanejoId:nuevoUsuario.memanejoId,
+
+      desbloqueado:nuevoUsuario.desbloqueado
+
     });
 
-    document.getElementById('portalVolverFinal')?.addEventListener('click', restoreOnboarding);
+
+
+    // Envía correo bienvenida
+    enviarMemanejoIdPorCorreo(
+      nombre,
+      email,
+      memanejoId
+    );
+
+
+
+    loginCardGlass.innerHTML = `
+
+    <div class="card-plus">
+
+
+      <div class="card-title card-plus-title">
+
+        <strong>¡Bienvenido a memanejo!</strong>
+
+      </div>
+
+
+
+      <div class="card-text card-plus-text" style="margin-top:16px;">
+
+        Tu acceso fue creado correctamente.
+
+        <br><br>
+
+        Enviamos tu <strong>memanejo ID</strong> a:
+
+        <br>
+
+        <strong>${email}</strong>
+
+
+        <br><br>
+
+        Guarda este código para ingresar nuevamente a la plataforma.
+
+      </div>
+
+
+
+      <button 
+      id="btnEntrarPlataforma"
+      class="card-btn card-btn-wide"
+      style="margin-top:20px;">
+
+       Ingresar
+
+      </button>
+
+
+    </div>
+
+    `;
+
+
+
+    document
+    .getElementById('btnEntrarPlataforma')
+    ?.addEventListener('click',()=>{
+
+
+      cerrarOnboarding();
+
+
+
+      const pillStudent =
+      document.querySelector('.pill-student');
+
+
+      pillStudent
+      ?.classList.add('visible');
+
+
+
+      requestAnimationFrame(()=>{
+
+        openStudentMenu();
+
+      });
+
+
+    });
+
+
+
   });
 
-  document.getElementById('portalVolver')?.addEventListener('click', restoreOnboarding);
+
+
+  document
+  .getElementById('portalVolver')
+  ?.addEventListener(
+    'click',
+    restoreOnboarding
+  );
+
+
 }
 
 // ===== Generador de memanejo ID =====
@@ -227,56 +449,160 @@ function enviarMemanejoIdPorCorreo(nombre, email, memanejoId) {
     console.error("Error enviando memanejo ID:", err);
   });
 }
+
 // =====================
-// NUEVO ESTUDIANTE
+// LOGIN MEMANEJO +
 // =====================
 function mostrarNuevoEstudiante() {
+
   loginCardGlass.innerHTML = `
+  <div class="card-plus">
+
     <div class="title-wrapper portal-title">
-      <div class="card-title-visitante"><strong>¡Hola Visitante!</strong></div>
-    </div>
-    <div class="card-subblock portal-intro">
-      <div class="card-text">Completa tus datos para acceder a <strong>contenido gratuito</strong> y conocer nuestros cursos.</div>
-    </div>
-    <div class="portal-form">
-      <input type="text" id="nuevoNombre" class="card-input" placeholder="Nombre y Apellido" />
-      <input type="email" id="nuevoEmail" class="card-input" placeholder="Correo electrónico" />
-      <button id="nuevoCrear" class="card-btn">Comenzar</button>
-      <div id="nuevoVolver" class="card-back" style="cursor:pointer;">
-        <i class="fas fa-arrow-left"></i> Volver
+      <div class="card-title-visitante">
+        <strong>memanejo +</strong>
       </div>
     </div>
+
+    <div class="card-subblock portal-intro">
+      <div class="card-text">
+        Ingresa con tu correo y tu <strong>memanejo ID</strong>.
+      </div>
+    </div>
+
+    <div class="portal-form">
+
+      <input 
+      type="email" 
+      id="loginEmail" 
+      class="card-input" 
+      placeholder="Correo electrónico">
+
+
+      <input 
+      type="text" 
+      id="loginId" 
+      class="card-input" 
+      placeholder="Código memanejo ID">
+
+
+      <button id="loginIngresar" class="card-btn">
+        <strong>Ingresar</strong>
+      </button>
+
+
+      <div id="loginVolver" class="card-back" style="cursor:pointer;">
+        <i class="fas fa-arrow-left"></i> Volver
+      </div>
+
+    </div>
+
+  </div>
   `;
 
-  document.getElementById('nuevoCrear')?.addEventListener('click', () => {
-    const nombre = document.getElementById('nuevoNombre')?.value.trim();
-    const email = document.getElementById('nuevoEmail')?.value.trim();
 
-    if (!nombre || !email) {
+  document.getElementById('loginIngresar')
+  ?.addEventListener('click', async () => {
+
+
+    const email = document
+    .getElementById('loginEmail')
+    ?.value.trim();
+
+
+    const id = document
+    .getElementById('loginId')
+    ?.value.trim();
+
+
+
+    if (!email || !id) {
       showError("Completa todos los campos");
       return;
     }
 
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailValido.test(email)) {
-      showError("Ingresa un correo válido");
-      return;
+
+
+    // carga JSON si aún no existe
+    if (usuariosDB.length === 0) {
+      await cargarUsuarios();
     }
 
-    emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
-      nombre: nombre,
-      correo: email,
-      tipo_visitante: "true"
-    }).catch(err => console.error("Error enviando bienvenida visitante:", err));
 
-    const registrados = JSON.parse(localStorage.getItem('usuariosRegistrados') || '[]');
-    registrados.push({ email, nombre });
-    localStorage.setItem('usuariosRegistrados', JSON.stringify(registrados));
 
-    entrarComoVisitante();
+    const usuariosLocal =
+    JSON.parse(
+      localStorage.getItem('usuariosRegistrados') || '[]'
+    );
+
+
+
+    const todosLosUsuarios = [
+      ...usuariosDB,
+      ...usuariosLocal
+    ];
+
+
+
+    const usuario =
+    todosLosUsuarios.find(
+      u =>
+      u.email === email &&
+      String(u.memanejoId) === String(id)
+    );
+
+
+
+    if (!usuario) {
+
+      showError("Correo o código incorrecto");
+      return;
+
+    }
+
+
+
+    setSession({
+
+      nombre: usuario.nombre,
+
+      email: usuario.email,
+
+      memanejoId: usuario.memanejoId,
+
+      desbloqueado: usuario.desbloqueado || {}
+
+    });
+
+
+
+    cerrarOnboarding();
+
+
+
+    const pillStudent =
+    document.querySelector('.pill-student');
+
+
+    pillStudent?.classList.add('visible');
+
+
+
+    requestAnimationFrame(() => {
+      openStudentMenu();
+    });
+
+
   });
 
-  document.getElementById('nuevoVolver')?.addEventListener('click', restoreOnboarding);
+
+
+  document.getElementById('loginVolver')
+  ?.addEventListener(
+    'click',
+    restoreOnboarding
+  );
+
 }
 
 reviewForm?.addEventListener('submit', (e) => {
@@ -325,18 +651,28 @@ actualizarModoReview();
 // CONTINUAR
 // =====================
 function ejecutarContinuar() {
+
   if (!selectedRole) {
     showError("Selecciona una opción");
     return;
   }
 
+
+  // memanejo +
+  // Ya tengo código → iniciar sesión
   if (selectedRole === 'new') {
     mostrarNuevoEstudiante();
+    return;
   }
 
+
+  // Primer acceso
+  // Crear cuenta → recibir código
   if (selectedRole === 'alumno') {
     mostrarPortalAlumno();
+    return;
   }
+
 }
 
 // =====================

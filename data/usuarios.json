@@ -12,6 +12,7 @@
             "full": true
         },
         "referidoPor": null,
+        "codigoReferido": "LA5000",
         "fechaRegistro": "2026-07-28"
     },
     {
@@ -27,6 +28,7 @@
             "full": true
         },
         "referidoPor": null,
+        "codigoReferido": "ML5000",
         "fechaRegistro": "2026-07-28"
     },
     {
@@ -42,6 +44,7 @@
             "full": true
         },
         "referidoPor": null,
+        "codigoReferido": "EB5000",
         "fechaRegistro": "2026-07-28"
     },
     {
