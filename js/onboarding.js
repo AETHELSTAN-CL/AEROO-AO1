@@ -481,7 +481,7 @@ function mostrarNuevoEstudiante() {
       type="text" 
       id="loginId" 
       class="card-input" 
-      placeholder="Código memanejo ID">
+      placeholder="memanejo ID: LA001PA">
 
 
       <button id="loginIngresar" class="card-btn">

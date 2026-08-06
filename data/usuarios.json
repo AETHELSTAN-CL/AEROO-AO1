@@ -7,9 +7,9 @@
             "quiz180": false,
             "quiz500": false,
             "quiz800": false,
-            "clasesEnVivo": true,
+            "clasesEnVivo": false,
             "resumenes": false,
-            "full": false
+            "full": true
         },
         "referidoPor": null,
         "codigoReferido": "LA5000",

@@ -1014,6 +1014,15 @@ body.onboarding-activo {
   color: #090909;
   margin: 2px 0 0;
 }
+.sd-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sd-user-main-icon {
+  font-size: 2.2rem;
+}
 
 .btn-cerrar-sesion {
   display: flex;
