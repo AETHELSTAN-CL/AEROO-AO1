@@ -9,7 +9,7 @@
             "quiz800": false,
             "clasesEnVivo": true,
             "resumenes": false,
-            "full": true
+            "full": false
         },
         "referidoPor": null,
         "codigoReferido": "LA5000",
@@ -48,15 +48,15 @@
         "fechaRegistro": "2026-07-28"
     },
     {
-        "memanejoId": "TEST1234",
+        "memanejoId": "T1",
         "nombre": "Prueba Test",
-        "email": "test@test.com",
+        "email": "test@test.cl",
         "desbloqueado": {
-            "quiz180": false,
+            "quiz180": true,
             "quiz500": false,
             "quiz800": false,
             "clasesEnVivo": false,
-            "resumenes": true,
+            "resumenes": false,
             "full": false
         },
         "referidoPor": null,

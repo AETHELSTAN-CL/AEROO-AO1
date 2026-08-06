@@ -991,6 +991,7 @@ body.onboarding-activo {
   max-height: 75vh;
   overflow-y: auto;
   text-align: left;
+  
 }
 
 .sd-header {
@@ -1003,13 +1004,14 @@ body.onboarding-activo {
 .sd-greeting {
   font-size: 15px;
   font-weight: 700;
-  color: #0c19af;
+  color: #000968;
   margin: 0;
 }
 
 .sd-id {
   font-size: 12px;
-  color: #444;
+  font-weight: 700;
+  color: #090909;
   margin: 2px 0 0;
 }
 
@@ -1033,7 +1035,6 @@ body.onboarding-activo {
 
 .sd-section-label {
   font-size: 11px;
-  text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 700;
   color: #1b1b1b;
@@ -1105,16 +1106,51 @@ body.onboarding-activo {
 .sd-ai-msg {
   margin-top: 16px;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(0, 16, 137, 0.2);
   border-radius: 16px;
-  font-size: 12px;
   color: #1a1a1a;
   line-height: 1.5;
   display: flex;
-  gap: 8px;
+  flex-direction: column;
 }
 
+
+/* Título superior centrado */
+.sd-ai-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sd-ai-title {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.sd-ai-label {
+  font-size: 0.65rem;
+  line-height: 1.2;
+  opacity: .7;
+}
+
+
+/* Robot + mensaje */
+.sd-ai-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.sd-ai-body i {
+  font-size: 1.4rem;
+  margin-left: 0;
+  margin-top: 2px;
+}
+
+.sd-ai-body small {
+  line-height: 1.4;
+}
 .sd-hero-stat {
   display: flex;
   align-items: center;
@@ -1216,7 +1252,129 @@ body.onboarding-activo {
   margin-bottom: 6px;
   display: block;
 }
+.sd-hero-stat,
+.sd-stat-card,
+.sd-empty-state,
+.sd-ai-msg {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
 
+/* ===== Card memanejo+ (upsell) ===== */
+.sd-upsell-card {
+  background: linear-gradient(135deg, rgba(0, 16, 137, 0.08), rgba(34, 97, 255, 0.06));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 16, 137, 0.15);
+  border-radius: 18px;
+  padding: 18px;
+  margin: 16px 0;
+}
+
+.sd-upsell-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #001089;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.sd-upsell-badge-pending {
+  background: #b8860b;
+}
+
+.sd-upsell-badge-active {
+  background: #1a7a3c;
+}
+
+.sd-upsell-text {
+  font-size: 13px;
+  color: #222;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.sd-mvp-badge {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a7a3c;
+  margin-bottom: 12px;
+}
+
+.sd-mvp-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a7a3c;
+  margin-right: 4px;
+}
+
+.sd-mvp-list {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  font-weight: 400;
+  color: #444;
+}
+
+.sd-mvp-list li {
+  font-size: 11px;
+  padding: 2px 0;
+}
+
+.sd-mvp-list li::before {
+  content: "✓ ";
+  color: #1a7a3c;
+}
+
+.sd-upsell-note {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 0 14px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.sd-upsell-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.sd-upsell-btn:hover {
+  transform: scale(1.02);
+  color: #fff;
+}
+
+.sd-upsell-btn-secundario {
+  background: rgba(0, 16, 137, 0.85);
+}
 @media (min-width: 700px) and (max-width: 900px) {
   .student-menu {
     top: 90px;
@@ -1365,75 +1523,92 @@ body.onboarding-activo {
   }
 }
 
+.login-error-msg {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0.55rem 0.8rem;
+  border-radius: 12px;
+  background: rgba(255, 60, 60, 0.15);
+  border: 1px solid rgba(255, 100, 100, 0.35);
+  color: #ff0000;
+  font-size: 0.85rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  animation: errorFade .25s ease;
+}
 
+@keyframes errorFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* ===== Notificación tipo iOS Liquid Glass ===== */
 #ios-notificacion {
   position: fixed;
-  top: -120px;
-  /* empieza fuera de la pantalla */
   left: 50%;
   transform: translateX(-50%);
   width: 95vw;
-  max-width: 800px;
+  max-width: 720px;
   background: rgba(0, 0, 0, 0.528);
   backdrop-filter: blur(15px) saturate(150%);
   -webkit-backdrop-filter: blur(15px) saturate(150%);
-  border-radius: 24px;
-  padding: 0.9rem 1.5rem;
+  border-radius: 26px;
+  padding: 0.9rem 1.2rem;
   color: #ffffff;
   font-size: 0.95rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 0.9rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 9999;
   opacity: 0;
   transition: top 0.5s ease, opacity 0.5s ease;
 }
 
-/* Mostrar notificación */
 #ios-notificacion.show {
   top: 25px;
-  /* posición visible */
   opacity: 1;
 }
 
-/* Imagen dentro de la notificación */
 #ios-notificacion img {
   width: 60px;
-  /* más grande */
   height: 60px;
   object-fit: cover;
   border-radius: 24%;
+  flex-shrink: 0;
 }
 
-/* Texto */
 #ios-notificacion p {
   margin: 0;
-  line-height: 1.2;
-  font-size: 1rem;
-  flex: 1;
-  /* ocupa espacio restante */
+  line-height: 1.3;
+  font-size: 1.1rem;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-/* Botón "Entendido" */
-#ios-notificacion button {
+.btn-referidos {
+  flex-shrink: 0;
   position: relative;
   background: rgba(0, 0, 0, 0.25);
   border: none;
   border-radius: 36px;
   color: #ffffff;
-  font-size: 0.7rem;
-  padding: 0.7rem 1.2rem;
+  font-size: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  margin: 0;
   cursor: pointer;
+  white-space: nowrap;
   transition: background 0.3s;
   overflow: hidden;
 }
 
-/* Borde interno del botón */
-#ios-notificacion button::after {
+.btn-referidos::after {
   content: '';
   position: absolute;
   top: 2px;
@@ -1445,77 +1620,58 @@ body.onboarding-activo {
   pointer-events: none;
 }
 
-/* Animaciones */
-@keyframes zoomIn {
-  from {
-    transform: translateX(-50%) scale(0.8);
-    opacity: 0;
-  }
+.btn-referidos i {
+  margin-right: 4px;
+}
 
-  to {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
+@keyframes zoomIn {
+  from { transform: translateX(-50%) scale(0.8); opacity: 0; }
+  to { transform: translateX(-50%) scale(1); opacity: 1; }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.9);
-  }
+  from { opacity: 1; }
+  to { opacity: 0; transform: translateX(-50%) scale(0.9); }
 }
 
-/* ===== Desktop adjustments ===== */
-@media (min-width: 768px) {
+@media (min-width: 421px) {
   #ios-notificacion {
     top: -150px;
-    /* más abajo para no tapar header */
   }
-
   #ios-notificacion.show {
     top: 90px;
-    /* aparece más abajo del header */
   }
 }
-
-/* ===== Responsive Mobile ===== */
-@media (max-width: 480px) {
+/* ===== Mobile al inicio de Intermedias ===== */
+@media (max-width: 556px) {
+  #ios-notificacion.show {
+    top: 10px;
+  }
   #ios-notificacion {
-    flex-direction: row;
-    padding: 0.8rem 1.1rem;
+    padding: 0.75rem 1rem;
     width: 95vw;
   }
-
   #ios-notificacion p {
     font-size: 0.8rem;
   }
-
   #ios-notificacion img {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
   }
-
-  #ios-notificacion button {
-    font-size: 0.65rem;
-    padding: 0.5rem 0.8rem;
+  .btn-referidos {
+    font-size: 0.68rem;
+    padding: 0.5rem 0.85rem;
   }
 }
 
-/* Permite arrastrar sin animación */
 #ios-notificacion.swiping {
   transition: none !important;
 }
 
-/* Estado oculto al soltar hacia arriba */
 #ios-notificacion.hide {
   opacity: 0 !important;
   top: -160px !important;
 }
-
 
 /* ===== FEEDBACK SECTION ===== */
 #alumni-feedback-section {
@@ -1773,6 +1929,7 @@ body.onboarding-activo {
   font-size: 0.8rem;
   white-space: nowrap;
   transition: all 0.3s ease;
+  margin-bottom: 16px;
 }
 
 .curso-btn:hover {

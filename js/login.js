@@ -21,13 +21,26 @@ cargarUsuarios();
 // LOGIN DESDE EL MENÚ FLOTANTE (.pill-student)
 // =====================
 const studentIngresar = document.getElementById('studentIngresar');
+function showLoginError(msg) {
+  const old = document.querySelector('.login-error-msg');
+  if (old) old.remove();
 
+  const div = document.createElement('div');
+  div.className = 'login-error-msg';
+  div.textContent = msg;
+
+  studentIngresar.insertAdjacentElement('beforebegin', div);
+
+  setTimeout(() => {
+    div.remove();
+  }, 4000);
+}
 studentIngresar?.addEventListener('click', async () => {
   const email = document.getElementById('studentEmail')?.value.trim();
   const id = document.getElementById('studentID')?.value.trim();
 
   if (!email || !id) {
-    alert("Ingresa tu correo y código memanejo ID");
+    showLoginError("Debes ingresar tu correo y código memanejo ID");
     return;
   }
 
@@ -39,7 +52,7 @@ studentIngresar?.addEventListener('click', async () => {
   const validUser = usuariosDB.find(u => u.email === email && u.memanejoId === id);
 
   if (!validUser) {
-    alert("Correo o ID incorrecto");
+    showLoginError("Correo o ID incorrecto");
     return;
   }
 

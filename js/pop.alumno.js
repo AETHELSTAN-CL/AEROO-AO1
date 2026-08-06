@@ -215,9 +215,7 @@ document.getElementById('btnReferidos')
   const nombre = session.nombre;
 
   const mensaje = encodeURIComponent(
-`Hola memanejo
-
-Quiero activar mi código de referido para recomendar la plataforma.
+`¡Hola memanejo!. Quiero activar mi código de referido para recomendar la plataforma.
 
 Nombre: ${nombre}
 memanejo ID: ${session.memanejoId}`

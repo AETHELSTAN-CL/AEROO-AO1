@@ -45,6 +45,7 @@ function aplicarEstadoUsuario() {
     pillStudent?.classList.toggle('logueado', estaLogueado);
 
     aplicarControlDeContenido();
+    actualizarEstadoUpsell();
 }
 
 // =====================
@@ -104,5 +105,89 @@ document.getElementById('btnCerrarSesion')
     ?.addEventListener('click', () => {
         clearSession();
     });
+
+// =====================
+// UPSELL memanejo+ (locked / pending / active)
+// =====================
+const WHATSAPP_ACTIVACION = "56946914558";
+let intervaloVerificacion = null;
+
+function actualizarEstadoUpsell() {
+  const session = getSession();
+  if (!session) return;
+
+  const locked = document.getElementById('sdUpsellLocked');
+  const pending = document.getElementById('sdUpsellPending');
+  const active = document.getElementById('sdUpsellActive');
+  if (!locked || !pending || !active) return;
+
+  const yaActivo = session.desbloqueado?.full === true;
+  const pendienteLocal = localStorage.getItem('memanejoPlusPending') === session.memanejoId;
+
+  locked.style.display = 'none';
+  pending.style.display = 'none';
+  active.style.display = 'none';
+
+  if (yaActivo) {
+    active.style.display = 'block';
+    localStorage.removeItem('memanejoPlusPending');
+    detenerVerificacionAutomatica();
+  } else if (pendienteLocal) {
+    pending.style.display = 'block';
+    iniciarVerificacionAutomatica();
+  } else {
+    locked.style.display = 'block';
+  }
+}
+
+function iniciarVerificacionAutomatica() {
+  if (intervaloVerificacion) return;
+  intervaloVerificacion = setInterval(verificarActivacion, 30000);
+}
+
+function detenerVerificacionAutomatica() {
+  if (intervaloVerificacion) {
+    clearInterval(intervaloVerificacion);
+    intervaloVerificacion = null;
+  }
+}
+
+async function verificarActivacion() {
+  const session = getSession();
+  if (!session) return;
+
+  try {
+    const res = await fetch('/data/usuarios.json', { cache: 'no-store' });
+    const usuarios = await res.json();
+    const actualizado = usuarios.find(u => u.memanejoId === session.memanejoId);
+
+    if (actualizado) {
+      setSession({
+        ...session,
+        desbloqueado: actualizado.desbloqueado || {}
+      });
+    }
+  } catch (err) {
+    console.error("Error verificando activación:", err);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btnActivar = document.getElementById('btnActivarMemanejoPlus');
+  btnActivar?.addEventListener('click', () => {
+    const session = getSession();
+    if (!session) return;
+
+    const mensaje = encodeURIComponent(
+      `Hola, quiero activar memanejo+.\nMi correo es: ${session.email}\nMi código de acceso es: ${session.memanejoId}`
+    );
+    btnActivar.href = `https://wa.me/${WHATSAPP_ACTIVACION}?text=${mensaje}`;
+
+    localStorage.setItem('memanejoPlusPending', session.memanejoId);
+    actualizarEstadoUpsell();
+  });
+
+  document.getElementById('btnVerificarActivacion')?.addEventListener('click', verificarActivacion);
+});
 
 document.addEventListener('DOMContentLoaded', aplicarEstadoUsuario);
