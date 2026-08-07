@@ -294,22 +294,28 @@
       <button id="studentIngresar" class="card-btn"> <i class="fas fa-id-card me-2"></i> Iniciar sesión</button>
     </div>
 
-    <!-- Dashboard del estudiante -->
-    <div class="student-dashboard">
+<!-- Dashboard del estudiante -->
+<div class="student-dashboard">
 
-      <div class="sd-header">
-        <div class="sd-user-info">
-          <i class="fas fa-id-badge sd-user-main-icon"></i>
+  <div class="sd-header">
+    <div class="sd-user-info">
+      <i class="fas fa-id-badge sd-user-main-icon"></i>
 
-          <div>
-            <p class="sd-greeting" id="welcomeName">Usuario</p>
-            <p class="sd-id" id="welcomeId">memanejo ID: ---</p>
-          </div>
-        </div>
-        <button id="btnCerrarSesion" class="btn-cerrar-sesion">
-          Cerrar sesión <i class="fas fa-sign-out-alt"></i>
-        </button>
+      <div>
+        <p class="sd-greeting" id="welcomeName">Usuario</p>
+        <p class="sd-id" id="welcomeId">memanejo ID: ---</p>
       </div>
+    </div>
+
+    <div class="sd-header-actions">
+     <!------ <button id="btnActualizarEstado" class="btn-actualizar-estado" title="Actualizar estado">
+        <i class="fas fa-rotate"></i>
+      </button>---->
+      <button id="btnCerrarSesion" class="btn-cerrar-sesion">
+        Cerrar sesión <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+  </div>
       <!-- ===== CARD MEMANEJO+ — 3 estados: bloqueado / pendiente / activo ===== -->
       <div id="sdUpsell" class="sd-upsell-card">
 
@@ -442,7 +448,7 @@
 
     <p>
       <strong>Programa de referidos</strong><br>
-      Gana <strong>CLP$5.000</strong> por cada nuevo alumno que se inscriba con tu código de referido.
+      Gana <strong>CLP$5.000</strong> por cada nuevo alumno que se inscriba con tu código.
     </p>
 
     <button id="btnReferidos" class="btn-referidos">
@@ -725,18 +731,20 @@
 
         <!-- Quiz game Preguntas -->
         <div class="icon-wrapper">
-          <a href="#" class="icon-link open-modal">
-            <div class="icon-card">
-              <span class="icon-text">QUIZ GAME</span>
-              <i class="fa-solid fa-trophy"></i>
-            </div>
-          </a>
-          <span class="icon-pill" data-tooltip="Mide tu nivel en Ranking nacional. (Próximamente)"
-            data-default="$7.900">
-            $9.900
-            <span class="tooltip-box"></span>
-          </span>
-        </div>
+  <a href="#" id="btnQuizGameProximamente" class="icon-link open-modal">
+    <div class="icon-card">
+      <span class="icon-text">QUIZ GAME</span>
+      <i class="fa-solid fa-trophy"></i>
+    </div>
+  </a>
+
+  <span class="icon-pill"
+    data-tooltip="Mide tu nivel en Ranking nacional. (Próximamente)"
+    data-default="$7.900">
+    $9.900
+    <span class="tooltip-box"></span>
+  </span>
+</div>
         <!-- Quiz +800 Preguntas -->
         <div class="icon-wrapper">
           <a href="#" target="_blank" class="icon-link" data-requiere="quiz800"
@@ -771,23 +779,25 @@
     </div>
   </section>
   <!-- Modal universal -->
-  <div class="modal" id="modalCodigo" style="display:none;">
-    <div class="modal-content">
-      <button class="close-modal">&times;</button>
+<div id="quizGameModal" class="quiz-game-modal" aria-hidden="true">
+  <div class="quiz-game-glass">
+    <button type="button" id="cerrarQuizGameModal" class="quiz-game-cerrar" aria-label="Cerrar">
+      &times;
+    </button>
 
-      <h2>Ingresar memanejo ID</h2>
-
-      <input type="text" id="codigoInput" placeholder="Ej: ML0001LF">
-
-      <button id="btnValidarCodigo">Validar código</button>
-
-      <a id="solicitarCodigo" href="#" target="_blank" class="solicitar-enlace">
-        <i class="fab fa-whatsapp whatsapp-icon"></i> Solicitar código por WhatsApp
-      </a>
-
-      <p id="mensajeEstado"></p>
+    <div class="quiz-game-trofeo">
+      <i class="fa-solid fa-trophy"></i>
     </div>
+
+    <h2>Quiz Game <em>(Próximamente)</em></h2>
+    <p>
+      Estamos preparando el ranking nacional para que puedas medir tu nivel
+      frente a otros estudiantes.
+    </p>
+
+    <span>Disponible pronto en memanejo +</span>
   </div>
+</div>
   <!-- Contenidos -->
   <section id="contenidos">
     <!-- Título con guion azul -->

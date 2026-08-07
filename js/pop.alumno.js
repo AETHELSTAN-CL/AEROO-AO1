@@ -294,7 +294,24 @@ document.querySelectorAll('.whatsapp-sub').forEach(btn => {
   });
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const boton = document.getElementById('btnQuizGameProximamente');
+  const modal = document.getElementById('quizGameModal');
+  const cerrar = document.getElementById('cerrarQuizGameModal');
 
+  boton?.addEventListener('click', (event) => {
+    event.preventDefault();
+    modal?.classList.add('abierto');
+  });
+
+  cerrar?.addEventListener('click', () => {
+    modal?.classList.remove('abierto');
+  });
+
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) modal.classList.remove('abierto');
+  });
+});
 document.querySelectorAll('.footer-toggle')
 .forEach(btn => {
 

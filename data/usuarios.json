@@ -4,12 +4,12 @@
         "nombre": "Leonardo Azo",
         "email": "la@memanejo.cl",
         "desbloqueado": {
-            "quiz180": false,
-            "quiz500": false,
-            "quiz800": false,
+            "quiz180": true,
+            "quiz500": true,
+            "quiz800": true,
             "clasesEnVivo": false,
             "resumenes": false,
-            "full": true
+            "full": false
         },
         "referidoPor": null,
         "codigoReferido": "LA5000",
@@ -52,7 +52,7 @@
         "nombre": "Prueba Test",
         "email": "test@test.cl",
         "desbloqueado": {
-            "quiz180": true,
+            "quiz180": false,
             "quiz500": false,
             "quiz800": false,
             "clasesEnVivo": false,
