@@ -15,7 +15,7 @@
   <meta name="author" content="Leonardo Azo" />
   <link rel="canonical" href="https://www.memanejomanejando.cl/" />
 
-  <!-- 📱 Favicons -->
+  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
@@ -25,7 +25,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon-180.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- 🌐 Open Graph (Facebook / WhatsApp / LinkedIn) -->
+  <!-- Open Graph (Facebook / WhatsApp / LinkedIn) -->
   <meta property="og:title" content="Aula Virtual | Cursos de Conducción y Seguridad Vial - memanejo.cl" />
   <meta property="og:description"
     content="Cursos de conducción Clase B, mecánica básica y seguridad vial. Aprende a conducir y aprueba tu examen de manejo." />
@@ -33,14 +33,14 @@
   <meta property="og:url" content="https://www.memanejomanejando.cl/" />
   <meta property="og:type" content="website" />
 
-  <!-- 🐦 Twitter Cards -->
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Aula Virtual | Cursos de Conducción y Seguridad Vial - memanejo.cl" />
   <meta name="twitter:description"
     content="Aprende a conducir con confianza. Cursos en línea Clase B, mecánica básica y seguridad vial." />
   <meta name="twitter:image" content="https://www.memanejomanejando.cl/img/photo-output_3.jpeg" />
 
-  <!-- 📊 Schema Markup -->
+  <!-- Schema Markup -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,14 +62,14 @@
   }
   </script>
 
-  <!-- 🎨 Estilos -->
+  <!-- Estilos -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link rel="stylesheet" href="style.alumno.css" />
 
-  <!-- 📈 Google Analytics -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS97HQWTV4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -89,10 +89,10 @@
     </div>
 
     <nav>
-      <a href="#videos"><i class="fas fa-home"></i>Inicio</a>
-      <a href="#contenidos"><i class="fas fa-book-open"></i>Contenidos</a>
-      <a href="#recursos"><i class="fas fa-file-alt"></i>Recursos</a>
-      <a href="#soporte"><i class="fas fa-headset"></i>Soporte</a>
+      <a href="#videos"><i class="fas fa-home"></i> Inicio</a>
+      <a href="#cursos-section"><i class="fas fa-list-ul"></i> Contenidos</a>
+      <a href="#recursos"><i class="fas fa-book"></i> Recursos</a>
+      <a href="#soporte"><i class="fas fa-headset"></i> Soporte</a>
     </nav>
 
     <div class="hamburger">
@@ -267,7 +267,7 @@
     </a>
 
     <a href="#contenidos" class="pill-item">
-      <i class="fas fa-book"></i>
+      <i class="fas fa-list-ul"></i>
       <span>Contenidos</span>
     </a>
 
@@ -294,35 +294,35 @@
       <button id="studentIngresar" class="card-btn"> <i class="fas fa-id-card me-2"></i> Iniciar sesión</button>
     </div>
 
-<!-- Dashboard del estudiante -->
-<div class="student-dashboard">
+    <!-- Dashboard del estudiante -->
+    <div class="student-dashboard">
 
-  <div class="sd-header">
-    <div class="sd-user-info">
-      <i class="fas fa-id-badge sd-user-main-icon"></i>
+      <div class="sd-header">
+        <div class="sd-user-info">
+          <i class="fas fa-id-badge sd-user-main-icon"></i>
 
-      <div>
-        <p class="sd-greeting" id="welcomeName">Usuario</p>
-        <p class="sd-id" id="welcomeId">memanejo ID: ---</p>
-      </div>
-    </div>
+          <div>
+            <p class="sd-greeting" id="welcomeName">Usuario</p>
+            <p class="sd-id" id="welcomeId">memanejo ID: ---</p>
+          </div>
+        </div>
 
-    <div class="sd-header-actions">
-     <!------ <button id="btnActualizarEstado" class="btn-actualizar-estado" title="Actualizar estado">
+        <div class="sd-header-actions">
+          <!------ <button id="btnActualizarEstado" class="btn-actualizar-estado" title="Actualizar estado">
         <i class="fas fa-rotate"></i>
       </button>---->
-      <button id="btnCerrarSesion" class="btn-cerrar-sesion">
-        Cerrar sesión <i class="fas fa-sign-out-alt"></i>
-      </button>
-    </div>
-  </div>
+          <button id="btnCerrarSesion" class="btn-cerrar-sesion">
+            Cerrar sesión <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
       <!-- ===== CARD MEMANEJO+ — 3 estados: bloqueado / pendiente / activo ===== -->
       <div id="sdUpsell" class="sd-upsell-card">
 
         <!-- Estado: BLOQUEADO (default) -->
         <div id="sdUpsellLocked" class="sd-upsell-state">
           <div class="sd-upsell-badge">
-            <i class="fas fa-star"></i> Desbloquea memanejo+
+            <i class="fas fa-star"></i> Desbloquea memanejo +
           </div>
           <p class="sd-upsell-text">
             Accede a más de 800 preguntas de estudio, seguimiento de progreso, contenido exclusivo y futuras
@@ -354,7 +354,8 @@
             <i class="fas fa-hourglass-half"></i> Activación en proceso
           </div>
           <p class="sd-upsell-text">
-            Recibimos tu solicitud. Activaremos tu cuenta en menos de 45 minutos — no necesitas hacer nada más.
+            Tu solicitud fue recibida. Estamos preparando tu acceso; esta pantalla se actualizará automáticamente cuando
+            esté activo.
           </p>
           <button id="btnVerificarActivacion" class="sd-upsell-btn sd-upsell-btn-secundario">
             <i class="fas fa-rotate"></i> Verificar ahora
@@ -364,7 +365,7 @@
         <!-- Estado: ACTIVO -->
         <div id="sdUpsellActive" class="sd-upsell-state" style="display:none;">
           <div class="sd-upsell-badge sd-upsell-badge-active">
-            <i class="fas fa-check-circle"></i> memanejo+ activo
+            <i class="fas fa-check-circle"></i> memanejo + activo
           </div>
           <p class="sd-upsell-text">
             Ya tienes acceso completo. ¡Aprovecha todo el contenido!
@@ -500,7 +501,7 @@
               <i class="fa-solid fa-download"></i>
             </div>
           </a>
-          <span class="icon-pill" data-tooltip="Interactivo y fácil de estudiar. " data-default="$3.900">$3.900
+          <span class="icon-pill" data-tooltip="Interactivo y fácil de estudiar. " data-default="$4.900">$4.900
             <span class="tooltip-box"></span>
           </span>
         </div>
@@ -539,12 +540,11 @@
             data-href-desbloqueado="/quiz/quiz-35/index.html" data-bs-toggle="modal"
             data-bs-target="#modalStudentSubscription">
             <div class="icon-card">
-              <span class="icon-text">Quiz teórico</span>
+              <span class="icon-text">memanejo Quiz</span>
               <i class="fas fa-book fa-2x"></i>
             </div>
           </a>
-          <span class="icon-pill" data-tooltip="Simulación real. Escoge entre nivel facil o avanzado"
-            data-default="$3.900">$3.900
+          <span class="icon-pill" data-tooltip="Escoge entre nivel facil o avanzado" data-default="$3.900">$5.900
             <span class="tooltip-box"></span>
           </span>
         </div>
@@ -606,7 +606,7 @@
               <i class="fa-solid fa-download"></i>
             </div>
           </a>
-          <span class="icon-pill" data-tooltip="Interactivo y fácil de estudiar. " data-default="$3.900">$3.900
+          <span class="icon-pill" data-tooltip="Interactivo y fácil de estudiar. " data-default="$3.900">$4.900
             <span class="tooltip-box"></span>
           </span>
         </div>
@@ -634,8 +634,8 @@
               <i class="fas fa-book fa-2x"></i>
             </div>
           </a>
-          <span class="icon-pill" data-tooltip="Nivel: Intermedio. 180 preguntas aleatorias"
-            data-default="$3.900">$3.900
+          <span class="icon-pill" data-tooltip="Nivel: Intermedio <br>180 preguntas aleatorias"
+            data-default="$3.900">$5.900
             <span class="tooltip-box"></span>
           </span>
         </div>
@@ -650,8 +650,8 @@
               <i class="fas fa-book fa-2x"></i>
             </div>
           </a>
-          <span class="icon-pill" data-tooltip="Nivel: Intermedio. 500 preguntas aleatorias"
-            data-default="$7.900">$7.900
+          <span class="icon-pill" data-tooltip="Nivel: Intermedio <br>500 preguntas aleatorias"
+            data-default="$7.900">$8.900
             <span class="tooltip-box"></span>
           </span>
         </div>
@@ -711,7 +711,7 @@
               <i class="fa-solid fa-download"></i>
             </div>
           </a>
-          <span class="icon-pill" data-tooltip="Interactivo y fácil de estudiar. " data-default="$3.900">$3.900
+          <span class="icon-pill" data-tooltip="Interactivo y fácil de estudiar. " data-default="$3.900">$4.900
             <span class="tooltip-box"></span>
           </span>
         </div>
@@ -731,20 +731,19 @@
 
         <!-- Quiz game Preguntas -->
         <div class="icon-wrapper">
-  <a href="#" id="btnQuizGameProximamente" class="icon-link open-modal">
-    <div class="icon-card">
-      <span class="icon-text">QUIZ GAME</span>
-      <i class="fa-solid fa-trophy"></i>
-    </div>
-  </a>
+          <a href="#" id="btnQuizGameProximamente" class="icon-link open-modal">
+            <div class="icon-card">
+              <span class="icon-text">QUIZ GAME</span>
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+          </a>
 
-  <span class="icon-pill"
-    data-tooltip="Mide tu nivel en Ranking nacional. (Próximamente)"
-    data-default="$7.900">
-    $9.900
-    <span class="tooltip-box"></span>
-  </span>
-</div>
+          <span class="icon-pill" data-tooltip="Mide tu nivel en Ranking nacional. (Próximamente)"
+            data-default="$9.900">
+            $9.900
+            <span class="tooltip-box"></span>
+          </span>
+        </div>
         <!-- Quiz +800 Preguntas -->
         <div class="icon-wrapper">
           <a href="#" target="_blank" class="icon-link" data-requiere="quiz800"
@@ -778,26 +777,26 @@
       </div>
     </div>
   </section>
-  <!-- Modal universal -->
-<div id="quizGameModal" class="quiz-game-modal" aria-hidden="true">
-  <div class="quiz-game-glass">
-    <button type="button" id="cerrarQuizGameModal" class="quiz-game-cerrar" aria-label="Cerrar">
-      &times;
-    </button>
+  <!-- Modal quiz game -->
+  <div id="quizGameModal" class="quiz-game-modal" aria-hidden="true">
+    <div class="quiz-game-glass">
+      <button type="button" id="cerrarQuizGameModal" class="quiz-game-cerrar" aria-label="Cerrar">
+        &times;
+      </button>
 
-    <div class="quiz-game-trofeo">
-      <i class="fa-solid fa-trophy"></i>
+      <div class="quiz-game-trofeo">
+        <i class="fa-solid fa-trophy"></i>
+      </div>
+
+      <h2>Quiz Game <em>(Próximamente)</em></h2>
+      <p>
+        Estamos preparando el ranking nacional para que puedas medir tu nivel
+        frente a otros estudiantes.
+      </p>
+
+      <span>Disponible pronto en memanejo +</span>
     </div>
-
-    <h2>Quiz Game <em>(Próximamente)</em></h2>
-    <p>
-      Estamos preparando el ranking nacional para que puedas medir tu nivel
-      frente a otros estudiantes.
-    </p>
-
-    <span>Disponible pronto en memanejo +</span>
   </div>
-</div>
   <!-- Contenidos -->
   <section id="contenidos">
     <!-- Título con guion azul -->
@@ -1095,7 +1094,7 @@
               Refuerza tu preparación con conocimientos de mecánica básica, normas viales aplicadas y conducción
               en diferentes tipos de terreno.</p>
             <div class="d-flex gap-2 flex-wrap mt-auto">
-              <a class="btn w-100" href="/quiz/quiz-nivelacion/index.html" target="_blank">
+              <a class="btn w-100" href="/quiz/quiz-35/" target="_blank">
                 <strong>Realizar quiz teórico
                   <i class="fa-solid fa-arrow-up-right-from-square ms-2"></i></strong>
               </a>
@@ -1365,8 +1364,8 @@
 
           <!--  Agendar Clase -->
           <div class="sub-card">
-            <h3 class="sub-title">Agendar Clase</h3>
-            <p class="sub-desc">Si cuentas con auto propio. La clase de prueba tiene un costo de $9.900</p>
+            <h3 class="sub-title">Agendar Clase con Instructor</h3>
+            <p class="sub-desc">Si cuentas con auto propio <br>La clase de prueba tiene un costo de $9.900</p>
 
             <div class="sub-icons">
               <div class="sub-icon-item">
@@ -1379,8 +1378,8 @@
               </div>
             </div>
             <a class="sub-btn whatsapp-sub" href="#" data-plan="memanejo ID clase en vivo">
-              <span class="sub-btn-text">Solicitar clase</span>
-              <span class="sub-btn-price">$12.900</span>
+              <span class="sub-btn-text">Solicitar clase desde</span>
+              <span class="sub-btn-price">$9.900</span>
             </a>
 
             <p class="sub-small">Clases con auto particular. <br>Clases con auto de práctica estático $24.900/60 min.
@@ -1563,18 +1562,19 @@
   <section id="recursos" class="py-5">
     <div class="container" data-aos="fade-up">
       <h3 class="section-title section-title-recursos">Recursos e información</h3>
-      <p class="text-center">Descarga el material de estudio<br> e infórmate sobre la reglamentación</p>
+      <p class="section-subtitle text-center">Descarga el material de estudio e infórmate sobre la reglamentación
+        oficial</p>
 
       <div class="action-btns">
         <a href="archivos/Libro para la conduccion en Chile Clase B.pdf" class="btn-icon">
-          <i class="fa-solid fa-book" style="color:#007bff;"></i>
+          <i class="fa-solid fa-book" style="color:#0600a9;"></i>
           <span class="divider"></span>
-          <p>Libro para la <br>Conducción en Chile</p>
+          <p>Libro del Nuevo <br>Conductor en Chile</p>
         </a>
         <a href="archivos/Documentación Cursos de Conducción.pdf" class="btn-icon">
           <i class="fa-solid fa-circle-info"></i>
           <span class="divider"></span>
-          <p>Formación Vial <br>Ley 18.290</p>
+          <p>Ley 18.290 <br>Formación Vial</p>
         </a>
       </div>
     </div>
@@ -1587,7 +1587,8 @@
       <p class="text-center">¿Tienes dudas o necesitas ayuda personalizada?</p>
 
       <div class="action-btns">
-        <a href="https://wa.me/56946914558" class="btn-icon btn-icon-horizontal">
+        <a href="https://wa.me/56946914558?text=Hola%2C%20necesito%20ayuda%20con:"
+          class="btn-icon btn-icon-horizontal" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-whatsapp whatsapp-icon"></i>
           <p>Soporte en línea</p>
         </a>
@@ -1604,25 +1605,25 @@
               <div class="review-toggle mb-3">
                 <input type="radio" name="reviewMode" id="reviewNormal" checked>
                 <label for="reviewNormal">
-                  <i class="far fa-circle-user"></i>
+                  <i class="far fa-circle-user me-1"></i>
                   <span>Público</span>
                 </label>
 
                 <input type="radio" name="reviewMode" id="reviewAnon">
                 <label for="reviewAnon">
-                  <i class="fas fa-user-ninja"></i>
+                  <i class="fas fa-user-ninja me-1"></i>
                   <span>Anónimo</span>
                 </label>
               </div>
 
               <div class="mb-2" id="nameGroup">
                 <label for="reviewName" class="form-label">Nombre</label>
-                <input type="text" id="reviewName" class="form-control" placeholder="Ej: Mercedes Benz">
+                <input type="text" id="reviewName" class="form-control" placeholder="Mercedes Benz">
               </div>
 
               <div class="mb-2" id="emailGroup">
                 <label for="reviewEmail" class="form-label">Correo</label>
-                <input type="email" id="reviewEmail" class="form-control" placeholder="Ej: mercedes@benz.cl ">
+                <input type="email" id="reviewEmail" class="form-control" placeholder="mercedes@benz.cl ">
               </div>
 
               <div class="mb-2">
@@ -1656,7 +1657,7 @@
 
       <div class="action-btns">
         <a href="https://www.memanejo.cl" class="btn-icon">
-          <i class="fa-solid fa-screwdriver-wrench" style="color:#ffcc00;"></i>
+          <i class="fa-solid fa-screwdriver-wrench"></i>
           <span class="divider"></span>
           <p>Servicios Automotrices</p>
         </a>
@@ -1670,7 +1671,7 @@
     </div>
 
     <!-- Beneficio MEMANEJO -->
-    <div class="text-center mt-4 credits-wrapper">
+    <div class="text-center credits-wrapper">
       <button class="btn btn-dark btn-sg benefit-btn" type="button" data-bs-toggle="collapse"
         data-bs-target="#creditsCollapse_beneficios" aria-expanded="false" aria-controls="creditsCollapse_beneficios">
 
@@ -1716,7 +1717,7 @@
         <div class="collapse" id="creditsCollapse">
           <div class="card card-body bg-white shadow-sm">
             <strong>
-              <span>ÆROO Studio web design</span>
+              <span><i class="fa-brands fa-codepen"></i> ÆROO Studio web design</span>
               <span class="credit-divider"></span>
               <span>ÆTHELSTAN</span>
             </strong>

@@ -34,7 +34,7 @@ header {
 header .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 header .logo img {
@@ -65,11 +65,12 @@ header nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 1.3rem;
+  padding: 0.3rem 1.3rem;
+  border: 1px solid transparent;
   border-radius: 24px;
   display: flex;
   align-items: center;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 header nav a i {
@@ -78,8 +79,8 @@ header nav a i {
 }
 
 header nav a:hover {
-  background: rgba(255, 255, 255, 0.477);
-  transform: scale(1.2);
+  border-color: rgb(250, 249, 249);
+  transform: scale(1.06);
 }
 
 /* ===== HAMBURGUESA ===== */
@@ -152,7 +153,7 @@ header nav a:hover {
 }
 
 /* Desktop completo >646px */
-@media (min-width: 877px) {
+@media (min-width: 878px) {
   header nav {
     display: flex;
   }
@@ -802,7 +803,7 @@ body.onboarding-activo {
 /* Pill principal */
 .pill-nav {
   position: fixed;
-  bottom: 10px;
+  bottom: 11px;
   left: 40%;
   transform: translateX(-50%);
   display: flex;
@@ -830,16 +831,16 @@ body.onboarding-activo {
 
 
 .pill-item i {
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 3px;
   transition: transform 0.2s ease, color 0.2s ease;
 
 }
 
 .pill-item i.active-effect {
-  transform: scale(1.25);
-  color: #0047b3;
-  /* azul similar al que usabas */
+  transform: scale(1.15);
+  color: rgb(0, 219, 231);
+  
 }
 
 /* Icono estudiante separado */
@@ -850,19 +851,19 @@ body.onboarding-activo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   background: #0026ff;
   border-radius: 50%;
   color: #fff;
   font-size: 20px;
   z-index: 60;
-  transition: transform 0.3s, background 0.3s;
 }
 
 .pill-student:hover {
   transform: scale(1.1);
   background: #0026ff;
+  transition: transform 0.3s, background 3s;
 }
 
 .pill-student i {
@@ -1427,10 +1428,8 @@ body.onboarding-activo {
   background: rgba(0, 16, 137, 0.85);
 }
 
-@media (min-width: 700px) and (max-width: 900px) {
+@media (min-width: 561px) and (max-width: 900px) {
   .student-menu {
-    top: 90px;
-    bottom: auto;
     max-height: calc(100vh - 110px);
   }
 }
@@ -1440,8 +1439,9 @@ body.onboarding-activo {
    =============================== */
 @media (min-width: 562px) {
   .pill-student {
-    bottom: 20px;
+    bottom: 40px;
     right: 30px;
+    max-height: calc(100vh - 110px);
   }
 
   .student-menu {
@@ -1631,10 +1631,10 @@ body.onboarding-activo {
 }
 
 #ios-notificacion img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 15px;
   flex-shrink: 0;
 }
 
@@ -2740,9 +2740,7 @@ body.onboarding-activo header {
 /* ===== Título base compartido ===== */
 .section-title {
   font-size: 50px;
-  margin-bottom: 60px;
   font-weight: 600;
-  text-align: left;
   color: #000;
   position: relative;
   padding-top: 25px;
@@ -2760,16 +2758,10 @@ body.onboarding-activo header {
   left: 0;
 }
 
-/* Contenedor */
-#recursos .container,
-#soporte .container,
-#conoce-mas .container {
-  text-align: left;
-}
 
 /* Color por sección */
 .section-title-recursos::before {
-  background-color: #007bff;
+  background-color: #0600a9;
 }
 
 .section-title-soporte::before {
@@ -2785,8 +2777,8 @@ body.onboarding-activo header {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 10%;
+  gap: 3rem;
+  margin-top: 60px;
 }
 
 .btn-icon {
@@ -2798,15 +2790,15 @@ body.onboarding-activo header {
   background: #fff;
   color: #000;
   border-radius: 24px;
-  padding: 1.5rem 2rem;
-  width: 180px;
+  padding: 2rem 2rem;
+  width: 240px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   margin-bottom: 20px;
 }
 
 .btn-icon:hover {
-  transform: translateY(-6px);
+  transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -2865,17 +2857,12 @@ body.onboarding-activo header {
   }
 
   .btn-icon {
-    width: 50%;
-    max-width: 300px;
+    max-width: 290px;
   }
 
 }
-
-@media (min-width: 992px) {
-
+@media (min-width: 769px) {
   .section-title {
-    display: table;
-    margin: 0 auto 60px;
     text-align: center;
   }
 
@@ -2883,17 +2870,10 @@ body.onboarding-activo header {
     left: 50%;
     transform: translateX(-50%);
   }
-
 }
 
 /* ===== Créditos / Beneficio ===== */
-.credits-wrapper {
-  margin-bottom: 30px;
-}
 
-.credits-wrapper:last-child {
-  margin-bottom: 120px;
-}
 
 .credits-wrapper .card-body {
   max-width: 400px;
@@ -2909,7 +2889,7 @@ body.onboarding-activo header {
 .btn-sg {
   min-width: 180px;
   max-width: 100%;
-  padding: 0.8rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   margin-top: 10px;
   border-radius: 40px;
   font-weight: 600;
@@ -2918,24 +2898,16 @@ body.onboarding-activo header {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.btn-sg:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
 
 .btn-dark.btn-sg:hover {
-  background-color: #fff !important;
-  color: #000 !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform .5s ease;
+  background-color: #000 !important;
+  color: #fff !important;
   border: 1px solid #000;
 }
 
-/* Fix AOS en pantallas muy bajas (ej: iPhone landscape) */
-@media screen and (orientation: landscape) and (max-height: 500px) {
-  [data-aos] {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
 
 /* ===== Panel de reseña ===== */
 #reviewCollapse {
@@ -3035,24 +3007,6 @@ body.onboarding-activo header {
   margin-right: auto;
 }
 
-.benefit-btn {
-  border-radius: 50px;
-  padding: 12px 24px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: .2px;
-  transition: all .3s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-}
-
-.benefit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, .18);
-}
-
 .benefit-card h6 {
   font-size: 1.05rem;
   color: #222;
@@ -3099,6 +3053,7 @@ body.onboarding-activo header {
   transform: translateX(6px);
   background-color: #212529;
   color: #fff;
+  transition: transform .25s ease;
 }
 
 /* Animación apertura */
@@ -3136,6 +3091,8 @@ body.onboarding-activo header {
 .credits-wrapper {
   position: relative;
   padding-top: 20px;
+  margin-top: 60px;
+  margin-bottom: 30px;
 }
 
 .credits-wrapper::before {

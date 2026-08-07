@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.icon-pill').forEach(el => {
     const box = el.querySelector('.tooltip-box');
     if (!box) return;
-    box.textContent = el.dataset.tooltip || '';
+    box.innerHTML = el.dataset.tooltip || '';
 
     function showTooltip() {
       const rect = el.getBoundingClientRect();
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isVisible && !visible) {
         visible = true;
         notificacion?.classList.add("show");
-        setTimeout(() => notificacion?.classList.remove("show"), 12000);
+        setTimeout(() => notificacion?.classList.remove("show"), 7000);
       }
       if (!isVisible) visible = false;
       tickingNotif = false;

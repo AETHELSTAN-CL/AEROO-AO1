@@ -230,20 +230,21 @@ function actualizarEstadoUpsell() {
     if (tieneAccesoCompleto) {
       if (badge) {
         badge.innerHTML =
-          '<i class="fas fa-check-circle"></i> memanejo+ activo';
+          '<i class="fas fa-check-circle"></i> memanejo + activo';
       }
       if (texto) {
         texto.textContent =
-          'Tienes acceso a todo el contenido de memanejo+.';
+          'Tienes acceso a todo el contenido';
       }
     } else {
       if (badge) {
         badge.innerHTML =
-          `<i class="fas fa-check-circle"></i> memanejo+ activo: ${planesActivos.join(' + ')}`;
+          '<i class="fas fa-check-circle"></i> memanejo + activo';
       }
+
       if (texto) {
-        texto.textContent =
-          'Tienes acceso al contenido incluido en tu plan.';
+        texto.innerHTML =
+          `<strong>${planesActivos.join(' + ')}</strong><br>Contenido incluido en tu plan.`;
       }
     }
   } else if (pendienteLocal) {
@@ -269,13 +270,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('btnVerificarActivacion')?.addEventListener('click', sincronizarPermisos);
 
-  const btnActualizar = document.getElementById('btnActualizarEstado');
-  btnActualizar?.addEventListener('click', () => {
-    btnActualizar.classList.add('girando');
-    sincronizarPermisos().finally(() => {
-      setTimeout(() => btnActualizar.classList.remove('girando'), 800);
-    });
-  });
 });
 
 document.addEventListener('DOMContentLoaded', aplicarEstadoUsuario);

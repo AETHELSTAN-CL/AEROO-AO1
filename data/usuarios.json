@@ -57,7 +57,7 @@
             "quiz800": false,
             "clasesEnVivo": false,
             "resumenes": false,
-            "full": false
+            "full": true
         },
         "referidoPor": null,
         "fechaRegistro": "2026-07-28"
