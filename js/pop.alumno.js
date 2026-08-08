@@ -329,5 +329,4 @@ document.querySelectorAll('.footer-toggle')
     }
 
   });
-
-});
+  });

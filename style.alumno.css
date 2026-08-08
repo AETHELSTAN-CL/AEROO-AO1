@@ -435,7 +435,7 @@ body.onboarding-activo {
   border: 1px solid #001089;
   background: #001089;
   color: #fff;
-  font-size: 10px;
+  font-size: 12px;
   cursor: pointer;
   margin: 20px auto 0 auto;
   display: block;
@@ -548,7 +548,7 @@ body.onboarding-activo {
 
   .card-btn {
     padding: 6px 52px;
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
@@ -1602,10 +1602,15 @@ body.onboarding-activo {
 }
 
 /* ===== Notificación tipo iOS Liquid Glass ===== */
+:root {
+  --notif-shown-y: 90px;
+}
+
 #ios-notificacion {
   position: fixed;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -160px);
   width: 95vw;
   max-width: 720px;
   background: rgba(0, 0, 0, 0.528);
@@ -1622,11 +1627,12 @@ body.onboarding-activo {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   z-index: 9999;
   opacity: 0;
-  transition: top 0.5s ease, opacity 0.5s ease;
+  will-change: transform, opacity;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 #ios-notificacion.show {
-  top: 25px;
+  transform: translate(-50%, var(--notif-shown-y));
   opacity: 1;
 }
 
@@ -1662,49 +1668,24 @@ body.onboarding-activo {
   border: 1px solid rgba(255, 255, 255, 0.824);
 }
 
-
-
 .btn-referidos i {
   margin-right: 4px;
 }
 
 @keyframes zoomIn {
-  from {
-    transform: translateX(-50%) scale(0.8);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
+  from { transform: translate(-50%, -20px) scale(0.8); opacity: 0; }
+  to { transform: translate(-50%, 0) scale(1); opacity: 1; }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    transform: translateX(-50%) scale(0.9);
-  }
-}
-
-@media (min-width: 421px) {
-  #ios-notificacion {
-    top: -150px;
-  }
-
-  #ios-notificacion.show {
-    top: 90px;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; transform: translate(-50%, -20px) scale(0.9); }
 }
 
 /* ===== Mobile al inicio de Intermedias ===== */
 @media (max-width: 556px) {
-  #ios-notificacion.show {
-    top: 10px;
+  :root {
+    --notif-shown-y: 10px;
   }
 
   #ios-notificacion {
@@ -1736,7 +1717,7 @@ body.onboarding-activo {
 
 #ios-notificacion.hide {
   opacity: 0 !important;
-  top: -160px !important;
+  transform: translate(-50%, -160px) !important;
 }
 /* Fondo suave detrás */
 .quiz-game-modal {
