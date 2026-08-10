@@ -4,19 +4,19 @@
         "nombre": "Leonardo Azo",
         "email": "la@memanejo.cl",
         "desbloqueado": {
-            "quiz180": true,
-            "quiz500": true,
-            "quiz800": true,
+            "quiz180": false,
+            "quiz500": false,
+            "quiz800": false,
             "clasesEnVivo": false,
             "resumenes": false,
-            "full": false
+            "full": true
         },
         "referidoPor": null,
         "codigoReferido": "LA5000",
         "fechaRegistro": "2026-07-28"
     },
     {
-        "memanejoId": "ML001PA",
+        "memanejoId": "2026",
         "nombre": "Mariela Lecaros G",
         "email": "ml@memanejo.cl",
         "desbloqueado": {
@@ -32,7 +32,7 @@
         "fechaRegistro": "2026-07-28"
     },
     {
-        "memanejoId": "EB001LF",
+        "memanejoId": "2026",
         "nombre": "Elizabeth Brun",
         "email": "eb@memanejo.cl",
         "desbloqueado": {
@@ -48,9 +48,9 @@
         "fechaRegistro": "2026-07-28"
     },
     {
-        "memanejoId": "T1",
-        "nombre": "Prueba Test",
-        "email": "test@test.cl",
+        "memanejoId": "2026",
+        "nombre": "Hola Estudiante",
+        "email": "estudiante@memanejo.cl",
         "desbloqueado": {
             "quiz180": false,
             "quiz500": false,

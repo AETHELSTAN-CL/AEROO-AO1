@@ -197,147 +197,147 @@ function mostrarPortalAlumno() {
 
 
   document
-  .getElementById('portalIngresar')
-  ?.addEventListener('click',()=>{
+    .getElementById('portalIngresar')
+    ?.addEventListener('click', () => {
 
 
-    const nombre =
-    document
-    .getElementById('portalNombre')
-    ?.value.trim();
+      const nombre =
+        document
+          .getElementById('portalNombre')
+          ?.value.trim();
 
 
 
-    const apellido =
-    document
-    .getElementById('portalApellido')
-    ?.value.trim();
+      const apellido =
+        document
+          .getElementById('portalApellido')
+          ?.value.trim();
 
 
 
-    const email =
-    document
-    .getElementById('portalEmail')
-    ?.value.trim();
+      const email =
+        document
+          .getElementById('portalEmail')
+          ?.value.trim();
 
 
 
-    if(!nombre || !email){
+      if (!nombre || !email) {
 
-      showError("Completa todos los campos");
-      return;
+        showError("Completa todos los campos");
+        return;
 
-    }
+      }
 
 
 
-    const emailValido =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailValido =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
 
-    if(!emailValido.test(email)){
+      if (!emailValido.test(email)) {
 
-      showError("Ingresa un correo válido");
-      return;
+        showError("Ingresa un correo válido");
+        return;
 
-    }
+      }
 
 
 
-    // Genera código único
-    const memanejoId =
-    generarMemanejoId(nombre,apellido);
+      // Genera código único
+      const memanejoId =
+        generarMemanejoId(nombre, apellido);
 
 
 
-    const nuevoUsuario = {
+      const nuevoUsuario = {
 
 
-      memanejoId,
+        memanejoId,
 
 
-      nombre:
-      `${nombre} ${apellido || ""}`
-      .trim(),
+        nombre:
+          `${nombre} ${apellido || ""}`
+            .trim(),
 
 
-      email,
+        email,
 
 
-      desbloqueado:{
+        desbloqueado: {
 
-        quiz180:false,
+          quiz180: false,
 
-        quiz500:false,
+          quiz500: false,
 
-        quiz800:false,
+          quiz800: false,
 
-        clasesEnVivo:false,
+          clasesEnVivo: false,
 
-        resumenes:false,
+          resumenes: false,
 
-        full:false
+          full: false
 
-      },
+        },
 
 
-      referidoPor:null,
+        referidoPor: null,
 
 
-      fechaRegistro:
-      new Date()
-      .toISOString()
-      .split('T')[0]
+        fechaRegistro:
+          new Date()
+            .toISOString()
+            .split('T')[0]
 
-    };
+      };
 
 
 
-    // Guarda usuario MVP local
-    const registrados =
-    JSON.parse(
-      localStorage.getItem('usuariosRegistrados') || '[]'
-    );
+      // Guarda usuario MVP local
+      const registrados =
+        JSON.parse(
+          localStorage.getItem('usuariosRegistrados') || '[]'
+        );
 
 
 
-    registrados.push(nuevoUsuario);
+      registrados.push(nuevoUsuario);
 
 
 
-    localStorage.setItem(
-      'usuariosRegistrados',
-      JSON.stringify(registrados)
-    );
+      localStorage.setItem(
+        'usuariosRegistrados',
+        JSON.stringify(registrados)
+      );
 
 
 
-    // Login automático
-    setSession({
+      // Login automático
+      setSession({
 
-      nombre:nuevoUsuario.nombre,
+        nombre: nuevoUsuario.nombre,
 
-      email:nuevoUsuario.email,
+        email: nuevoUsuario.email,
 
-      memanejoId:nuevoUsuario.memanejoId,
+        memanejoId: nuevoUsuario.memanejoId,
 
-      desbloqueado:nuevoUsuario.desbloqueado
+        desbloqueado: nuevoUsuario.desbloqueado
 
-    });
+      });
 
 
 
-    // Envía correo bienvenida
-    enviarMemanejoIdPorCorreo(
-      nombre,
-      email,
-      memanejoId
-    );
+      // Envía correo bienvenida
+      enviarMemanejoIdPorCorreo(
+        nombre,
+        email,
+        memanejoId
+      );
 
+      const correoAcceso = "estudiante@memanejo.cl";
 
-
-    loginCardGlass.innerHTML = `
+      loginCardGlass.innerHTML = `
 
     <div class="card-plus">
 
@@ -360,7 +360,7 @@ function mostrarPortalAlumno() {
 
         <br>
 
-        <strong>${email}</strong>
+        <strong>${correoAcceso}</strong>
 
 
         <br><br>
@@ -385,57 +385,59 @@ function mostrarPortalAlumno() {
 
 
 
-    document
-    .getElementById('btnEntrarPlataforma')
-    ?.addEventListener('click',()=>{
+      document
+        .getElementById('btnEntrarPlataforma')
+        ?.addEventListener('click', () => {
 
 
-      cerrarOnboarding();
-
-
-
-      const pillStudent =
-      document.querySelector('.pill-student');
-
-
-      pillStudent
-      ?.classList.add('visible');
+          cerrarOnboarding();
 
 
 
-      requestAnimationFrame(()=>{
+          const pillStudent =
+            document.querySelector('.pill-student');
 
-        openStudentMenu();
 
-      });
+          pillStudent
+            ?.classList.add('visible');
+
+
+
+          requestAnimationFrame(() => {
+
+            openStudentMenu();
+
+          });
+
+
+        });
+
 
 
     });
 
 
 
-  });
-
-
-
   document
-  .getElementById('portalVolver')
-  ?.addEventListener(
-    'click',
-    restoreOnboarding
-  );
+    .getElementById('portalVolver')
+    ?.addEventListener(
+      'click',
+      restoreOnboarding
+    );
 
 
 }
 
-// ===== Generador de memanejo ID =====
+/* ===== Generador de memanejo ID =====
 function generarMemanejoId(nombre, apellido) {
   const inicialNombre = nombre.charAt(0).toUpperCase();
   const inicialApellido = apellido.charAt(0).toUpperCase();
   const numero = Math.floor(1000 + Math.random() * 9000); // 4 dígitos
   return `MM${inicialNombre}${inicialApellido}${numero}`;
+} */
+function generarMemanejoId() {
+  return "2026";
 }
-
 function enviarMemanejoIdPorCorreo(nombre, email, memanejoId) {
   emailjs.send("service_ujyq6hg", "template_s6jxj1h", {
     nombre: nombre,
@@ -481,7 +483,7 @@ function mostrarNuevoEstudiante() {
       type="text" 
       id="loginId" 
       class="card-input" 
-      placeholder="memanejo ID: LA001PA">
+      placeholder="memanejo ID: 2026">
 
 
       <button id="loginIngresar" class="card-btn">
@@ -500,106 +502,106 @@ function mostrarNuevoEstudiante() {
 
 
   document.getElementById('loginIngresar')
-  ?.addEventListener('click', async () => {
+    ?.addEventListener('click', async () => {
 
 
-    const email = document
-    .getElementById('loginEmail')
-    ?.value.trim();
+      const email = document
+        .getElementById('loginEmail')
+        ?.value.trim();
 
 
-    const id = document
-    .getElementById('loginId')
-    ?.value.trim();
-
-
-
-    if (!email || !id) {
-      showError("Completa todos los campos");
-      return;
-    }
+      const id = document
+        .getElementById('loginId')
+        ?.value.trim();
 
 
 
-    // carga JSON si aún no existe
-    if (usuariosDB.length === 0) {
-      await cargarUsuarios();
-    }
+      if (!email || !id) {
+        showError("Completa todos los campos");
+        return;
+      }
 
 
 
-    const usuariosLocal =
-    JSON.parse(
-      localStorage.getItem('usuariosRegistrados') || '[]'
-    );
+      // carga JSON si aún no existe
+      if (usuariosDB.length === 0) {
+        await cargarUsuarios();
+      }
 
 
 
-    const todosLosUsuarios = [
-      ...usuariosDB,
-      ...usuariosLocal
-    ];
+      const usuariosLocal =
+        JSON.parse(
+          localStorage.getItem('usuariosRegistrados') || '[]'
+        );
 
 
 
-    const usuario =
-    todosLosUsuarios.find(
-      u =>
-      u.email === email &&
-      String(u.memanejoId) === String(id)
-    );
+      const todosLosUsuarios = [
+        ...usuariosDB,
+        ...usuariosLocal
+      ];
 
 
 
-    if (!usuario) {
+      const usuario =
+        todosLosUsuarios.find(
+          u =>
+            u.email === email &&
+            String(u.memanejoId) === String(id)
+        );
 
-      showError("Correo o código incorrecto");
-      return;
-
-    }
 
 
+      if (!usuario) {
 
-    setSession({
+        showError("Correo o código incorrecto");
+        return;
 
-      nombre: usuario.nombre,
+      }
 
-      email: usuario.email,
 
-      memanejoId: usuario.memanejoId,
 
-      desbloqueado: usuario.desbloqueado || {}
+      setSession({
+
+        nombre: usuario.nombre,
+
+        email: usuario.email,
+
+        memanejoId: usuario.memanejoId,
+
+        desbloqueado: usuario.desbloqueado || {}
+
+      });
+
+
+
+      cerrarOnboarding();
+
+
+
+      const pillStudent =
+        document.querySelector('.pill-student');
+
+
+      pillStudent?.classList.add('visible');
+
+
+
+      requestAnimationFrame(() => {
+        openStudentMenu();
+      });
+
 
     });
-
-
-
-    cerrarOnboarding();
-
-
-
-    const pillStudent =
-    document.querySelector('.pill-student');
-
-
-    pillStudent?.classList.add('visible');
-
-
-
-    requestAnimationFrame(() => {
-      openStudentMenu();
-    });
-
-
-  });
 
 
 
   document.getElementById('loginVolver')
-  ?.addEventListener(
-    'click',
-    restoreOnboarding
-  );
+    ?.addEventListener(
+      'click',
+      restoreOnboarding
+    );
 
 }
 

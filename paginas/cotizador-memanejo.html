@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Cotizador | memanejo.cl</title>
+</head>
+
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="brand-mark"><img src="https://www.memanejomanejando.cl/img/newnewlogo.jpg" alt="Logo memanejo">
+        </div>memanejo.cl
+      </div>
+      <p>Cotizador de servicios automotrices</p>
+    </header>
+    <div class="layout">
+      <section class="editor">
+        <h1>Nueva cotización</h1>
+        <p class="sub">Completa los datos; la propuesta se actualiza al instante.</p>
+        <div class="group">
+          <h2>Cliente</h2>
+          <div class="fields">
+            <div class="wide"><label>Nombre o empresa<input id="clientName" placeholder="Ej. Mercedes Benz"></label>
+            </div>
+            <div><label>Teléfono<input id="clientPhone" placeholder="+56 9 ..."></label></div>
+            <div>
+              <label>
+                Correo o Instagram (opcional)
+                <input id="clientEmail" type="text" placeholder="cliente@correo.cl o @usuario">
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>Vehículo</h2>
+          <div class="fields">
+            <div><label>Marca<select id="brand"></select></label></div>
+            <div><label>Modelo<select id="model"></select></label></div>
+            <div><label>Año<input id="year" inputmode="numeric" placeholder="2021"></label></div>
+            <div><label>Patente<input id="plate" placeholder="AB·CD·01"></label></div>
+            <div><label>Kilometraje (opcional)<input id="mileage" inputmode="numeric" placeholder="Ej. 65.000"></label>
+            </div>
+            <div><label>VIN / N.º de chasis<input id="vin" autocapitalize="characters"
+                  placeholder="17 caracteres (opcional)"></label></div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>Retiro y entrega</h2>
+          <div class="fields">
+            <div class="wide"><label>Dirección de retiro<input id="pickupAddress"
+                  placeholder="Ej. Av. Providencia 1234, Providencia"></label></div>
+            <div class="wide"><label class="check-line"><input id="sameAddress" type="checkbox" checked>La entrega se
+                realiza en la misma dirección de retiro</label></div>
+            <div class="wide" id="deliveryAddressGroup" hidden><label>Dirección de entrega<input id="deliveryAddress"
+                  placeholder="Ej. Av. Apoquindo 3000, Las Condes"></label></div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>Servicios y precios</h2>
+          <div class="service-row">
+            <div><label>Servicio<select id="service"></select></label></div>
+            <div><label>Precio CLP<input id="price" inputmode="numeric" placeholder="0"></label></div><button
+              class="btn btn-icon" id="addService" type="button" title="Agregar servicio">+</button>
+          </div>
+          <p class="sub" style="margin:10px 0 0">Puedes editar el precio antes de agregarlo.</p>
+        </div>
+        <div class="group">
+          <h2>Condiciones y repuestos</h2>
+
+          <div class="fields">
+            <div>
+              <label>
+                N.º cotización
+                <input id="quoteNumber" value="MM-001">
+              </label>
+            </div>
+
+            <div>
+              <label>
+                Vigencia
+                <input id="validity" value="7 días">
+              </label>
+            </div>
+
+            <div class="wide">
+              <label>
+                Detalle de repuestos
+                <textarea id="parts">Filtro de aire, filtro de polen, filtro de aceite y aceite 5W30 (4L).</textarea>
+              </label>
+            </div>
+
+            <div class="wide">
+              <label>
+                Condiciones y observaciones
+                <textarea
+                  id="notes">Valores referenciales sujetos a revisión del vehículo. Incluye mano de obra según el servicio indicado. Lavado de cortesía.</textarea>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="actions"><button class="btn btn-muted" id="clear" type="button">Limpiar</button><button
+            class="btn btn-primary" id="print" type="button">Imprimir / Guardar PDF</button></div>
+        <button class="export-link" id="exportCsv" type="button">Exportar ficha como CSV</button>
+      </section>
+      <section class="quote">
+        <header class="quote-head">
+          <div class="quote-brand">
+            <div class="brand-mark"><img src="https://www.memanejomanejando.cl/img/newnewlogo.jpg" alt="Logo memanejo">
+            </div>memanejo.cl
+          </div>
+          <div class="quote-type"><small>Cotización</small><strong id="viewNumber">MM-001</strong></div>
+        </header>
+        <div class="quote-body">
+          <div class="blue-line"></div>
+          <div class="meta">
+            <div>
+              <h3>Cliente</h3>
+              <p id="viewClient">Por definir</p>
+              <p id="viewContact">—</p>
+            </div>
+            <div>
+              <h3>Vehículo</h3>
+              <p id="viewVehicle">Por definir</p>
+              <p id="viewVehicleExtra">—</p>
+            </div>
+          </div>
+          <div class="meta extra">
+            <div>
+              <h3>Retiro</h3>
+              <p id="viewPickup">Por definir</p>
+            </div>
+            <div>
+              <h3>Entrega</h3>
+              <p id="viewDelivery">Por definir</p>
+            </div>
+          </div>
+          <div class="blue-line"></div>
+          <table>
+            <thead>
+              <tr>
+                <th>Servicio</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody id="items">
+              <tr>
+                <td class="empty" colspan="2">Agrega servicios para comenzar.</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="total"><span>Total estimado</span><strong id="total">$0</strong></div>
+          <div class="notes"><strong>Condiciones:</strong> <span id="viewNotes"></span><br><span
+              id="viewValidity"></span></div>
+        </div>
+        <footer class="quote-footer">memanejo.cl · Servicios automotrices · Cotización generada el <span
+            id="today"></span></footer>
+      </section>
+    </div>
+  </main>
+  <script src="/paginas/cotizador.js">
+
+  </script>
+</body>
+
+</html>
