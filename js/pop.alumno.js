@@ -3,7 +3,7 @@
 // =====================
 document.addEventListener('DOMContentLoaded', () => {
   // ===== AOS =====
-  if (window.AOS) AOS.init();
+  if (window.AOS) AOS.init({ once: true });
 
   // ===== ELEMENTOS =====
   const videosNormales = document.getElementById('videos');
