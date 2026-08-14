@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return examen.map((pregunta) => ({
       ...pregunta,
+      respuestas: mezclarArray(pregunta.respuestas),
       puntos: pregunta.categoria !== "general" ? 2 : 1
     }));
   }
