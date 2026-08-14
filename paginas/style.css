@@ -208,7 +208,8 @@ textarea {
   height: 42px;
   padding: 0;
   color: #b42318;
-  background: #fff0f0;
+  background-color: transparent;
+  border: 1px solid #969696;
   font-size: 20px;
 }
 

@@ -803,7 +803,7 @@ body.onboarding-activo {
 /* Pill principal */
 .pill-nav {
   position: fixed;
-  bottom: 15px;
+  bottom: 20px;
   left: 40%;
   transform: translateX(-50%);
   display: flex;
@@ -836,6 +836,10 @@ body.onboarding-activo {
   transition: transform 0.2s ease, color 0.2s ease;
 
 }
+.pill-item span:hover {
+  color: rgb(0, 219, 231);
+  transition: transform 0.3s, background 3s;
+}
 
 .pill-item i.active-effect {
   transform: scale(1.15);
@@ -846,7 +850,7 @@ body.onboarding-activo {
 /* Icono estudiante separado */
 .pill-student {
   position: fixed;
-  bottom: 10px;
+  bottom: 17px;
   right: 30px;
   display: flex;
   align-items: center;
@@ -2771,6 +2775,7 @@ body.onboarding-activo header {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   margin-bottom: 20px;
+  border: 1px solid #b2b0b0e8;
 }
 
 .btn-icon:hover {
@@ -2848,8 +2853,7 @@ body.onboarding-activo header {
   }
 }
 
-/* ===== Créditos / Beneficio ===== */
-
+/* ===== Botones Créditos y Beneficio ===== */
 
 .credits-wrapper .card-body {
   max-width: 400px;
@@ -2899,6 +2903,8 @@ body.onboarding-activo header {
   background: #0000;
   opacity: 0;
   transition: all 0.35s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid #0b0b0bdf;
 }
 
 #reviewCollapse.show .card {
@@ -2933,6 +2939,7 @@ body.onboarding-activo header {
 .review-toggle input:checked+label {
   background: #111;
   color: white;
+  border: 1px solid white;
 }
 
 .review-success {
@@ -2969,20 +2976,40 @@ body.onboarding-activo header {
 /* Card beneficio premium */
 .benefit-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.927);
-  border: 1px solid rgba(0, 30, 255, 0.9);
+  background: rgba(255, 255, 255, 0.964);
+  border: 1px solid #ffc800e8;;
   border-radius: 20px;
   padding: 28px 22px;
   text-align: center;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .credits-wrapper {
   max-width: 420px;
   margin-left: auto;
   margin-right: auto;
+  
+  
 }
 
+.app-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 18px;
+  border-radius: 18px;
+  background: #101010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0123ffe8;
+  border: 1px solid #0b0b0b;
+}
+
+.app-icon i {
+  font-size: 28px;
+  color: #ffffff;
+}
 .benefit-card h6 {
   font-size: 1.05rem;
   color: #222;
@@ -3069,6 +3096,7 @@ body.onboarding-activo header {
   padding-top: 20px;
   margin-top: 60px;
   margin-bottom: 30px;
+  
 }
 
 .credits-wrapper::before {
@@ -3082,23 +3110,6 @@ body.onboarding-activo header {
   left: 50%;
   transform: translateX(-50%);
 }
-
-.app-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 18px;
-  border-radius: 18px;
-  background: #101010;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.app-icon i {
-  font-size: 28px;
-  color: #ffffff;
-}
-
 .credit-divider {
   display: block;
   width: 189px;

@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/paginas/img/favicon.ico" sizes="any">
   <title>Cotizador | memanejo.cl</title>
 </head>
 
@@ -41,7 +42,12 @@
             <div><label>Marca<select id="brand"></select></label></div>
             <div><label>Modelo<select id="model"></select></label></div>
             <div><label>Año<input id="year" inputmode="numeric" placeholder="2021"></label></div>
-            <div><label>Patente<input id="plate" placeholder="AB·CD·01"></label></div>
+            <div>
+              <label>
+                Patente
+                <input id="plate" placeholder="AB·CD·01" maxlength="8" autocomplete="off">
+              </label>
+            </div>
             <div><label>Kilometraje (opcional)<input id="mileage" inputmode="numeric" placeholder="Ej. 65.000"></label>
             </div>
             <div><label>VIN / N.º de chasis<input id="vin" autocapitalize="characters"
@@ -153,11 +159,21 @@
             </tbody>
           </table>
           <div class="total"><span>Total estimado</span><strong id="total">$0</strong></div>
-          <div class="notes"><strong>Condiciones:</strong> <span id="viewNotes"></span><br><span
-              id="viewValidity"></span></div>
-        </div>
-        <footer class="quote-footer">memanejo.cl · Servicios automotrices · Cotización generada el <span
-            id="today"></span></footer>
+          <div class="notes">
+            <strong>Detalle de repuestos:</strong><br>
+            <span id="viewParts"></span>
+
+            <br><br>
+
+            <strong>Condiciones:</strong>
+            <span id="viewNotes"></span>
+
+            <br>
+
+            <span id="viewValidity"></span>
+          </div>
+          <footer class="quote-footer">memanejo.cl · Servicios automotrices · Cotización generada el <span
+              id="today"></span></footer>
       </section>
     </div>
   </main>

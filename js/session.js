@@ -230,7 +230,7 @@ function actualizarEstadoUpsell() {
     if (tieneAccesoCompleto) {
       if (badge) {
         badge.innerHTML =
-          '<i class="fas fa-check-circle"></i> memanejo + activo';
+          '<i class="fas fa-check-circle"></i> memanejo+ activo';
       }
       if (texto) {
         texto.textContent =
@@ -239,7 +239,7 @@ function actualizarEstadoUpsell() {
     } else {
       if (badge) {
         badge.innerHTML =
-          '<i class="fas fa-check-circle"></i> memanejo + activo';
+          '<i class="fas fa-check-circle"></i> memanejo+ activo';
       }
 
       if (texto) {
