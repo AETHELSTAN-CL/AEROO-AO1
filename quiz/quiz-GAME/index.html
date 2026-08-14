@@ -20,19 +20,22 @@
         <a href="https://www.memanejomanejando.cl" target="_blank">
           <img src="img/newnewlogo.jpg" alt="Logo Memanejo" class="logo-bienvenida">
         </a>
-        <h2>memanejo <br>App Web</h2>
+        <h2>memanejo <br>Quiz Game</h2>
       </div>
 
-      <p class="subtitulo"><strong>Quiz Nivelación</strong></p>
+      <p class="subtitulo"><strong>Prepárate para tu examen de conducción </strong></p>
       <p class="titulo-input">Completa a continuación tus datos</p>
 
       <form id="form-usuario" class="formulario">
         <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
         <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
         <input type="tel" id="telefono" name="telefono" placeholder="Número de contacto" required>
-        <button type="submit" id="btn-iniciar" class="btn">Comenzar Quiz</button>
-        <p class="texto-privacidad">Tus datos son seguros, no se guardan, ni se comparten. <br>Te podremos contactar
-          para ofrecer promociones o recordatorios.
+        <button type="submit" id="btn-iniciar" class="btn btn-iniciar">
+          <span>Comenzar Quiz</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <p class="texto-privacidad">Usaremos tus datos para enviarte información relacionada con tu resultado,
+          promociones o recordatorios. No compartimos tus datos con terceros.
         </p>
       </form>
       <a href="https://www.memanejo.cl" class="volver-inicio">
@@ -117,7 +120,7 @@
     emailjs.init("qKZF6ysJ-Q1zPo83y");
   </script>
   <script src="/js/preguntas.js"></script>
-  <script src="/quiz/quiz-nivelacion/quiz-nivelacion.js"></script>
+  <script src="/quiz/quiz-GAME/quiz.js"></script>
 </body>
 
 </html>

@@ -857,7 +857,9 @@ body.onboarding-activo {
   justify-content: center;
   width: 65px;
   height: 65px;
-  background: #0026ff;
+  background: rgba(0, 219, 231, 0.562);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-radius: 50%;
   color: #fff;
   font-size: 20px;
@@ -866,12 +868,12 @@ body.onboarding-activo {
 
 .pill-student:hover {
   transform: scale(1.1);
-  background: #0026ff;
   transition: transform 0.3s, background 3s;
 }
 
 .pill-student i {
   font-size: 25px;
+  color: #0026ff;
 }
 
 
@@ -939,7 +941,7 @@ body.onboarding-activo {
 .student-login h3 {
   font-size: 22px;
   font-weight: 700;
-  color: #0c19af;
+  color: #313131;
 }
 
 .subtitle-aula {

@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
     statTiempo.innerText = `${min}:${seg.toString().padStart(2, '0')}`;
 
     textoPuntaje.innerText = aprobado
-      ? "🎉 ¡Aprobaste el Quiz de Nivelación!"
+      ? "¡Aprobaste el Quiz de Nivelación!"
       : "No alcanzaste el puntaje mínimo. Sigue practicando.";
 
     const incentivoAnterior = document.getElementById('bloque-incentivo');
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const mensajeWhatsapp = encodeURIComponent(
         `Hola, hice el quiz de nivelación en memanejo.cl y obtuve ${score}/${puntajeTotal} puntos. Quiero revisar mis errores.`
       );
-      const numeroWhatsapp = "56912345678"; // 👈 reemplaza por tu número real
+      const numeroWhatsapp = "56946914558"; // 👈 reemplaza por tu número real
 
       incentivo.innerHTML = `
     <p style="font-size:14px; color:#ccc; margin-bottom:12px;">
