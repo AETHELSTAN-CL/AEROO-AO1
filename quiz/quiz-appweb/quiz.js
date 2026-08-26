@@ -261,15 +261,35 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function seleccionarRespuesta(e) {
-    const seleccion = e.target;
+    const seleccion = e.currentTarget;
     const preguntaActual = preguntasActuales[indice];
     const esCorrecta = seleccion.dataset.correcta === "true";
 
+    // Evita seleccionar más de una respuesta
+    if (seleccion.disabled) return;
+
+    // Deshabilitar todas las respuestas
+    const botones = Array.from(respuestasElemento.children);
+
+    botones.forEach((boton) => {
+      boton.disabled = true;
+    });
+
     if (esCorrecta) {
+      // =========================
+      // RESPUESTA CORRECTA
+      // =========================
       score += preguntaActual.puntos;
       correctasCount++;
+
+      seleccion.classList.add("correct");
+
     } else {
+      // =========================
+      // RESPUESTA INCORRECTA
+      // =========================
       erradasCount++;
+
       seleccion.classList.add("selected-wrong");
 
       const respuestaCorrecta = preguntaActual.respuestas.find(
@@ -281,20 +301,64 @@ document.addEventListener("DOMContentLoaded", () => {
         `Tu respuesta: ${seleccion.innerText}\n` +
         `Respuesta correcta: ${respuestaCorrecta?.texto || "No disponible"}`
       );
+
+      // Buscar y marcar la respuesta correcta
+      const botonCorrecto = botones.find(
+        (boton) => boton.dataset.correcta === "true"
+      );
+
+      if (botonCorrecto) {
+        botonCorrecto.classList.add("correct");
+      }
     }
 
-    Array.from(respuestasElemento.children).forEach((boton) => {
-      boton.disabled = true;
+    // ========================================
+    // OCULTAR LAS OTRAS RESPUESTAS INCORRECTAS
+    // ========================================
 
-      if (boton.dataset.correcta === "true") {
-        boton.classList.add("correct");
-      } else {
-        boton.classList.add("wrong");
+    botones.forEach((boton) => {
+      const esSeleccionada = boton === seleccion;
+      const esRespuestaCorrecta = boton.dataset.correcta === "true";
+
+      if (!esSeleccionada && !esRespuestaCorrecta) {
+        boton.classList.add("respuesta-oculta");
       }
     });
 
+    // Mostrar botón siguiente
     btnSiguiente.style.display = "inline-block";
+
+    // ========================================
+    // DESPUÉS DE 6 SEGUNDOS
+    // ========================================
+
+    setTimeout(() => {
+      // Oscurecer/tapar el texto de la respuesta seleccionada
+      // y de la respuesta correcta.
+      seleccion.classList.add("feedback-final");
+
+      const botonCorrecto = botones.find(
+        (boton) => boton.dataset.correcta === "true"
+      );
+
+      if (botonCorrecto) {
+        botonCorrecto.classList.add("feedback-final");
+      }
+
+    }, 6000);
   }
+
+
+  btnSiguiente.addEventListener("click", () => {
+    indice++;
+
+    if (indice < preguntasActuales.length) {
+      mostrarPregunta();
+    } else {
+      mostrarResultado();
+    }
+  });
+
 
   btnSiguiente.addEventListener("click", () => {
     indice++;
@@ -383,9 +447,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const numeroWhatsapp = "56946914558";
 
       incentivo.innerHTML = `
-        <p style="font-size:14px; color:#555; margin-bottom:12px;">
-          ¿Quieres saber en qué preguntas fallaste y por qué?
-        </p>
+  <p class="texto-incentivo">
+    ¿Quieres saber en qué preguntas fallaste y por qué?
+  </p>
+
 
         <a
           href="https://wa.me/${numeroWhatsapp}?text=${mensajeWhatsapp}"
@@ -397,39 +462,42 @@ document.addEventListener("DOMContentLoaded", () => {
         </a>
 
         <small class="acceso-text">
-          Te contactaremos por
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </small>
+  Te contactaremos por
+  <i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp
+</small>
+
       `;
 
       textoPuntaje.parentNode.appendChild(incentivo);
     }
 
     modal.classList.remove("oculto");
+    tiempoElemento.classList.remove("visible");
 
-    // Correo para el administrador mediante EmailJS.
-    emailjs.send("service_ujyq6hg", "template_o43bfnj", {
-      nombre: datosUsuario.nombre,
-      correo: datosUsuario.correo,
-      telefono: datosUsuario.telefono,
-      puntaje: score,
-      total: puntajeTotal,
-      porcentaje: porcentaje.toFixed(0),
-      estado: aprobado ? "Aprobado" : "No aprobado",
-      correctas: correctasCount,
-      erradas: erradasCount,
-      tiempo: tiempoUsadoTexto,
-      errores: errores.length
-        ? errores.join("\n\n")
-        : "El usuario no registró respuestas incorrectas."
-    })
-      .then(() => {
-        console.log("Resultado enviado por correo correctamente.");
-      })
-      .catch((error) => {
-        console.error("Error enviando resultado:", error);
-      });
-
+    /*
+        // Correo para el administrador mediante EmailJS.
+        emailjs.send("service_ujyq6hg", "template_o43bfnj", {
+          nombre: datosUsuario.nombre,
+          correo: datosUsuario.correo,
+          telefono: datosUsuario.telefono,
+          puntaje: score,
+          total: puntajeTotal,
+          porcentaje: porcentaje.toFixed(0),
+          estado: aprobado ? "Aprobado" : "No aprobado",
+          correctas: correctasCount,
+          erradas: erradasCount,
+          tiempo: tiempoUsadoTexto,
+          errores: errores.length
+            ? errores.join("\n\n")
+            : "El usuario no registró respuestas incorrectas."
+        })
+          .then(() => {
+            console.log("Resultado enviado por correo correctamente.");
+          })
+          .catch((error) => {
+            console.error("Error enviando resultado:", error);
+          });
+    */
     const textoParaCompartir = encodeURIComponent(
       `Obtuve ${score} puntos (${porcentaje.toFixed(0)}%) ` +
       "en el quiz Clase B 🚗 en www.memanejo.cl"
@@ -455,7 +523,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const canvas = await html2canvas(captura, {
-        backgroundColor: "#ffffff",
         scale: 2
       });
 
@@ -539,4 +606,11 @@ document.addEventListener("DOMContentLoaded", () => {
     formulario.reset();
     resetearEstado();
   });
+  window.testResultado = function () {
+    score = 33;
+    correctasCount = 30;
+    erradasCount = 5;
+    mostrarResultado();
+  };
+
 });
