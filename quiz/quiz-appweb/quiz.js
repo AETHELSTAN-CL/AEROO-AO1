@@ -474,30 +474,30 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.remove("oculto");
     tiempoElemento.classList.remove("visible");
 
-    /*
-        // Correo para el administrador mediante EmailJS.
-        emailjs.send("service_ujyq6hg", "template_o43bfnj", {
-          nombre: datosUsuario.nombre,
-          correo: datosUsuario.correo,
-          telefono: datosUsuario.telefono,
-          puntaje: score,
-          total: puntajeTotal,
-          porcentaje: porcentaje.toFixed(0),
-          estado: aprobado ? "Aprobado" : "No aprobado",
-          correctas: correctasCount,
-          erradas: erradasCount,
-          tiempo: tiempoUsadoTexto,
-          errores: errores.length
-            ? errores.join("\n\n")
-            : "El usuario no registró respuestas incorrectas."
-        })
-          .then(() => {
-            console.log("Resultado enviado por correo correctamente.");
-          })
-          .catch((error) => {
-            console.error("Error enviando resultado:", error);
-          });
-    */
+
+    // Correo para el administrador mediante EmailJS.
+    emailjs.send("service_ujyq6hg", "template_o43bfnj", {
+      nombre: datosUsuario.nombre,
+      correo: datosUsuario.correo,
+      telefono: datosUsuario.telefono,
+      puntaje: score,
+      total: puntajeTotal,
+      porcentaje: porcentaje.toFixed(0),
+      estado: aprobado ? "Aprobado" : "No aprobado",
+      correctas: correctasCount,
+      erradas: erradasCount,
+      tiempo: tiempoUsadoTexto,
+      errores: errores.length
+        ? errores.join("\n\n")
+        : "El usuario no registró respuestas incorrectas."
+    })
+      .then(() => {
+        console.log("Resultado enviado por correo correctamente.");
+      })
+      .catch((error) => {
+        console.error("Error enviando resultado:", error);
+      });
+
     const textoParaCompartir = encodeURIComponent(
       `Obtuve ${score} puntos (${porcentaje.toFixed(0)}%) ` +
       "en el quiz Clase B 🚗 en www.memanejo.cl"
