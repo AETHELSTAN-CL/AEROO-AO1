@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Quiz Game | App Web memanejo.cl</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#111111">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description"
+    content="En memanejo.cl encuentras mantención para tu vehículo, clases de conducción, venta de repuestos y alianzas con talleres mecánicos. ¡Confianza y respaldo en todo Chile!">
+  <meta name="author" content="Leonardo Azo" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.memanejo.cl/" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/logopngwhite.png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/img/apple-touch-icon-167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:title" content="Mantención Automotriz, Repuestos y Entrenamiento Vial" />
+  <meta property="og:description"
+    content="Mantención automotriz, clases de conducción, venta de repuestos, alianzas con talleres y atención personalizada. Todo en un solo sitio: memanejo.cl." />
+  <meta property="og:image" content="https://www.memanejo.cl/img/photo-output_1.jpeg" />
+  <meta property="og:url" content="https://www.memanejo.cl/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mantención Automotriz, Repuestos y Entrenamiento Vial" />
+  <meta name="twitter:description"
+    content="Servicios automotrices, clases de conducción y repuestos con respaldo profesional en Chile." />
+  <meta name="twitter:image" content="https://www.memanejo.cl/img/photo-output_1.jpeg" />
+  <script
+    type="application/ld+json"> { "@context": "https://schema.org", "@type": "Organization", "name": "memanejo.cl", "url": "https://www.memanejo.cl", "logo": "https://www.memanejo.cl/img/logopngicon.png", "sameAs": ["https://www.memanejo.cl"], "contactPoint": { "@type": "ContactPoint", "contactType": "customer service", "availableLanguage": "Spanish" } } </script>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <!-- Pantalla de bienvenida / login -->
+  <div id="pantalla-bienvenida" class="quiz-container">
+    <div class="bienvenida-grid">
+
+      <!-- Columna izquierda: texto grande -->
+      <div class="panel-hero">
+        <a href="https://www.memanejomanejando.cl" target="_blank" class="hero-logo-link">
+          <img src="img/logopngwhite.png" alt="Logo Memanejo" class="hero-logo">
+        </a>
+        <h1 class="hero-titulo">Prepárate para tu<br><span>examen de conducción</span></h1>
+        <p class="hero-sub">Simulador con formato, tiempo y puntaje igual al examen municipal real.</p>
+
+        <div class="tema-switch-wrap">
+          <span class="tema-switch-label" id="temaLabelOff">Estilos desactivados</span>
+          <button type="button" id="temaToggle" class="tema-toggle" aria-pressed="false"
+            aria-label="Cambiar estilo visual">
+            <span class="toggle-knob">
+              <img src="img/newnewlogo.jpg" alt="">
+            </span>
+          </button>
+          <span class="tema-switch-label" id="temaLabelOn">Estilos activados</span>
+        </div>
+      </div>
+
+      <!-- Columna derecha: formulario -->
+      <div class="panel-form">
+        <div class="contenido">
+          <div class="separador-form">
+            <span></span>
+            <p class="titulo-input">Inicia sesión para continuar</p>
+          </div>
+
+          <form id="form-usuario" class="formulario">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email" placeholder="estudiante@memanejo.cl"
+              required>
+            <label for="memanejoId">memanejo ID</label>
+            <input type="text" id="memanejoId" name="memanejoId" autocomplete="off" placeholder="Ej. 2026" required>
+            <button type="submit" id="btn-iniciar" class="btn-iniciar">
+              <span>Comenzar Quiz</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <p id="login-error-msg" class="login-error-msg" role="alert" style="display:none;"></p>
+            <p class="texto-privacidad">Tus datos se utilizarán para gestionar tu acceso y enviarte información
+              relacionada con tu resultado. No compartimos tus datos con terceros.
+            </p>
+          </form>
+
+          <a href="https://www.memanejo.cl" class="volver-inicio">← Volver a página principal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor del quiz -->
+  <div id="tiempo-restante" class="barra-tiempo"></div>
+
+  <div class="quiz-container" id="quiz-container" style="display:none;">
+    <h2 id="question">Pregunta aparecerá aquí</h2>
+    <div id="answer-buttons" class="btn-container"></div>
+    <div id="progress">Pregunta 1 de 1</div>
+    <div class="quiz-actions">
+      <button id="next-btn" class="next-btn">Siguiente</button>
+      <button id="btn-volver" class="btn-volver">← Volver al Inicio</button>
+    </div>
+  </div>
+
+  <!-- Modal de resultado -->
+  <div id="modal-memanejo" class="modal-memanejo oculto">
+    <div class="contenido-modal" id="captura">
+
+      <div class="score-ring" id="scoreRing">
+        <div class="score-ring-inner">
+          <span id="scorePuntos" class="score-numero">0/0</span>
+          <span class="score-label">puntos</span>
+        </div>
+      </div>
+
+      <div id="badgeEstado" class="badge-estado">
+        <i class="fas fa-check"></i>
+        <span id="badgeTexto">Aprobado</span>
+      </div>
+
+      <h2 class="titulo-modal">Resultado del Quiz</h2>
+      <p id="texto-puntaje" class="texto-puntaje-modal"></p>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <p id="statCorrectas" class="stat-valor">0</p>
+          <p class="stat-label">correctas</p>
+        </div>
+        <div class="stat-item">
+          <p id="statErradas" class="stat-valor">0</p>
+          <p class="stat-label">erradas</p>
+        </div>
+        <div class="stat-item">
+          <p id="statTiempo" class="stat-valor">0:00</p>
+          <p class="stat-label">tiempo</p>
+        </div>
+      </div>
+
+      <div class="modal-buttons">
+        <button id="btn-descargar-img" class="modal-btn modal-btn-principal">
+          <i class="fas fa-download"></i> Descargar Imagen
+        </button>
+        <a id="btn-compartir" class="modal-btn modal-btn-secundario" target="_blank">
+          <i class="fab fa-twitter"></i> Compartir en Twitter
+        </a>
+        <a id="btn-instagram" class="modal-btn modal-btn-instagram" target="_blank">
+          <i class="fab fa-instagram"></i> Compartir en Instagram
+        </a>
+        <button id="btn-reintentar" class="modal-btn modal-btn-reintentar">
+          <i class="fas fa-redo"></i> Reintentar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("qKZF6ysJ-Q1zPo83y");
+  </script>
+  <script src="/js/preguntas.js"></script>
+  <script src="/quiz/quiz-appweb/quiz.js"></script>
+</body>
+
+</html>
