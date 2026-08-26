@@ -152,8 +152,13 @@ body.modo-activado .hero-titulo {
 .tema-switch-label {
   font-size: 12px;
   color: var(--text-dim);
+  font-weight: 400;
   letter-spacing: .5px;
-  transition: color 1.3s;
+  transition: font-weight .3s ease;
+}
+
+.tema-switch-label.activo {
+  font-weight: 700;
 }
 
 .tema-toggle {
