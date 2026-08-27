@@ -360,16 +360,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  btnSiguiente.addEventListener("click", () => {
-    indice++;
-
-    if (indice < preguntasActuales.length) {
-      mostrarPregunta();
-    } else {
-      mostrarResultado();
-    }
-  });
-
   function calcularPuntajeTotal() {
     return preguntasActuales.reduce(
       (total, pregunta) => total + pregunta.puntos,

@@ -543,7 +543,7 @@ const bancoExamenMunicipal = [
     ]
   },
   {
-    pregunta: "¿En qué situación puede usar el claxon en ciudad?",
+    pregunta: "¿En qué situación puede usar la bocina en ciudad?",
     categoria: "general",
     respuestas: [
       { texto: "Para saludar a un amigo", correcta: false },
@@ -770,6 +770,1256 @@ const bancoExamenMunicipal = [
       { texto: "Deben bajarse al cruzarse con otro vehículo para no encandilar", correcta: true },
       { texto: "Solo se usan en ciudad", correcta: false },
       { texto: "No tienen relación con la seguridad", correcta: false }
+    ]
+  }  ,
+  {
+    pregunta: "¿Qué documento acredita que un vehículo cuenta con seguro obligatorio de accidentes personales?",
+    categoria: "general",
+    respuestas: [
+      { texto: "SOAP", correcta: true },
+      { texto: "Permiso de circulación", correcta: false },
+      { texto: "Padrón del vehículo", correcta: false },
+      { texto: "Certificado de homologación", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué cubre principalmente el Seguro Obligatorio de Accidentes Personales (SOAP)?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Daños materiales al vehículo propio", correcta: false },
+      { texto: "Lesiones o muerte de personas por accidentes de tránsito", correcta: true },
+      { texto: "Robo del vehículo", correcta: false },
+      { texto: "Multas de tránsito", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al circular por una ciclovía segregada siendo conductor de un vehículo motorizado?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Se puede usar si no hay ciclistas", correcta: false },
+      { texto: "Está prohibido circular u obstruir la ciclovía", correcta: true },
+      { texto: "Solo se puede detener brevemente", correcta: false },
+      { texto: "Se permite para adelantar", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se recomienda hacer al aproximarse a un bus escolar detenido con luces intermitentes activas?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Adelantarlo rápidamente", correcta: false },
+      { texto: "Reducir la velocidad y extremar precaución por posibles menores cruzando", correcta: true },
+      { texto: "Tocar la bocina para advertir al conductor del bus", correcta: false },
+      { texto: "Ignorar la señal si no hay niños visibles", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué acción es obligatoria al circular de noche por un camino rural sin iluminación?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Usar las luces bajas o altas según corresponda", correcta: true },
+      { texto: "Apagar las luces para ahorrar batería", correcta: false },
+      { texto: "Usar solo las luces de posición", correcta: false },
+      { texto: "No es obligatorio usar luces si hay luna llena", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si los frenos del vehículo fallan mientras se conduce?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Apagar el motor de inmediato", correcta: false },
+      { texto: "Reducir marchas progresivamente y usar el freno de mano con cuidado", correcta: true },
+      { texto: "Girar bruscamente hacia la berma", correcta: false },
+      { texto: "Acelerar para buscar una vía de escape", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica una señal de tránsito con la figura de un ciervo o animal silvestre?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Zona de caza permitida", correcta: false },
+      { texto: "Posible cruce de animales silvestres", correcta: true },
+      { texto: "Zoológico cercano", correcta: false },
+      { texto: "Prohibido el paso de animales", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe verificar antes de remolcar otro vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Que el cable o barra de remolque esté en buen estado y bien sujeto", correcta: true },
+      { texto: "Solo que ambos vehículos tengan combustible", correcta: false },
+      { texto: "No requiere ninguna verificación previa", correcta: false },
+      { texto: "Que el vehículo remolcado tenga más potencia", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué velocidad se recomienda mantener al circular por una zona de obras en la vía?",
+    categoria: "general",
+    respuestas: [
+      { texto: "La misma velocidad habitual", correcta: false },
+      { texto: "Reducida, respetando la señalización transitoria", correcta: true },
+      { texto: "Aumentada para salir rápido de la zona", correcta: false },
+      { texto: "No hay diferencia respecto al resto del camino", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué debe hacer un conductor si su vehículo entra en contacto con un cable eléctrico caído?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Bajar de inmediato del vehículo", correcta: false },
+      { texto: "Permanecer dentro del vehículo y pedir ayuda hasta que se corte la energía", correcta: true },
+      { texto: "Tocar la carrocería para verificar si tiene corriente", correcta: false },
+      { texto: "Salir y alejar el cable con las manos", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué señal se utiliza para advertir la proximidad de un semáforo no visible a la distancia habitual?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Señal preventiva de \"Semáforo adelante\"", correcta: true },
+      { texto: "Señal de \"Pare\"", correcta: false },
+      { texto: "Señal de \"Ceda el paso\"", correcta: false },
+      { texto: "No existe una señal para eso", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué implica conducir con neumáticos con banda de rodadura por debajo del mínimo legal?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No tiene consecuencias si el auto es nuevo", correcta: false },
+      { texto: "Es una infracción y aumenta el riesgo de pérdida de adherencia", correcta: true },
+      { texto: "Solo se sanciona en carretera", correcta: false },
+      { texto: "Se permite en ciudad si se conduce despacio", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué acción corresponde si se debe estacionar en una pendiente pronunciada?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Dejar el vehículo en neutro solamente", correcta: false },
+      { texto: "Girar las ruedas hacia la berma o cordón y usar el freno de mano", correcta: true },
+      { texto: "No es necesario tomar precauciones adicionales", correcta: false },
+      { texto: "Apoyar el vehículo en un objeto fijo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al detectar un olor a combustible dentro del vehículo en movimiento?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Ignorarlo si el motor funciona bien", correcta: false },
+      { texto: "Detenerse en un lugar seguro y revisar el vehículo", correcta: true },
+      { texto: "Abrir las ventanas y continuar el viaje", correcta: false },
+      { texto: "Acelerar para llegar rápido al destino", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué señal indica el fin de una zona de adelantamiento prohibido?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Una línea continua que se convierte en discontinua o la señal de \"Fin de prohibición\"", correcta: true },
+      { texto: "Una señal de \"Pare\"", correcta: false },
+      { texto: "El cambio de color del pavimento únicamente", correcta: false },
+      { texto: "No existe una señal específica", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al aproximarse a una rotonda (glorieta)?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Ceder el paso a los vehículos que ya circulan dentro de la rotonda", correcta: true },
+      { texto: "Tener siempre prioridad sobre los vehículos dentro de la rotonda", correcta: false },
+      { texto: "Detenerse completamente antes de entrar", correcta: false },
+      { texto: "Ingresar por el lado izquierdo de la vía", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué elemento de un vehículo se debe revisar periódicamente para asegurar una correcta frenada?",
+    categoria: "general",
+    respuestas: [
+      { texto: "El nivel de líquido de frenos y el estado de las pastillas", correcta: true },
+      { texto: "El color de la carrocería", correcta: false },
+      { texto: "La tapicería de los asientos", correcta: false },
+      { texto: "El sistema de audio", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un peatón con discapacidad visual utiliza bastón blanco para cruzar la calle?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Detenerse y darle prioridad de paso", correcta: true },
+      { texto: "Tocar la bocina para advertirle", correcta: false },
+      { texto: "Continuar la marcha si va despacio", correcta: false },
+      { texto: "Adelantarlo por el costado sin detenerse", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué significa una señal con la figura de un vehículo dentro de un círculo rojo con una línea diagonal?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Velocidad mínima obligatoria", correcta: false },
+      { texto: "Prohibido el ingreso de vehículos motorizados", correcta: true },
+      { texto: "Zona de carga y descarga", correcta: false },
+      { texto: "Estacionamiento exclusivo para vehículos", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce y comienza a sentir fatiga visual o pesadez en los párpados?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Subir el volumen de la música y continuar", correcta: false },
+      { texto: "Detenerse en un lugar seguro a descansar", correcta: true },
+      { texto: "Abrir la ventana y seguir manejando", correcta: false },
+      { texto: "Aumentar la velocidad para llegar antes", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al circular detrás de una bicicleta en una calle angosta donde no se puede respetar la distancia de adelantamiento?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Adelantar de todas formas reduciendo un poco la distancia", correcta: false },
+      { texto: "Esperar a un tramo donde se pueda adelantar con la distancia segura", correcta: true },
+      { texto: "Tocar bocina hasta que el ciclista se aparte", correcta: false },
+      { texto: "Adelantar por la berma contraria sin visibilidad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué acción corresponde si un semáforo peatonal está en rojo pero no hay vehículos a la vista?",
+    categoria: "general",
+    respuestas: [
+      { texto: "El peatón puede cruzar libremente sin restricciones", correcta: false },
+      { texto: "El conductor debe estar atento igualmente por posibles peatones que crucen", correcta: true },
+      { texto: "El conductor puede acelerar sin precaución", correcta: false },
+      { texto: "No aplica ninguna norma en ese caso", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el vehículo se sobrecalienta (indicador de temperatura en rojo) durante la marcha?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Detenerse en un lugar seguro y apagar el motor", correcta: true },
+      { texto: "Acelerar para enfriarlo con el viento", correcta: false },
+      { texto: "Abrir el capó de inmediato mientras el motor sigue encendido", correcta: false },
+      { texto: "Continuar el viaje sin detenerse", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al aproximarse a un paso de nivel (cruce ferroviario) con barreras bajando?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Acelerar para cruzar antes de que bajen completamente", correcta: false },
+      { texto: "Detenerse y esperar a que las barreras se levanten", correcta: true },
+      { texto: "Rodear la barrera si no hay tren a la vista", correcta: false },
+      { texto: "Tocar la bocina para que el tren se detenga", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica una línea de pare pintada en el pavimento junto a una señal de PARE?",
+    categoria: "general",
+    respuestas: [
+      { texto: "El lugar exacto donde debe detenerse el vehículo", correcta: true },
+      { texto: "El inicio de una zona de adelantamiento", correcta: false },
+      { texto: "Una recomendación sin carácter obligatorio", correcta: false },
+      { texto: "El límite de una zona de estacionamiento", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al ver una señal de \"Doble vía\" en un tramo que antes era de una sola pista por sentido?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Mantenerse atento a la posibilidad de tránsito en sentido contrario", correcta: true },
+      { texto: "Ignorarla si no hay vehículos visibles", correcta: false },
+      { texto: "Aumentar la velocidad porque hay más espacio", correcta: false },
+      { texto: "Cambiarse siempre al carril izquierdo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce y se percibe una fuerte lluvia que reduce la visibilidad considerablemente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Encender las luces de emergencia y seguir a velocidad normal", correcta: false },
+      { texto: "Reducir la velocidad, encender luces bajas y aumentar la distancia de seguridad", correcta: true },
+      { texto: "Detenerse en medio de la calzada sin señalizar", correcta: false },
+      { texto: "Aumentar la velocidad para salir de la zona de lluvia", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el limpiaparabrisas deja de funcionar durante un viaje con lluvia?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Continuar el viaje a la misma velocidad", correcta: false },
+      { texto: "Reducir la velocidad y buscar un lugar seguro para detenerse", correcta: true },
+      { texto: "Sacar la cabeza por la ventana para ver mejor", correcta: false },
+      { texto: "Aumentar la velocidad para llegar antes de que empeore", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se entiende por \"punto ciego\" o ángulo muerto de un vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "La zona que no se alcanza a ver ni por los espejos ni directamente", correcta: true },
+      { texto: "El lugar donde se ubica el estacionamiento", correcta: false },
+      { texto: "Una falla mecánica del vehículo", correcta: false },
+      { texto: "El área del parabrisas empañado", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer antes de cambiar de pista en una autopista?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Cambiar directamente si el carril se ve despejado por el espejo", correcta: false },
+      { texto: "Señalizar, revisar espejos y el ángulo muerto antes de cambiar", correcta: true },
+      { texto: "Tocar bocina para advertir el cambio", correcta: false },
+      { texto: "Reducir la velocidad drásticamente antes de cambiar", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se transporta carga que sobresale de las dimensiones del vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No requiere señalización adicional", correcta: false },
+      { texto: "Señalizar la carga con elementos reflectantes o banderines según lo exigido", correcta: true },
+      { texto: "Solo se debe conducir de noche", correcta: false },
+      { texto: "Se puede transportar sin límite de tamaño", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el vehículo queda varado por falta de combustible en la calzada?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Dejarlo donde está sin señalización", correcta: false },
+      { texto: "Encender luces de emergencia y señalizar con triángulos si es posible", correcta: true },
+      { texto: "Empujarlo hasta la próxima estación sin señalización", correcta: false },
+      { texto: "Bajar del vehículo y caminar sin dejar aviso", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe considerar al conducir un vehículo con acoplado o remolque?",
+    categoria: "general",
+    respuestas: [
+      { texto: "La distancia de frenado es la misma que sin remolque", correcta: false },
+      { texto: "Se requiere mayor distancia de frenado y precaución en curvas", correcta: true },
+      { texto: "Se puede circular a la misma velocidad máxima que sin remolque en cualquier vía", correcta: false },
+      { texto: "No afecta la maniobrabilidad del vehículo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un ciclista circula por la calzada sin ciclovía disponible?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Obligarlo a circular por la vereda", correcta: false },
+      { texto: "Respetar su derecho a circular por la calzada manteniendo distancia segura", correcta: true },
+      { texto: "Tocar bocina hasta que se retire de la vía", correcta: false },
+      { texto: "Adelantarlo sin dejar espacio lateral", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica una señal de tránsito con la figura de una carretilla o pala junto a conos?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Zona de picnic", correcta: false },
+      { texto: "Trabajos en la vía", correcta: true },
+      { texto: "Feria libre cercana", correcta: false },
+      { texto: "Zona de descanso", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al circular por un puente angosto de una sola vía?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Acelerar para cruzar antes que el vehículo contrario", correcta: false },
+      { texto: "Ceder el paso según la señalización o prioridad establecida", correcta: true },
+      { texto: "Cruzar sin verificar si viene otro vehículo", correcta: false },
+      { texto: "Detenerse en la mitad del puente", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si las luces de freno de un vehículo no funcionan correctamente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Se puede seguir circulando sin problema", correcta: false },
+      { texto: "Repararlas antes de continuar circulando, ya que es una falla de seguridad", correcta: true },
+      { texto: "Solo es obligatorio revisarlas en la revisión técnica anual", correcta: false },
+      { texto: "Se puede reemplazar por señas manuales exclusivamente", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se detecta que un pasajero menor de edad no lleva el cinturón de seguridad correctamente ajustado?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No es responsabilidad del conductor", correcta: false },
+      { texto: "El conductor debe asegurarse de que todos los pasajeros usen el cinturón correctamente", correcta: true },
+      { texto: "Solo aplica si el menor va en el asiento delantero", correcta: false },
+      { texto: "Se puede omitir en trayectos cortos", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al aproximarse a una intersección con mal tiempo y semáforo dañado?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Cruzar sin detenerse si no hay vehículos visibles", correcta: false },
+      { texto: "Tratarla como un cruce sin regulación y actuar con extrema precaución", correcta: true },
+      { texto: "Acelerar para cruzar antes que otros vehículos", correcta: false },
+      { texto: "Esperar indefinidamente sin avanzar", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un vehículo de carga pesada realiza un giro amplio en una esquina?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Adelantarlo por el costado durante el giro", correcta: false },
+      { texto: "Mantener distancia y esperar a que complete la maniobra", correcta: true },
+      { texto: "Tocar bocina para que gire más rápido", correcta: false },
+      { texto: "Ubicarse en su ángulo muerto para adelantar", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce y se percibe somnolencia repentina en una carretera larga?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Aumentar la velocidad para llegar más rápido al destino", correcta: false },
+      { texto: "Detenerse en un lugar seguro y descansar antes de continuar", correcta: true },
+      { texto: "Abrir todas las ventanas y seguir sin parar", correcta: false },
+      { texto: "Ignorarlo si falta poco para llegar", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica una señal de tránsito de color naranja en una zona de trabajos viales?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Es una señal informativa permanente", correcta: false },
+      { texto: "Corresponde a señalización transitoria por obras o desvíos", correcta: true },
+      { texto: "Indica un límite de velocidad definitivo", correcta: false },
+      { texto: "Señala una zona de estacionamiento exclusivo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un vehículo se aproxima por detrás a alta velocidad mientras se circula por el carril izquierdo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Acelerar para mantenerse adelante", correcta: false },
+      { texto: "Ceder el paso cambiándose al carril derecho cuando sea seguro", correcta: true },
+      { texto: "Frenar bruscamente para advertirle", correcta: false },
+      { texto: "Permanecer en el carril izquierdo sin importar la situación", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al conducir por una vía con hielo o escarcha en las primeras horas de la mañana?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Conducir a velocidad normal si el auto tiene tracción integral", correcta: false },
+      { texto: "Reducir la velocidad y evitar frenadas o giros bruscos", correcta: true },
+      { texto: "Acelerar para evitar que las ruedas se congelen", correcta: false },
+      { texto: "No es necesario tomar precauciones especiales", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un vehículo de emergencia se aproxima en sentido contrario por una vía de doble sentido?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Ignorarlo ya que va en sentido contrario", correcta: false },
+      { texto: "Facilitar su paso orillándose si la vía lo permite", correcta: true },
+      { texto: "Acelerar para cruzarse antes", correcta: false },
+      { texto: "Detenerse en medio de la vía", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se pierde el control momentáneo del vehículo al pasar por un charco grande de agua?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Frenar bruscamente de inmediato", correcta: false },
+      { texto: "Sujetar el volante con firmeza y soltar el acelerador gradualmente", correcta: true },
+      { texto: "Acelerar para salir rápido del charco", correcta: false },
+      { texto: "Girar el volante bruscamente hacia un lado", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce por una calle con niños jugando cerca de la calzada, aunque no haya señalización escolar?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Mantener la velocidad habitual", correcta: false },
+      { texto: "Reducir la velocidad y extremar la precaución", correcta: true },
+      { texto: "Tocar bocina para que se alejen", correcta: false },
+      { texto: "Acelerar para pasar rápido por la zona", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el aire acondicionado o la calefacción provocan empañamiento en los vidrios?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Continuar conduciendo aunque la visibilidad sea baja", correcta: false },
+      { texto: "Usar el desempañador y detenerse si es necesario hasta recuperar visibilidad", correcta: true },
+      { texto: "Limpiar el vidrio con la mano mientras se conduce", correcta: false },
+      { texto: "Abrir todas las ventanas de inmediato sin reducir velocidad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se transporta una mascota dentro del vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Dejarla suelta para que se acomode libremente", correcta: false },
+      { texto: "Asegurarla con un elemento de sujeción adecuado para evitar distracciones o lesiones", correcta: true },
+      { texto: "Ubicarla en el asiento del conductor", correcta: false },
+      { texto: "No existe ninguna recomendación al respecto", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce y el vehículo de adelante frena repentinamente sin motivo aparente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Tocar bocina y adelantarlo de inmediato", correcta: false },
+      { texto: "Frenar manteniendo el control y la distancia de seguridad", correcta: true },
+      { texto: "Girar bruscamente hacia el otro carril sin verificar", correcta: false },
+      { texto: "Acelerar para pasarlo antes de que se detenga por completo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer respecto al volumen de la música al conducir?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Mantenerlo lo suficientemente bajo para escuchar sirenas, bocinas u otras alertas", correcta: true },
+      { texto: "No tiene relación con la seguridad vial", correcta: false },
+      { texto: "Se puede mantener al máximo volumen sin problema", correcta: false },
+      { texto: "Solo se debe bajar en zonas urbanas", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el vehículo debe circular por una zona inundada?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Cruzar a alta velocidad para no detenerse en el agua", correcta: false },
+      { texto: "Evaluar la profundidad y evitar cruzar si el nivel del agua es alto", correcta: true },
+      { texto: "Cruzar siempre, sin importar la profundidad", correcta: false },
+      { texto: "Apagar el motor a mitad de camino", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se detecta una fuga de aceite bajo el vehículo antes de iniciar un viaje?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Iniciar el viaje igualmente si el motor enciende bien", correcta: false },
+      { texto: "Revisar y reparar la fuga antes de conducir", correcta: true },
+      { texto: "Agregar más aceite y continuar sin revisar la causa", correcta: false },
+      { texto: "Ignorarlo si el viaje es corto", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un vehículo estacionado obstruye parcialmente la visibilidad en una esquina?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Acelerar para cruzar rápido", correcta: false },
+      { texto: "Reducir la velocidad y avanzar con extrema precaución", correcta: true },
+      { texto: "Ignorar la obstrucción si se conoce bien la zona", correcta: false },
+      { texto: "Tocar bocina en lugar de reducir la velocidad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el vehículo pierde tracción al subir una pendiente con lluvia?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Acelerar bruscamente para forzar el ascenso", correcta: false },
+      { texto: "Mantener una velocidad constante y evitar movimientos bruscos del volante", correcta: true },
+      { texto: "Frenar completamente en plena pendiente", correcta: false },
+      { texto: "Girar el volante de un lado a otro para ganar tracción", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce y aparece una alerta en el tablero indicando baja presión de neumáticos?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Ignorarla si el vehículo se siente estable", correcta: false },
+      { texto: "Revisar la presión de los neumáticos en cuanto sea posible", correcta: true },
+      { texto: "Aumentar la velocidad para verificar si desaparece la alerta", correcta: false },
+      { texto: "Solo revisar al llegar a destino, sin importar la distancia", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se transportan objetos sueltos dentro del habitáculo del vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Dejarlos sin asegurar, ya que no afecta la conducción", correcta: false },
+      { texto: "Asegurarlos para evitar que se desplacen y se conviertan en un riesgo", correcta: true },
+      { texto: "Ubicarlos siempre en el asiento del conductor", correcta: false },
+      { texto: "Solo asegurarlos en viajes largos", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se detecta que el líquido de la batería del vehículo está bajo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Rellenarlo con el líquido adecuado según recomendación del fabricante", correcta: true },
+      { texto: "Ignorarlo mientras el motor encienda", correcta: false },
+      { texto: "Rellenarlo con cualquier líquido disponible", correcta: false },
+      { texto: "Cambiar la batería inmediatamente sin revisar", correcta: false }
+    ]
+  }  ,
+  {
+    pregunta: "¿Qué distancia lateral mínima debe respetar un conductor al adelantar a un ciclista?",
+    categoria: "general",
+    respuestas: [
+      { texto: "1 metro", correcta: false },
+      { texto: "1,5 metros", correcta: true },
+      { texto: "3 metros", correcta: false },
+      { texto: "No existe una distancia definida", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al aproximarse a un paso de peatones con personas cruzando?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Mantener la velocidad si el semáforo está en verde para el vehículo", correcta: false },
+      { texto: "Detenerse y ceder el paso a los peatones", correcta: true },
+      { texto: "Tocar la bocina para que se apuren", correcta: false },
+      { texto: "Adelantarlos por el costado sin reducir velocidad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué establece la ley respecto al uso del teléfono celular mientras se conduce?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Está permitido si se sostiene con una mano", correcta: false },
+      { texto: "Está prohibido usarlo sin un sistema de manos libres", correcta: true },
+      { texto: "Solo está prohibido de noche", correcta: false },
+      { texto: "No existe regulación al respecto", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué antigüedad máxima puede tener la revisión técnica para circular de manera legal?",
+    categoria: "general",
+    respuestas: [
+      { texto: "La vigencia indicada en el certificado, según lo fije la Revisión Técnica", correcta: true },
+      { texto: "No tiene vigencia una vez aprobada", correcta: false },
+      { texto: "Un mes desde su emisión", correcta: false },
+      { texto: "Solo es válida en la región donde se realizó", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué acción corresponde si Carabineros solicita detener el vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Detenerse y colaborar con el procedimiento", correcta: true },
+      { texto: "Acelerar si no se ha cometido infracción", correcta: false },
+      { texto: "Detenerse solo si hay testigos presentes", correcta: false },
+      { texto: "Ignorar si el vehículo está en buen estado", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué elemento de seguridad es obligatorio portar en el vehículo según la normativa vigente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Triángulos o balizas reflectantes", correcta: true },
+      { texto: "Botiquín de primeros auxilios", correcta: false },
+      { texto: "Extintor de incendios", correcta: false },
+      { texto: "Neumático de repuesto obligatoriamente inflado al 100%", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un vehículo de mayor tamaño (camión o bus) enciende su luz direccional para cambiarse de pista?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Acelerar para no dejarlo pasar", correcta: false },
+      { texto: "Facilitar el cambio de pista reduciendo velocidad si es necesario", correcta: true },
+      { texto: "Tocar la bocina en señal de molestia", correcta: false },
+      { texto: "Mantenerse en el ángulo muerto del vehículo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Está permitido circular con las luces de emergencia encendidas mientras el vehículo está en movimiento sin causa justificada?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Sí, siempre que llueva", correcta: false },
+      { texto: "No, su uso en movimiento corresponde solo a situaciones de riesgo real", correcta: true },
+      { texto: "Sí, es obligatorio en avenidas", correcta: false },
+      { texto: "No tiene relación con la seguridad vial", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer antes de abrir la puerta del vehículo estando estacionado junto a la vereda?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Abrir rápido para no obstaculizar el tránsito", correcta: false },
+      { texto: "Verificar que no vengan ciclistas o vehículos antes de abrir", correcta: true },
+      { texto: "No es necesario verificar si el vehículo está detenido", correcta: false },
+      { texto: "Solo revisar por el espejo interior", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué sucede con la licencia de conducir si se acumulan las infracciones gravísimas establecidas por la ley?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No tiene ninguna consecuencia", correcta: false },
+      { texto: "Puede derivar en la suspensión o cancelación de la licencia", correcta: true },
+      { texto: "Solo se aplica una multa simbólica", correcta: false },
+      { texto: "Se traspasa la sanción al vehículo, no al conductor", correcta: false }
+    ]
+  }  ,
+  {
+    pregunta: "¿Qué examen es obligatorio rendir para obtener por primera vez una licencia de conducir clase B en Chile?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Examen teórico y examen práctico de manejo", correcta: true },
+      { texto: "Solo examen teórico", correcta: false },
+      { texto: "Solo examen práctico", correcta: false },
+      { texto: "No se requiere ningún examen", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué examen adicional se exige para obtener una licencia profesional (clase A)?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Examen psicotécnico y de conocimientos específicos según la subclase", correcta: true },
+      { texto: "Solo una entrevista personal", correcta: false },
+      { texto: "No existen requisitos adicionales", correcta: false },
+      { texto: "Solo se exige mayoría de edad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué ocurre si un conductor acumula infracciones gravísimas de manera reiterada?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No tiene ninguna consecuencia adicional", correcta: false },
+      { texto: "Puede arriesgar la suspensión o cancelación de su licencia de conducir", correcta: true },
+      { texto: "Solo se le aplica una multa menor", correcta: false },
+      { texto: "Se le exige cambiar de vehículo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Cómo se clasifican las infracciones de tránsito según la Ley 18.290?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Leves, menos graves, graves y gravísimas", correcta: true },
+      { texto: "Solo leves y graves", correcta: false },
+      { texto: "No existe clasificación", correcta: false },
+      { texto: "Se clasifican solo por el monto de la multa", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si la licencia de conducir fue extraviada?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Conducir sin documento hasta encontrarla", correcta: false },
+      { texto: "Solicitar un duplicado en el Registro Civil", correcta: true },
+      { texto: "No es necesario portar ningún documento", correcta: false },
+      { texto: "Usar la cédula de identidad como reemplazo permanente", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si la licencia de conducir indica el uso obligatorio de lentes ópticos?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Usarlos siempre que se conduzca", correcta: true },
+      { texto: "Usarlos solo de noche", correcta: false },
+      { texto: "No es obligatorio si el conductor ve bien de cerca", correcta: false },
+      { texto: "Solo se exige en exámenes de renovación", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Está permitido adelantar por la derecha en una vía urbana con más de un carril por sentido?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Nunca está permitido bajo ninguna circunstancia", correcta: false },
+      { texto: "Puede realizarse cuando el tránsito y las condiciones de la vía lo permitan de forma segura", correcta: true },
+      { texto: "Solo está permitido en autopistas rurales", correcta: false },
+      { texto: "Solo lo pueden hacer los vehículos de emergencia", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Está permitido adelantar en una curva sin visibilidad suficiente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Sí, si el vehículo tiene buena aceleración", correcta: false },
+      { texto: "No, está prohibido por el riesgo de colisión frontal", correcta: true },
+      { texto: "Solo de día", correcta: false },
+      { texto: "Solo si no hay línea continua", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Está permitido adelantar sobre un puente estrecho?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Sí, siempre que se toque la bocina", correcta: false },
+      { texto: "No, generalmente está prohibido por la falta de espacio y visibilidad", correcta: true },
+      { texto: "Solo de noche", correcta: false },
+      { texto: "Solo vehículos livianos pueden hacerlo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué significa una señal de tránsito con dos flechas opuestas y la palabra “NO” tachada sobre un auto adelantando a otro?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Adelantamiento permitido con precaución", correcta: false },
+      { texto: "Prohibido adelantar en ese tramo", correcta: true },
+      { texto: "Zona de dos vías", correcta: false },
+      { texto: "Fin de la doble vía", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Es obligatorio el uso de luces encendidas durante el día para motocicletas?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No, es opcional", correcta: false },
+      { texto: "Sí, para aumentar su visibilidad ante otros conductores", correcta: true },
+      { texto: "Solo en carretera", correcta: false },
+      { texto: "Solo si el motociclista lo desea", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Está permitido que un motociclista circule entre filas de vehículos detenidos en un taco?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Está expresamente permitido en toda circunstancia", correcta: false },
+      { texto: "No está permitido y se considera una maniobra riesgosa e infraccional", correcta: true },
+      { texto: "Solo está permitido en autopistas", correcta: false },
+      { texto: "Solo lo pueden hacer motos de alta cilindrada", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué protección adicional, además del casco, se recomienda para conducir una motocicleta?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Chaqueta, guantes y calzado adecuado de protección", correcta: true },
+      { texto: "No se recomienda usar ropa adicional", correcta: false },
+      { texto: "Solo lentes de sol", correcta: false },
+      { texto: "Un poncho de agua en cualquier clima", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Está permitido transportar pasajeros en la parte trasera descubierta de una camioneta (pickup)?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Sí, sin ninguna restricción", correcta: false },
+      { texto: "Está prohibido o sujeto a restricciones estrictas de seguridad", correcta: true },
+      { texto: "Solo si son menos de 3 personas", correcta: false },
+      { texto: "Solo de noche", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué determina el número máximo de pasajeros permitidos en un vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "El criterio del conductor", correcta: false },
+      { texto: "La capacidad indicada por el fabricante según el número de asientos con cinturón", correcta: true },
+      { texto: "El tamaño de los pasajeros", correcta: false },
+      { texto: "No existe un límite legal", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Es obligatorio el uso de cinturón de seguridad para conductores de aplicaciones de transporte (por ejemplo, viajes compartidos)?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No, están exentos por ser un servicio", correcta: false },
+      { texto: "Sí, la obligación aplica igual que a cualquier conductor y pasajero", correcta: true },
+      { texto: "Solo en viajes largos", correcta: false },
+      { texto: "Solo si el pasajero lo solicita", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué es un espacio de estacionamiento reservado para personas con discapacidad?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Un lugar de uso exclusivo señalizado, para vehículos con la credencial correspondiente", correcta: true },
+      { texto: "Un espacio de uso libre para cualquier conductor", correcta: false },
+      { texto: "Un lugar solo para motocicletas", correcta: false },
+      { texto: "Un espacio temporal sin regulación", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué ocurre si un conductor sin la credencial correspondiente estaciona en un espacio para personas con discapacidad?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No tiene ninguna sanción", correcta: false },
+      { texto: "Incurre en una infracción y puede ser multado", correcta: true },
+      { texto: "Solo recibe una advertencia verbal", correcta: false },
+      { texto: "Se le exige donar a una institución benéfica", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se estaciona en doble fila, obstruyendo la circulación?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Es una práctica permitida si es por poco tiempo", correcta: false },
+      { texto: "Se debe evitar, ya que constituye una infracción de tránsito", correcta: true },
+      { texto: "Solo se sanciona si hay un peatón cerca", correcta: false },
+      { texto: "Solo aplica a vehículos de carga", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica una señal de \"zona de carga y descarga\"?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Estacionamiento libre para cualquier vehículo particular", correcta: false },
+      { texto: "Espacio destinado a la carga y descarga de mercadería en horarios determinados", correcta: true },
+      { texto: "Zona de estacionamiento nocturno", correcta: false },
+      { texto: "Área exclusiva para taxis", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se recomienda al transportar combustible en bidones dentro de un vehículo particular?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Transportarlo sin restricciones en el asiento trasero", correcta: false },
+      { texto: "Transportarlo en envases homologados, bien asegurados y ventilados", correcta: true },
+      { texto: "No existe ninguna precaución necesaria", correcta: false },
+      { texto: "Se puede transportar junto a una fuente de calor", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica que un vehículo emita humo negro excesivo por el escape?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Un funcionamiento normal del motor", correcta: false },
+      { texto: "Una posible falla mecánica o exceso de emisión contaminante", correcta: true },
+      { texto: "Que el vehículo tiene mayor potencia", correcta: false },
+      { texto: "Que el combustible es de mejor calidad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué evalúa la revisión de emisiones o control de gases dentro de la revisión técnica?",
+    categoria: "general",
+    respuestas: [
+      { texto: "El nivel de contaminantes que expulsa el vehículo", correcta: true },
+      { texto: "El color de la pintura del vehículo", correcta: false },
+      { texto: "El estado de la tapicería interior", correcta: false },
+      { texto: "El nivel de combustible en el estanque", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué tolerancia de alcohol en la sangre se aplica a conductores de transporte escolar o de pasajeros?",
+    categoria: "general",
+    respuestas: [
+      { texto: "La misma tolerancia que a cualquier conductor particular", correcta: false },
+      { texto: "Una exigencia más estricta, dada la responsabilidad sobre los pasajeros", correcta: true },
+      { texto: "No existe ninguna restricción especial", correcta: false },
+      { texto: "Solo se controla en horario nocturno", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se entiende por conducción temeraria o negligente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Conducir respetando todas las normas de tránsito", correcta: false },
+      { texto: "Conducir de forma imprudente, poniendo en riesgo a terceros", correcta: true },
+      { texto: "Conducir a baja velocidad en zona urbana", correcta: false },
+      { texto: "Conducir con el vehículo en buen estado técnico", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer inmediatamente después de verse involucrado en un choque, aunque sea menor?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Retirarse del lugar de inmediato para evitar problemas", correcta: false },
+      { texto: "Detenerse, resguardar el lugar y dar aviso a Carabineros si corresponde", correcta: true },
+      { texto: "Discutir con la otra parte antes de tomar cualquier acción", correcta: false },
+      { texto: "Mover los vehículos de inmediato sin dejar registro", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué obligación tiene un conductor tras causar un accidente con daños o lesiones?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Ninguna, si el otro conductor no reclama", correcta: false },
+      { texto: "Detenerse y prestar ayuda o cooperación según lo que exige la ley", correcta: true },
+      { texto: "Retirarse si no hay testigos", correcta: false },
+      { texto: "Solo debe reportarlo a su aseguradora", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué distancia aproximada se recomienda para colocar los triángulos de seguridad en carretera?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Justo al lado del vehículo detenido", correcta: false },
+      { texto: "A una distancia suficiente que permita advertir a otros conductores con anticipación", correcta: true },
+      { texto: "Detrás del vehículo, pegados al parachoques", correcta: false },
+      { texto: "No es necesario usarlos si es de día", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer con niños o mascotas al estacionar y dejar el vehículo, aunque sea por poco tiempo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Se pueden dejar solos si el vehículo queda a la sombra", correcta: false },
+      { texto: "Nunca dejarlos solos dentro del vehículo, por el riesgo de golpe de calor u otros peligros", correcta: true },
+      { texto: "Dejar una ventana abierta es suficiente en cualquier caso", correcta: false },
+      { texto: "No representa ningún riesgo si el vehículo está apagado", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica una señal de tránsito que muestra una vía angosta que se estrecha?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Aumento del ancho de la calzada más adelante", correcta: false },
+      { texto: "Reducción del ancho de la vía, se debe extremar precaución", correcta: true },
+      { texto: "Zona de adelantamiento habilitada", correcta: false },
+      { texto: "Fin de la carretera", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué prioridad tiene un tranvía o tren ligero que circula en superficie compartiendo la vía con vehículos?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Ninguna, tiene la misma prioridad que cualquier vehículo", correcta: false },
+      { texto: "Generalmente cuenta con prioridad de paso sobre los vehículos particulares", correcta: true },
+      { texto: "Debe ceder el paso siempre a los vehículos particulares", correcta: false },
+      { texto: "Solo tiene prioridad de noche", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al cruzar una línea férrea sin barreras automáticas?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Cruzar rápidamente sin detenerse", correcta: false },
+      { texto: "Detenerse, mirar y escuchar antes de cruzar con precaución", correcta: true },
+      { texto: "Tocar bocina en lugar de detenerse", correcta: false },
+      { texto: "No es necesario reducir la velocidad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué indica una flecha verde exclusiva en un semáforo, junto a la luz roja general?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Solo los vehículos que giran en la dirección de la flecha pueden avanzar", correcta: true },
+      { texto: "Todos los vehículos pueden avanzar libremente", correcta: false },
+      { texto: "El semáforo está averiado", correcta: false },
+      { texto: "Solo los peatones pueden cruzar", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se entiende por una \"vía preferencial\"?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Una vía cuya circulación tiene prioridad sobre las vías que la interceptan", correcta: true },
+      { texto: "Una vía exclusiva para transporte público", correcta: false },
+      { texto: "Una vía solo habilitada de noche", correcta: false },
+      { texto: "Una vía sin ningún tipo de regulación", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué es una \"vía expresa\" o autopista urbana de alta velocidad?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Una vía de acceso controlado, generalmente sin cruces a nivel, destinada a tránsito rápido", correcta: true },
+      { texto: "Una calle residencial con velocidad reducida", correcta: false },
+      { texto: "Una vía exclusiva para bicicletas", correcta: false },
+      { texto: "Una vía peatonal", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se recomienda hacer al estacionar un vehículo en pendiente, además de usar el freno de mano?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Dejar una marcha puesta (o \"park\" en automáticos) y girar las ruedas hacia el cordón", correcta: true },
+      { texto: "Dejar el vehículo en neutro sin ninguna otra medida", correcta: false },
+      { texto: "No es necesario tomar precauciones adicionales", correcta: false },
+      { texto: "Retirar la llave sin aplicar el freno de mano", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer al usar las luces intermitentes antes de estacionar en la vía pública?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No es necesario señalizar si el espacio está libre", correcta: false },
+      { texto: "Activar la luz direccional correspondiente para advertir la maniobra", correcta: true },
+      { texto: "Usar las luces de emergencia en todo momento al estacionar", correcta: false },
+      { texto: "Tocar la bocina en lugar de señalizar", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se entiende por \"vía arterial\" dentro de la clasificación de vías urbanas?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Una vía de alto flujo que conecta distintos sectores de la ciudad", correcta: true },
+      { texto: "Una calle sin salida", correcta: false },
+      { texto: "Un pasaje residencial de bajo tránsito", correcta: false },
+      { texto: "Una vía exclusiva para peatones", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se recomienda a un conductor que reincide en infracciones graves respecto a su formación vial?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No existe ninguna medida formativa aplicable", correcta: false },
+      { texto: "Puede ser derivado a cursos de sensibilización o capacitación en conducción segura", correcta: true },
+      { texto: "Se le retira el vehículo de forma permanente", correcta: false },
+      { texto: "Se le exige cambiar de domicilio", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se cambia de domicilio después de haber obtenido la licencia de conducir?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No es necesario informar el cambio", correcta: false },
+      { texto: "Se recomienda actualizar los datos en el Registro Civil", correcta: true },
+      { texto: "Se debe tramitar una licencia completamente nueva", correcta: false },
+      { texto: "Se pierde la validez de la licencia automáticamente", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el vehículo circula con vidrios polarizados que no cumplen con la normativa de transparencia?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No representa ninguna infracción", correcta: false },
+      { texto: "Puede constituir una infracción de tránsito", correcta: true },
+      { texto: "Solo se sanciona en vehículos de carga", correcta: false },
+      { texto: "Se permite sin límite si el vehículo es propio", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Está permitido el uso de luces antiniebla en condiciones de buena visibilidad?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Sí, se recomienda usarlas siempre", correcta: false },
+      { texto: "No, su uso innecesario puede encandilar a otros conductores", correcta: true },
+      { texto: "Solo de noche sin importar la visibilidad", correcta: false },
+      { texto: "Es obligatorio mantenerlas siempre encendidas", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce por una zona con niebla espesa y baja visibilidad?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Usar luces altas para iluminar más lejos", correcta: false },
+      { texto: "Usar luces bajas o antiniebla y reducir la velocidad", correcta: true },
+      { texto: "Detenerse en plena calzada sin señalizar", correcta: false },
+      { texto: "Aumentar la velocidad para salir rápido de la niebla", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué factores afectan la distancia de frenado de un vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Solo el estado de las pastillas de freno", correcta: false },
+      { texto: "La velocidad, el estado de los neumáticos, el peso y las condiciones del camino", correcta: true },
+      { texto: "Únicamente el color del vehículo", correcta: false },
+      { texto: "El tipo de música que se escucha al conducir", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Con qué frecuencia se recomienda revisar el estado de los espejos retrovisores de un vehículo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Solo una vez al año", correcta: false },
+      { texto: "De forma periódica, asegurándose de que estén bien ajustados y sin daños", correcta: true },
+      { texto: "No requieren revisión si el vehículo es nuevo", correcta: false },
+      { texto: "Solo antes de un viaje largo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se transporta una carga considerada peligrosa (por ejemplo, sustancias inflamables) en un vehículo comercial?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No requiere ninguna medida especial", correcta: false },
+      { texto: "Cumplir con la señalización, capacitación y normativa específica para el transporte de sustancias peligrosas", correcta: true },
+      { texto: "Solo se debe avisar a los pasajeros", correcta: false },
+      { texto: "Basta con conducir despacio", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se recomienda para un conductor novato en sus primeros meses con licencia?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Conducir de manera similar a un conductor experimentado, sin ninguna precaución adicional", correcta: false },
+      { texto: "Extremar la precaución, evitar situaciones de riesgo y ganar experiencia progresivamente", correcta: true },
+      { texto: "Evitar conducir en cualquier circunstancia durante el primer año", correcta: false },
+      { texto: "Conducir siempre a la velocidad máxima permitida para ganar confianza", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un vehículo estacionado tiene las ruedas volteadas hacia la calzada en una pendiente descendente hacia la vía?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Es la forma correcta en cualquier situación", correcta: false },
+      { texto: "Se recomienda orientarlas hacia el cordón para evitar que ruede hacia la calzada en caso de falla del freno", correcta: true },
+      { texto: "No influye en la seguridad del estacionamiento", correcta: false },
+      { texto: "Solo aplica a vehículos de carga pesada", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se detecta un ruido extraño y persistente en el motor durante la conducción?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Ignorarlo mientras el vehículo siga avanzando", correcta: false },
+      { texto: "Revisarlo en un taller lo antes posible para evitar una falla mayor", correcta: true },
+      { texto: "Aumentar la velocidad para identificar el origen del ruido", correcta: false },
+      { texto: "Subir el volumen de la radio para no escucharlo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se circula por una vía con reductores de velocidad (\"lomos de toro\") no señalizados con anticipación?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Mantener la velocidad habitual sin reducir", correcta: false },
+      { texto: "Reducir la velocidad de forma preventiva al aproximarse a zonas donde puedan existir", correcta: true },
+      { texto: "Acelerar para minimizar el impacto", correcta: false },
+      { texto: "No representa ningún riesgo para el vehículo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el conductor debe tomar una llamada telefónica urgente durante la conducción?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Contestar sosteniendo el teléfono con una mano mientras conduce", correcta: false },
+      { texto: "Detenerse en un lugar seguro para contestar o usar un sistema de manos libres", correcta: true },
+      { texto: "Reducir la velocidad y contestar sin detenerse", correcta: false },
+      { texto: "Pedirle a un pasajero que sostenga el volante", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer respecto a la temperatura del habitáculo antes de dejar a un menor en el vehículo, aunque sea brevemente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No dejar nunca a un menor solo dentro del vehículo, sin importar la temperatura", correcta: true },
+      { texto: "Es seguro si el vehículo queda con el motor encendido", correcta: false },
+      { texto: "Es seguro por menos de 5 minutos", correcta: false },
+      { texto: "Solo representa riesgo en días de mucho calor", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se circula por una calle con estacionamiento permitido en ambos costados y el espacio es reducido?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Aumentar la velocidad para cruzar rápido", correcta: false },
+      { texto: "Reducir la velocidad y estar atento a puertas que se abran o peatones", correcta: true },
+      { texto: "Tocar la bocina de forma constante", correcta: false },
+      { texto: "Circular por la vereda si es necesario", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si el vehículo delantero circula con las luces de freno encendidas de forma constante sin razón aparente?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Adelantarlo inmediatamente sin precaución", correcta: false },
+      { texto: "Mantener distancia prudente, ya que podría indicar una falla en el sistema de frenos", correcta: true },
+      { texto: "Tocar la bocina de forma insistente", correcta: false },
+      { texto: "Ignorarlo por completo", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si un vehículo pesado no puede detenerse a tiempo por exceso de carga?",
+    categoria: "general",
+    respuestas: [
+      { texto: "No representa un riesgo si el conductor es experimentado", correcta: false },
+      { texto: "Se debe evitar el exceso de carga, ya que aumenta la distancia de frenado", correcta: true },
+      { texto: "Solo influye si el vehículo es nuevo", correcta: false },
+      { texto: "El peso de la carga no afecta el frenado", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se conduce y las condiciones climáticas cambian repentinamente de soleado a lluvia intensa?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Mantener la misma velocidad hasta adaptarse", correcta: false },
+      { texto: "Reducir gradualmente la velocidad y aumentar la distancia de seguridad", correcta: true },
+      { texto: "Detenerse abruptamente en el lugar donde comienza la lluvia", correcta: false },
+      { texto: "Encender las luces de emergencia y continuar a la misma velocidad", correcta: false }
+    ]
+  },
+  {
+    pregunta: "¿Qué se debe hacer si se detecta que un neumático está perdiendo aire lentamente antes de un viaje largo?",
+    categoria: "general",
+    respuestas: [
+      { texto: "Iniciar el viaje y revisar al llegar al destino", correcta: false },
+      { texto: "Revisar la causa y repararlo o reemplazarlo antes de iniciar el viaje", correcta: true },
+      { texto: "Inflar el neumático por encima de lo recomendado para compensar", correcta: false },
+      { texto: "Ignorarlo si el viaje es en carretera pavimentada", correcta: false }
     ]
   }
 ];
